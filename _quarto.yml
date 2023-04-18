@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "Economics of Health Care"
+  author: "Ian McCarthy"
+  date: "3/28/2023"
+  chapters:
+    - preface.qmd
+    - index.qmd
+    - part: part1/health-insurance-basics.qmd
+      chapters: 
+        - part1/section1/buying-insurance-p1.qmd
+        - part1/section1/buying-insurance-p2.qmd
+
+bibliography: BibTeX_Library.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreport
+  epub:
+    cover-image: cover.png

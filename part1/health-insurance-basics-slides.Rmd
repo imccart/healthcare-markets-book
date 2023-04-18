@@ -1,0 +1,118 @@
+---
+title: "Module 1: Health Insurance"
+subtitle: "Part 0: Motivation"
+author: Ian McCarthy | Emory University
+date: Econ 372 #"`r format(Sys.time(), '%d %B %Y')`"
+header-includes: 
+  - \usepackage{tikz}
+  - \usepackage{amsmath}
+  - \usepackage{pgf}
+  - \usepackage[xcolor=pst]{pstricks}
+  - \usepackage{pgfshade}
+  - \usepackage{pdftools}
+output:
+#  html_document: default  
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, custom.css] 
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "macros.js"
+knit: pagedown::chrome_print      
+---
+
+<!-- Adjust some CSS code for font size and maintain R code font size -->
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 2em 1em 2em;    
+}
+.remark-code, .remark-inline-code { 
+    font-size: 20px;
+}
+</style>
+
+
+<!-- Set R options for how code chunks are displayed and load packages -->
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  fig.align="center",  
+  fig.height=3, #fig.width=6,
+  # out.width="748px", #out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=T#, echo=F, warning=F, message=F
+  )
+
+knitr::opts_hooks$set(fig.callout = function(options) {
+  if(options$fig.callout) {
+    options$echo = FALSE
+  }
+  options
+})
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, dplyr, lubridate, readr, readxl, hrbrthemes,
+               scales, gganimate, gapminder, gifski, png, tufte, plotly, OECD,
+               ggrepel, survey, foreign, devtools, pdftools, xaringanExtra)
+```
+
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble(rgb(0.9, 0.5, 0.5))
+```
+
+# Airport Idea:
+
+Our "big picture" idea for this module is:
+
+**Firms also face uncertainty**
+
+
+<!-- New Section -->
+---
+class: inverse, center, middle
+name: motivate
+
+# An Example from Real Life
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=1055px></html>
+
+
+---
+# Humana exits the ACA exchanges
+In 2018, Humana exited the ACA exchanges due to an "unbalanced risk pool based on the results of the 2017 open enrollment period". [CNN Money Article](https://money.cnn.com/2017/02/14/news/economy/humana-obamacare-insurer)<br>
+
+--
+
+Fun fact: Humana and Aetna's merger deal had just been blocked. [NPR Article](https://www.npr.org/sections/thetwo-way/2017/02/14/515167491/aetna-and-humana-call-off-merger-after-court-decision)
+
+
+???
+- Before we go too much further, how many of you are familiar with "the exchanges"? Do you know what I mean when I say that?
+- What do you think an "unbalanced risk pool" means?
+- What is the underlying business reason for Humana to exit the exchanges?
+
+
+
+---
+# Managing risk is really important
+
+.pull-left[
+  ![](pics/meps-visits.png)
+]
+
+.pull-right[
+  ![](pics/meps-expenditure.png)
+]
+
+<div class="smalltext">Source: <a href="https://meps.ahrq.gov/mepstrends/hc_use/">Medical Expenditure Panel Survey</a></div>
+
+
+???
+These graphs show that expenditures are closely linked to health. That means insurers need to be aware of their customers. The way we describe the health of an insurer's customers is by something called a "risk pool". Managing the risk pool is really hard but very important.
+
