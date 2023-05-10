@@ -1,0 +1,32 @@
+---
+title: "Buying Insurance I"
+---
+
+As George Costanza learned in his audio book in Seinfeld, "In order to manage risk, we must first define risk." So that's what we'll do first.
+
+In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I'm therefore subjected to both a health risk and a financial risk (because I have to pay for health care). Health insurance is poorly named because it doesn't actually insure against the health risk. Instead, it insures against the financial risk from negative health events.
+
+
+## Describing Risk
+
+The more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let's discuss each of these elements in more detail.
+
+
+### Probability {.unnumbered}
+
+Probability is defined as the likelihood that a given outcome will occur. For example, this handy/depressing [risk calculator](https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/) can tell me the probability of developing heart disease over the next 10 years. Let's say that's 10%. In this case, it would mean that if there were 1000 people exactly like me, 100 of them will develop heart disease over the next 10 years and 900 would not. 
+
+We'll only work with examples where there are two possible outcomes, sick or healthy (i.e., needing health care or not needing health care). I'll denote the probabilities of these events by $p_{s}$ and $p_{h}$, noting also that $p_{h}=1-p_{s}$, and vice versa, since we have only two possible events.
+
+### Payoffs {.unnumbered}
+
+Payoffs in this case simply reflect the monetary value of each possible outcome. Sticking with the example of getting sick or staying healthy, let's say we will incur \$500 in health care costs if we become sick and \$0 if we remain healthy. If we start with \$1,000, then our payoff in the event that we are sick is $w_{s}=1000-500=500$, and our payoff if we remain healthy is $w_{h}=1000$. 
+
+### Expected value {.unnumbered}
+
+Quick recap...we begin with \$1,000, and we have two possible outcomes: 1) we become sick; and 2) we stay healthy. We will become sick with probability $p_{s}$, in which case we'll only have \$500 left after paying for our health care. We will stay healthy with probability $p_{h}$, in which case we'll keep our original \$1,000 because we don't have to incur any health care costs.
+
+
+
+
+## Risk Premiums

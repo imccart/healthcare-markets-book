@@ -82,5 +82,54 @@
     "title": "Health Insurance",
     "section": "Bibliography",
     "text": "Bibliography"
+  },
+  {
+    "objectID": "part1/insurance-0.html#supplemental-resources",
+    "href": "part1/insurance-0.html#supplemental-resources",
+    "title": "Health Insurance",
+    "section": "Supplemental Resources",
+    "text": "Supplemental Resources\n\nReaders can access the supplemental class slides for this material here."
+  },
+  {
+    "objectID": "part1/insurance-0.html#bibliography",
+    "href": "part1/insurance-0.html#bibliography",
+    "title": "Health Insurance",
+    "section": "Bibliography",
+    "text": "Bibliography"
+  },
+  {
+    "objectID": "part1/insurance-0.html#health-insurance",
+    "href": "part1/insurance-0.html#health-insurance",
+    "title": "Introduction to Health Insurance",
+    "section": "Health Insurance",
+    "text": "Health Insurance\nLet’s motivate our study of health insurance with a simple story of Humana and the ACA exchanges. In 2018, Humana withdrew from the ACA exchanges citing an “unbalanced risk pool” due to the results of the 2017 open enrollment period. The risk pool refers to the collection of policyholders and their corresponding risk levels. In this context, Humana essentially claimed that their enrollees were too sick and too expensive relative to the plan premiums. Humana had also just had their proposed merger with Aetna blocked by the Department of Justice (details here), which may have also been related to the decision to drop out of the ACA exchanges.\nManaging the risk pool is critical for insurers (not just health insurers). One reason that this is so important is because of something called “community rating” which sets restrictions on how much insurers can change premiums for different enrollees in the same market. While there is some opportunity to charge some enrollees different premiums, it’s useful just to think of community rating as requiring all enrollees in a given market to be charged with the same premium. So, since insurers can’t ask some people to pay more than others, they have to set their premiums so that the revenue collected from the very healthy enrollees (those that don’t use much health care) offsets any losses paid out to providers for very unhealthy enrollees (those that use lots of health care, or those that are just very unlucky in a given year). If an insurer underestimates the share of high-need patients enrolling in a plan, then they will have an “unbalanced risk pool” and incur more expenses than expected, potentially to the point of eroding any profits from the low-need enrollees.\nFigure 1 highlights the relationship between health care utilization and patients’ underlying health status, where we see that those self-reported to be of low health also have the highest health care expenditures and most frequent encounters with the health care system. As is clear from these figures, insurers can expect to incur more costs as less healthy patients enroll in their plans.\n\n\n\n\n\n\n\n(a) spend\n\n\n\n\n\n\n\n(b) visits\n\n\n\n\nFigure 1: Health care expenditures and encounters by health status\n\n\nSection I of the book covers health insurance. First, we examine why people buy health insurance, particularly how individual health status and risk preferences affect the willingness to pay for health insurance. This is the subject of Buying Insurance, Parts I and II. We then move from an individual’s insurance decision to the market, focusing on the problem of adverse selection and its implications for premiums and insurance coverage. This is the subject of Insurance Markets, Parts I and II. Finally, I conclude Section I of the book with a discussion of current health insurance policy in the U.S. and a brief collection of important health insurance terminology."
+  },
+  {
+    "objectID": "part1/insurance-0.html#motivation",
+    "href": "part1/insurance-0.html#motivation",
+    "title": "Health Insurance",
+    "section": "Motivation",
+    "text": "Motivation\nLet’s motivate our study of health insurance with a simple story of Humana and the ACA exchanges. In 2018, Humana withdrew from the ACA exchanges citing an “unbalanced risk pool” due to the results of the 2017 open enrollment period. The risk pool refers to the collection of policyholders and their corresponding risk levels. In this context, Humana essentially claimed that their enrollees were too sick and too expensive relative to the plan premiums. Humana had also just had their proposed merger with Aetna blocked by the Department of Justice (details here), which may have also been related to the decision to drop out of the ACA exchanges.\nManaging the risk pool is critical for insurers (not just health insurers). One reason that this is so important is because of something called “community rating” which sets restrictions on how much insurers can change premiums for different enrollees in the same market. While there is some opportunity to charge some enrollees different premiums, it’s useful just to think of community rating as requiring all enrollees in a given market to be charged with the same premium. So, since insurers can’t ask some people to pay more than others, they have to set their premiums so that the revenue collected from the very healthy enrollees (those that don’t use much health care) offsets any losses paid out to providers for very unhealthy enrollees (those that use lots of health care, or those that are just very unlucky in a given year). If an insurer underestimates the share of high-need patients enrolling in a plan, then they will have an “unbalanced risk pool” and incur more expenses than expected, potentially to the point of eroding any profits from the low-need enrollees.\nFigure 1 highlights the relationship between health care utilization and patients’ underlying health status, where we see that those self-reported to be of low health also have the highest health care expenditures and most frequent encounters with the health care system. As is clear from these figures, insurers can expect to incur more costs as less healthy patients enroll in their plans.\n\n\n\n\n\n\n\n(a) spend\n\n\n\n\n\n\n\n(b) visits\n\n\n\n\nFigure 1: Health care expenditures and encounters by health status"
+  },
+  {
+    "objectID": "part1/insurance-1-1.html#uncertainty",
+    "href": "part1/insurance-1-1.html#uncertainty",
+    "title": "1  Buying Insurance I",
+    "section": "1.1 Uncertainty",
+    "text": "1.1 Uncertainty"
+  },
+  {
+    "objectID": "part1/insurance-1-1.html#risk-premiums",
+    "href": "part1/insurance-1-1.html#risk-premiums",
+    "title": "1  Buying Insurance I",
+    "section": "1.2 Risk Premiums",
+    "text": "1.2 Risk Premiums"
+  },
+  {
+    "objectID": "part1/insurance-1-1.html#describing-risk",
+    "href": "part1/insurance-1-1.html#describing-risk",
+    "title": "1  Buying Insurance I",
+    "section": "1.1 Describing Risk",
+    "text": "1.1 Describing Risk\nThe more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let’s discuss each of these elements in more detail.\n\nProbability\nProbability is defined as the likelihood that a given outcome will occur. For example, this handy/depressing risk calculator can tell me the probability of developing heart disease over the next 10 years. Let’s say that’s 10%. In this case, it would mean that if there were 1000 people exactly like me, 100 of them will develop heart disease over the next 10 years and 900 would not.\nWe’ll only work with examples where there are two possible outcomes, sick or healthy (i.e., needing health care or not needing health care). I’ll denote the probabilities of these events by \\(p_{s}\\) and \\(p_{h}\\), noting also that \\(p_{h}=1-p_{s}\\), and vice versa, since we have only two possible events.\n\n\nPayoffs\nPayoffs in this case simply reflect the monetary value of each possible outcome. Sticking with the example of getting sick or staying healthy, let’s say we will incur $500 in health care costs if we become sick and $0 if we remain healthy. If we start with $1,000, then our payoff in the event that we are sick is \\(w_{s}=1000-500=500\\), and our payoff if we remain healthy is \\(w_{h}=1000\\).\n\n\nExpected value\nQuick recap…we begin with $1,000, and we have two possible outcomes: 1) we become sick; and 2) we stay healthy. We will become sick with probability \\(p_{s}\\), in which case we’ll only have $500 left after paying for our health care. We will stay healthy with probability \\(p_{h}\\), in which case we’ll keep our original $1,000 because we don’t have to incur any health care costs."
   }
 ]
