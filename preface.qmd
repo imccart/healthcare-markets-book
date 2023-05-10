@@ -1,6 +1,6 @@
 ## Preface {.unnumbered}
 
-Writing a book is not an easy task, and it requires a lot of dedication and effort. I am grateful for the support and encouragement of my family, who made this book possible.
+This book is the product of several years of teaching a supply-side health economics class at Emory University. Over time, the material in my class began to look less and less like anything readily available from other health economics textbooks. But students would regularly ask for some other reference material, even if just my own personal notes. So, this book is basically a compilation of my notes. Writing a book is not an easy task, and it requires a lot of dedication and effort. I am grateful for the support and encouragement of my family, who made this book possible.
 
 Firstly, I would like to express my deepest gratitude to my wife, Lauren, for her unwavering support and patience during the entire writing process. She was always there to listen, give feedback, and provide a much-needed distraction when I needed it most. I could not have done this without her.
 

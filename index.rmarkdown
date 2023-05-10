@@ -18,13 +18,16 @@ From this book, readers should be able to:
 
 ## Health Improvements
 
+
 ```{r}
 #| include: false
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski)
 ```
 
+
 @fig-life-exp presents the median life expectancy across the world from around 1950 to 2010. As made clear from @fig-life-exp, the world has witnessed significant progress in improving life expectancy over the past several decades. This progress can be attributed to several factors, including poverty reduction, technological advancements, and increased access to critical needs, including basic healthcare. As a result, people are living longer and generally healthier lives, with fewer deaths from infectious diseases and a higher quality of life in general. 
+
 
 ```{r}
 #| echo: false
@@ -41,9 +44,11 @@ gapminder %>%
 ```
 
 
+
 ## Health and Wealth
 
 Not surprisingly, gains in health are correlated with economic growth and development, as illustrated in @fig-life-exp-gdp.
+
 
 ```{r}
 #| echo: false
@@ -57,7 +62,9 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 ```
 
 
+
 This relationship between wealth and health is even more evident when we look over time by country, as demonstrated in @fig-anim-lifegdp. This makes sense if we think of ways to improve very low life expectancy (e.g., life expectancy cut due to lack of basic necessities like food, shelter, clean water, basic medicine, etc.). 
+
 
 ```{r}
 #| message: false
@@ -77,7 +84,9 @@ This relationship between wealth and health is even more evident when we look ov
   ease_aes('linear')
 ```
 
+
 But conditional on a relatively high life expectancy, the link between economic performance and life expectancy isn't so clear. The U.S. is a good example. In @fig-anim-country, we focus specifically on G7 countries and highlight the U.S., where we see that the U.S. life expectancy begins to flatten while health care expenditures far outgrow those of other countries.
+
 
 ```{r}
 #| message: false
@@ -97,6 +106,7 @@ gapminder %>% filter(country %in% c("Canada", "France", "Germany", "Italy", "Jap
   transition_time(year) +
   ease_aes('linear')
 ```
+
 
 
 ## Health Care Spending and Outcomes
@@ -144,3 +154,4 @@ Overall, these challenges highlight the need for innovative solutions to address
 - Readers can access the supplemental class slides for this material [here](supp/index-slides.html).
 
 ## Bibliography
+

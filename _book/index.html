@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -149,9 +168,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#health-improvements" id="toc-health-improvements" class="nav-link" data-scroll-target="#health-improvements">Health Improvements</a></li>
   <li><a href="#health-and-wealth" id="toc-health-and-wealth" class="nav-link" data-scroll-target="#health-and-wealth">Health and Wealth</a></li>
   <li><a href="#health-care-spending-and-outcomes" id="toc-health-care-spending-and-outcomes" class="nav-link" data-scroll-target="#health-care-spending-and-outcomes">Health Care Spending and Outcomes</a></li>
-  <li><a href="#why-study-the-economics-of-health-care" id="toc-why-study-the-economics-of-health-care" class="nav-link" data-scroll-target="#why-study-the-economics-of-health-care">Why Study the Economics of Health Care</a></li>
+  <li><a href="#why-study-the-economics-of-health-care" id="toc-why-study-the-economics-of-health-care" class="nav-link" data-scroll-target="#why-study-the-economics-of-health-care">Why Study the Economics of Health Care?</a></li>
   <li><a href="#why-is-the-us-so-different" id="toc-why-is-the-us-so-different" class="nav-link" data-scroll-target="#why-is-the-us-so-different">Why is the US so different?</a></li>
   <li><a href="#supplemental-resources" id="toc-supplemental-resources" class="nav-link" data-scroll-target="#supplemental-resources">Supplemental Resources</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +210,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="welcome" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="welcome">Welcome</h2>
 <p>Health care is a vital component of our society, and it is essential to understand the economic principles that underlie this complex system. Health care economics is the study of how resources are allocated to produce, distribute, and consume health care goods and services. It encompasses a wide range of topics, including the behavior of health care providers, the role of insurance and government policy, and the impact of health care on the economy as a whole.</p>
-<p>This book is intended to offer an introduction to the study of health care economics. It covers key topics such as health insurance and health care financing, physician behaviors, physician and hospital pricing, and prescription drug markets. Within each topic, we will work through specific theoretical models and discuss current health policy in the context of those models.</p>
+<p>This book is intended to offer an introduction to the study of health care economics. It covers key topics such as health insurance and health care financing, physician behaviors, physician and hospital pricing, and prescription drug markets. Within each topic, I present specific theoretical models and discuss current health policy in the context of those models.</p>
+<p>Unfortunately, I can’t cover everything in one introductory book – nor am I equipped to do so. One area that I’ve intentionally excluded from this book is that of comparative health systems or any sort of international view of health care. I’ll use some basic international comparisons in the introduction, but otherwise this is a very U.S.-centric health economics book. Those interested in international comparisons can find some great information from the <a href="https://www.healthsystemtracker.org/">Peterson-KFF Health System Tracker</a> and the <a href="https://www.commonwealthfund.org/international-health-policy-center/system-profiles">Commonwealth Fund</a>, among many other excellent resources.</p>
 <p>From this book, readers should be able to:</p>
 <ol type="1">
 <li>Explain the structure of the U.S. health care system, its main components, and its history</li>
@@ -276,13 +297,13 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figcaption class="figure-caption">Figure&nbsp;5: Maternal and infant mortality by country</figcaption><p></p>
 </figure>
 </div>
-<p>Unfortunately, infant and maternal mortality are not the only measures by which the U.S. health care system appears to be underperforming. <span class="citation" data-cites="commonwealth2019">(<a href="#ref-commonwealth2019" role="doc-biblioref"><strong>commonwealth2019?</strong></a>)</span> provides a broader analysis of the U.S. health care system in comparison to other high-income countries. The 2019 report (i.e., pre-Covid) highlights significant gaps in health outcomes, access, and affordability in the U.S. compared to other countries. Specifically, the U.S. ranks last among the 11 high-income countries analyzed in terms of health outcomes, with higher rates of mortality and morbidity from chronic diseases, such as heart disease, diabetes, and cancer. Additionally, the U.S. has the highest rate of mortality amenable to health care, suggesting that the health care system is not functioning optimally. The report also finds that the U.S. has the highest rate of adults who go without needed health care due to cost, with one-third of adults reporting cost-related access problems.</p>
+<p>Unfortunately, infant and maternal mortality are not the only measures by which the U.S. health care system appears to be underperforming. <span class="citation" data-cites="commonwealth2019"><span>“U.<span>S</span>. <span>Health</span> <span>Care</span> from a <span>Global</span> <span>Perspective</span>, 2019 <span></span> <span>Commonwealth</span> <span>Fund</span>”</span> (<a href="#ref-commonwealth2019" role="doc-biblioref">n.d.</a>)</span> provides a broader analysis of the U.S. health care system in comparison to other high-income countries. The 2019 report (i.e., pre-Covid) highlights significant gaps in health outcomes, access, and affordability in the U.S. compared to other countries. Specifically, the U.S. ranks last among the 11 high-income countries analyzed in terms of health outcomes, with higher rates of mortality and morbidity from chronic diseases, such as heart disease, diabetes, and cancer. Additionally, the U.S. has the highest rate of mortality amenable to health care, suggesting that the health care system is not functioning optimally. The report also finds that the U.S. has the highest rate of adults who go without needed health care due to cost, with one-third of adults reporting cost-related access problems.</p>
 <p>That said, it is important to also note that the U.S. health care system ranks among the best in the world in several key areas. One area in which the U.S. excels is in the provision of specialized care, particularly in the fields of cancer, heart disease, and stroke. The U.S. has some of the highest survival rates for certain types of cancer, such as breast and prostate cancer, and is a leader in the development and use of advanced medical technologies, such as MRI and CT scans. The U.S. also has some of the highest rates of bypass surgery and angioplasty for heart disease, which can be life-saving interventions.</p>
 <p>Another area of high-quality care in the U.S. is in the field of medical research and innovation. The U.S. is home to many of the world’s top medical research institutions and is a leader in the development of new drugs and medical devices. This innovation has led to significant advances in the treatment of many diseases and has improved the quality of life for millions of people.</p>
 <p>This dichotomy of very good health care in some areas along side very poor health care in other areas is reflective of what many believe to be the true underlying problem with the U.S. health care system–access to care. In many ways, we “overprovide” care to some people and underprovide care to lots of other people. We are particularly bad at helping the least healthy among us. These issues are, of course, very closely related to other economic problems and inequality in general.</p>
 </section>
 <section id="why-study-the-economics-of-health-care" class="level2">
-<h2 class="anchored" data-anchor-id="why-study-the-economics-of-health-care">Why Study the Economics of Health Care</h2>
+<h2 class="anchored" data-anchor-id="why-study-the-economics-of-health-care">Why Study the Economics of Health Care?</h2>
 <p>Health care is a unique industry that presents several key economic challenges, including adverse selection and asymmetric information between patients and physicians, as well as between patients and insurers. Adverse selection occurs when patients with higher health care needs are more likely to purchase insurance, leading to higher costs for insurers and making it more difficult for insurers to design effective insurance products. Insurers may have limited information about patients’ health status and risk, which can exacerbate adverse selection.</p>
 <p>Patients often lack the knowledge and expertise to make informed decisions about their health care, while physicians may have incentives to recommend more expensive treatments. This can lead to overutilization of health care services and higher costs for patients and insurers. Additionally, patients may not have access to all of the relevant information about their health care options, which can make it difficult for them to make informed decisions about their care. These information asymmetries can make it challenging to align incentives between patients and physicians and can lead to inefficiencies in the market.</p>
 <p>Health care also presents challenges due to unpredictable need and product heterogeneity. Patients may require different types and levels of care depending on their individual health needs, making it difficult to standardize health care products and services. This can make it challenging for patients to shop around for health care services and can lead to inefficiencies in the market.</p>
@@ -298,8 +319,16 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Readers can access the supplemental class slides for this material <a href="index-slides.html">here</a>.</li>
 </ul>
+</section>
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-commonwealth2019" class="csl-entry" role="listitem">
+<span>“U.<span>S</span>. <span>Health</span> <span>Care</span> from a <span>Global</span> <span>Perspective</span>, 2019 <span></span> <span>Commonwealth</span> <span>Fund</span>.”</span> n.d. Accessed March 29, 2023. <a href="https://www.commonwealthfund.org/publications/issue-briefs/2020/jan/us-health-care-global-perspective-2019">https://www.commonwealthfund.org/publications/issue-briefs/2020/jan/us-health-care-global-perspective-2019</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
