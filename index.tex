@@ -1,0 +1,2849 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreport}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Economics of Health Care},
+  pdfauthor={Ian McCarthy},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Economics of Health Care}
+\author{Ian McCarthy}
+\date{2023-03-28}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, sharp corners, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, frame hidden]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{welcome}{%
+\chapter*{Welcome}\label{welcome}}
+\addcontentsline{toc}{chapter}{Welcome}
+
+\markboth{Welcome}{Welcome}
+
+Health care is a vital component of our society, and it is essential to
+understand the economic principles that underlie this complex system.
+Health care economics is the study of how resources are allocated to
+produce, distribute, and consume health care goods and services. It
+encompasses a wide range of topics, including the behavior of health
+care providers, the role of insurance and government policy, and the
+impact of health care on the economy as a whole.
+
+This book is intended to offer an introduction to the study of health
+care economics. It covers key topics such as health insurance and health
+care financing, physician behaviors, physician and hospital pricing, and
+prescription drug markets. Within each topic, I present specific
+theoretical models and discuss current health policy in the context of
+those models.
+
+Unfortunately, I can't cover everything in one introductory book -- nor
+am I equipped to do so. One area that I've intentionally excluded from
+this book is that of comparative health systems or any sort of
+international view of health care. I'll use some basic international
+comparisons in the introduction, but otherwise this is a very
+U.S.-centric health economics book. Those interested in international
+comparisons can find some great information from the
+\href{https://www.healthsystemtracker.org/}{Peterson-KFF Health System
+Tracker} and the
+\href{https://www.commonwealthfund.org/international-health-policy-center/system-profiles}{Commonwealth
+Fund}, among many other excellent resources.
+
+From this book, readers should be able to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Explain the structure of the U.S. health care system, its main
+  components, and its history
+\item
+  Model adverse selection in health insurance, examine its effects on
+  health insurance markets, and support your arguments with existing
+  data
+\item
+  Explain the physician agency problem, use a model of physician agency
+  to examine financial incentives in health care, and summarize
+  empirical evidence on the presence of physician agency
+\item
+  Describe hospital pricing, negotiation with insurers, and explain
+  (qualitatively and quantitatively) the differences between charges and
+  prices
+\item
+  Analyze hospital data in a real-life setting and predict effects of
+  real-life policies
+\end{enumerate}
+
+\hypertarget{health-improvements}{%
+\section*{Health Improvements}\label{health-improvements}}
+\addcontentsline{toc}{section}{Health Improvements}
+
+\markright{Health Improvements}
+
+Figure~\ref{fig-life-exp} presents the median life expectancy across the
+world from around 1950 to 2010. As made clear from
+Figure~\ref{fig-life-exp}, the world has witnessed significant progress
+in improving life expectancy over the past several decades. This
+progress can be attributed to several factors, including poverty
+reduction, technological advancements, and increased access to critical
+needs, including basic healthcare. As a result, people are living longer
+and generally healthier lives, with fewer deaths from infectious
+diseases and a higher quality of life in general.
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-life-exp-1.pdf}
+
+}
+
+\caption{\label{fig-life-exp}Median life expectancy across the world}
+
+\end{figure}
+
+\hypertarget{health-and-wealth}{%
+\section*{Health and Wealth}\label{health-and-wealth}}
+\addcontentsline{toc}{section}{Health and Wealth}
+
+\markright{Health and Wealth}
+
+Not surprisingly, gains in health are correlated with economic growth
+and development, as illustrated in Figure~\ref{fig-life-exp-gdp}.
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-life-exp-gdp-1.pdf}
+
+}
+
+\caption{\label{fig-life-exp-gdp}Life expectancy and GDP}
+
+\end{figure}
+
+This relationship between wealth and health is even more evident when we
+look over time by country, as demonstrated in
+\textbf{?@fig-anim-lifegdp}. This makes sense if we think of ways to
+improve very low life expectancy (e.g., life expectancy cut due to lack
+of basic necessities like food, shelter, clean water, basic medicine,
+etc.).
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-1.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-1}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-2.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-2}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-3.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-3}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-4.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-4}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-5.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-5}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-6.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-6}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-7.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-7}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-8.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-8}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-9.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-9}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-10.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-10}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-11.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-11}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-12.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-12}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-13.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-13}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-14.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-14}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-15.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-15}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-16.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-16}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-17.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-17}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-18.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-18}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-19.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-19}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-20.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-20}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-21.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-21}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-22.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-22}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-23.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-23}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-24.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-24}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-25.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-25}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-26.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-26}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-27.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-27}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-28.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-28}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-29.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-29}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-30.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-30}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-31.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-31}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-32.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-32}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-33.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-33}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-34.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-34}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-35.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-35}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-36.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-36}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-37.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-37}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-38.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-38}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-39.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-39}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-40.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-40}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-41.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-41}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-42.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-42}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-43.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-43}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-44.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-44}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-45.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-45}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-46.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-46}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-47.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-47}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-48.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-48}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-49.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-49}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-50.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-50}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-51.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-51}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-52.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-52}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-53.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-53}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-54.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-54}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-55.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-55}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-56.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-56}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-57.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-57}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-58.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-58}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-59.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-59}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-60.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-60}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-61.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-61}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-62.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-62}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-63.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-63}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-64.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-64}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-65.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-65}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-66.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-66}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-67.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-67}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-68.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-68}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-69.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-69}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-70.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-70}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-71.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-71}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-72.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-72}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-73.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-73}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-74.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-74}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-75.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-75}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-76.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-76}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-77.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-77}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-78.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-78}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-79.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-79}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-80.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-80}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-81.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-81}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-82.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-82}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-83.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-83}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-84.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-84}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-85.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-85}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-86.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-86}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-87.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-87}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-88.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-88}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-89.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-89}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-90.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-90}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-91.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-91}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-92.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-92}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-93.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-93}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-94.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-94}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-95.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-95}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-96.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-96}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-97.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-97}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-98.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-98}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-99.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-99}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-lifegdp-100.pdf}
+
+}
+
+\caption{\label{fig-anim-lifegdp-100}Life expectancy and GDP by country}
+
+\end{figure}
+
+But conditional on a relatively high life expectancy, the link between
+economic performance and life expectancy isn't so clear. The U.S. is a
+good example. In \textbf{?@fig-anim-country}, we focus specifically on
+G7 countries and highlight the U.S., where we see that the U.S. life
+expectancy begins to flatten while health care expenditures far outgrow
+those of other countries.
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-1.pdf}
+
+}
+
+\caption{\label{fig-anim-country-1}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-2.pdf}
+
+}
+
+\caption{\label{fig-anim-country-2}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-3.pdf}
+
+}
+
+\caption{\label{fig-anim-country-3}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-4.pdf}
+
+}
+
+\caption{\label{fig-anim-country-4}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-5.pdf}
+
+}
+
+\caption{\label{fig-anim-country-5}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-6.pdf}
+
+}
+
+\caption{\label{fig-anim-country-6}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-7.pdf}
+
+}
+
+\caption{\label{fig-anim-country-7}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-8.pdf}
+
+}
+
+\caption{\label{fig-anim-country-8}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-9.pdf}
+
+}
+
+\caption{\label{fig-anim-country-9}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-10.pdf}
+
+}
+
+\caption{\label{fig-anim-country-10}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-11.pdf}
+
+}
+
+\caption{\label{fig-anim-country-11}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-12.pdf}
+
+}
+
+\caption{\label{fig-anim-country-12}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-13.pdf}
+
+}
+
+\caption{\label{fig-anim-country-13}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-14.pdf}
+
+}
+
+\caption{\label{fig-anim-country-14}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-15.pdf}
+
+}
+
+\caption{\label{fig-anim-country-15}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-16.pdf}
+
+}
+
+\caption{\label{fig-anim-country-16}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-17.pdf}
+
+}
+
+\caption{\label{fig-anim-country-17}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-18.pdf}
+
+}
+
+\caption{\label{fig-anim-country-18}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-19.pdf}
+
+}
+
+\caption{\label{fig-anim-country-19}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-20.pdf}
+
+}
+
+\caption{\label{fig-anim-country-20}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-21.pdf}
+
+}
+
+\caption{\label{fig-anim-country-21}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-22.pdf}
+
+}
+
+\caption{\label{fig-anim-country-22}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-23.pdf}
+
+}
+
+\caption{\label{fig-anim-country-23}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-24.pdf}
+
+}
+
+\caption{\label{fig-anim-country-24}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-25.pdf}
+
+}
+
+\caption{\label{fig-anim-country-25}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-26.pdf}
+
+}
+
+\caption{\label{fig-anim-country-26}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-27.pdf}
+
+}
+
+\caption{\label{fig-anim-country-27}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-28.pdf}
+
+}
+
+\caption{\label{fig-anim-country-28}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-29.pdf}
+
+}
+
+\caption{\label{fig-anim-country-29}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-30.pdf}
+
+}
+
+\caption{\label{fig-anim-country-30}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-31.pdf}
+
+}
+
+\caption{\label{fig-anim-country-31}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-32.pdf}
+
+}
+
+\caption{\label{fig-anim-country-32}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-33.pdf}
+
+}
+
+\caption{\label{fig-anim-country-33}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-34.pdf}
+
+}
+
+\caption{\label{fig-anim-country-34}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-35.pdf}
+
+}
+
+\caption{\label{fig-anim-country-35}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-36.pdf}
+
+}
+
+\caption{\label{fig-anim-country-36}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-37.pdf}
+
+}
+
+\caption{\label{fig-anim-country-37}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-38.pdf}
+
+}
+
+\caption{\label{fig-anim-country-38}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-39.pdf}
+
+}
+
+\caption{\label{fig-anim-country-39}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-40.pdf}
+
+}
+
+\caption{\label{fig-anim-country-40}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-41.pdf}
+
+}
+
+\caption{\label{fig-anim-country-41}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-42.pdf}
+
+}
+
+\caption{\label{fig-anim-country-42}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-43.pdf}
+
+}
+
+\caption{\label{fig-anim-country-43}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-44.pdf}
+
+}
+
+\caption{\label{fig-anim-country-44}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-45.pdf}
+
+}
+
+\caption{\label{fig-anim-country-45}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-46.pdf}
+
+}
+
+\caption{\label{fig-anim-country-46}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-47.pdf}
+
+}
+
+\caption{\label{fig-anim-country-47}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-48.pdf}
+
+}
+
+\caption{\label{fig-anim-country-48}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-49.pdf}
+
+}
+
+\caption{\label{fig-anim-country-49}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-50.pdf}
+
+}
+
+\caption{\label{fig-anim-country-50}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-51.pdf}
+
+}
+
+\caption{\label{fig-anim-country-51}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-52.pdf}
+
+}
+
+\caption{\label{fig-anim-country-52}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-53.pdf}
+
+}
+
+\caption{\label{fig-anim-country-53}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-54.pdf}
+
+}
+
+\caption{\label{fig-anim-country-54}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-55.pdf}
+
+}
+
+\caption{\label{fig-anim-country-55}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-56.pdf}
+
+}
+
+\caption{\label{fig-anim-country-56}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-57.pdf}
+
+}
+
+\caption{\label{fig-anim-country-57}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-58.pdf}
+
+}
+
+\caption{\label{fig-anim-country-58}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-59.pdf}
+
+}
+
+\caption{\label{fig-anim-country-59}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-60.pdf}
+
+}
+
+\caption{\label{fig-anim-country-60}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-61.pdf}
+
+}
+
+\caption{\label{fig-anim-country-61}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-62.pdf}
+
+}
+
+\caption{\label{fig-anim-country-62}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-63.pdf}
+
+}
+
+\caption{\label{fig-anim-country-63}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-64.pdf}
+
+}
+
+\caption{\label{fig-anim-country-64}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-65.pdf}
+
+}
+
+\caption{\label{fig-anim-country-65}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-66.pdf}
+
+}
+
+\caption{\label{fig-anim-country-66}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-67.pdf}
+
+}
+
+\caption{\label{fig-anim-country-67}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-68.pdf}
+
+}
+
+\caption{\label{fig-anim-country-68}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-69.pdf}
+
+}
+
+\caption{\label{fig-anim-country-69}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-70.pdf}
+
+}
+
+\caption{\label{fig-anim-country-70}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-71.pdf}
+
+}
+
+\caption{\label{fig-anim-country-71}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-72.pdf}
+
+}
+
+\caption{\label{fig-anim-country-72}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-73.pdf}
+
+}
+
+\caption{\label{fig-anim-country-73}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-74.pdf}
+
+}
+
+\caption{\label{fig-anim-country-74}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-75.pdf}
+
+}
+
+\caption{\label{fig-anim-country-75}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-76.pdf}
+
+}
+
+\caption{\label{fig-anim-country-76}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-77.pdf}
+
+}
+
+\caption{\label{fig-anim-country-77}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-78.pdf}
+
+}
+
+\caption{\label{fig-anim-country-78}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-79.pdf}
+
+}
+
+\caption{\label{fig-anim-country-79}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-80.pdf}
+
+}
+
+\caption{\label{fig-anim-country-80}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-81.pdf}
+
+}
+
+\caption{\label{fig-anim-country-81}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-82.pdf}
+
+}
+
+\caption{\label{fig-anim-country-82}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-83.pdf}
+
+}
+
+\caption{\label{fig-anim-country-83}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-84.pdf}
+
+}
+
+\caption{\label{fig-anim-country-84}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-85.pdf}
+
+}
+
+\caption{\label{fig-anim-country-85}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-86.pdf}
+
+}
+
+\caption{\label{fig-anim-country-86}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-87.pdf}
+
+}
+
+\caption{\label{fig-anim-country-87}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-88.pdf}
+
+}
+
+\caption{\label{fig-anim-country-88}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-89.pdf}
+
+}
+
+\caption{\label{fig-anim-country-89}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-90.pdf}
+
+}
+
+\caption{\label{fig-anim-country-90}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-91.pdf}
+
+}
+
+\caption{\label{fig-anim-country-91}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-92.pdf}
+
+}
+
+\caption{\label{fig-anim-country-92}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-93.pdf}
+
+}
+
+\caption{\label{fig-anim-country-93}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-94.pdf}
+
+}
+
+\caption{\label{fig-anim-country-94}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-95.pdf}
+
+}
+
+\caption{\label{fig-anim-country-95}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-96.pdf}
+
+}
+
+\caption{\label{fig-anim-country-96}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-97.pdf}
+
+}
+
+\caption{\label{fig-anim-country-97}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-98.pdf}
+
+}
+
+\caption{\label{fig-anim-country-98}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-99.pdf}
+
+}
+
+\caption{\label{fig-anim-country-99}Life expectancy and GDP by country}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{index_files/figure-pdf/fig-anim-country-100.pdf}
+
+}
+
+\caption{\label{fig-anim-country-100}Life expectancy and GDP by country}
+
+\end{figure}
+
+\hypertarget{health-care-spending-and-outcomes}{%
+\section*{Health Care Spending and
+Outcomes}\label{health-care-spending-and-outcomes}}
+\addcontentsline{toc}{section}{Health Care Spending and Outcomes}
+
+\markright{Health Care Spending and Outcomes}
+
+Of course, life expectancy is heavily influenced by things like car
+accidents, guns, and other policy issues that are not necessarily
+``health care'' related. As such, life expectancy is likely a poor
+measure of the quality of a country's health care system. Still, despite
+significantly larger health care expenditures, the U.S. continues to
+underperform in more direct health care outcomes, like maternal
+mortality and infant mortality presented in Figure~\ref{fig-mort}.
+
+\begin{figure}
+
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics{figures/hcspend-maternal-mortality.gif}
+
+}
+
+}
+
+\subcaption{\label{fig-maternal}maternal}
+\end{minipage}%
+%
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics{figures/hcspend-infant-mortality.gif}
+
+}
+
+}
+
+\subcaption{\label{fig-infant}infant}
+\end{minipage}%
+
+\caption{\label{fig-mort}Maternal and infant mortality by country}
+
+\end{figure}
+
+Unfortunately, infant and maternal mortality are not the only measures
+by which the U.S. health care system appears to be underperforming.
+{``U.{S}. {Health} {Care} from a {Global} {Perspective}, 2019 {\textbar}
+{Commonwealth} {Fund}''} (n.d.) provides a broader analysis of the U.S.
+health care system in comparison to other high-income countries. The
+2019 report (i.e., pre-Covid) highlights significant gaps in health
+outcomes, access, and affordability in the U.S. compared to other
+countries. Specifically, the U.S. ranks last among the 11 high-income
+countries analyzed in terms of health outcomes, with higher rates of
+mortality and morbidity from chronic diseases, such as heart disease,
+diabetes, and cancer. Additionally, the U.S. has the highest rate of
+mortality amenable to health care, suggesting that the health care
+system is not functioning optimally. The report also finds that the U.S.
+has the highest rate of adults who go without needed health care due to
+cost, with one-third of adults reporting cost-related access problems.
+
+That said, it is important to also note that the U.S. health care system
+ranks among the best in the world in several key areas. One area in
+which the U.S. excels is in the provision of specialized care,
+particularly in the fields of cancer, heart disease, and stroke. The
+U.S. has some of the highest survival rates for certain types of cancer,
+such as breast and prostate cancer, and is a leader in the development
+and use of advanced medical technologies, such as MRI and CT scans. The
+U.S. also has some of the highest rates of bypass surgery and
+angioplasty for heart disease, which can be life-saving interventions.
+
+Another area of high-quality care in the U.S. is in the field of medical
+research and innovation. The U.S. is home to many of the world's top
+medical research institutions and is a leader in the development of new
+drugs and medical devices. This innovation has led to significant
+advances in the treatment of many diseases and has improved the quality
+of life for millions of people.
+
+This dichotomy of very good health care in some areas along side very
+poor health care in other areas is reflective of what many believe to be
+the true underlying problem with the U.S. health care system--access to
+care. In many ways, we ``overprovide'' care to some people and
+underprovide care to lots of other people. We are particularly bad at
+helping the least healthy among us. These issues are, of course, very
+closely related to other economic problems and inequality in general.
+
+\hypertarget{why-study-the-economics-of-health-care}{%
+\section*{Why Study the Economics of Health
+Care?}\label{why-study-the-economics-of-health-care}}
+\addcontentsline{toc}{section}{Why Study the Economics of Health Care?}
+
+\markright{Why Study the Economics of Health Care?}
+
+Health care is a unique industry that presents several key economic
+challenges, including adverse selection and asymmetric information
+between patients and physicians, as well as between patients and
+insurers. Adverse selection occurs when patients with higher health care
+needs are more likely to purchase insurance, leading to higher costs for
+insurers and making it more difficult for insurers to design effective
+insurance products. Insurers may have limited information about
+patients' health status and risk, which can exacerbate adverse
+selection.
+
+Patients often lack the knowledge and expertise to make informed
+decisions about their health care, while physicians may have incentives
+to recommend more expensive treatments. This can lead to overutilization
+of health care services and higher costs for patients and insurers.
+Additionally, patients may not have access to all of the relevant
+information about their health care options, which can make it difficult
+for them to make informed decisions about their care. These information
+asymmetries can make it challenging to align incentives between patients
+and physicians and can lead to inefficiencies in the market.
+
+Health care also presents challenges due to unpredictable need and
+product heterogeneity. Patients may require different types and levels
+of care depending on their individual health needs, making it difficult
+to standardize health care products and services. This can make it
+challenging for patients to shop around for health care services and can
+lead to inefficiencies in the market.
+
+\hypertarget{why-is-the-us-so-different}{%
+\section*{Why is the US so
+different?}\label{why-is-the-us-so-different}}
+\addcontentsline{toc}{section}{Why is the US so different?}
+
+\markright{Why is the US so different?}
+
+The challenges of adverse selection, asymmetric information,
+unpredictable need, and product heterogeneity are particularly salient
+in a market-based health care system such as that of the United States.
+For example, insurers and providers may exploit market power in their
+pricing and treatment decisions, which can lead to underinvestment in
+preventive care and overutilization of high-cost services. Additionally,
+our market-based system can exacerbate information asymmetries, as
+patients may not have access to all of the relevant information about
+their health care options. This can make it challenging for patients to
+make informed decisions about their care, encouraging selection of more
+expensive providers and ultimately contributing to overutilization of
+health care services and higher costs.
+
+Perhaps most importantly, our market-based system introduces a
+significant amount of fragmentation. We have several different ways to
+receive insurance, meaning that health care providers must manage
+payments and negotiate contracts from a variety of different payors. We
+also have several different types of providers, including ``standard''
+acute care inpatient hospitals, stand-alone surgery centers, long-term
+care hospitals, outpatient facilities, physicians and physician offices,
+urgent care centers, emergency departments, independent ambulance
+companies, home health agencies, nursing home companies, and others. As
+health care becomes more complicated and specialized, complications from
+the interaction of all of these fragmented providers and payors will
+tend to be exacerbated. For the most part, this fragmentation tends to
+push up prices and may also reduce the quality of care, particularly for
+patients with chronic diseases needing coordinated care over a long time
+period.
+
+Overall, these challenges highlight the need for innovative solutions to
+address the inefficiencies of the U.S. health care system and improve
+health outcomes for all Americans.
+
+\hypertarget{supplemental-resources}{%
+\section*{Supplemental Resources}\label{supplemental-resources}}
+\addcontentsline{toc}{section}{Supplemental Resources}
+
+\markright{Supplemental Resources}
+
+\begin{itemize}
+\tightlist
+\item
+  Readers can access the supplemental class slides for this material
+  \href{supp/index-slides.html}{here}.
+\end{itemize}
+
+\hypertarget{bibliography}{%
+\section*{Bibliography}\label{bibliography}}
+\addcontentsline{toc}{section}{Bibliography}
+
+\markright{Bibliography}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+This book is the product of several years of teaching a supply-side
+health economics class at Emory University. Over time, the material in
+my class began to look less and less like anything readily available
+from other health economics textbooks. But students would regularly ask
+for some other reference material, even if just my own personal notes.
+So, this book is basically a compilation of my notes. Writing a book is
+not an easy task, and it requires a lot of dedication and effort. I am
+grateful for the support and encouragement of my family, who made this
+book possible.
+
+Firstly, I would like to express my deepest gratitude to my wife,
+Lauren, for her unwavering support and patience during the entire
+writing process. She was always there to listen, give feedback, and
+provide a much-needed distraction when I needed it most. I could not
+have done this without her.
+
+Secondly, I would like to thank my kids, Josephine and Bowman, for their
+boundless energy and joy. They reminded me to take breaks, have fun, and
+not take myself too seriously. They brought a much-needed balance to my
+life, and I am blessed to have them as my children.
+
+Finally, I would like to thank my family for their support and
+encouragement. They believed in me even when I doubted myself, and they
+inspired me to pursue my dreams. Their love and support have been the
+foundation of my success, and I am forever grateful.
+
+This book is a product of the collective effort and support of all those
+who have been a part of my life. Thank you for being there for me, and I
+hope this book will be of value to you.
+
+\part{Health Insurance}
+
+Section I of the book covers health insurance. First, we examine why
+people buy health insurance, particularly how individual health status
+and risk preferences affect the willingness to pay for health insurance.
+This is the subject of Chapters 1 and 2 (Buying Insurance). We then move
+from an individual's insurance decision to the market, focusing on the
+problem of adverse selection and its implications for premiums and
+insurance coverage. This is the subject of Chapters 3 and 4 (Insurance
+Markets). Finally, I conclude Section I of the book with a discussion of
+current health insurance policy in the U.S. and a brief collection of
+important health insurance terminology.
+
+\hypertarget{motivation}{%
+\section*{Motivation}\label{motivation}}
+\addcontentsline{toc}{section}{Motivation}
+
+\markright{Motivation}
+
+Let's motivate our study of health insurance with a simple story of
+Humana and the ACA exchanges. In 2018,
+\href{https://money.cnn.com/2017/02/14/news/economy/humana-obamacare-insurer}{Humana
+withdrew from the ACA exchanges} citing an ``unbalanced risk pool'' due
+to the results of the 2017 open enrollment period. The risk pool refers
+to the collection of policyholders and their corresponding risk levels.
+In this context, Humana essentially claimed that their enrollees were
+too sick and too expensive relative to the plan premiums. Humana had
+also just had their proposed merger with Aetna blocked by the Department
+of Justice (details
+\href{https://www.npr.org/sections/thetwo-way/2017/02/14/515167491/aetna-and-humana-call-off-merger-after-court-decision}{here}),
+which may have also been related to the decision to drop out of the ACA
+exchanges.
+
+Managing the risk pool is critical for insurers (not just health
+insurers). One reason that this is so important is because of something
+called
+\href{https://www.healthcare.gov/glossary/community-rating/}{``community
+rating''} which sets restrictions on how much insurers can change
+premiums for different enrollees in the same market. While there is some
+opportunity to charge some enrollees different premiums, it's useful
+just to think of community rating as requiring all enrollees in a given
+market to be charged with the same premium. So, since insurers can't ask
+some people to pay more than others, they have to set their premiums so
+that the revenue collected from the very healthy enrollees (those that
+don't use much health care) offsets any losses paid out to providers for
+very unhealthy enrollees (those that use lots of health care, or those
+that are just very unlucky in a given year). If an insurer
+underestimates the share of high-need patients enrolling in a plan, then
+they will have an ``unbalanced risk pool'' and incur more expenses than
+expected, potentially to the point of eroding any profits from the
+low-need enrollees.
+
+Figure~\ref{fig-meps} highlights the relationship between health care
+utilization and patients' underlying health status, where we see that
+those self-reported to be of low health also have the highest health
+care expenditures and most frequent encounters with the health care
+system. As is clear from these figures, insurers can expect to incur
+more costs as less healthy patients enroll in their plans.
+
+\begin{figure}
+
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics{part1/../figures/meps-expenditure.png}
+
+}
+
+}
+
+\subcaption{\label{fig-meps-spend}spend}
+\end{minipage}%
+%
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics{part1/../figures/meps-visits.png}
+
+}
+
+}
+
+\subcaption{\label{fig-meps-visits}visits}
+\end{minipage}%
+
+\caption{\label{fig-meps}Health care expenditures and encounters by
+health status}
+
+\end{figure}
+
+\hypertarget{supplemental-resources-1}{%
+\section*{Supplemental Resources}\label{supplemental-resources-1}}
+\addcontentsline{toc}{section}{Supplemental Resources}
+
+\markright{Supplemental Resources}
+
+\begin{itemize}
+\tightlist
+\item
+  Readers can access the supplemental class slides for this material
+  \href{supp/index-slides.html}{here}.
+\end{itemize}
+
+\hypertarget{bibliography-1}{%
+\section*{Bibliography}\label{bibliography-1}}
+\addcontentsline{toc}{section}{Bibliography}
+
+\markright{Bibliography}
+
+\hypertarget{buying-insurance-i}{%
+\chapter{Buying Insurance I}\label{buying-insurance-i}}
+
+As George Costanza learned in his audio book in Seinfeld, ``In order to
+manage risk, we must first define risk.'' So that's what we'll do first.
+
+In the context of health insurance, I define risk as the uncertainty
+arising from the potential need for medical care in the future. I might
+get hurt or sick tomorrow, and I might not. I'm therefore subjected to
+both a health risk and a financial risk (because I have to pay for
+health care). Health insurance is poorly named because it doesn't
+actually insure against the health risk. Instead, it insures against the
+financial risk from negative health events.
+
+\hypertarget{describing-risk}{%
+\section{Describing Risk}\label{describing-risk}}
+
+The more interesting question is how to quantify risk in health
+insurance. Before we can do that, we need to revisit a few basics.
+First, we need some measure of the probability that different events
+might occur. Second, we need some payoff from each possible event.
+Third, we need a way to combine those payoffs and probabilities into an
+expected value. And fourth, we need some notion of preferences, which in
+our case will be a utility function. Let's discuss each of these
+elements in more detail.
+
+\hypertarget{probability}{%
+\subsection*{Probability}\label{probability}}
+\addcontentsline{toc}{subsection}{Probability}
+
+Probability is defined as the likelihood that a given outcome will
+occur. For example, this handy/depressing
+\href{https://tools.acc.org/ascvd-risk-estimator-plus/\#!/calculate/estimate/}{risk
+calculator} can tell me the probability of developing heart disease over
+the next 10 years. Let's say that's 10\%. In this case, it would mean
+that if there were 1000 people exactly like me, 100 of them will develop
+heart disease over the next 10 years and 900 would not.
+
+We'll only work with examples where there are two possible outcomes,
+sick or healthy (i.e., needing health care or not needing health care).
+I'll denote the probabilities of these events by \(p_{s}\) and
+\(p_{h}\), noting also that \(p_{h}=1-p_{s}\), and vice versa, since we
+have only two possible events.
+
+\hypertarget{payoffs}{%
+\subsection*{Payoffs}\label{payoffs}}
+\addcontentsline{toc}{subsection}{Payoffs}
+
+Payoffs in this case simply reflect the monetary value of each possible
+outcome. Sticking with the example of getting sick or staying healthy,
+let's say we will incur \$500 in health care costs if we become sick and
+\$0 if we remain healthy. If we start with \$1,000, then our payoff in
+the event that we are sick is \(w_{s}=1000-500=500\), and our payoff if
+we remain healthy is \(w_{h}=1000\).
+
+\hypertarget{expected-value}{%
+\subsection*{Expected value}\label{expected-value}}
+\addcontentsline{toc}{subsection}{Expected value}
+
+Quick recap\ldots we begin with \$1,000, and we have two possible
+outcomes: 1) we become sick; and 2) we stay healthy. We will become sick
+with probability \(p_{s}\), in which case we'll only have \$500 left
+after paying for our health care. We will stay healthy with probability
+\(p_{h}\), in which case we'll keep our original \$1,000 because we
+don't have to incur any health care costs.
+
+Now we need to form our expected payoff \emph{before} the outcome is
+realized. With the two possible payoffs, \(w_{s}\) and \(w_{h}\), and
+the probabilities of each outcome, \(p_{s}\) and \(p_{h}\), we can write
+the expected value as simply the weighted average of the two payoffs,
+with the weights being the respective probabilities:
+
+\[E[w] = p_{h}w_{h} + p_{s}w_{s}\]
+
+Keeping the same probabilities from earlier, \(p_{h}=0.9\) and
+\(p_{s}=0.1\), and substituting the respective probabilities and payoffs
+yields an expected value of \$950.
+
+Another expectation that we'll need to form is the expected cost. In our
+examples, we only incur a cost if we are sick. The expected cost formula
+looks very similar, \(E[cost]=p_{h}cost_{h} + p_{s}cost_{s}\), but
+\(cost_{h}=0\). So the expected cost is just \(p_{s}cost_{s}\), or \$50.
+
+\hypertarget{preferences}{%
+\subsection*{Preferences}\label{preferences}}
+\addcontentsline{toc}{subsection}{Preferences}
+
+Preferences take the form of a utility function, \(u(x)\), which tells
+us how much ``benefit'' we get from some consumption bundle, \(x\). In
+economics, we tend to assume individuals make decisions not based on the
+strict monetary payoff but instead on the utility of this payoff. Among
+other things, this way of thinking introduces the idea of diminishing
+marginal utility, so that more of something means less to us if we
+already have a lot of it. More formally, this means
+\(u'(x_{1})>u'(x_{2})\) for \(x_{1}<x_{2}\).
+
+We can then combine the notion of consumer utility with expected value
+in order to form the expected utility:
+
+\[E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})\] As an example, let's assume
+that preferences are such that \(u(x)=\sqrt x\). In that case, our
+expected utility is 30.7. Note that we take the expectation over two
+different possible utility values, rather than the utility of our
+expected wealth. This is an important distinction and is necessary to
+understand risk premiums and willingness to pay for health insurance.
+
+\hypertarget{risk-preferences}{%
+\section{Risk preferences}\label{risk-preferences}}
+
+With the basics of probability, utility, and expected value, we can
+begin to measure risk preferences. Generally, we categorize people into
+three risk types:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Risk averse: Someone who prefers to avoid a risky situation and would
+  rather take less payoff with certainty than face two possible outcomes
+  with uncertainty.
+\item
+  Risk neutral: Someone who is indifferent between the risky situation
+  versus an uncertain outcome.
+\item
+  Risk loving: Someone who prefers risk and would rather face two
+  possible outcomes with uncertainty that receive the same outcome with
+  certainty.
+\end{enumerate}
+
+For our purposes, we will assume individuals are risk averse, which also
+follows from an assumption of diminishing marginal utility.
+Figure~\ref{fig-risk-averse} provides a graphical illustration of risk
+aversion, showing wealth/monetary values on the x-axis and utility on
+the y axis. The line segment in Figure~\ref{fig-risk-averse} joins two
+utility values, \(u(w_{s})\) and \(u(w_{h})\) --- this is the expected
+utility line. For any probabilities \(p_{s}\) and \(p_{h}\), \(E[u(w)]\)
+will fall somewhere on that line.
+
+\begin{figure}
+
+{\centering \includegraphics{part1/insurance-1-1_files/figure-pdf/fig-risk-averse-1.pdf}
+
+}
+
+\caption{\label{fig-risk-averse}Depiction of risk aversion}
+
+\end{figure}
+
+The most important thing to notice from Figure~\ref{fig-risk-averse} is
+that the line segment joining \(u(w_{h})\) and \(u(w_{s})\) falls
+entirely below the utility curve. Why does this matter? Let's work
+through a simple thought exercise, noting that the utility curve tells
+us the utility for a given value of \(w\) in the absence of any
+uncertainty. Pick any value of \(w\) between \(w_{s}\) and \(w_{h}\) and
+follow that value up to the expected utility line. For any such value,
+you would always prefer to have that amount of wealth with certainty
+than in expectation. So you always prefer a single outcome with
+certainty over an expected outcome (of the same monetary value) with
+uncertainty. Another way to think of this is to pick a utility value on
+the y axis. Reaching that utility value will take more wealth in
+expectation than it would in the absence of uncertainty.
+
+To fix ideas, consider another version of this graph in
+Figure~\ref{fig-risk-averse2}. As drawn, providing \(\bar{w}\) to this
+person (without any uncertainty) would yield a utility of \(\bar{u}\).
+But if they wanted to obtain the same utility with uncertainty, they
+would need \(\bar{w} + \pi\). This person would need to be given more
+money in order to take on some uncertainty.
+
+\begin{figure}
+
+{\centering \includegraphics{part1/insurance-1-1_files/figure-pdf/fig-risk-averse2-1.pdf}
+
+}
+
+\caption{\label{fig-risk-averse2}Depiction of risk aversion}
+
+\end{figure}
+
+\hypertarget{practice-problems}{%
+\section{Practice problems}\label{practice-problems}}
+
+\hypertarget{buying-insurance-ii}{%
+\chapter{Buying Insurance II}\label{buying-insurance-ii}}
+
+\hypertarget{insurance-markets-i}{%
+\chapter{Insurance Markets I}\label{insurance-markets-i}}
+
+\hypertarget{insurance-markets-ii}{%
+\chapter*{Insurance Markets II}\label{insurance-markets-ii}}
+\addcontentsline{toc}{chapter}{Insurance Markets II}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-commonwealth2019}{}}%
+{``U.{S}. {Health} {Care} from a {Global} {Perspective}, 2019 {\textbar}
+{Commonwealth} {Fund}.''} n.d. Accessed March 29, 2023.
+\url{https://www.commonwealthfund.org/publications/issue-briefs/2020/jan/us-health-care-global-perspective-2019}.
+
+\end{CSLReferences}
+
+
+
+\end{document}
