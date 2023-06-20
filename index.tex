@@ -185,7 +185,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, breakable, interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, interior hidden, boxrule=0pt, breakable, frame hidden, sharp corners, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -2704,25 +2704,25 @@ insurance plan.
 \section{Managed Care?}\label{managed-care}}
 
 One common term you might hear surrounding health insurance is
-\textbf{managed care}. ``Management'' in this context typically means
-that the insurer is trying to direct enrollees to certain providers over
-others, typically as a reflection of the prices they have negotiated
-with those providers. For example, assume there are two large hospital
-systems in a market, and that an insurer has negotiated lower payments
-with hospital A. Assume also that hospital A is pretty good ---
-sufficient quality, broad coverage of different conditions and
-treatments, etc. If an insurer could get its enrollees to go to hospital
-A instead of hospital B, then the insurer's costs would be lower (all
-else equal). So, the insurer might require that patients pay a little
-bit less out of pocket if they go to hospital A. This would be something
-like a Preferred Provider Organization (PPO), where the insurer will
-still pay for care provided at hospital B, but the patient might have to
-pay a larger share of that amount. Or, the insurer might refuse to pay
-at all of the patient goes to hospital B. This would be more like a
-Health Maintenance Organization (HMO), where the insurer will only pay
-for care at hospital A. Patients would have to pay the full amount for
-care if they go to hospital B. PPOs and HMOs are by far the most common
-forms of managed care insurance plans.
+\textbf{managed care} (Definition~\ref{def-managedcare}). ``Management''
+in this context typically means that the insurer is trying to direct
+enrollees to certain providers over others, typically as a reflection of
+the prices they have negotiated with those providers. For example,
+assume there are two large hospital systems in a market, and that an
+insurer has negotiated lower payments with hospital A. Assume also that
+hospital A is pretty good --- sufficient quality, broad coverage of
+different conditions and treatments, etc. If an insurer could get its
+enrollees to go to hospital A instead of hospital B, then the insurer's
+costs would be lower (all else equal). So, the insurer might require
+that patients pay a little bit less out of pocket if they go to hospital
+A. This would be something like a Preferred Provider Organization (PPO),
+where the insurer will still pay for care provided at hospital B, but
+the patient might have to pay a larger share of that amount. Or, the
+insurer might refuse to pay at all of the patient goes to hospital B.
+This would be more like a Health Maintenance Organization (HMO), where
+the insurer will only pay for care at hospital A. Patients would have to
+pay the full amount for care if they go to hospital B. PPOs and HMOs are
+by far the most common forms of managed care insurance plans.
 
 \begin{definition}[Managed
 Care]\protect\hypertarget{def-managedcare}{}\label{def-managedcare}
@@ -2737,48 +2737,147 @@ pricing.
 \hypertarget{networks}{%
 \section{Networks}\label{networks}}
 
+When insurers designate some hospitals as ``preferred'' places to
+receive care, as in an PPO, or refuse to pay for care at some hospitals
+entirely, as in an HMO, those insurers are constructing a health care
+\textbf{network} (Definition~\ref{def-insurancenetwork}). In this
+context, a provider is said to be ``in-network'' if the insurer has
+agreed to pay for care received from that provider. Conversely, an
+``out-of-network'' provider is one in which the insurer has not agreed
+on any terms of payment. Typically, care received by out-of-network
+providers must be paid entirely by the patient. Prices for
+out-of-network providers may also be extremely high due to the
+difference between ``charges'' and ``allowed amounts'', which I define
+briefly in Section~\ref{sec-prices1}.
+
+\begin{definition}[Insurance
+Networks]\protect\hypertarget{def-insurancenetwork}{}\label{def-insurancenetwork}
+
+A set of providers for which the insurer has agreed to pay some amount
+of care received at those providers, conditional on other cost-sharing
+terms of the insurance contract. The most common health insurance
+products that employ a network structure are referred to as Preferred
+Provider Organizations (PPOs) and Health Maintenance Organizations
+(HMOs). PPOs tend to have a tiered network structure, where patients
+will be responsible for less of the total cost of care when going to a
+higher tiered provider. HMOs tend to have a more discrete network
+structure, with some providers in-network and other providers
+out-of-network.
+
+\end{definition}
+
+Managed care and insurance networks are almost synonymous. An insurance
+plan uses networks to ``manage'' how/where patients tend to receive
+care. The threat of excluding a provider from the insurer's network, or
+place the provider in a lower tier, is akin to reducing the provider's
+number of likely patients and therefore confers some additional
+bargaining power to the insurer as they negotiate prices with providers.
+
 \hypertarget{cost-sharing}{%
 \section{Cost-sharing}\label{cost-sharing}}
 
-\hypertarget{different-prices}{%
-\section{Different Prices}\label{different-prices}}
+Cost-sharing generally refers to the amount of health care expenses that
+must be paid directly by the patient (as opposed to their insurance
+plan). The cost-sharing terms of an insurance contract will dictate how
+much a patient must pay out-of-pocket for any care received.
+Cost-sharing tends to encompass a \textbf{deductible}
+(Definition~\ref{def-deductible}), \textbf{co-insurance}
+(Definition~\ref{def-coinsurance}), and \textbf{co-payment}
+(Definition~\ref{def-copayment}).
 
-\hypertarget{basics-of-health-insurance}{%
-\chapter{Basics of Health Insurance}\label{basics-of-health-insurance}}
+\begin{definition}[Deductible]\protect\hypertarget{def-deductible}{}\label{def-deductible}
 
-Even for health economists, understanding health insurance can be
-challenging. Much of the practical aspects of health insurance will
-remain unclear until you actually deal with certain frustrations
-personally --- such as providers that don't accept insurance
-(particularly common for dentists, optometrists, and mental health care
-in general) or the differences between in- and out-of-network providers,
-with associated differences in deductibles and out-of-pocket maximums.
-And if all of that sounds like gobbledegook, then you're in the right
-place! The purpose of this chapter is to lay out some basic health
-insurance terminology and how it all fits in the context of a health
-insurance plan.
+The amount of money that a patient must pay out-of-pocket before the
+insurance company will pay \textbf{anything}. For example, if you have a
+\$2,000 deductible, then you must pay entirely out-of-pocket for the
+first \$2,000 worth of care you receive in that year. Once you've paid
+your deductible in a given year, we say that you've ``met'' your
+deductible.
 
-\hypertarget{managed-care-2}{%
-\section{Managed Care?}\label{managed-care-2}}
+\end{definition}
+
+\begin{definition}[Co-insurance]\protect\hypertarget{def-coinsurance}{}\label{def-coinsurance}
+
+A percentage of costs for which the patient is responsible \textbf{after
+meeting their deductible.} For example, assume you have a 20\%
+co-insurance rate. Assume also that you've met your deductible and that
+you've received a hospital bill for \$5,000. Then you'd have to pay
+\$1,000 (20\% of \$5,000) to the hospital as your co-insurance. The
+insurer would pay the remaining 80\%. Co-insurance is more common for
+more complicated or less predictable services, like hospital stays or
+emergency department visits.
+
+\end{definition}
+
+\begin{definition}[Co-payment]\protect\hypertarget{def-copayment}{}\label{def-copayment}
+
+A fixed dollar amount for which the patient is responsible \textbf{after
+meeting their deductible.} Co-payments are more common for low-cost,
+predictable health care services like physician office visits. Patients
+might have a \$20 co-pay for office visits, which means they must pay
+\$20 for the visit and the insurance company will pay the rest.
+
+\end{definition}
+
+Note that co-insurance and co-payments both exist within a single
+insurance product. Some services may have a co-payment (e.g., office
+visits or prescription drugs), while other services may have a
+co-insurance rate. In either case, they only apply after you've met your
+annual deductible. And of course, you still have to pay a monthly
+insurance \textbf{premium}. Such monthly premiums are not considered
+``cost sharing'' because you pay them even if you never receive any
+health care --- cost sharing only refers to how you share costs with
+your insurance company for care received.
+
+\hypertarget{sec-prices1}{%
+\section{Different Prices}\label{sec-prices1}}
+
+We'll cover this in more detail in our chapter on hospital pricing and
+bargaining, but for now, note that health care ``prices'' are not as
+well-defined as they are in many other services or products. In health
+care, there is typically a \textbf{charge} and an \textbf{allowed
+amount}. The \textbf{charge} is like a suggested retail price (although
+even further removed from actual costs) --- it captures what the
+provider would like to be paid for a service. The \textbf{allowed
+amount} is the actual price --- it captures the negotiated rate that the
+provider and insurer have agreed to for a given service.
+
+By definition, if there is no such agreement (e.g., the provider is
+out-of-network), then patients are asked to pay the charge amount. And
+unfortunately, this is not just a difference of semantics. Charges can
+exceed allowed amounts by thousands of dollars. Again, we'll have a lot
+more to say about this toward the end of the book.
+
+\hypertarget{getting-health-insurance}{%
+\chapter{Getting Health Insurance}\label{getting-health-insurance}}
+
+One area where the U.S. health care system is relatively unique is that
+we have a very fragmented way of providing health insurance. The purpose
+of this chapter is to describe the different ways people receive health
+insurance in the U.S.
+
+\hypertarget{employer-sponsored-insurance}{%
+\section{Employer Sponsored
+Insurance}\label{employer-sponsored-insurance}}
 
 One common term you might hear surrounding health insurance is
 \textbf{managed care}.
 
-\begin{definition}[Managed
-Care]\protect\hypertarget{def-managedcare}{}\label{def-managedcare}
+\hypertarget{non-group-and-small-group-insurance}{%
+\section{Non-group and small-group
+insurance}\label{non-group-and-small-group-insurance}}
 
-Something
+\hypertarget{medicare}{%
+\section{Medicare}\label{medicare}}
 
-\end{definition}
+\hypertarget{medicare-advantage}{%
+\section{Medicare Advantage}\label{medicare-advantage}}
 
-\hypertarget{networks-1}{%
-\section{Networks}\label{networks-1}}
+\hypertarget{medicaid}{%
+\section{Medicaid}\label{medicaid}}
 
-\hypertarget{cost-sharing-1}{%
-\section{Cost-sharing}\label{cost-sharing-1}}
-
-\hypertarget{different-prices-1}{%
-\section{Different Prices}\label{different-prices-1}}
+\hypertarget{veterans-administration}{%
+\section{Veterans Administration}\label{veterans-administration}}
 
 \hypertarget{risk-and-risk-premium}{%
 \chapter{Risk and Risk Premium}\label{risk-and-risk-premium}}
