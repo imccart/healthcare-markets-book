@@ -1,3 +1,29 @@
 ---
-title: "Buying Insurance II"
+title: "Basics of Health Insurance"
 ---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+Even for health economists, understanding health insurance can be challenging. Much of the practical aspects of health insurance will remain unclear until you actually deal with certain frustrations personally --- such as providers that don't accept insurance (particularly common for dentists, optometrists, and mental health care in general) or the differences between in- and out-of-network providers, with associated differences in deductibles and out-of-pocket maximums. And if all of that sounds like gobbledegook, then you're in the right place! The purpose of this chapter is to lay out some basic health insurance terminology and how it all fits in the context of a health insurance plan.
+
+## Managed Care?
+One common term you might hear surrounding health insurance is **managed care**. 
+
+::: {#def-managedcare}
+
+## Managed Care
+Something
+
+:::
+
+## Networks
+
+## Cost-sharing
+
+## Different Prices
+
+

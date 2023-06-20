@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - 2&nbsp; Buying Insurance II</title>
+<title>Economics of Health Care - 2&nbsp; Basics of Health Insurance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-1-2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Buying Insurance II</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-1-2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of Health Insurance</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -122,25 +122,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-1-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Buying Insurance I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-1-2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Buying Insurance II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of Health Insurance</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-2-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Insurance Markets I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Risk and Risk Premium</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-2-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Insurance Markets II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Buying Insurance II</span></span></a>
   </div>
 </li>
       </ul>
@@ -151,14 +151,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#managed-care" id="toc-managed-care" class="nav-link active" data-scroll-target="#managed-care"><span class="header-section-number">2.1</span> Managed Care?</a></li>
+  <li><a href="#networks" id="toc-networks" class="nav-link" data-scroll-target="#networks"><span class="header-section-number">2.2</span> Networks</a></li>
+  <li><a href="#cost-sharing" id="toc-cost-sharing" class="nav-link" data-scroll-target="#cost-sharing"><span class="header-section-number">2.3</span> Cost-sharing</a></li>
+  <li><a href="#different-prices" id="toc-different-prices" class="nav-link" data-scroll-target="#different-prices"><span class="header-section-number">2.4</span> Different Prices</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Buying Insurance II</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of Health Insurance</span></h1>
 </div>
 
 
@@ -173,8 +182,25 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Even for health economists, understanding health insurance can be challenging. Much of the practical aspects of health insurance will remain unclear until you actually deal with certain frustrations personally — such as providers that don’t accept insurance (particularly common for dentists, optometrists, and mental health care in general) or the differences between in- and out-of-network providers, with associated differences in deductibles and out-of-pocket maximums. And if all of that sounds like gobbledegook, then you’re in the right place! The purpose of this chapter is to lay out some basic health insurance terminology and how it all fits in the context of a health insurance plan.</p>
+<section id="managed-care" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="managed-care"><span class="header-section-number">2.1</span> Managed Care?</h2>
+<p>One common term you might hear surrounding health insurance is <strong>managed care</strong>.</p>
+<div id="def-managedcare" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1 (Managed Care) </strong></span>Something</p>
+</div>
+</section>
+<section id="networks" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="networks"><span class="header-section-number">2.2</span> Networks</h2>
+</section>
+<section id="cost-sharing" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="cost-sharing"><span class="header-section-number">2.3</span> Cost-sharing</h2>
+</section>
+<section id="different-prices" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="different-prices"><span class="header-section-number">2.4</span> Different Prices</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -413,12 +439,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../part1/insurance-1-1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Buying Insurance I</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terminology</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../part1/insurance-2-1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Insurance Markets I</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Risk and Risk Premium</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
