@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - Health Insurance</title>
+<title>Economics of Health Care - 3&nbsp; Understanding Risk</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part1/insurance-1-1.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../part1/insurance-2-2.html" rel="next">
+<link href="../part1/insurance-1-2.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +61,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -73,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-2-1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -112,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link active">
+            <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Health Insurance</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -133,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part1/insurance-2-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../part1/insurance-2-1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></span></a>
   </div>
 </li>
@@ -155,9 +157,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#supplemental-resources" id="toc-supplemental-resources" class="nav-link" data-scroll-target="#supplemental-resources">Supplemental Resources</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#describing-risk" id="toc-describing-risk" class="nav-link active" data-scroll-target="#describing-risk"><span class="header-section-number">3.1</span> Describing Risk</a>
+  <ul class="collapse">
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability">Probability</a></li>
+  <li><a href="#payoffs" id="toc-payoffs" class="nav-link" data-scroll-target="#payoffs">Payoffs</a></li>
+  <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value">Expected value</a></li>
+  <li><a href="#preferences" id="toc-preferences" class="nav-link" data-scroll-target="#preferences">Preferences</a></li>
+  </ul></li>
+  <li><a href="#risk-preferences" id="toc-risk-preferences" class="nav-link" data-scroll-target="#risk-preferences"><span class="header-section-number">3.2</span> Risk preferences</a></li>
   </ul>
 </nav>
     </div>
@@ -166,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Health Insurance</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></h1>
 </div>
 
 
@@ -181,44 +188,66 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Section I of the book covers health insurance. First, we discuss the basics of a health insurance product or contract — kind of a primer on how insurance works in the U.S. from a patient’s perspective, and how people receive health insurance in the U.S. This is the subject of Chapters 1 and 2. We then get into the economic theory of why people buy health insurance, particularly how individual health status and risk preferences affect the willingness to pay for health insurance. This is the subject of Chapters 3 and 4 (Buying Insurance). We then move from an individual’s insurance decision to the market, focusing on the problem of adverse selection and its implications for premiums and insurance coverage. This is the subject of Chapters 5 and 6 (Insurance Markets). Finally, I conclude Section I of the book with a discussion of current health insurance policy in the U.S. and a brief collection of important health insurance terminology.</p>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Let’s motivate our study of health insurance with a simple story of Humana and the ACA exchanges. In 2018, <a href="https://money.cnn.com/2017/02/14/news/economy/humana-obamacare-insurer">Humana withdrew from the ACA exchanges</a> citing an “unbalanced risk pool” due to the results of the 2017 open enrollment period. The risk pool refers to the collection of policyholders and their corresponding risk levels. In this context, Humana essentially claimed that their enrollees were too sick and too expensive relative to the plan premiums. Humana had also just had their proposed merger with Aetna blocked by the Department of Justice (details <a href="https://www.npr.org/sections/thetwo-way/2017/02/14/515167491/aetna-and-humana-call-off-merger-after-court-decision">here</a>), which may have also been related to the decision to drop out of the ACA exchanges.</p>
-<p>Managing the risk pool is critical for insurers (not just health insurers). One reason that this is so important is because of something called <a href="https://www.healthcare.gov/glossary/community-rating/">“community rating”</a> which sets restrictions on how much insurers can change premiums for different enrollees in the same market. While there is some opportunity to charge some enrollees different premiums, it’s useful just to think of community rating as requiring all enrollees in a given market to be charged with the same premium. So, since insurers can’t ask some people to pay more than others, they have to set their premiums so that the revenue collected from the very healthy enrollees (those that don’t use much health care) offsets any losses paid out to providers for very unhealthy enrollees (those that use lots of health care, or those that are just very unlucky in a given year). If an insurer underestimates the share of high-need patients enrolling in a plan, then they will have an “unbalanced risk pool” and incur more expenses than expected, potentially to the point of eroding any profits from the low-need enrollees.</p>
-<p><a href="#fig-meps">Figure&nbsp;<span>1</span></a> highlights the relationship between health care utilization and patients’ underlying health status, where we see that those self-reported to be of low health also have the highest health care expenditures and most frequent encounters with the health care system. As is clear from these figures, insurers can expect to incur more costs as less healthy patients enroll in their plans.</p>
-<div id="fig-meps" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-meps-spend" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../figures/meps-expenditure.png" class="quarto-discovered-preview-image img-fluid figure-img" data-ref-parent="fig-meps"></p>
-<p></p><figcaption class="figure-caption">(a) spend</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-meps-visits" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../figures/meps-visits.png" class="img-fluid figure-img" data-ref-parent="fig-meps"></p>
-<p></p><figcaption class="figure-caption">(b) visits</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Health care expenditures and encounters by health status</figcaption><p></p>
-</figure>
-</div>
+<p>As George Costanza learned in his audio book in Seinfeld, “In order to manage risk, we must first define risk.” So that’s what we’ll do first.</p>
+<p>In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I’m therefore subjected to both a health risk and a financial risk (because I have to pay for health care). Health insurance is poorly named because it doesn’t actually insure against the health risk. Instead, it insures against the financial risk from negative health events.</p>
+<section id="describing-risk" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="describing-risk"><span class="header-section-number">3.1</span> Describing Risk</h2>
+<p>The more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let’s discuss each of these elements in more detail.</p>
+<section id="probability" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="probability">Probability</h3>
+<p>Probability is defined as the likelihood that a given outcome will occur. For example, this handy/depressing <a href="https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/">risk calculator</a> can tell me the probability of developing heart disease over the next 10 years. Let’s say that’s 10%. In this case, it would mean that if there were 1000 people exactly like me, 100 of them will develop heart disease over the next 10 years and 900 would not.</p>
+<p>We’ll only work with examples where there are two possible outcomes, sick or healthy (i.e., needing health care or not needing health care). I’ll denote the probabilities of these events by <span class="math inline">\(p_{s}\)</span> and <span class="math inline">\(p_{h}\)</span>, noting also that <span class="math inline">\(p_{h}=1-p_{s}\)</span>, and vice versa, since we have only two possible events.</p>
 </section>
-<section id="supplemental-resources" class="level2">
-<h2 class="anchored" data-anchor-id="supplemental-resources">Supplemental Resources</h2>
-<ul>
-<li>Readers can access the supplemental class slides for this material <a href="supp/index-slides.html">here</a>.</li>
-</ul>
+<section id="payoffs" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="payoffs">Payoffs</h3>
+<p>Payoffs in this case simply reflect the monetary value of each possible outcome. Sticking with the example of getting sick or staying healthy, let’s say we will incur $500 in health care costs if we become sick and $0 if we remain healthy. If we start with $1,000, then our payoff in the event that we are sick is <span class="math inline">\(w_{s}=1000-500=500\)</span>, and our payoff if we remain healthy is <span class="math inline">\(w_{h}=1000\)</span>.</p>
 </section>
-<section id="bibliography" class="level2">
-<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
+<section id="expected-value" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value">Expected value</h3>
+<p>Quick recap…we begin with $1,000, and we have two possible outcomes: 1) we become sick; and 2) we stay healthy. We will become sick with probability <span class="math inline">\(p_{s}\)</span>, in which case we’ll only have $500 left after paying for our health care. We will stay healthy with probability <span class="math inline">\(p_{h}\)</span>, in which case we’ll keep our original $1,000 because we don’t have to incur any health care costs.</p>
+<p>Now we need to form our expected payoff <em>before</em> the outcome is realized. With the two possible payoffs, <span class="math inline">\(w_{s}\)</span> and <span class="math inline">\(w_{h}\)</span>, and the probabilities of each outcome, <span class="math inline">\(p_{s}\)</span> and <span class="math inline">\(p_{h}\)</span>, we can write the expected value as simply the weighted average of the two payoffs, with the weights being the respective probabilities:</p>
+<p><span class="math display">\[E[w] = p_{h}w_{h} + p_{s}w_{s}\]</span></p>
+<p>Keeping the same probabilities from earlier, <span class="math inline">\(p_{h}=0.9\)</span> and <span class="math inline">\(p_{s}=0.1\)</span>, and substituting the respective probabilities and payoffs yields an expected value of $950.</p>
+<p>Another expectation that we’ll need to form is the expected cost. In our examples, we only incur a cost if we are sick. The expected cost formula looks very similar, <span class="math inline">\(E[cost]=p_{h}cost_{h} + p_{s}cost_{s}\)</span>, but <span class="math inline">\(cost_{h}=0\)</span>. So the expected cost is just <span class="math inline">\(p_{s}cost_{s}\)</span>, or $50.</p>
+</section>
+<section id="preferences" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="preferences">Preferences</h3>
+<p>Preferences take the form of a utility function, <span class="math inline">\(u(x)\)</span>, which tells us how much “benefit” we get from some consumption bundle, <span class="math inline">\(x\)</span>. In economics, we tend to assume individuals make decisions not based on the strict monetary payoff but instead on the utility of this payoff. Among other things, this way of thinking introduces the idea of diminishing marginal utility, so that more of something means less to us if we already have a lot of it. More formally, this means <span class="math inline">\(u'(x_{1})&gt;u'(x_{2})\)</span> for <span class="math inline">\(x_{1}&lt;x_{2}\)</span>.</p>
+<p>We can then combine the notion of consumer utility with expected value in order to form the expected utility:</p>
+<p><span class="math display">\[E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})\]</span> As an example, let’s assume that preferences are such that <span class="math inline">\(u(x)=\sqrt x\)</span>. In that case, our expected utility is 30.7. Note that we take the expectation over two different possible utility values, rather than the utility of our expected wealth. This is an important distinction and is necessary to understand risk premiums and willingness to pay for health insurance.</p>
+</section>
+</section>
+<section id="risk-preferences" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="risk-preferences"><span class="header-section-number">3.2</span> Risk preferences</h2>
+<p>With the basics of probability, utility, and expected value, we can begin to measure risk preferences. Generally, we categorize people into three risk types:</p>
+<ol type="1">
+<li>Risk averse: Someone who prefers to avoid a risky situation and would rather take less payoff with certainty than face two possible outcomes with uncertainty.</li>
+<li>Risk neutral: Someone who is indifferent between the risky situation versus an uncertain outcome.</li>
+<li>Risk loving: Someone who prefers risk and would rather face two possible outcomes with uncertainty that receive the same outcome with certainty.</li>
+</ol>
+<p>For our purposes, we will assume individuals are risk averse, which also follows from an assumption of diminishing marginal utility. <a href="#fig-risk-averse">Figure&nbsp;<span>3.1</span></a> provides a graphical illustration of risk aversion, showing wealth/monetary values on the x-axis and utility on the y axis. The line segment in <a href="#fig-risk-averse">Figure&nbsp;<span>3.1</span></a> joins two utility values, <span class="math inline">\(u(w_{s})\)</span> and <span class="math inline">\(u(w_{h})\)</span> — this is the expected utility line. For any probabilities <span class="math inline">\(p_{s}\)</span> and <span class="math inline">\(p_{h}\)</span>, <span class="math inline">\(E[u(w)]\)</span> will fall somewhere on that line.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-risk-averse" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-2-1_files/figure-html/fig-risk-averse-1.png" class="quarto-discovered-preview-image img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Depiction of risk aversion</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The most important thing to notice from <a href="#fig-risk-averse">Figure&nbsp;<span>3.1</span></a> is that the line segment joining <span class="math inline">\(u(w_{h})\)</span> and <span class="math inline">\(u(w_{s})\)</span> falls entirely below the utility curve. Why does this matter? Let’s work through a simple thought exercise, noting that the utility curve tells us the utility for a given value of <span class="math inline">\(w\)</span> in the absence of any uncertainty. Pick any value of <span class="math inline">\(w\)</span> between <span class="math inline">\(w_{s}\)</span> and <span class="math inline">\(w_{h}\)</span> and follow that value up to the expected utility line. For any such value, you would always prefer to have that amount of wealth with certainty than in expectation. So you always prefer a single outcome with certainty over an expected outcome (of the same monetary value) with uncertainty. Another way to think of this is to pick a utility value on the y axis. Reaching that utility value will take more wealth in expectation than it would in the absence of uncertainty.</p>
+<p>To fix ideas, consider another version of this graph in <a href="#fig-risk-averse2">Figure&nbsp;<span>3.2</span></a>. As drawn, providing <span class="math inline">\(\bar{w}\)</span> to this person (without any uncertainty) would yield a utility of <span class="math inline">\(\bar{u}\)</span>. But if they wanted to obtain the same utility with uncertainty, they would need <span class="math inline">\(\bar{w} + \pi\)</span>. This person would need to be given more money in order to take on some uncertainty.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-risk-averse2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-2-1_files/figure-html/fig-risk-averse2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Depiction of risk aversion</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -459,13 +488,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      <a href="../part1/insurance-1-2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Health Insurance</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part1/insurance-1-1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terminology</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part1/insurance-2-2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
