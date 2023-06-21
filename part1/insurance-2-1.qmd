@@ -1,5 +1,5 @@
 ---
-title: "Risk and Risk Premium"
+title: "Understanding Risk"
 ---
 
 ```{r}
@@ -13,7 +13,7 @@ As George Costanza learned in his audio book in Seinfeld, "In order to manage ri
 In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I'm therefore subjected to both a health risk and a financial risk (because I have to pay for health care). Health insurance is poorly named because it doesn't actually insure against the health risk. Instead, it insures against the financial risk from negative health events.
 
 
-## Describing Risk {#sec-riskpremium}
+## Describing Risk
 
 The more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let's discuss each of these elements in more detail.
 
@@ -145,5 +145,4 @@ To fix ideas, consider another version of this graph in @fig-risk-averse2. As dr
 \end{tikzpicture}
 ```
 
-## Practice problems
 
