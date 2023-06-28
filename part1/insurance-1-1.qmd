@@ -13,6 +13,9 @@ Historically, health insurance was relatively simple. You would pay a little bit
 
 But over time, especially as health care became more and more expensive, health insurance has become more and more complicated. At this point, even for health economists, understanding health insurance can be challenging. Much of the practical aspects of health insurance will remain unclear until you actually deal with certain frustrations personally --- such as providers that don't accept insurance (particularly common for dentists, optometrists, and mental health care in general) or the differences between in- and out-of-network providers, with associated differences in deductibles and out-of-pocket maximums. And if all of that sounds like gobbledegook, then you're in the right place! The purpose of this chapter is to lay out some basic health insurance terminology and how it all fits in the context of a health insurance plan.
 
+## Insuring health?
+
+Let's get this out of the way first. Health insurance can be a confusing name because it doesn't actually insure *health*, just as life insurance doesn't actually insure your life. Instead, health insurance protects us against the financial risk from negative health events. There is some evidence that health insurance does actually improve health, mainly by ensuring access to care, but that's not necessarily the explicit purpose of health insurance.
 
 ## Managed Care?
 

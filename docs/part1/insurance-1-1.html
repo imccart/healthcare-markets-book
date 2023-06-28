@@ -143,6 +143,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Adverse Selection and Pricing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Health Insurance Competition</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -155,10 +167,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#managed-care" id="toc-managed-care" class="nav-link active" data-scroll-target="#managed-care"><span class="header-section-number">1.1</span> Managed Care?</a></li>
-  <li><a href="#networks" id="toc-networks" class="nav-link" data-scroll-target="#networks"><span class="header-section-number">1.2</span> Networks</a></li>
-  <li><a href="#cost-sharing" id="toc-cost-sharing" class="nav-link" data-scroll-target="#cost-sharing"><span class="header-section-number">1.3</span> Cost-sharing</a></li>
-  <li><a href="#sec-prices1" id="toc-sec-prices1" class="nav-link" data-scroll-target="#sec-prices1"><span class="header-section-number">1.4</span> Different Prices</a></li>
+  <li><a href="#insuring-health" id="toc-insuring-health" class="nav-link active" data-scroll-target="#insuring-health"><span class="header-section-number">1.1</span> Insuring health?</a></li>
+  <li><a href="#managed-care" id="toc-managed-care" class="nav-link" data-scroll-target="#managed-care"><span class="header-section-number">1.2</span> Managed Care?</a></li>
+  <li><a href="#networks" id="toc-networks" class="nav-link" data-scroll-target="#networks"><span class="header-section-number">1.3</span> Networks</a></li>
+  <li><a href="#cost-sharing" id="toc-cost-sharing" class="nav-link" data-scroll-target="#cost-sharing"><span class="header-section-number">1.4</span> Cost-sharing</a></li>
+  <li><a href="#sec-prices1" id="toc-sec-prices1" class="nav-link" data-scroll-target="#sec-prices1"><span class="header-section-number">1.5</span> Different Prices</a></li>
   </ul>
 </nav>
     </div>
@@ -182,25 +195,29 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Historically, health insurance was relatively simple. You would pay a little bit every month to a health insurance company (sometimes little more than a union) in order to get access to health care should you need it. The insurance company would then pay for that care. The idea is that some patients will use relatively little care, generating excess revenue to the insurance company, while some other patients will use relatively more care, generating a loss. On average, if the insurance company priced their services appropriately, the excess revenue from the low-utilization patients will exceed the losses from the high-utilization patients. This is theoretically possible due to something called a <strong>risk premium</strong>, which we discuss in more detail in <a href="insurance-2-2.html#sec-riskpremium">Chapter&nbsp;<span>4.1</span></a>.</p>
+<p>Historically, health insurance was relatively simple. You would pay a little bit every month to a health insurance company (sometimes little more than a union) in order to get access to health care should you need it. The insurance company would then pay for that care. The idea is that some patients will use relatively little care, generating excess revenue to the insurance company, while some other patients will use relatively more care, generating a loss. On average, if the insurance company priced their services appropriately, the excess revenue from the low-utilization patients will exceed the losses from the high-utilization patients. This is theoretically possible due to something called a <strong>risk premium</strong>, which we discuss in more detail in <a href="insurance-2-2.html#sec-riskpremium">Chapter&nbsp;<span>4.2</span></a>.</p>
 <p>But over time, especially as health care became more and more expensive, health insurance has become more and more complicated. At this point, even for health economists, understanding health insurance can be challenging. Much of the practical aspects of health insurance will remain unclear until you actually deal with certain frustrations personally — such as providers that don’t accept insurance (particularly common for dentists, optometrists, and mental health care in general) or the differences between in- and out-of-network providers, with associated differences in deductibles and out-of-pocket maximums. And if all of that sounds like gobbledegook, then you’re in the right place! The purpose of this chapter is to lay out some basic health insurance terminology and how it all fits in the context of a health insurance plan.</p>
-<section id="managed-care" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="managed-care"><span class="header-section-number">1.1</span> Managed Care?</h2>
+<section id="insuring-health" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="insuring-health"><span class="header-section-number">1.1</span> Insuring health?</h2>
+<p>Let’s get this out of the way first. Health insurance can be a confusing name because it doesn’t actually insure <em>health</em>, just as life insurance doesn’t actually insure your life. Instead, health insurance protects us against the financial risk from negative health events. There is some evidence that health insurance does actually improve health, mainly by ensuring access to care, but that’s not necessarily the explicit purpose of health insurance.</p>
+</section>
+<section id="managed-care" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="managed-care"><span class="header-section-number">1.2</span> Managed Care?</h2>
 <p>One common term you might hear surrounding health insurance is <strong>managed care</strong> (<a href="#def-managedcare">Definition&nbsp;<span>1.1</span></a>). “Management” in this context typically means that the insurer is trying to direct enrollees to certain providers over others, typically as a reflection of the prices they have negotiated with those providers. For example, assume there are two large hospital systems in a market, and that an insurer has negotiated lower payments with hospital A. Assume also that hospital A is pretty good — sufficient quality, broad coverage of different conditions and treatments, etc. If an insurer could get its enrollees to go to hospital A instead of hospital B, then the insurer’s costs would be lower (all else equal). So, the insurer might require that patients pay a little bit less out of pocket if they go to hospital A. This would be something like a Preferred Provider Organization (PPO), where the insurer will still pay for care provided at hospital B, but the patient might have to pay a larger share of that amount. Or, the insurer might refuse to pay at all of the patient goes to hospital B. This would be more like a Health Maintenance Organization (HMO), where the insurer will only pay for care at hospital A. Patients would have to pay the full amount for care if they go to hospital B. PPOs and HMOs are by far the most common forms of managed care insurance plans.</p>
 <div id="def-managedcare" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.1 (Managed Care) </strong></span>A health insurance product that encompasses some attempt to manage utilization of health care among its enrollees, often via assigning providers (physicians, hospitals, etc.) into tiers separated based on pricing.</p>
 </div>
 </section>
-<section id="networks" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="networks"><span class="header-section-number">1.2</span> Networks</h2>
-<p>When insurers designate some hospitals as “preferred” places to receive care, as in an PPO, or refuse to pay for care at some hospitals entirely, as in an HMO, those insurers are constructing a health care <strong>network</strong> (<a href="#def-insurancenetwork">Definition&nbsp;<span>1.2</span></a>). In this context, a provider is said to be “in-network” if the insurer has agreed to pay for care received from that provider. Conversely, an “out-of-network” provider is one in which the insurer has not agreed on any terms of payment. Typically, care received by out-of-network providers must be paid entirely by the patient. Prices for out-of-network providers may also be extremely high due to the difference between “charges” and “allowed amounts”, which I define briefly in <a href="#sec-prices1">Section&nbsp;<span>1.4</span></a>.</p>
+<section id="networks" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="networks"><span class="header-section-number">1.3</span> Networks</h2>
+<p>When insurers designate some hospitals as “preferred” places to receive care, as in an PPO, or refuse to pay for care at some hospitals entirely, as in an HMO, those insurers are constructing a health care <strong>network</strong> (<a href="#def-insurancenetwork">Definition&nbsp;<span>1.2</span></a>). In this context, a provider is said to be “in-network” if the insurer has agreed to pay for care received from that provider. Conversely, an “out-of-network” provider is one in which the insurer has not agreed on any terms of payment. Typically, care received by out-of-network providers must be paid entirely by the patient. Prices for out-of-network providers may also be extremely high due to the difference between “charges” and “allowed amounts”, which I define briefly in <a href="#sec-prices1">Section&nbsp;<span>1.5</span></a>.</p>
 <div id="def-insurancenetwork" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.2 (Insurance Networks) </strong></span>A set of providers for which the insurer has agreed to pay some amount of care received at those providers, conditional on other cost-sharing terms of the insurance contract. The most common health insurance products that employ a network structure are referred to as Preferred Provider Organizations (PPOs) and Health Maintenance Organizations (HMOs). PPOs tend to have a tiered network structure, where patients will be responsible for less of the total cost of care when going to a higher tiered provider. HMOs tend to have a more discrete network structure, with some providers in-network and other providers out-of-network.</p>
 </div>
 <p>Managed care and insurance networks are almost synonymous. An insurance plan uses networks to “manage” how/where patients tend to receive care. The threat of excluding a provider from the insurer’s network, or place the provider in a lower tier, is akin to reducing the provider’s number of likely patients and therefore confers some additional bargaining power to the insurer as they negotiate prices with providers.</p>
 </section>
-<section id="cost-sharing" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="cost-sharing"><span class="header-section-number">1.3</span> Cost-sharing</h2>
+<section id="cost-sharing" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="cost-sharing"><span class="header-section-number">1.4</span> Cost-sharing</h2>
 <p>Cost-sharing generally refers to the amount of health care expenses that must be paid directly by the patient (as opposed to their insurance plan). The cost-sharing terms of an insurance contract will dictate how much a patient must pay out-of-pocket for any care received. Cost-sharing tends to encompass a <strong>deductible</strong> (<a href="#def-deductible">Definition&nbsp;<span>1.3</span></a>), <strong>co-insurance</strong> (<a href="#def-coinsurance">Definition&nbsp;<span>1.4</span></a>), and <strong>co-payment</strong> (<a href="#def-copayment">Definition&nbsp;<span>1.5</span></a>).</p>
 <div id="def-deductible" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.3 (Deductible) </strong></span>The amount of money that a patient must pay out-of-pocket before the insurance company will pay <strong>anything</strong>. For example, if you have a $2,000 deductible, then you must pay entirely out-of-pocket for the first $2,000 worth of care you receive in that year. Once you’ve paid your deductible in a given year, we say that you’ve “met” your deductible.</p>
@@ -213,8 +230,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Note that co-insurance and co-payments both exist within a single insurance product. Some services may have a co-payment (e.g., office visits or prescription drugs), while other services may have a co-insurance rate. In either case, they only apply after you’ve met your annual deductible. And of course, you still have to pay a monthly insurance <strong>premium</strong>. Such monthly premiums are not considered “cost sharing” because you pay them even if you never receive any health care — cost sharing only refers to how you share costs with your insurance company for care received.</p>
 </section>
-<section id="sec-prices1" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="sec-prices1"><span class="header-section-number">1.4</span> Different Prices</h2>
+<section id="sec-prices1" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-prices1"><span class="header-section-number">1.5</span> Different Prices</h2>
 <p>We’ll cover this in more detail in our chapter on hospital pricing and bargaining, but for now, note that health care “prices” are not as well-defined as they are in many other services or products. In health care, there is typically a <strong>charge</strong> and an <strong>allowed amount</strong>. The <strong>charge</strong> is like a suggested retail price (although even further removed from actual costs) — it captures what the provider would like to be paid for a service. The <strong>allowed amount</strong> is the actual price — it captures the negotiated rate that the provider and insurer have agreed to for a given service.</p>
 <p>By definition, if there is no such agreement (e.g., the provider is out-of-network), then patients are asked to pay the charge amount. And unfortunately, this is not just a difference of semantics. Charges can exceed allowed amounts by thousands of dollars. Again, we’ll have a lot more to say about this toward the end of the book.</p>
 

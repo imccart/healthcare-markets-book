@@ -8,9 +8,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-As George Costanza learned in his audio book in Seinfeld, "In order to manage risk, we must first define risk." So that's what we'll do first.
-
-In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I'm therefore subjected to both a health risk and a financial risk (because I have to pay for health care). Health insurance is poorly named because it doesn't actually insure against the health risk. Instead, it insures against the financial risk from negative health events.
+As George Costanza learned in his audio book in Seinfeld, "In order to manage risk, we must first define risk." So that's what we'll do first. In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I'm therefore subjected to both a health risk and a financial risk (because I have to pay for health care). 
 
 
 ## Describing Risk
