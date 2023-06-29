@@ -45,7 +45,9 @@ Premiums are what enrollees pay every month regardless of whether they use any h
 ![premiums](../figures/kff-premiums.webp){#fig-premiums}
 
 ## Cost-sharing
-Cost-sharing generally refers to the amount of health care expenses that must be paid directly by the patient (as opposed to their insurance plan). The cost-sharing terms of an insurance contract will dictate how much a patient must pay out-of-pocket for any care received. Cost-sharing tends to encompass a **deductible** (@def-deductible), **co-insurance** (@def-coinsurance), and **co-payment** (@def-copayment). 
+Cost-sharing generally refers to the amount of health care expenses that must be paid directly by the patient (as opposed to their insurance plan). The cost-sharing terms of an insurance contract will dictate how much a patient must pay out-of-pocket for any care received. Cost-sharing tends to encompass a **deductible** (@def-deductible), **co-insurance** (@def-coinsurance), and **co-payment** (@def-copayment). Trends in these different forms of cost-sharing (among people with employer sponsored insurance) are presented in @fig-cost-sharing, where it is clear that insurers are relying more on high deductibles and co-insurance over time, with a drop in relative share of copayments.
+
+![cost-sharing](../figures/kff-cost-sharing.png){#fig-cost-sharing}
 
 ::: {#def-deductible}
 
