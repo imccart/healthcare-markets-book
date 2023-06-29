@@ -42,12 +42,12 @@ Managed care and insurance networks are almost synonymous. An insurance plan use
 ## Premiums
 Premiums are what enrollees pay every month regardless of whether they use any health care. For people with employer-sponsored health insurance (more on this later), these premiums are shared between the employee and the employer. As evident in @fig-premiums, premiums have persistently increased over time, posing financial challenges for individuals, families, and businesses alike. Several factors contribute to this continuous escalation. Advances in medical technology and pharmaceuticals, while offering remarkable breakthroughs in treatments, often come at a high price. Additionally, the growing demand for healthcare services due to an aging population and the prevalence of chronic diseases further strains the healthcare system, resulting in increased costs. Furthermore, administrative expenses, regulatory compliance, and insurance company profits contribute to the overall premium growth. As a result, individuals and employers are faced with the ongoing challenge of balancing the need for comprehensive health coverage with the financial burden of ever-increasing premiums. The substantial increase in health insurance premiums underscores the need for continued efforts to address healthcare costs and explore innovative solutions to ensure affordable access to quality healthcare for all.
 
-![premiums](../figures/kff-premiums.webp){#fig-premiums}
+![Premiums](../figures/kff-premiums.webp){#fig-premiums}
 
 ## Cost-sharing
 Cost-sharing generally refers to the amount of health care expenses that must be paid directly by the patient (as opposed to their insurance plan). The cost-sharing terms of an insurance contract will dictate how much a patient must pay out-of-pocket for any care received. Cost-sharing tends to encompass a **deductible** (@def-deductible), **co-insurance** (@def-coinsurance), and **co-payment** (@def-copayment). Trends in these different forms of cost-sharing (among people with employer sponsored insurance) are presented in @fig-cost-sharing, where it is clear that insurers are relying more on high deductibles and co-insurance over time, with a drop in relative share of copayments.
 
-![cost-sharing](../figures/kff-cost-sharing.png){#fig-cost-sharing}
+![Cost-sharing](../figures/kff-cost-sharing.png){#fig-cost-sharing}
 
 ::: {#def-deductible}
 
