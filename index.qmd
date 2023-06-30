@@ -138,9 +138,4 @@ The U.S. health care system is also heavily fragmented. We have several differen
 
 Overall, these challenges highlight the need for innovative solutions to address the inefficiencies of the U.S. health care system and improve health outcomes for all Americans. But such solutions are impossible without a solid understanding of the economics of the U.S. health care system. 
 
-
-## Supplemental Resources
-
-- Readers can access the supplemental class slides for this material [here](supp/index-slides.html).
-
 ## Bibliography
