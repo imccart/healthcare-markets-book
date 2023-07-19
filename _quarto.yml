@@ -17,6 +17,9 @@ book:
         - part1/insurance-2-2.qmd
         - part1/insurance-3-1.qmd
         - part1/insurance-3-2.qmd
+    - part: part2/physicians-0.qmd
+      chapters:
+        - part2/physicians-1-1.qmd
 
 bibliography: BibTeX_Library.bib
 
