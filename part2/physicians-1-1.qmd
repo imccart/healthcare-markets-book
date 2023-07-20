@@ -1,5 +1,5 @@
 ---
-title: "Terminology"
+title: "Physicians as Gatekeepers"
 ---
 
 ```{r}
@@ -8,74 +8,44 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-Historically, health insurance was relatively simple. You would pay a little bit every month to a health insurance company (sometimes little more than a union) in order to get access to health care should you need it. The insurance company would then pay for that care. We'll talk history of health insurance in [Chapter -@sec-hi-history]. But financially, the idea from the health insurer's perspective is that some patients will use relatively little care, generating excess revenue to the insurance company, while some other patients will use relatively more care, generating a loss. On average, if the insurance company priced their services appropriately, the excess revenue from the low-utilization patients will exceed the losses from the high-utilization patients. This is theoretically possible due to something called a **risk premium**, which we discuss in more detail in [Chapter -@sec-riskpremium]. 
+The U.S. health care system, like its insurance system, is unique in many ways. One of its defining features is its fragmentation and heavily decentralized nature. As such, individual health care experiences differ dramatically across and even within geographic locations. The purpose of this chapter is to provide a basic understanding of the organizational structure of the U.S. health care system, focusing in particular on the role of physicians in health care delivery. 
 
-Over time, especially as health care became more and more expensive, health insurance has become more and more complicated. At this point, even for health economists, understanding health insurance can be challenging. Much of the practical aspects of health insurance will remain unclear until you actually deal with certain frustrations personally --- such as providers that don't accept insurance (particularly common for dentists, optometrists, and mental health care in general) or the differences between in- and out-of-network providers, with associated differences in deductibles and out-of-pocket maximums. And if all of that sounds like gobbledegook, then you're in the right place! The purpose of this chapter is to lay out some basic health insurance terminology and how it all fits in the context of a health insurance plan.
+## Basic Structure of Health Care Delivery
 
-## Insuring health?
+Healthcare delivery involves a wide range of players and components. Physicians, nurses, hospitals, prescription drugs, rehabilitation services, long-term care services, and ancillary services like laboratories and imaging centers collectively form the diverse landscape of healthcare. Among these, physicians play a particularly influential role as they have a significant impact on various aspects of healthcare delivery.
 
-Let's get this out of the way first. Health insurance can be a confusing name because it doesn't actually insure *health*, just as life insurance doesn't actually insure your life. Instead, health insurance protects us against the financial risk from negative health events. There is some evidence that health insurance does actually improve health, mainly by ensuring access to care, but that's not necessarily the explicit purpose of health insurance.
+Physician training and interactions are crucial factors that shape healthcare practices. Training, residency, and fellowship programs can influence the future practice styles of physicians. Additionally, the distinction between primary care and specialists, as well as referrals within and across different types of physicians, significantly impact the dynamics of healthcare interactions.
 
-## Managed Care?
+Physicians can also have different organizational affiliations, which further shape their practice environments. Some physicians are self-employed, managing their own practices, while others are part of larger group practices. There are also physicians who are vertically integrated with hospitals or insurers, establishing closer ties with these entities.
 
-One common term you might hear surrounding health insurance is **managed care** (@def-managedcare). "Management" in this context typically means that the insurer is trying to direct enrollees to certain providers over others, typically as a reflection of the prices they have negotiated with those providers. For example, assume there are two large hospital systems in a market, and that an insurer has negotiated lower payments with hospital A. Assume also that hospital A is pretty good --- sufficient quality, broad coverage of different conditions and treatments, etc. If an insurer could get its enrollees to go to hospital A instead of hospital B, then the insurer's costs would be lower (all else equal). So, the insurer might require that patients pay a little bit less out of pocket if they go to hospital A. This would be something like a Preferred Provider Organization (PPO), where the insurer will still pay for care provided at hospital B, but the patient might have to pay a larger share of that amount. Or, the insurer might refuse to pay at all of the patient goes to hospital B. This would be more like a Health Maintenance Organization (HMO), where the insurer will only pay for care at hospital A. Patients would have to pay the full amount for care if they go to hospital B. PPOs and HMOs are by far the most common forms of managed care insurance plans.
+Many treatments also involve some interaction between a physician and a hospital. Here, the healthcare landscape encompasses various types of hospitals catering to different needs. These include general acute-care hospitals for short-term treatments, rehabilitation hospitals, specialty hospitals such as Children's hospitals, orthopedic, cardiac, and cancer centers, long-term care hospitals, as well as stand-alone surgery centers and emergency departments. The distinction between inpatient and outpatient services adds to the diversity of healthcare facilities.
 
-::: {#def-managedcare}
+Ownership type is another significant aspect within healthcare. Hospitals and healthcare organizations can have different ownership structures, such as government-owned or assisted, private not-for-profit, private for-profit, or even private equity ownership. These ownership models can impact the functioning and characteristics of healthcare institutions.
 
-## Managed Care
-A health insurance product that encompasses some attempt to manage utilization of health care among its enrollees, often via assigning providers (physicians, hospitals, etc.) into tiers separated based on pricing. 
+## The role of physicians
 
-:::
+Considering the diverse array of healthcare players and components, physicians hold a pivotal role as "gatekeepers" in many aspects of healthcare. They serve as the entry point into the healthcare system for most patients, including in emergency departments. Primary care physicians refer patients to specialists and ancillary services. Specialists, in turn, refer patients to other specialists and ancillary services, and may make decisions regarding the location of surgeries if required. Specialists or hospitalists also play a role in referring patients to follow-up care after inpatient stays. Moreover, physicians of all types are involved in selecting appropriate medications for patients.
 
-## Networks
-When insurers designate some hospitals as "preferred" places to receive care, as in an PPO, or refuse to pay for care at some hospitals entirely, as in an HMO, those insurers are constructing a health care **network** (@def-insurancenetwork). In this context, a provider is said to be "in-network" if the insurer has agreed to pay for care received from that provider. Conversely, an "out-of-network" provider is one in which the insurer has not agreed on any terms of payment. Typically, care received by out-of-network providers must be paid entirely by the patient. Prices for out-of-network providers may also be extremely high due to the difference between "charges" and "allowed amounts", which I define briefly in [Section -@sec-prices1].
+Physicians possess more information and knowledge compared to patients, granting them a higher level of influence over healthcare decisions. This concept, known as **physician agency**, refers to physicians acting as "agents" making or suggesting healthcare decisions on behalf of their patients. A crucial empirical question is therefore when and if these decisions align with what patients would have chosen themselves.
 
-::: {#def-insurancenetwork}
+## Variation in Health Care Utilization
 
-## Insurance Networks
-A set of providers for which the insurer has agreed to pay some amount of care received at those providers, conditional on other cost-sharing terms of the insurance contract. The most common health insurance products that employ a network structure are referred to as Preferred Provider Organizations (PPOs) and Health Maintenance Organizations (HMOs). PPOs tend to have a tiered network structure, where patients will be responsible for less of the total cost of care when going to a higher tiered provider. HMOs tend to have a more discrete network structure, with some providers in-network and other providers out-of-network.
+Physician agency has consequences that affect healthcare utilization and patient experiences. Patients may face information frictions or financial incentives influenced by physicians. The type of care individuals receive can depend on the preferences and practices of their physicians, leading to significant variation in healthcare utilization and spending across different markets and even within the same market. Understanding and addressing this variation is crucial for optimizing healthcare outcomes. The potential for physician influence on health care variation is exemplified in a recent report from the National Institute for Health Care Management, [Is Health Care Shoppable?](https://nihcm.org/publications/is-health-care-shoppable-1)
 
-:::
+Considering the impact of physician agency on healthcare spending, the Dartmouth Atlas of Health Care provides several ways of visualizing healthcare variation across different regions. As shown in @fig-variation, the U.S. experiences significant variation in health care utilization across different geographic areas.
 
-Managed care and insurance networks are almost synonymous. An insurance plan uses networks to "manage" how/where patients tend to receive care. The threat of excluding a provider from the insurer's network, or place the provider in a lower tier, is akin to reducing the provider's number of likely patients and therefore confers some additional bargaining power to the insurer as they negotiate prices with providers. 
+::: {#fig-variation layout-ncol=2}
 
-## Premiums
-Premiums are what enrollees pay every month regardless of whether they use any health care. For people with employer-sponsored health insurance (more on this later), these premiums are shared between the employee and the employer. As evident in @fig-premiums, premiums have persistently increased over time, posing financial challenges for individuals, families, and businesses alike. Several factors contribute to this continuous escalation. Advances in medical technology and pharmaceuticals, while offering remarkable breakthroughs in treatments, often come at a high price. Additionally, the growing demand for healthcare services due to an aging population and the prevalence of chronic diseases further strains the healthcare system, resulting in increased costs. Furthermore, administrative expenses, regulatory compliance, and insurance company profits contribute to the overall premium growth. As a result, individuals and employers are faced with the ongoing challenge of balancing the need for comprehensive health coverage with the financial burden of ever-increasing premiums. The substantial increase in health insurance premiums underscores the need for continued efforts to address healthcare costs and explore innovative solutions to ensure affordable access to quality healthcare for all.
+![](../figures/dartmouth_map.png){#fig-map}
 
-![Premiums](../figures/kff-premiums.webp){#fig-premiums}
+![](../figures/dartmouth_dist.png){#fig-dist}
 
-## Cost-sharing
-Cost-sharing generally refers to the amount of health care expenses that must be paid directly by the patient (as opposed to their insurance plan). The cost-sharing terms of an insurance contract will dictate how much a patient must pay out-of-pocket for any care received. Cost-sharing tends to encompass a **deductible** (@def-deductible), **co-insurance** (@def-coinsurance), and **co-payment** (@def-copayment). Trends in these different forms of cost-sharing (among people with employer sponsored insurance) are presented in @fig-cost-sharing, where it is clear that insurers are relying more on high deductibles and co-insurance over time, with a drop in relative share of copayments.
-
-![Cost-sharing](../figures/kff-cost-sharing.png){#fig-cost-sharing}
-
-::: {#def-deductible}
-
-## Deductible
-The amount of money that a patient must pay out-of-pocket before the insurance company will pay **anything**. For example, if you have a \$2,000 deductible, then you must pay entirely out-of-pocket for the first \$2,000 worth of care you receive in that year. Once you've paid your deductible in a given year, we say that you've "met" your deductible.
-
-:::
-
-::: {#def-coinsurance}
-
-## Co-insurance
-A percentage of costs for which the patient is responsible **after meeting their deductible.** For example, assume you have a 20% co-insurance rate. Assume also that you've met your deductible and that you've received a hospital bill for \$5,000. Then you'd have to pay \$1,000 (20% of \$5,000) to the hospital as your co-insurance. The insurer would pay the remaining 80%. Co-insurance is more common for more complicated or less predictable services, like hospital stays or emergency department visits.
-
-:::
+::::
 
 
-::: {#def-copayment}
+When examining healthcare variation, the concept of waste in healthcare comes into focus. Estimates suggest that more than 30% of healthcare expenditures are considered "wasteful." Examples of waste include payment differentials based on the location of treatment, overutilization of certain imaging techniques with limited benefit, inappropriate use of proton treatment for certain conditions, unnecessary placement of heart stents in specific patient populations, and the performance of arthroscopic knee surgery where other treatment options may be more suitable.
 
-## Co-payment
-A fixed dollar amount for which the patient is responsible **after meeting their deductible.** Co-payments are more common for low-cost, predictable health care services like physician office visits. Patients might have a \$20 co-pay for office visits, which means they must pay \$20 for the visit and the insurance company will pay the rest.
-
-:::
-
-Note that co-insurance and co-payments both exist within a single insurance product. Some services may have a co-payment (e.g., office visits or prescription drugs), while other services may have a co-insurance rate. In either case, they only apply after you've met your annual deductible. And of course, you still have to pay a monthly insurance **premium**. Such monthly premiums are not considered "cost sharing" because you pay them even if you never receive any health care --- cost sharing only refers to how you share costs with your insurance company for care received.
+However, identifying waste in healthcare is challenging, as many assessments are retrospective. It is difficult to pinpoint waste in advance. Nevertheless, it is important to explore strategies to reduce waste and optimize resource allocation in healthcare, taking into account the complexities of physician agency and the dynamic nature of healthcare decision-making.
 
 
-## Different Prices {#sec-prices1}
-We'll cover this in more detail in our chapter on hospital pricing and bargaining, but for now, note that health care "prices" are not as well-defined as they are in many other services or products. In health care, there is typically a **charge** and an **allowed amount**. The **charge** is like a suggested retail price (although even further removed from actual costs) --- it captures what the provider would like to be paid for a service. The **allowed amount** is the actual price --- it captures the negotiated rate that the provider and insurer have agreed to for a given service. 
-
-By definition, if there is no such agreement (e.g., the provider is out-of-network), then patients are asked to pay the charge amount. And unfortunately, this is not just a difference of semantics. Charges can exceed allowed amounts by thousands of dollars. Again, we'll have a lot more to say about this toward the end of the book.
 
