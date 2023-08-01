@@ -193,7 +193,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#defining-ffs-and-capitated-payments" id="toc-defining-ffs-and-capitated-payments" class="nav-link active" data-scroll-target="#defining-ffs-and-capitated-payments"><span class="header-section-number">9.1</span> Defining FFS and Capitated Payments</a></li>
+  <li><a href="#ffs-and-capitated-payments-in-physician-agency" id="toc-ffs-and-capitated-payments-in-physician-agency" class="nav-link" data-scroll-target="#ffs-and-capitated-payments-in-physician-agency"><span class="header-section-number">9.2</span> FFS and Capitated Payments in Physician Agency</a></li>
+  <li><a href="#capitation-in-practice" id="toc-capitation-in-practice" class="nav-link" data-scroll-target="#capitation-in-practice"><span class="header-section-number">9.3</span> Capitation in Practice</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -216,18 +224,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>In the prior chapter, we introduced a simple model of physician agency and financial incentives, and we saw how that model could predict “excess” care (i.e., physician’s choice of quantity of care beyond what the patient would have optimally selected themselves). Now let’s extend that model to allow for different payment models—in particular the role of fee-for-service (FFS) payments versus capitated payments.</p>
+<section id="defining-ffs-and-capitated-payments" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="defining-ffs-and-capitated-payments"><span class="header-section-number">9.1</span> Defining FFS and Capitated Payments</h2>
 <p>For our purposes, FFS payments simply consist of separate payments for each service, creating a system where more care leads to more revenue. This is how we envisioned payments in the model in the prior chapter. And with some slight adjustments, this is also how traditional Medicare pays for health care among its beneficiaries.</p>
 <p>In contrast, capitated payments provide a fixed amount intended to cover all expenses for a specific person or group, presenting a financial risk for healthcare providers. If actual expenses exceed the allocated amount, providers experience potential losses, while keeping costs below the capitated payment leads to profitability. The Kaiser system is probably the best example of a totally capitated payment system in the U.S. It’s a private health insurance plan with an associated network of providers. Only people enrolled in the Kaiser insurance plan have access to the Kaiser providers, so it’s a closed system of insurance and providers. Accountable Care Organizations are also similar to a fully capitated model, although not exactly since ACOs are voluntary.</p>
 <p>The differences between FFS and capitated payments create distinct incentives for healthcare providers. In the FFS model, the primary incentive is to maximize revenue by delivering more services, potentially leading to overutilization and unnecessary treatments. On the other hand, capitated payments incentivize providers to be more prudent in their service delivery to avoid financial losses, potentially leading to underprovision of care.</p>
+</section>
+<section id="ffs-and-capitated-payments-in-physician-agency" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="ffs-and-capitated-payments-in-physician-agency"><span class="header-section-number">9.2</span> FFS and Capitated Payments in Physician Agency</h2>
 <p>To see this more formally, let’s set up a new version of our agency model. Physicians receive a fixed amount per patient, denoted <span class="math inline">\(R\)</span>, along with a price per unit of service, <span class="math inline">\(p_{s}\)</span>. Given the choice of quantity of care, <span class="math inline">\(x\)</span>, (assumed to be the same for each patient) physicians receive <span class="math inline">\(R + (p_{s} - c)x\)</span> for each patient. Finally, the number of patients for each physician is expressed as a positive function of the net benefit offered, <span class="math inline">\(n(NB)\)</span>, where <span class="math inline">\(NB=B(x) - p_{d}x\)</span>. Here, we’re also allowing separate prices paid by the patient versus prices received by the provider, where the patient pays <span class="math inline">\(p_{d}\)</span> and the physician receives <span class="math inline">\(p_{s}\)</span>. We also assume that the physician has no control over prices. They can only affect the amount of care, <span class="math inline">\(x\)</span>.</p>
 <p>Physician’s again aim to maximize profits by optimizing the profit function, <span class="math inline">\(\pi=n(NB)\left[R+(p_{s}-c)x\right]\)</span>. This maximization problems yields the following first order condition:</p>
 <p><span class="math display">\[n'(NB)(B'(x) - p_{d}) \left[R + (p_{s} - c)x \right] + n(NB)(p_{s}-c) = 0.\]</span></p>
 <p>Rearranging terms and multiplying both sides by <span class="math inline">\(\frac{1}{NB}\)</span>, we get: <span id="eq-agency-cap"><span class="math display">\[\frac{B'(x) - p_{d}}{NB} \frac{R + (p_{s} - c)x}{p_{s}-c} = - \frac{1}{\varepsilon_{n,NB}}. \tag{9.1}\]</span></span></p>
 <p>Even without any specific assumptions on the benefit function, we can begin to say something about the physician’s selection of <span class="math inline">\(x\)</span> relative to the patient’s own optimal <span class="math inline">\(x\)</span> under different payment scenarios. For example, assume that <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span>, so that there is no capitated payment and the physician is reimbursed entirely on a FFS basis. In that case, the second term on the left hand side of <a href="#eq-agency-cap">Equation&nbsp;<span>9.1</span></a> must be positive. Since we know the product on the left hand side must be negative (to match the sign of the right hand side), then it follows that <span class="math inline">\(B'(x) - p_{d}&lt;0\)</span>. Since we also know that the patient would optimally set <span class="math inline">\(B'(x)=p_{d}\)</span>, then the case of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span> must be such that the physician overtreats relative to the patient’s optimal. That’s the only way for <span class="math inline">\(B'(x)&lt;p_{d}\)</span>.</p>
 <p>Alternatively, let’s consider the case of <span class="math inline">\(R&gt;0\)</span> with <span class="math inline">\(p_{s}&lt;c\)</span>, so that the physician now earns a set amount of money per patient but <em>loses</em> money on each unit of care. In a purely capitated model, we would set <span class="math inline">\(p_{s}=0&lt;c\)</span>. Imposing these constraints onto <a href="#eq-agency-cap">Equation&nbsp;<span>9.1</span></a>, note that the second half of the left hand side is now negative since <span class="math inline">\(p_{s}-c&lt;0\)</span> (assuming <span class="math inline">\(R-(p_{s} -c)x&gt;0\)</span>, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., <span class="math inline">\(B'(x)&gt;p_{d}\)</span>), so that physicians now undertreat relative to the patient’s optimal.</p>
+</section>
+<section id="capitation-in-practice" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="capitation-in-practice"><span class="header-section-number">9.3</span> Capitation in Practice</h2>
 <p>In practice, there are few examples of purely capitated payment models in the U.S. health care system. The Kaiser system is one example in the private insurance market. In the public insurance market, the closest examples of capitated payments are probably Bundled Payments and Accountable Care Organizations. Apart from capitation, Pay for Performance (P4P) programs are also employed in Medicare to incentivize quality care and positive patient outcomes. These programs include the Hospital Readmission Reduction Program, Value-based Purchasing, and the Quality Payment Program for physicians, each encouraging high-quality care and improved patient experiences through various metrics and financial incentives. The goal of such P4P programs is partly to counter the wedge between physician and patient optimal care introduced by the incentives from the underlying payment models.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

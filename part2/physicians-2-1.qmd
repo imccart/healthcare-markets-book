@@ -88,3 +88,5 @@ b(x)\frac{\mathrm{d}x}{\mathrm{d}p} - x - p\frac{\mathrm{d}x}{\mathrm{d}p} &= 0 
 
 So there is a negative relationship between $x$ and $\bar{p}$. This means that, when the administratively set price ($p$) increases, we observe a decrease in the quantity of services provided. Conversely, if the price decreases, the quantity of services provided increases. Understanding the relationship between administrative price changes and healthcare utilization is crucial for policy considerations. If we aim to reduce healthcare utilization or spending, attempting to do so solely by cutting payments might not be effective. The comparative statics analysis demonstrates that changes in administratively set prices have direct implications for the quantity of services provided by physicians.
 
+
+## References {.unnumbered}

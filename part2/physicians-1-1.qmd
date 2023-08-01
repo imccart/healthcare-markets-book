@@ -32,15 +32,15 @@ Physicians possess more information and knowledge compared to patients, granting
 
 Physician agency has consequences that affect healthcare utilization and patient experiences. Patients may face information frictions or financial incentives influenced by physicians. The type of care individuals receive can depend on the preferences and practices of their physicians, leading to significant variation in healthcare utilization and spending across different markets and even within the same market. Understanding and addressing this variation is crucial for optimizing healthcare outcomes. The potential for physician influence on health care variation is exemplified in a recent report from the National Institute for Health Care Management, [Is Health Care Shoppable?](https://nihcm.org/publications/is-health-care-shoppable-1)
 
-Considering the impact of physician agency on healthcare spending, the Dartmouth Atlas of Health Care provides several ways of visualizing healthcare variation across different regions. As shown in @fig-variation, the U.S. experiences significant variation in health care utilization across different geographic areas.
+Considering the impact of physician agency on healthcare spending, the Dartmouth Atlas of Health Care provides several ways of visualizing healthcare variation across different regions. As shown in @fig-variation1, the U.S. experiences significant variation in health care utilization across different geographic areas.
 
-::: {#fig-variation layout-ncol=2}
+![Map of U.S. Medicare Spending per Beneficiary](../figures/dartmouth_map.png){#fig-variation1}
 
-![](../figures/dartmouth_map.png){#fig-map}
 
-![](../figures/dartmouth_dist.png){#fig-dist}
+The extent of this variation is perhaps better illustrated with a plot of per-beneficiary spending, as in @fig-variation2. 
 
-::::
+![Plot of U.S. Medicare Spending per Beneficiary](../figures/dartmouth_dist.png){#fig-variation2}
+
 
 
 When examining healthcare variation, the concept of waste in healthcare comes into focus. Estimates suggest that more than 30% of healthcare expenditures are considered "wasteful." Examples of waste include payment differentials based on the location of treatment, overutilization of certain imaging techniques with limited benefit, inappropriate use of proton treatment for certain conditions, unnecessary placement of heart stents in specific patient populations, and the performance of arthroscopic knee surgery where other treatment options may be more suitable.
