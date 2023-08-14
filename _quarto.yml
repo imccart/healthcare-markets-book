@@ -23,6 +23,10 @@ book:
         - part2/physicians-2-1.qmd
         - part2/physicians-2-2.qmd
         - part2/physicians-3-1.qmd
+        - part2/physicians-3-2.qmd
+    - part: part3/hospitals-0.qmd
+      chapters: 
+        - part3/hospitals-1-1.qmd
 
 bibliography: BibTeX_Library.bib
 

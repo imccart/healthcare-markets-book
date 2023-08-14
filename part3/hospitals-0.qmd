@@ -1,0 +1,5 @@
+---
+title: "Hospitals"
+---
+
+Section III of the book covers hospitals and healthcare competition.
