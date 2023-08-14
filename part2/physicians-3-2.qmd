@@ -3,9 +3,11 @@ title: "Physician Training and Practice Environment"
 ---
 
 ## Motivation
+
 As highlighted in our discussion of physician learning, there is an element of healthcare variation that is due to a physician's "initial conditions" or the prior. Something that leads one physician to treat patients from another, not because of differential experience in medical practice, but because of some other underlying differences. The purpose of this chapter is to discuss a few of these sources of heterogeneities.
 
 ## Training
+
 One source of such a difference is their medical training. This encompasses various aspects crucial to shaping the competencies and practices of medical professionals. These areas include medical education and the selection of specialization. The significance of these facets cannot be understated, as they collectively mold the approach and conduct of physicians in their practice. Medical education forms the foundation upon which physicians build their knowledge and skills. It involves a standardized curriculum that aims to provide a consistent level of training to medical students. This training equips future physicians with the requisite medical knowledge, diagnostic abilities, and clinical skills needed to effectively address patient needs. Selecting a specialization represents a critical juncture in a physician's career path. The decision to pursue a particular specialty can significantly impact the trajectory of a physician's practice. Specializations encompass distinct areas of medicine, each with its unique set of challenges, patient populations, and treatment paradigms.
 
 In addition, while not a formal component of training, personal biases can play a subtle yet influential role in a physician's practice. These biases, stemming from individual beliefs and experiences, can unconsciously affect diagnosis, treatment decisions, and patient interactions. Recognizing and addressing these biases is crucial to ensuring equitable and evidence-based healthcare delivery.
