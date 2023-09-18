@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - 14&nbsp; Single-price Market</title>
+<title>Economics of Health Care - 15&nbsp; Two-price Market</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part3/hospitals-2-2.html" rel="next">
-<link href="../part3/hospitals-1-2.html" rel="prev">
+<link href="../part3/hospitals-2-1.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -76,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part3/hospitals-0.html">Hospitals</a></li><li class="breadcrumb-item"><a href="../part3/hospitals-2-1.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Single-price Market</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part3/hospitals-0.html">Hospitals</a></li><li class="breadcrumb-item"><a href="../part3/hospitals-2-2.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-price Market</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -224,13 +223,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part3/hospitals-2-1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../part3/hospitals-2-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Single-price Market</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part3/hospitals-2-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../part3/hospitals-2-2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-price Market</span></span></a>
   </div>
 </li>
@@ -246,12 +245,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#price-setting-with-market-power" id="toc-price-setting-with-market-power" class="nav-link active" data-scroll-target="#price-setting-with-market-power"><span class="header-section-number">14.1</span> Price-setting with market power</a>
-  <ul class="collapse">
-  <li><a href="#for-nfp-objective-functions" id="toc-for-nfp-objective-functions" class="nav-link" data-scroll-target="#for-nfp-objective-functions"><span class="header-section-number">14.1.1</span> For NFP objective functions</a></li>
-  <li><a href="#for-fp-objective-functions" id="toc-for-fp-objective-functions" class="nav-link" data-scroll-target="#for-fp-objective-functions"><span class="header-section-number">14.1.2</span> For FP objective functions</a></li>
-  </ul></li>
-  <li><a href="#pure-price-taker" id="toc-pure-price-taker" class="nav-link" data-scroll-target="#pure-price-taker"><span class="header-section-number">14.2</span> Pure Price Taker</a></li>
+  <li><a href="#assuming-profit-maximiation" id="toc-assuming-profit-maximiation" class="nav-link active" data-scroll-target="#assuming-profit-maximiation"><span class="header-section-number">15.1</span> Assuming Profit Maximiation</a></li>
+  <li><a href="#assuming-not-for-profit" id="toc-assuming-not-for-profit" class="nav-link" data-scroll-target="#assuming-not-for-profit"><span class="header-section-number">15.2</span> Assuming Not-for-profit</a></li>
   </ul>
 </nav>
     </div>
@@ -260,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Single-price Market</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-price Market</span></h1>
 </div>
 
 
@@ -275,49 +270,26 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Within the realm of healthcare economics, providers commonly encounter two distinct pricing scenarios. Firstly, there is a predetermined price set by government programs such as Medicare and Medicaid, denoted as <span class="math inline">\(p_m\)</span>. Secondly, providers engage in negotiations with private insurers to establish a price, referred to as <span class="math inline">\(p_n\)</span>. The prices set public insurers (<span class="math inline">\(p_m\)</span>) may influence the negotiated price with private insurers (<span class="math inline">\(p_n\)</span>). For example, providers may employ the Medicare price as a reference point during negotiations with insurers.</p>
-<p>Before we think about the interplay of both prices, however, let’s focus just on a single-price provider. We’ll look first at the case of a provider setting price with some market power, and then we’ll turn to the case of a fixed price.</p>
-<section id="price-setting-with-market-power" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="price-setting-with-market-power"><span class="header-section-number">14.1</span> Price-setting with market power</h2>
-<section id="for-nfp-objective-functions" class="level3" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="for-nfp-objective-functions"><span class="header-section-number">14.1.1</span> For NFP objective functions</h3>
-<p>Let’s assume for now that not-for-profit hospitals are truly not-for-profit and have the following objective function: <span class="math display">\[max_{p_{i,j}} U\left( \pi_{j} = \pi_{i,j} + \pi_{g,j},D_{i,j}, D_{g,j} \right),\]</span></p>
-<p>where <span class="math inline">\(\pi_{j}\)</span> denotes total profits for hospital <span class="math inline">\(j\)</span>, <span class="math inline">\(\pi_{i,j}\)</span> denotes profits from payer <span class="math inline">\(i\)</span> and hospital <span class="math inline">\(j\)</span>, <span class="math inline">\(\pi_{g,j}\)</span> denotes profits from a government payer and hospital <span class="math inline">\(j\)</span>, and <span class="math inline">\(D_{i,j}\)</span> denotes hospital demand from insurer <span class="math inline">\(i\)</span>. We assume that <span class="math inline">\(p_{g}\)</span> is exogenous and determined by a public payer, so the hospital need only set its price for private insurance customers, <span class="math inline">\(p_{i,j}\)</span>.</p>
-<p>The hospital chooses <span class="math inline">\(p_{i}\)</span> such that</p>
-<p><span class="math display">\[\frac{\mathrm{d}U}{\mathrm{d}p_{i}} = U_{1} \pi_{1}^{i} + U_{2} \frac{\mathrm{d}D_{i}}{\mathrm{d}p_{i}}=0\]</span></p>
-<p>where <span class="math inline">\(U_{1}\)</span> denotes the derivative of <span class="math inline">\(U(\cdot)\)</span> with respect to its first argument and similarly for <span class="math inline">\(U_{2}\)</span>. In general, we can’t solve this directly without knowing the hospital’s utility function. But we can say something about the potential relationship between <span class="math inline">\(p_{i}\)</span> and <span class="math inline">\(p_{g}\)</span>, which we’ll turn to in the next chapter.</p>
-</section>
-<section id="for-fp-objective-functions" class="level3" data-number="14.1.2">
-<h3 data-number="14.1.2" class="anchored" data-anchor-id="for-fp-objective-functions"><span class="header-section-number">14.1.2</span> For FP objective functions</h3>
-<p>If we instead assumse that the hospital maximizes <span class="math inline">\(\pi_{i,j}\)</span> (e.g., the profit from insurer <span class="math inline">\(i\)</span>), then this takes the form of a standard price-setting problem for a monopolisitcally competitive firm, illustrated in <a href="#fig-hosp-price">Figure&nbsp;<span>14.1</span></a>.</p>
+<p>Recall our original discussion of prices from the prior chapter, wherein healthcare providers commonly encounter two distinct pricing scenarios. Firstly, there is a predetermined price set by government programs such as Medicare and Medicaid, denoted as <span class="math inline">\(p_m\)</span>. Secondly, providers engage in negotiations with private insurers to establish a price, referred to as <span class="math inline">\(p_n\)</span>. The prices set public insurers (<span class="math inline">\(p_m\)</span>) may influence the negotiated price with private insurers (<span class="math inline">\(p_n\)</span>). For example, providers may employ the Medicare price as a reference point during negotiations with insurers. In this chapter, we’ll focus on how these two types of markets interact for a single provider.</p>
+<section id="assuming-profit-maximiation" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="assuming-profit-maximiation"><span class="header-section-number">15.1</span> Assuming Profit Maximiation</h2>
+<p>If the provider behaves as a profit maximizing firm, then their profit maximizing choice of quantity is to first sell to “private” market as long as marginal revenue exceeds the public price, and then switch to “public” market otherwise, and sell to the point where price equals marginal cost. This is depicted graphically in <a href="#fig-two-price-market">Figure&nbsp;<span>15.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-hosp-price" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-two-price-market" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="hospitals-2-1_files/figure-html/fig-hosp-price-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.1: For-profit Price-setting</figcaption>
+<p><img src="hospitals-2-2_files/figure-html/fig-two-price-market-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;15.1: Two-price market</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As a simple example, consider a firm with (inverse) demand curve, <span class="math inline">\(d=16-q\)</span>, and cost curve, <span class="math inline">\(c(q)=5+q^{2}\)</span>. We want to find the firm’s price, the quantity at that price, and their markup over marginal costs (just for fun).</p>
-<p>Let’s first write out the profit function, <span class="math inline">\(\pi = (16-q)q - 5 - q^{2}\)</span>. Differentiating with respect to quantity yields <span class="math inline">\(-q + 16 - q - 2q= 16-4q=0\)</span>, or <span class="math inline">\(q=4\)</span>. At this quantity, the price is <span class="math inline">\(p=12\)</span>, which is a markup of 4 over the marginal cost (or 50% markup). This should all feel very familiar from your intro and intermediate microeconomics courses.</p>
 </section>
-</section>
-<section id="pure-price-taker" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="pure-price-taker"><span class="header-section-number">14.2</span> Pure Price Taker</h2>
-<p>Now let’s turn to the case of a pure price taker (e.g., a hospital must accept the price set by a public payer). In this case, the hospital will sell at the public price to the point where marginal revenue equals marginal cost, as depicted in <a href="#fig-hosp-price-taker">Figure&nbsp;<span>14.2</span></a>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-hosp-price-taker" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hospitals-2-1_files/figure-html/fig-hosp-price-taker-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.2: Pure Price Taker</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>The key intuition here is that the public price is the firm’s marginal revenue. The firm can sell as much quantity as it wants at that fixed marginal revenue. While this is a simple example, this becomes more interesting when we consider a firm as both a pure price taker in one market (e.g., Medicare patients) and a price setter in another market (e.g., for commercial insurance patients). We’ll turn to that in the next chapter.</p>
+<section id="assuming-not-for-profit" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="assuming-not-for-profit"><span class="header-section-number">15.2</span> Assuming Not-for-profit</h2>
+<p>As discussed when we first introduced a not-for-profit firm’s objective function, we don’t know the general solution for the private price for a NFP hospital; however, we can say something about how it varies with the public price. Recalling the NFP hospital’s objective function, <span class="math display">\[\max_{p_{i,j}} U\left( \pi_{j} = \pi_{i,j} + \pi_{g,j},D_{i,j}, D_{g,j} \right),\]</span> we can take the first order condition wrt <span class="math inline">\(p_{i}\)</span> and use the implicit function theorem This is reflected in <a href="#eq-nfp-two-price">Equation&nbsp;<span>15.1</span></a>, which shows the derivative of the private price, <span class="math inline">\(p_{i}\)</span>, with respect to the public price, <span class="math inline">\(p_{g}\)</span> using the implicit function theorem:</p>
+<p><span id="eq-nfp-two-price"><span class="math display">\[\frac{\mathrm{d}p_{i}}{\mathrm{d}p_{g}} = - \frac{U_{11}\pi_{1}^{i}\pi_{1}^{g} + \frac{\mathrm{d}D_{i}}{\mathrm{d}p_{i}}U_{12}\pi_{1}^{g}}{\frac{\mathrm{d}^{2}U}{\mathrm{d}p_{i}^{2}}} \tag{15.1}\]</span></span></p>
+<p>The idea that hospitals will increase private prices following a decrease in the public price is called <strong>cost shifting</strong>. The presence of cost-shifting somewhat assumes that hospitals could have increased private prices earlier but chose not too. This is technically possible if, for example, hospitals have very low margins (possibly negative if the public price is too low), the insurer wants to sustain the hospital for competition purposes, or the hospital has diminishing returns to profits. However, economists usually see this as a smaller effect than most policy makers or health services researchers. The argument over cost-shifting can actually get pretty intense, wich some academics adament that it can’t happen and others adament that it is a strong force.</p>
 
 
 </section>
@@ -558,14 +530,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part3/hospitals-1-2.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ownership and Objective Functions</span></span>
+      <a href="../part3/hospitals-2-1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Single-price Market</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part3/hospitals-2-2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-price Market</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
