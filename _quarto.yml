@@ -30,6 +30,8 @@ book:
         - part3/hospitals-1-2.qmd
         - part3/hospitals-2-1.qmd
         - part3/hospitals-2-2.qmd
+        - part3/hospitals-3-1.qmd
+        - part3/hospitals-3-2.qmd
 
 bibliography: BibTeX_Library.bib
 
