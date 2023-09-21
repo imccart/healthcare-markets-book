@@ -32,6 +32,9 @@ book:
         - part3/hospitals-2-2.qmd
         - part3/hospitals-3-1.qmd
         - part3/hospitals-3-2.qmd
+    - part: part4/pharma-0.qmd
+      chapters:
+        - part4/pharma-1-1.qmd
 
 bibliography: BibTeX_Library.bib
 

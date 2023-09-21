@@ -8,9 +8,9 @@ prefer-html: true
 ```{r}
 #| include: false
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, ggplot2, janitor, plotly)
+pacman::p_load(tidyverse, ggplot2, janitor, plotly, here)
 
-ins.dat <- read_delim("../data/acs/acs_insurance.txt")
+ins.dat <- read_delim(here("data/acs/acs_insurance.txt"))
 
 ins.dat <- ins.dat %>%
   mutate(perc_private = (ins_employer + ins_direct)/adult_pop,
