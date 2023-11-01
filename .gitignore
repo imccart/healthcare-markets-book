@@ -1,4 +1,5 @@
 /.quarto/
 docs/CNAME
 data/*
+index_files/*
 BibTeX_Library.bib
