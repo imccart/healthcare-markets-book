@@ -37,6 +37,7 @@ book:
         - part4/pharma-1-1.qmd
         - part4/pharma-1-2.qmd
         - part4/pharma-1-3.qmd
+        - part4/pharma-1-4.qmd
 
 bibliography: BibTeX_Library.bib
 
