@@ -1,0 +1,5 @@
+---
+title: "Physicians"
+---
+
+Section II of the book covers physician behaviors and treatment decisions. First, in Chapter 7, we discuss the basic structure of U.S. health care delivery, the physician's role in the broader health care delivery system, and the persistent variation in health care utilization across and even within geographic markets. We then introduce the idea of physician agency and explain how asymmetric information and differential incentives may introduce some divergence between a patient's ideal health care consumption versus the observed amount of health care delivered. This is the subject of Chapter 8. Next, in Chapter 9, we discuss how different payment models may influence the extent and direction of such a divergence, focusing on the extreme cases of fee-for-service payments versus fully capitated payments. Finally, we discuss three other major determinants of physician practice patterns --- learning and practice environment, the latter of which we discuss in the context of physician training and location. This is the subject of Chapters 10 and 11.

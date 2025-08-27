@@ -1,0 +1,5 @@
+---
+title: "Prescription Drugs"
+---
+
+Section IV of the book covers prescription drugs. In Chapter 18, we introduce prescription drugs and provide a broad overview of the institutional details of this market. In Chatpers 19 and 20, we dive into economic details of pharma pricing, starting with brand name drugs (Chapter 19) and then a brief discussion of generic drugs (Chapter 20). Finally, in Chapter 21, we discuss current prescription drug policy in the U.S. and the potential for reform.

@@ -1,0 +1,189 @@
+---
+title: "Hospital Mergers"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+What happens when two hospitals or physician practices merge? What happens when a new hospital opens in a market? These are questions of the effects of competition in healthcare, and they are central questions in areas of health policy and antitrust. In this module, we'll study these questions theoretically and empirically. To motivate this issue, we first need to think about how competition in healthcare has changed over time.
+
+## Effects of Competition on Prices and Quality
+
+Let's consider (very generally) how competition seems to be changing. First, look at some of the graphs from @gaynor2015jel. These graphs tell a clear story about the increased concentration in healthcare. As a reference point for Figures 1 and 2, note that the Federal Trade Commission and the Department of Justice define "highly concentrated" as an HHI of at least 2,500 and define "unconcentrated" as an HHI of less than 1,800. HHI stands for Herfindahl-Hirschman Index, and is calculated as the sum of squared market shares. High values indicate the market is highly concentrated (i.e., the market is dominated by very few large firms).
+
+These numbers show that the nature of competition in hospital markets is definitely changing. But let's think about whether competition may be good or bad in healthcare? I don't like that question because it is rarely an issue of whether to have competition or not but more about how much competition we should have. Nonetheless, what do you think? From a policy perspective, this matters for two competing reasons: 1) there is a sense in health policy circles that more competition is bad for hospitals, which has led to the creation of certificate-of-need (CON) laws and other barriers to entry; and 2) from a perspective of antitrust, we should be wary of mergers if they are going to increase prices.
+
+### Competition with Fixed Prices
+
+We start by considering models in which prices are fixed. This would apply, for example, in the study of Medicare or Medicaid wherein hospitals and physicians receive a set amount for a given inpatient stay or procedure.
+
+@gaynor2012 and @gaynor2015jel summarize a model of hospital behavior with fixed prices. They consider the case in which hospitals choose a level of quality and where prices are administratively set (e.g., by Medicare). The model begins with a demand specification, $$q_{j}=s_{j}(z_{j}, \mathbf{z}_{\setminus j}) \times D(\bar{p}, z_{j}, \mathbf{z}_{\setminus j}),$$ where the hospital's market share $s_{j}$ is a function of its own quality $z_{j}$ and the quality of other hospitals $\mathbf{z}_{\setminus j}$, and where total market demand is similarly determined by quality as well as the administratively set price $\bar{p}$. They further specify hospital costs as $$c_{j}=c(q_{j},z_{j}) + F,$$ where $F$ denotes fixed costs of entry, with hospital profits denoted $$\pi_{j} = \bar{p}q_{j} - c_{j}.$$ Assuming hospitals are maximizing profits (relaxing this assumption in certain ways amounts to a reduction in the marginal cost of quality, and thus a higher level of quality, but no change to the comparative statics), then hospitals will choose the level of quality such that:
+
+$$\frac{d \pi_{j}}{d z_{j}} = \left(\bar{p} - \frac{d c_{j}}{d q_{j}} \right)\left(\frac{d s_{j}}{d z_{j}}D + s_{j}\frac{d D}{d z_{j}} \right) - \frac{d c_{j}}{d z_{j}}=0$${#eq-gaynor-fixedprice}
+
+From this, we can immediately see that quality is increasing with competition. Specifically, since $s_{j}=1$ for a monopolist, the term $$\left(\frac{d s_{j}}{d z_{j}}D + s_{j}\frac{d D}{d z_{j}} \right)=\frac{d D}{d z_{j}}.$$ Since $\frac{d s_{j}}{d z_{j}}>0$ by assumption, then this same term will be larger with several firms relative to a monopolist. Assuming that there is some amount of competition in the market, then the actual welfare effects depend on $\frac{d s_{j}}{d z_{j}}$ and $\frac{d D}{d z_{j}}$. For example, if $\frac{d D}{d z_{j}}$ is sufficiently small, then changes in quality have little effect on market demand and primarily serve to shift market share. In this case, more competition may decrease welfare if the benefit to consumers via increases in quality do not offset the entry costs of firms.
+
+The example given in @gaynor2012 is useful to illustrate this point. Assume one year of life is valued at \$100,000, and assume an increase in quality leads to one additional life-year for every sick person. With 1,000 sick people, any fixed entry costs of less than \$100,000,000 would imply that increased quality (through increased hospital competition) is beneficial to consumers. But if at some point the additional quality benefits are sufficiently low, then fixed costs of entry may exceed those benefits and more quality may be welfare decreasing.
+
+Multiplying all of the terms in \ref{eqn:gaynor_fixedprice} by $\frac{z_{j}}{D s_{j}}$, we can manipulate the first order condition to find:
+$$\begin{align*}
+0 &= \left(\bar{p} - \frac{d c_{j}}{d q_{j}} \right) \left(\frac{d s_{j}}{d z_{j}}D + s_{j}\frac{d D}{d z_{j}} \right) - \frac{d c_{j}}{d z_{j}} \\
+ &= \frac{z_{j}}{D s_{j}} \left(\bar{p} - c_{q} \right) \left(\frac{d s_{j}}{d z_{j}}D + s_{j}\frac{d D}{d z_{j}} \right) - \frac{z_{j}}{D s_{j}} c_{z} \\
+ &= \left(\bar{p} - c_{q} \right) \left(\frac{d s_{j}}{d z_{j}}\frac{z_{j}}{s_{j}} + \frac{d D}{d z_{j}}\frac{z_{j}}{D} \right) - \frac{z_{j}}{D s_{j}} c_{z} \\
+ &= \left(\bar{p} - c_{q} \right) \left(\eta_{s} + \eta_{D} \right) - \frac{z_{j}}{D s_{j}} c_{z} \\
+z_{j} &= \left(\bar{p} - c_{q} \right) \left(\eta_{s} + \eta_{D} \right) \frac{D s_{j}}{c_{z}}.
+\end{align*}$$
+
+From this, we see that quality is increasing in $\bar{p}$, increasing in share and demand elasticities, increasing in market share and market demand, and decreasing in marginal cost.
+
+
+### Competition with Market Prices
+
+Outside of public payers, prices are generally set by the provider or through some bi-lateral negotiation process between providers and insurers. Naturally, these models are more complicated as now we are allowing both quality and price to be determined endogenously in the model.
+
+@dorfman1954 provide a simple model of price and advertising, which @gaynor2015jel discuss in the context of price and quality in healthcare. Dorfman and Steiner developed what is now referred to as the "Dorfman-Steiner condition."" Consider a firm with the following profit function, where per unit costs are constant in quantity (q) and increasing in quality (z), and $F$ denotes fixed costs $$\pi = q(p,z) \times (p-c-d\times z) - F.$$ The first order conditions with respect to price and quality are
+$$\begin{align*}
+ \frac{d \pi}{d p} &= \frac{d q}{d p} (p-c-dz) + q = 0 \\
+ \frac{d \pi}{d z} &= \frac{d q}{d z} (p-c-dz) - dq = 0
+\end{align*}$$
+We can rewrite the first order condition for price as follows:
+$$\begin{align*}
+p &= \frac{-q}{\frac{d q}{d p}} + c + dz \\
+  &= \frac{p}{\epsilon_{p}} + c + dz \\
+p \times \left(1 - \frac{1}{\epsilon_{p}}\right) &= c + dz \\
+p &= \frac{\epsilon_{p}}{\epsilon_{p}-1} (c+dz)
+\end{align*}$$
+
+We can similarly rewrite the first order condition for quality:
+$$\begin{align*}
+ dz &= -\frac{dq}{\frac{d q}{d z}} + p - c \\
+  z &= -\frac{q}{\frac{d q}{d z}} + \frac{p-c}{d} \\
+    &= -\frac{z}{\epsilon_{z}} + \frac{p-c}{d} \\
+  z &= \frac{\epsilon_{z}}{\epsilon_{z}+1} \frac{p-c}{d}
+\end{align*}$$
+
+We can also rewrite these expressions in terms of $\frac{1}{\epsilon_{z}}$ and $\frac{1}{\epsilon_{p}}$. In this case,
+$$\begin{align*}
+\frac{1}{\epsilon_{p}} &= \frac{p-c-dz)}{p} \\
+\frac{1}{\epsilon_{z}} &= \frac{dz}{p - c - dz}
+\end{align*}$$
+
+Taking the ratio of these terms and solving for $z$ yields, $$z = \frac{p}{d}\times \frac{\epsilon_{z}}{\epsilon_{p}},$$ which is the Dorfman-Steiner condition. This condition predicts that quality will increase if the quality elasticity increases or if price increases. Similarly, quality increases if the price elasticity decreases or the marginal cost of quality decreases. This and similar conditions, although possibly oversimplified and reliant on strong assumptions, may help guide empirical work and provide possible predictions in the case of policies not yet observed in practice. For example, imagine that health insurers increase their cost sharing such that consumers are now faced with a larger portion of their marginal healthcare costs. This will tend to increase demand elasticity and therefore potentially reduce quality. This is in fact what we saw when managed care first became heavily adopted in private insurance markets in the 90s.
+
+Perhaps more interestingly, the Dorfman-Steiner condition has some interesting predictions as to the effect of competition on quality. Essentially, these effects are interdependent. If more competition has a large effect in terms of price elasticity (i.e., consumers are heavily responsive to the price effects from increased competition), then quality may decrease. If instead competition has a large effect in terms of quality elasticity (i.e., consumers are more responsive to quality changes), then quality will increase.
+
+But what do we mean by "quality?" In an equation, it's easy to imagine some metric that captures better quality, but how do we capture that in practice? Is it possible that competition may increase some notion of quality but not necessarily the measure of quality that we want? For example, perhaps competition would increase the most observable measures of quality and decrease less observable measures of quality?
+
+
+
+## Empirical Studies of Competition
+
+### Competition with Fixed Prices
+
+@kessler2000 adopt a "structure-conduct-performance" approach, but are careful to consider the endogeneity of their concentration measure. The authors analyze the effects of hospital competitiveness among Medicare beneficiaries with cardiac illness from 1985 through 1994. They measure competition using a Herfindahl-Hirschman Index (HHI), which is a standard measure of market competition calculated as the sum of square market shares. Denoting firms by $i$ and markets by $k$, with $N_{k}$ firms operating in market $k$, the HHI is then calculated as: $HHI_{k}=\sum_{i \in k}^{N_{k}} s_{ik}^{2}.$ Their outcomes of interest include mortality and cardiac complications.
+
+Market shares are naturally endogenous in this setting. For example, areas with healthier patients and thus lower mortaility or lower complication rates may have fewer hospitals and thus more concentrated hospital markets. Alternatively, areas with very sick patients may lead to more hospitals entering the market and lower concentration. To account for this common empirical problem, the authors adopt a three-stage approach.
+
+1. Estimate a patient-level model of hospital choice as a function of patient demographics, hospital characteristics, and distance between patient residence and hospitals (with distance measured based on the midpoint of the relevant zipcodes). The authors measure distance on a characteristic-basis rather than on a hospital-basis. Specifically, the authors assume that all general/surgical hospitals within a 35 mile radius of a person's zip code and all large hospitals within a 100 mile radius are part of the person's choice set.
+
+The authors separate hospitals in each person's choice set based on "same-type" or "different-type" hospitals. For example, if hospital $j$ is a teaching hospital, then the same-type hospitals (based on teaching hospital status) would be other teaching hospitals. The authors make this same-type versus different-type distinction for each of $H$ different hospital characteristics (teaching status, a categorical measure of hospital bed size, and private or public ownership status). Each patient-hospital pair is therefore assigned $2\times H$ measures of distance (one for each characteristic, separately for same-type versus different-type hospitals). Specifically, $D_{ij}^{h+}$ denotes the distance between person $i$'s residence and hospital $j$ minus the distance between person $i$'s residence and the nearest alternative hospital with the same characteristic. $D_{ij}^{h-}$ then denotes the distance between person $i$'s residence and hospital $j$ minus the distance between person $i$'s residence and the nearest alternative hospital with a different characteristic.
+
+The authors then categorize each calculated distance ($D_{ij}^{h+}$ and $D_{ij}^{h-}$, for all $h$) based on the 10th, 25th, and 50th percentile of the distribution for each measure. As such, hospital characteristics in each patient's choice set are quantified based on the relative distance (by percentile category) to same-type and different-type competing hospitals. Denoting the $4 \times 1$ vector of distances by $DD_{ij}^{h+}$ and $DD_{ij}^{h-}$ and denoting indicators for hospital characteristics by $Z_{j}^{h}$, the authors calculate an overall "distance" measure as $$V_{ij}=\sum_{h=1}^{H} DD_{ij}^{h+} \left(\theta_{1}^{h}Z_{j}^{h} + \theta_{2}^{h}(1-Z_{j}^{h}) \right) + D_{ij}^{h-}\left( \theta_{3}^{h}Z_{j}^{h} + \theta_{4}^{h}(1-Z_{j}^{h}) \right).$$ The authors also incorporate personal demographic characteristics, $X_{i}$, through the interaction with $Z_{j}^{h}$ as follows: $$W_{ij} = \sum_{h=1}^{H} X_{i} Z_{j}^{h} \lambda_{h}.$$
+
+Assuming a type I extreme value distribution for the error term, the probability of person $i$ choosing hospital $j$ can be written as: $$\pi_{ij} = Pr(Y_{ij}=1) = \frac{\exp{V_{ij} + W_{ij}}}{\sum_{l=1}^{J} \exp{V_{il} + W_{il}}}.$$
+
+2. With parameter estimates, $\hat{\theta}$ and $\hat{\lambda}$ from step 1, the authors estimate the probability of patient $i$ selecting each hospital $j$ in their choice set, $\hat{\pi}_{ij}$. From this, they estimate hospital market shares $\hat{\alpha}_{jk}$ for each resident's zip code, $k=1,...,K$, $$\hat{\alpha}_{jk} = \frac{\sum_{i \in k} \hat{\pi}_{ij}}{\sum_{j} \sum_{i \in k} \hat{\pi}_{ij}}.$$ The predicted market shares then form a predicted HHI for patients in zip code $k$, $$HHI_{k}^{pat} = \sum_{j=1}^{J}\hat{\alpha}_{jk}^{2}.$$
+
+The authors next form a weighted average of the $HHI_{k}^{pat}$ across the $k$ zip codes for which the hospital receives patients. Specifically, denote by $\beta_{kj}$ the share of hospital $j$'s patients coming from zip code $k$, then the hospital $HHI$ is $$\sum_{k=1}^{K} \hat{\beta}_{kj} HHI_{k}^{pat}.$$ Finally, since the authors examine patient level outcomes, they re-weight the hospital-level HHI by $\alpha_{jk}$ (for all $J$ hospitals in the patient's zip code).
+
+3. With a measure of competitiveness, the authors regress patient outcomes and hospital expenditures on HHI, patient characteristics, other market characteristics such as the size of the patient's MSA and market-level hospital characteristics, as well as zip code and time fixed effects.
+
+
+Ultimately, the authors find that more competition reduces expenditures in later years and increases expenditures in earlier years, consistent with the medical arms race hypothesis discussed above. They also find that competition in later years was welfare improving, with the largest changes in welfare deriving from movements out of the most competitive quartile of concentration or into the least competitive quartile, particularly among markets with more managed care penetration. Meanwhile, movements in the middle quartiles appear to have no significant welfare effects. These findings therefore imply that competition is important, but that the effects of competition are not homogeneous. This begs the question, "how much competition is enough?"
+
+
+### Empirical Studies of Competition with Market Prices
+
+Theory therefore tells us that hospital competition may reduce social welfare as follows. If there is weak price competition (e.g., consumers are unresponsive to price changes), then increased competition in non-price attributes may generate a medical arms race with hospitals quickly acquiring expensive technologies and passing these costs on to consumers (see Chapter 15 in @feldstein2007).^[If prices are fixed, hospitals may similarly engage in excessive "quality competition."] To the extent that the marginal benefits from these new technologies or improvements in non-price attributes are lower than the marginal costs, then competition is socially wasteful. However, in a managed care environment, insurance companies can more strongly negotiate prices on behalf of consumers, effectively introducing a form of price competition and avoiding many of the medical arms race concerns.
+
+But even in a managed care environment, we saw in our models of monopolistic competition that increased competition may be good or bad for differentiated product markets, potentially generating less efficient levels of care. Intuitively, a competitive market may underprovide variety because the firms cannot sufficiently capitalize on the differentiated product (i.e., the firm can't capture any of the additional consumer surplus created). However, a competitive market may overprovide variety as well since the firms engage in business stealing. With entry costs, firms then capture less demand than expected (but still incur the cost of entry) and the additional consumer benefits from more variety may be more than offset by the entry costs. Importantly, this does not mean that consumers are worse off. Consumers are always better (or no worse) with increasing competition, but social welfare may be lower.
+
+All that said, U.S. policies to improve or maintain competitiveness generally only consider a short-run time frame. If we consider quality as fixed, then increased \textit{price} competition is always welfare improving. But over the long run, it is theoretically ambiguous as to whether we want more healthcare providers or less. Incorporating other features of healthcare delivery further obfuscate the benefits of increased competition. For example, for patients with chronic conditions, coordination is an important part of high quality care, but integrated systems are arguably better at providing this coordination. Conversely, in a bargaining context, a larger hospital is able to negotiate a higher price. For these reasons, the effects of increased competition on hospital quality and price are empirical questions.
+
+In general, empirical studies based on data prior to Medicare prospective payments and prior to the growth of managed care plans found that increased competition led to higher prices and higher hospital costs. This is consistent with the medical arms race hypothesis. Studies based on more recent data find the opposite, with increased competition leading to lower prices. Results on quality are less clear. In this section, we'll discuss the details of a handful of papers in this area.
+
+### Abraham, Gaynor, \& Vogt (2007)
+
+@abraham2007 study competitiveness in hospital markets via an entry-threshold approach, extending the initial analysis of @bresnahan1991. The idea is that firms will only enter a market if they expect to be profitable, and this only happens if there are enough customers to support the firm in a given market. One of the goals of this analysis is to gauge the extent to which a new entrant increases the competitiveness of local hospital markets. The authors therefore help identify an "appropriate" level of hospital competition. The authors' analysis proceeds as follows:
+
+1. Denote the $N$th firm's profit by: $$\Pi_{N}=V_{N}\frac{S_{N}}{N}d_{N} - F_{N},$$ where $V_{N}$ denotes the variable profit, $N$ denotes the total number of firms, $S_{N}$ denotes the number of consumers, $d_{N}$ denotes per-capita demand, and $F_{N}$ denotes fixed costs.
+
+2. Firms enter if it is profitable to do so, $\Pi_{N}\geq 0$. The minimum number of consumers to support the $N$th firm is therefore the $S_{N}$ where $\Pi_{N}=0$, which is $$S_{N}=\frac{F_{N}\times N}{V_{N}\times d_{N}}.$$
+
+3. The authors then gauge the toughness of competition by changes in $S_{N}$ as $N$ increases. $S_{N+1}>S_{N}$ implies the $(N+1)$th firm requires more consumers in the market to be profitable relative to the $N$th firm, which necessarily implies that margins must be lower for the $(N+1)$th firm and therefore competition is "tougher."
+
+4. Based on the assumed profit function, the authors specify conditional mean functions for $S_{N}$, $d_{N}$, $V_{N}$, and $F_{N}$ as functions of observable characteristics:
+$$\begin{align*}
+     S_{N} &= \exp \left(Y\lambda + \varepsilon_{S}\right) \\
+     d_{N} &= \exp \left(X\delta_{X} + W\delta_{W} + \delta_{N} + \varepsilon_{d}\right) \\
+     V_{N} &= \exp \left(X\alpha_{X} + W\alpha_{W} - \delta_{N} + \varepsilon_{V}\right) \\
+     F_{N} &= \exp \left(W\gamma_{W} + \gamma_{N} + \varepsilon_{F}\right)
+\end{align*}$$
+This yields a reduced form expression, $$\ln \Pi_{N}=Y\lambda + X(\delta_{X}+\alpha_{X}) + W(\delta_{W}+\alpha_{W}-\gamma_{W}) + \delta_{N} - \alpha_{N} - \gamma_{N} - \ln N + \varepsilon_{S} + \varepsilon_{d} + \varepsilon_{V} - \varepsilon_{F},$$ the parameters of which are estimated using an ordered probit model with the number of hospitals as the outcome (based on the assumption that $N$ firms exist when $\Pi_{N}\geq 0$ and $\Pi_{N+1} < 0$). They transform the number of hospitals into an ordered variable with 5 potential values, 0, 1, 2, 3, and $4+$.
+
+They also specify a second conditional mean function for quantity, $Q_{N}=S_{N}d_{N}$. The authors estimate these two equations with maximum likelihood using two exclusion restrictions along with a discrete factor approximation to allow correlation in the residuals of the quantity and profit specifications.
+
+The results suggest that competition significantly toughens with new hospitals in the market, up to 4 hospitals. Beyond that point, additional hospitals may steal customers but do not reduce variable profits and therefore do not significantly change the amount of competitiveness (Table VIII in paper).
+
+### Empirical Analysis of Hospital Mergers
+
+A natural approach to examining the effect of competition on prices, health outcomes, etc. is to look directly at hospitals or markets where a reduction in competition has taken place (e.g., due to a merger, acquisition, or a hospital closure). This has become a popular empirical approach recently, with numerous studies examining the effects of mergers on hospital pricing and quality of care. Since all of these papers take the same basic approach, we'll focus here on summarizing the literature's primary findings in this area. See @vogt2006 for a nice survey on this literature.
+
+First, note that hospital markets have become increasingly consolidated over time. For example, we saw 100 hospital mergers in 2012 and 90 in 2011, compared to just 74 total from 1983 to 1988. A common way of measuring concentration in an industry is the Herfindahl-Hirschman Index (HHI). This is calculated as the sum of squared market shares.\footnote{When using percentage market shares as decimals (e.g., 0.10, 0.50, etc.), the highest HHI value is 1. However, when using whole percentages such as 10, 50, etc., the highest HHI value is 10,000 ($100^{2}$). This 10,000 point scale is the more common expression for HHI in practice.} In 1987, the mean hospital HHI was 2,340, but by 2006, this increased to 3,161.^[For these calculations, the "hospital market" was defined as the MSA, excluding MSAs with more than 3 million individuals.] Similarly, in 1990, approximately 65\% of MSAs were classified as "highly concentrated" according to the Federal Trade Commission's threshold HHI of 2,500. And by 2006, more than 77\% of MSAs were highly concentrated. Conversely, the percentage of unconcentrated MSAs (HHI $<$ 1,800) fell from 23\% in 1990 to 11\% in 2006.
+
+One natural question is why we've seen such a growth in merger activity. For example, it could be due to technological advances leaving hospitals with significant excess capacity and need for consolidation. It could also be due to pressure from insurers and managed care; however, there is little empirical evidence that M\&A activity is due to increased managed care, although there is strong anecdotal evidence that hospitals may pursue mergers due to fear of managed care presence and negotiating power.
+
+Another question concerns the impact of mergers on patients (prices and quality of care). Here, increased merger activity and hospital consolidation need not be theoretically bad for consumers. Hospitals could be providing more coordinated care and ultimately reducing healthcare utilization, as well as the standard argument in favor of mergers -- efficiency gains. Unfortunately, empirical studies consistently find an increase in price following hospital consolidation, with increases of 40\% or more when consolidation occurs among nearby hospitals. This is an increase in rival firm prices, as theory would predict an increase in own-firm and rival-firm prices (overall market increase) following increases in consolidation. Consolidation \textit{may} reduce hospital costs (when facilities are combined), but effects on prices suggest that the cost savings are not passed on to customers. Regarding quality, the empirical evidence is somewhat mixed, generally pointing to slight quality reductions following increases in consolidation.
+
+
+## Vertical Integration between Physicians and Hospitals
+
+The share of physician practices owned by hospitals more than doubled from 2002 to 2008 and continues to increase. Moreover, hospital employment of physicians is now much more common than it was even just 10 years ago. Proponents of such increased vertical alignment between physicians and hospitals cite increases in quality and efficiency resulting from alignment. This is essentially a standard transactions cost argument, wherein vertical integration allows the firm to exploit economies of scale and improve efficiency. However, concerns of hospital-physician alignment include an increase in prices, a bundling of services within a given hospital-physician network (increasing excess care), and a reduction in referral options for competitors (hence reducing choice). Physician control over care has natural implications for vertical integration, as it reveals one of at least two primary incentives for a hospital to more closely align with physicians.
+
+
+## Measuring Competition and Market Power
+
+@capps2003 attempts to derive a theoretically-backed measure of market power in what the authors call "option demand markets."" Such a market is simply one where an intermediary sells a network of suppliers/manufacturers to consumers, and where consumers are uncertain about the final services/products they will need. The authors have in mind hospital markets in which insurers group hospitals into a network (i.e., managed care insurers), but the concept extends to other markets as well. The key aspect of this type of market is that consumers agree to \textit{ex ante} restrict their choice set before they know the goods or services that they may need to purchase. The authors are ultimately interested in estimating a consumer's willingness-to-pay (WTP) for a given supplier to be included in the intermediary's network.
+
+To form their estimated WTP, the authors work backwards, starting with an estimate of \textit{ex post} utility of care received at hospital $j$:
+$$\begin{align*}
+U_{ij} &= \alpha R_{j} + H_{j}'\Gamma X_{i} + \tau_{1} T_{ij} + \tau_{2} T_{ij} X_{i} + \tau_{3} T_{ij} R_{j} - \gamma(Y_{i},Z_{i}) P_{j}(Z_{i}) + \varepsilon_{ij} \\
+ &= U(H_{j},X_{i},\lambda_{i}) - \gamma(X_{i})P_{j}(Z_{i}) + \varepsilon_{ij},
+\end{align*}$$
+where $H_{j}=[R_{j},S_{j}]$ is a vector of hospital characteristics split between characteristics common across all patients ($R_{j}$) and condition-specific characteristics ($S_{j}$), $X_{i}=[Y_{i},Z_{i}]$ is similarly a vector of patient characteristics consisting of demographics ($Y_{i}$) and clinical attributes ($Z_{i}$). $P_{j}(Z_{i})$ is the out-of-pocket price to be paid based on the patient's clinical needs (i.e., diagnosis), $\lambda_{i}$ denotes the household's geographic location, with $T_{ij}=T_{j}(\lambda_{i})$ reflecting travel time from the patient's residence zip code to hospital $j$.
+
+Assuming that out-of-pocket costs are essentially identical across hospitals in the patient's network, then patient $i$ will select hospital $j$ if, for all $k \neq j$, $$U(H_{j},X_{i},\lambda_{i}) - U(H_{k},X_{i},\lambda_{i}) > \varepsilon_{ik} - \varepsilon_{ij}.$$ With appropriate assumptions on the error terms, the probability that patient $i$ selects hospital $j$, $s_{ij}$, is given by $$s_{j}(G,X_{i},\lambda_{i}) = \frac{\text{exp}(U(H_{j},X_{i},\lambda_{i}))}{\sum_{g\in G}\text{exp}(U(H_{g},X_{i},\lambda_{i}))}.$$ With this choice probability, we can easily estimate the parameters of the utility function using maximum likelihood techniques.
+
+Taking the \textit{ex post} utility as given, we now need to work backwards to determine the expected utility from having access to a given network, $G$. With $U(H_{g},X_{i},\lambda_{i})$ as given, and allowing for an independently distributed standard extreme value error, $\varepsilon_{g}$, then the expected maximum utility across all $g$ hospitals is given as $$V(G,X_{i},\lambda_{i}) = \text{E} \left[\max_{g\in G} U(H_{g},X_{i},\lambda_{i}) + \varepsilon_{g} \right] = \text{ln} \left[\sum_{g\in G} \text{exp} (U(H_{g},X_{i},\lambda_{i})) \right].$$ Hospital $j$'s contribution to this expected maximum is simply the difference between the expected maximum with and without hospital $j$ included in the choice set,
+$$\begin{align*}
+\triangle V_{j}(G,X_{i},\lambda_{i}) &= V(G,X_{i},\lambda_{i}) - V(G_{-j},X_{i},\lambda_{i}) \\
+ &= \text{ln} \left[\sum_{g\in G} \text{exp} (U(H_{g},X_{i},\lambda_{i})) \right] - \text{ln} \left[\sum_{k\in G_{-j}} \text{exp} (U(H_{k},X_{i},\lambda_{i})) \right] \\
+ &= \text{ln} \left[ \frac{\sum_{g\in G} \text{exp} (U(H_{g},X_{i},\lambda_{i})) }{\sum_{k\in G_{-j}} \text{exp} (U(H_{k},X_{i},\lambda_{i}))} \right] \\
+ &= \text{ln} \left[ \left(\frac{\sum_{k\in G_{-j}} \text{exp} (U(H_{k},X_{i},\lambda_{i})) }{\sum_{g\in G} \text{exp} (U(H_{g},X_{i},\lambda_{i})) }\right)^{-1} \right] \\
+ &= \text{ln} \left[ \left(\sum_{k\in G_{-j}} \frac{ \text{exp} (U(H_{k},X_{i},\lambda_{i})) }{\sum_{g\in G} \text{exp} (U(H_{g},X_{i},\lambda_{i})) }\right)^{-1} \right] \\
+ &= \text{ln} \left[ \left(\sum_{k\in G_{-j}} s_{k}(G,X_{i},\lambda_{i})\right)^{-1} \right] \\
+ &= \text{ln} \left[ \left( 1- s_{j}(G,X_{i},\lambda_{i})\right)^{-1} \right].
+\end{align*}$$
+We can then translate $\triangle V_{j}(G,X_{i},\lambda_{i})$ into dollar values by weighting by the marginal utility of price, such that the interim willingness to pay is
+$$\triangle \tilde{W}_{j} = \frac{\triangle V_{j}}{\gamma (X_{i})}.$$
+
+Finally, we need to work backwards one more step to estimate the \textit{ex ante} WTP to include hospital $j$ in patient $i$'s network. This simply amounts to taking the integral of $\tilde{W}_{j}$ over all possible health conditions, $Z_{i}$,
+$$W_{ij}(G,Y_{i},\lambda_{i}) = \int_{Z} \frac{\delta V_{j}(G,X_{i},\lambda_{i})}{\gamma (X_{i})} f(Z_{i}|Y_{i},\lambda_{i}) dZ_{i}.$$
+Further integrating over all patients, $(Y_{i},\lambda_{i})$, yields
+$$WTP_{j} = N \int_{\lambda} \int_{Z} \int_{Y} \frac{1}{\gamma (X_{i})} \text{ln}\left[\frac{1}{1-s_{j}(G,X_{i},\lambda_{i})} \right]f(Y_{i},Z_{i},\lambda_{i})dY_{i} dZ_{i} d\lambda_{i}.$$
+
+
+## Bibliography {.unnumbered}

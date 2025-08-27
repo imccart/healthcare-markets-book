@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Economics of Health Care - 2&nbsp; Getting Health Insurance</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part1/insurance-2-1.html" rel="next">
+<link href="../part1/insurance-1-1.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-1-2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Health Insurance</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Economics of Health Care</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Health Insurance</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-1-2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Health Insurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Adverse Selection and Pricing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Health Insurance Competition</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part2/physicians-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physicians</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Physicians as Gatekeepers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Physician Training and Practice Environment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hospitals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">History and Hospital Pricing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ownership and Objective Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Single-price Market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-price Market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Bargaining and Prices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Hospital Mergers</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part4/pharma-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prescription Drugs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Prescription Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Brand Name Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-hi-history" id="toc-sec-hi-history" class="nav-link active" data-scroll-target="#sec-hi-history"><span class="header-section-number">2.1</span> History of Private Health Insurance</a></li>
+  <li><a href="#sec-esi" id="toc-sec-esi" class="nav-link" data-scroll-target="#sec-esi"><span class="header-section-number">2.2</span> Employer Sponsored Insurance</a></li>
+  <li><a href="#non-group-health-insurance" id="toc-non-group-health-insurance" class="nav-link" data-scroll-target="#non-group-health-insurance"><span class="header-section-number">2.3</span> Non-group health insurance</a></li>
+  <li><a href="#traditional-medicare" id="toc-traditional-medicare" class="nav-link" data-scroll-target="#traditional-medicare"><span class="header-section-number">2.4</span> Traditional Medicare</a></li>
+  <li><a href="#medicare-advantage" id="toc-medicare-advantage" class="nav-link" data-scroll-target="#medicare-advantage"><span class="header-section-number">2.5</span> Medicare Advantage</a></li>
+  <li><a href="#medicaid" id="toc-medicaid" class="nav-link" data-scroll-target="#medicaid"><span class="header-section-number">2.6</span> Medicaid</a></li>
+  <li><a href="#veterans-administration" id="toc-veterans-administration" class="nav-link" data-scroll-target="#veterans-administration"><span class="header-section-number">2.7</span> Veterans Administration</a></li>
+  <li><a href="#how-public-insurers-pay-for-care" id="toc-how-public-insurers-pay-for-care" class="nav-link" data-scroll-target="#how-public-insurers-pay-for-care"><span class="header-section-number">2.8</span> How public insurers pay for care</a>
+  <ul class="collapse">
+  <li><a href="#private-insurance-including-ma" id="toc-private-insurance-including-ma" class="nav-link" data-scroll-target="#private-insurance-including-ma">Private Insurance (including MA)</a></li>
+  <li><a href="#traditional-medicare-1" id="toc-traditional-medicare-1" class="nav-link" data-scroll-target="#traditional-medicare-1">Traditional Medicare</a></li>
+  <li><a href="#medicaid-1" id="toc-medicaid-1" class="nav-link" data-scroll-target="#medicaid-1">Medicaid</a></li>
+  <li><a href="#va" id="toc-va" class="nav-link" data-scroll-target="#va">VA</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Health Insurance</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><a href="#fig-insurance-type">Figure&nbsp;<span>2.1</span></a> presents a snapshot of how the adult population (below age 65) received health insurance as of 2012. I’m focusing on 2012 here since there were some big changes in U.S. health insurance just after that with the passage of the Patient Protection and Affordable Care Act (ACA). Two things are clear from <a href="#fig-insurance-type">Figure&nbsp;<span>2.1</span></a>: 1) <strong>a lot</strong> of adults were uninsured in the U.S. in 2012 (nearly 20%); and 2) the overwhelming majority of those that are insured receive their insurance from their employers. We’ll get back to that in <a href="#sec-esi"><span>Section&nbsp;2.2</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-insurance-type" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-1-2_files/figure-html/fig-insurance-type-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: Source of Health Insurance (2012)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>After the passage of the ACA, the share of uninsured adults dropped dramatically, as reflected in <a href="#fig-uninsurance">Figure&nbsp;<span>2.2</span></a>, where the passage of the ACA is reflected by the vertical line.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-uninsurance" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-1-2_files/figure-html/fig-uninsurance-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Share of Population Uninsured</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Fingally, <a href="#fig-insurance-time">Figure&nbsp;<span>2.3</span></a> shows the change in the source of insurance for the adult U.S. population (aged 64 or below) from 2012 through 2019. From <a href="#fig-uninsurance">Figure&nbsp;<span>2.2</span></a> and <a href="#fig-insurance-time">Figure&nbsp;<span>2.3</span></a>, we see that the large reduction in uninsured can be explained by an increase in Medicaid and the share of adults with “direct purchase” (i.e., purchasing health insurance on their own, not from their employer).</p>
+<div class="cell">
+<div id="fig-insurance-time" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div id="htmlwidget-1586087e41bd9605d7ef" style="width:100%;height:400px;" class="plotly html-widget "></div>
+<script type="application/json" data-for="htmlwidget-1586087e41bd9605d7ef">{"x":{"visdat":{"69055fb4e85":["function () ","plotlyVisDat"]},"cur_data":"69055fb4e85","attrs":{"69055fb4e85":{"y":{},"x":{},"frame":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"width":650,"height":400,"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Percent","range":[-0.016829462255042591,0.61212250219697151]},"yaxis":{"domain":[0,1],"automargin":true,"title":"","type":"category","categoryorder":"array","categoryarray":["Direct Purchase","Employer-provided","Medicaid","Medicare"]},"hovermode":"closest","showlegend":false,"sliders":[{"currentvalue":{"prefix":"Year ","xanchor":"right","font":{"size":16,"color":"blue"}},"steps":[{"method":"animate","args":[["2012"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2012","value":"2012"},{"method":"animate","args":[["2013"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2013","value":"2013"},{"method":"animate","args":[["2014"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2014","value":"2014"},{"method":"animate","args":[["2015"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2015","value":"2015"},{"method":"animate","args":[["2016"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2016","value":"2016"},{"method":"animate","args":[["2017"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2017","value":"2017"},{"method":"animate","args":[["2018"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2018","value":"2018"},{"method":"animate","args":[["2019"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true},"mode":"immediate"}],"label":"2019","value":"2019"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":true}}]}]}]},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.066341872196701429,0.55183947547490086,0.083574891047618879,0.011759263401867139],"frame":"2012","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"2012","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.066341872196701429,0.55183947547490086,0.083574891047618879,0.011759263401867139],"frame":"2012","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2013","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.069180721611538959,0.5557480016928168,0.084322900072631768,0.012471646980802603],"frame":"2013","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2014","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.082746147970616316,0.56217012398769184,0.10062426821478967,0.012987678072921231],"frame":"2014","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2015","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.091842162664944271,0.5670742339607312,0.11120992117571106,0.013250556569760763],"frame":"2015","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2016","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.092224888284332368,0.56994569606234036,0.11673162936995071,0.013175574380391353],"frame":"2016","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2017","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.085665254170774127,0.57502685993447711,0.11514629966245887,0.01352888742770051],"frame":"2017","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2018","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.080603627656950672,0.57912574581367071,0.11460353375515872,0.01340167219100194],"frame":"2018","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2019","data":[{"y":["Direct Purchase","Employer-provided","Medicaid","Medicare"],"x":[0.077732840800247949,0.58353377654006178,0.11217315344877259,0.01340669444006921],"frame":"2019","type":"bar","orientation":"h","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<figcaption class="figure-caption">Figure&nbsp;2.3: Changes in source of insurance over time</figcaption>
+</figure>
+</div>
+</div>
+<p>As is hopefully clear from this discussion, one area where the U.S. health care system is relatively unique is that we have a very fragmented way of providing health insurance. The purpose of this chapter is to describe the different ways people receive health insurance in the U.S.</p>
+<section id="sec-hi-history" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-hi-history"><span class="header-section-number">2.1</span> History of Private Health Insurance</h2>
+<p>Let’s start with a very brief history of private health insurance. In 1929, an innovative approach to healthcare called “hospital insurance” was introduced for schoolteachers, allowing them to receive medical care at Baylor University Hospital in Dallas, Texas. This system offered essentially pre-paid medical care for approximately 1,500 schoolteachers in the area. Teachers paid an annual fee, known as a “premium,” which amounted to $6 at the time (equivalent to $104 in 2023), providing coverage for up to 21 days of hospital care. This subscription-based model not only ensured access to healthcare for teachers but also offered a steady and reliable source of income for the hospitals, creating a sustainable financial arrangement for both parties involved.</p>
+<p>The revenue model introduced by hospital insurance became widely popular and led to the establishment of Blue Cross, a network of hospitals. This network originated in Sacramento, California, in 1932 and quickly expanded. However, this structure brought about some distortions within the healthcare system. One notable distortion was the concentration of care in hospitals, even when other settings could potentially provide care at a lower cost. Additionally, the absence of price competition hindered the development of competitive pricing mechanisms. Despite these challenges, Blue Cross plans continued to grow throughout the 1930s. They operated as not-for-profit entities and enjoyed exemptions from typical regulations imposed on insurance markets. This unique approach allowed Blue Cross to play a significant role in shaping the healthcare landscape during that time.</p>
+<p>Blue Cross expanded its services by venturing into prepaid physician services, which became known as Blue Shield. Eventually, the two entities merged to form Blue Cross and Blue Shield, a prominent player in the healthcare insurance industry. By the year 1940, Blue Cross and Blue Shield plans had become incredibly popular, accounting for half of all health insurance plans. In this system, hospitals were paid on a cost-plus basis, which means they received reimbursement for their expenses along with an additional percentage as profit. This payment structure will be further explained later. To foster fair competition, any other insurance plans seeking to compete with Blue Cross and Blue Shield had to offer a similar organizational structure. This consolidation and standardization within the healthcare insurance market had a significant impact on the industry’s development.</p>
+</section>
+<section id="sec-esi" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-esi"><span class="header-section-number">2.2</span> Employer Sponsored Insurance</h2>
+<p>The evolution of healthcare insurance took a significant turn with the emergence of employer-sponsored insurance. This shift brought about new dynamics in how healthcare coverage was provided and financed. As the cost of healthcare continued to rise, employers recognized the need to offer comprehensive insurance benefits to attract and retain talented employees. This led to the establishment of employer-sponsored insurance plans, where employers would contract with insurance companies to provide coverage to their employees. This transition marked a pivotal moment in the history of healthcare insurance, as it expanded access to healthcare for a significant portion of the population and fundamentally changed the relationship between employment and healthcare coverage.</p>
+<p>Despite significant changes to health insurance markets over time, most recently introduced by the ACA, the majority of non-elderly (below age 65) adults in the U.S. continue to receive health insurance through their employer. The U.S. is one of the only developed countries to still rely on employers for health insurance, so it’s worthwhile to think briefly about how this came to be.</p>
+<p>There are two important historical features of health insurance in the U.S. that contribute to our present-day reliance on employers as insurance providers. First, the stabalization act of 1942 temporarily suspended wage increases without official government approval. Without the ability to compete for workers on wages, employers turned increasingly toward more generous benefits packages, including pensions and <strong>health insurance</strong>. Second, just a decade later in 1954, the federal government made exempted insurance expenses from federal income taxes. This meant that, for individuals with some expected health care expenses, one dollar in health insurance benefits was worth more than one dollar in additional salary, since the latter would be taxed while the former would not be taxed. From the worker’s perspective, if they’re going to spend money on health care anyway, they would be better off spending that money through insurance without the tax. While there have been significant changes to the health care and health insurance landscape since the 1950s, federal policy has largely avoided any attempts to replace employer-sponsored health insurance.</p>
+<p>With ESI, employers typically assume a substantial portion of the premium cost, shouldering a significant share of the financial burden. Employees contribute a smaller portion of the premium cost, often deducted from their wages on a pre-tax basis, providing some tax advantages. This arrangement allows employees to obtain coverage with reduced out-of-pocket expenses. Furthermore, many large employers adopt a self-funded approach, where they bear the actual cost of healthcare. In this model, the insurer acts as an administrator and negotiator, facilitating the management of the healthcare benefits. By self-funding, employers can potentially circumvent certain state-mandated benefits and state premium taxes, benefiting employers operating across state lines. This strategy provides flexibility and cost control for employers, while still ensuring the provision of essential healthcare coverage for their employees.</p>
+</section>
+<section id="non-group-health-insurance" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="non-group-health-insurance"><span class="header-section-number">2.3</span> Non-group health insurance</h2>
+<p>Non-group health insurance refers to a form of health coverage that is purchased individually by individuals or families, rather than being provided by an employer or obtained through a government program. This type of insurance is typically sought by those who are self-employed, unemployed, or do not have access to employer-sponsored health plans. While this option has been available for some time, the ACA introduced significant regulations in this market as well as subsidies intended to help maintain affordability of these types of plans. Non-group health insurance, or direct purchase health insurance, remains a relatively small share of private health insurance types, but grew significantly following the ACA.</p>
+<p>Before the implementation of the Affordable Care Act (ACA), the non-group health insurance market posed significant challenges for individuals seeking coverage. One of the primary difficulties was the lack of access and affordability. Insurance companies had the freedom to deny coverage or charge exorbitant premiums based on pre-existing conditions, leaving individuals with health issues vulnerable and often unable to obtain adequate coverage. Additionally, insurers could impose annual or lifetime limits on benefits, resulting in inadequate protection for individuals with extensive medical needs. The non-group market also lacked transparency, making it challenging for consumers to compare plans and make informed decisions about their coverage options. Furthermore, the absence of standardized essential benefits meant that individuals could end up with plans that provided limited or inadequate coverage for crucial healthcare services. Overall, the non-group market prior to the ACA was characterized by limited options, high costs, and inadequate consumer protections, leaving many individuals without the necessary coverage and financial security.</p>
+<p>Some of the larger changes in the non-group market introduced by the ACA included:</p>
+<ul>
+<li><p>Introduction of Health Insurance Marketplaces: The ACA established online Health Insurance Marketplaces, also known as Exchanges, where individuals can compare and purchase health insurance plans. These Marketplaces provide a centralized platform for individuals to access a range of health insurance options, promoting transparency and competition in the non-group market.</p></li>
+<li><p>Essential Health Benefits: The ACA mandated that health insurance plans in the non-group market cover a set of essential health benefits. These benefits include services such as hospitalization, prescription drugs, preventive care, and mental health services. This requirement aimed to ensure that individuals have access to comprehensive coverage and that plans provide a minimum level of essential services.</p></li>
+<li><p>Pre-existing Condition Protections: One significant change brought about by the ACA was the prohibition of denying coverage or charging higher premiums based on pre-existing conditions. This provision aimed to provide individuals with pre-existing conditions the opportunity to obtain affordable health insurance coverage in the non-group market.</p></li>
+<li><p>Subsidies and Financial Assistance: The ACA introduced subsidies and financial assistance to help lower-income individuals and families afford health insurance coverage in the non-group market. These subsidies are based on income and can help offset premium costs and, in some cases, reduce out-of-pocket expenses, making coverage more accessible and affordable.</p></li>
+<li><p>Coverage Requirements and Individual Mandate: The ACA implemented an individual mandate, which required most individuals to have health insurance coverage or face a penalty. This provision aimed to encourage broad participation in the insurance market to spread risks and stabilize premiums. However, the penalty for not having coverage was effectively eliminated starting in 2019.</p></li>
+</ul>
+</section>
+<section id="traditional-medicare" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="traditional-medicare"><span class="header-section-number">2.4</span> Traditional Medicare</h2>
+<p>Traditional Medicare, also known as Original Medicare or Medicare Fee-for-Service (FFS), is a federally administered health insurance program in the U.S. Established in 1965 under Title XVIII of the Social Security Act, it provides health coverage primarily to individuals aged 65 and older, as well as certain individuals with disabilities. Traditional Medicare is composed of two main parts: Part A, which covers hospital services, and Part B, which covers medical services such as doctor visits and outpatient care. Part A is generally available to eligible individuals without the need for premium payments if they or their spouse have paid Medicare taxes while working. Part B, on the other hand, requires beneficiaries to pay a monthly premium.</p>
+<p>Under Traditional Medicare, beneficiaries have the freedom to choose their healthcare providers and facilities, as long as they accept Medicare. This provides individuals with a wide range of options and flexibility in accessing medical services. Beneficiaries can visit any healthcare professional or hospital that participates in Medicare, ensuring access to a comprehensive network of providers across the country. Moreover, Traditional Medicare provides coverage for a broad range of medically necessary services, including but not limited to inpatient hospital stays, physician visits, diagnostic tests, outpatient surgeries, and durable medical equipment. While Traditional Medicare covers many healthcare expenses, there are certain out-of-pocket costs that beneficiaries must bear, such as deductibles, coinsurance, and copayments. To address these gaps in coverage, beneficiaries often supplement Traditional Medicare with private Medigap plans or enroll in Medicare Advantage plans, which replace Traditional Medicare and may offer additional benefits and cost-sharing options.</p>
+</section>
+<section id="medicare-advantage" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="medicare-advantage"><span class="header-section-number">2.5</span> Medicare Advantage</h2>
+<p>Medicare Advantage, also known as Medicare Part C, is a private health insurance option available to Medicare beneficiaries in the U.S. Established as part of the Medicare Modernization Act of 2003, Medicare Advantage plans are offered by private insurance companies approved by the Centers for Medicare and Medicaid Services (CMS). These plans provide an alternative to Traditional Medicare by combining the coverage of Parts A and B into a single comprehensive health insurance plan. In addition, many Medicare Advantage plans offer additional benefits beyond what is covered by Traditional Medicare, such as prescription drug coverage (Medicare Part D), vision care, dental services, and wellness programs.</p>
+<p>Medicare Advantage plans operate on a managed care model (<a href="insurance-1-1.html#def-managedcare">Definition&nbsp;<span>1.1</span></a>), which means that beneficiaries are required to use healthcare providers within the plan’s network or pay higher out-of-pocket costs for out-of-network services. These plans often employ various strategies to manage healthcare costs and improve quality, such as utilizing provider networks, implementing care coordination programs, and promoting preventive care services. Medicare Advantage plans typically charge beneficiaries a monthly premium, in addition to the Medicare Part B premium, and may involve cost-sharing arrangements such as copayments, coinsurance, and deductibles. Furthermore, Medicare Advantage plans may have different rules and restrictions compared to Traditional Medicare, such as prior authorization requirements for certain procedures or treatments.</p>
+</section>
+<section id="medicaid" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="medicaid"><span class="header-section-number">2.6</span> Medicaid</h2>
+<p>Medicaid is a joint federal and state healthcare program in the U.S. that provides medical coverage to low-income individuals and families. Established in 1965 under Title XIX of the Social Security Act, Medicaid is administered by states in accordance with federal guidelines and funding. The program aims to assist vulnerable populations, including low-income adults, children, pregnant women, elderly individuals, and people with disabilities, in accessing essential healthcare services. Medicaid eligibility criteria vary by state but generally consider factors such as income, assets, family size, and categorical requirements.</p>
+<p>Medicaid offers a comprehensive range of healthcare services, including hospital care, physician visits, laboratory tests, prescription drugs, preventive care, mental health services, and long-term care. The program plays a crucial role in providing access to healthcare for individuals who may otherwise be unable to afford necessary medical services. Medicaid operates as an entitlement program, meaning that eligible individuals have the right to receive covered services. Unlike some other public assistance programs, the availability of Medicaid benefits is not limited by a fixed budget or enrollment caps. However, Medicaid is funded jointly by the federal and state governments, with the federal government providing a specified percentage of the funding based on each state’s per capita income. States have the flexibility to design their Medicaid programs within broad federal guidelines, allowing for some variation in eligibility criteria, covered services, and program administration across different states.</p>
+<p>Medicaid managed care has been a significant development in the delivery of healthcare services to Medicaid beneficiaries. Medicaid managed care refers to the system in which Medicaid enrollees receive their healthcare services through managed care organizations (MCOs) that contract with state Medicaid agencies. This shift towards managed care has been driven by several factors, including the desire to control healthcare costs, improve coordination of care, enhance quality outcomes, and increase beneficiary access to a broader network of healthcare providers. The expansion of Medicaid managed care has been facilitated by federal policies and incentives, such as the introduction of waivers and demonstration projects that allow states to implement managed care models. As a result, the number of Medicaid beneficiaries enrolled in managed care plans has grown significantly over the years, leading to a transformation in how healthcare services are delivered and managed for this population.</p>
+</section>
+<section id="veterans-administration" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="veterans-administration"><span class="header-section-number">2.7</span> Veterans Administration</h2>
+<p>The Veterans Administration (VA) operates as a comprehensive health insurance program in the United States, specifically serving eligible veterans, active-duty military personnel, and their dependents. Established in 1930, the VA healthcare system is the largest integrated healthcare network in the country, providing a wide range of medical services to those who have served in the armed forces. The VA’s healthcare program is funded by the federal government and operates medical centers, outpatient clinics, and other healthcare facilities across the nation.</p>
+<p>The VA healthcare system offers a comprehensive array of medical services, including primary care, specialty care, mental health services, preventive care, and rehabilitative services. Through its extensive network of medical centers and clinics, the VA provides a continuum of care that aims to address the unique healthcare needs of veterans. The VA’s healthcare program is characterized by its focus on care coordination, patient-centeredness, and specialized services for conditions commonly associated with military service, such as post-traumatic stress disorder (PTSD) and traumatic brain injuries (TBI). Eligible veterans can access VA healthcare services with little to no cost, as the program is designed to provide coverage for a wide range of medical treatments and services. However, it is important to note that the VA healthcare system operates separately from other healthcare insurance programs in the U.S., and eligibility for VA benefits is specific to individuals who have served in the military.</p>
+<p>Another source of insurance for military personal is Tri-Care. This is a comprehensive health insurance program that provides medical coverage to active duty service members, retirees, and their families. Established in 1993, Tri-Care is administered by the Department of Defense (DoD) and serves as a comprehensive health insurance program, offering various healthcare options such as managed care plans, preferred provider organizations (PPOs), and fee-for-service arrangements. While both Tri-Care and the VA strive to ensure access to quality healthcare for the military community, Tri-Care caters to a broader spectrum of military personnel and their families, while the VA exclusively serves eligible veterans. Further, the VA operates as a separate healthcare system that focuses specifically on providing medical care to veterans through its network of medical centers and clinics, while Tri-Care acts as a more traditional health insurance product.</p>
+</section>
+<section id="how-public-insurers-pay-for-care" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="how-public-insurers-pay-for-care"><span class="header-section-number">2.8</span> How public insurers pay for care</h2>
+<section id="private-insurance-including-ma" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="private-insurance-including-ma">Private Insurance (including MA)</h3>
+<p>Regardless of how someone receives private health insurance (either through their employer, a partner’s employer, or direct purchase), the way care is paid for with private insurance is the same. The insurer has a payment that they’ve negotiated with each provider for each service. These negotiations take place in advance of any care that is delivered. Once you receive care, the provider will bill the insurance company (assuming the provider is “in-network”) and may also ask you to pay some amount directly. How much you’re asked to pay will depend on the terms of you’re insurance contract (whether you’ve met your deductible and what your copayments or coinsurance rates are).</p>
+<p>But the larger point is that insurers have an agreed-upon rate for whatever services are provided, and they pay providers based on that rate. More recently, some private insurers have begun adopting some form of capitated payments with providers. While data on these contracts is relatively limited, it appears that large adopting of capitated payments tends to be isolated among insurers that also own healthcare delivery services. For example, the Kaiser system is a well-known business that operates both an insurance plan and a system of healthcare providers. We’ll talk more about capitated payments in later chapters.</p>
+</section>
+<section id="traditional-medicare-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="traditional-medicare-1">Traditional Medicare</h3>
+<p>Under the fee-for-service payment model for inpatient care, Medicare reimburses healthcare providers based on specific rates for different services and procedures. When a Medicare beneficiary is admitted to a hospital, the hospital submits a claim to Medicare detailing the services and treatments provided during the stay. Medicare then reviews the claim and assigns diagnosis-related groups (DRGs) to categorize the patient’s condition and treatment. Each DRG is associated with a predetermined payment amount that covers the cost of care for a typical patient with that specific condition. The payment is intended to cover the costs of the hospital stay, including room and board, nursing care, medications, and necessary medical procedures. Medicare pays the hospital a fixed amount based on the assigned DRG, regardless of the actual costs incurred by the hospital. However, if the beneficiary requires additional services or experiences complications during the hospitalization, additional payments may be made. This fee-for-service system aims to provide hospitals with reimbursement for their inpatient services while incentivizing efficient and appropriate care.</p>
+</section>
+<section id="medicaid-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="medicaid-1">Medicaid</h3>
+<p>For states with “traditional” government-run Medicaid programs, payments to providers work similarly to traditional Medicare in that there is a predetermined fee schedule for each service or procedure. For people under Medicaid managed care, the insurer typically receives a single capitated payment per enrollee from the government, and the insurer constructs their network and negotiated rates accordingly. So for Medicaid managed care, payments to providers function more as in private insurance, just with less money per enrollee going to the insurer.</p>
+</section>
+<section id="va" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="va">VA</h3>
+<p>In the VA, care is paid for through a unique model that is distinct from traditional insurance payment systems. The VA operates its own healthcare facilities, including hospitals and clinics, and employs healthcare providers directly. As a result, the VA is a fully integrated insurer and provider. Funding for VA healthcare primarily comes from the federal government’s budget allocated to the VA. This budget covers the expenses of staffing, facilities, equipment, medications, and other necessary resources for providing healthcare services to veterans. Veterans enrolled in VA healthcare may have co-pays for certain services or medications, but these fees are typically lower than those in private insurance plans.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part1/insurance-1-1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terminology</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part1/insurance-2-1.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

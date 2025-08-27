@@ -1,0 +1,5 @@
+---
+title: "Health Insurance"
+---
+
+Section I of the book covers health insurance. First, we discuss the basics of a health insurance product or contract --- kind of a primer on how insurance works in the U.S. from a patient's perspective, and how people receive health insurance in the U.S. This is the subject of Chapters 1 and 2. We then get into the economic theory of why people buy health insurance, particularly how individual health status and risk preferences affect the willingness to pay for health insurance. This is the subject of Chapters 3 and 4 (Buying Insurance). We then move from an individual's insurance decision to the market, focusing on the problem of adverse selection and its implications for premiums and insurance coverage. This is the subject of Chapters 5 and 6 (Insurance Markets).

@@ -1,0 +1,46 @@
+---
+title: "Agency and Different Payment Models"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+In the prior chapter, we introduced a simple model of physician agency and financial incentives, and we saw how that model could predict "excess" care (i.e., physician's choice of quantity of care beyond what the patient would have optimally selected themselves). Now let's extend that model to allow for different payment models---in particular the role of fee-for-service (FFS) payments versus capitated payments.
+
+## Defining FFS and Capitated Payments
+
+For our purposes, FFS payments simply consist of separate payments for each service, creating a system where more care leads to more revenue. This is how we envisioned payments in the model in the prior chapter. And with some slight adjustments, this is also how traditional Medicare pays for health care among its beneficiaries. 
+
+In contrast, capitated payments provide a fixed amount intended to cover all expenses for a specific person or group, presenting a financial risk for healthcare providers. If actual expenses exceed the allocated amount, providers experience potential losses, while keeping costs below the capitated payment leads to profitability. The Kaiser system is probably the best example of a totally capitated payment system in the U.S. It's a private health insurance plan with an associated network of providers. Only people enrolled in the Kaiser insurance plan have access to the Kaiser providers, so it's a closed system of insurance and providers. Accountable Care Organizations are also similar to a fully capitated model, although not exactly since ACOs are voluntary.
+
+The differences between FFS and capitated payments create distinct incentives for healthcare providers. In the FFS model, the primary incentive is to maximize revenue by delivering more services, potentially leading to overutilization and unnecessary treatments. On the other hand, capitated payments incentivize providers to be more prudent in their service delivery to avoid financial losses, potentially leading to underprovision of care.
+
+## FFS and Capitated Payments in Physician Agency
+
+To see this more formally, let's set up a new version of our agency model. Physicians receive a fixed amount per patient, denoted $R$, along with a price per unit of service, $p_{s}$. Given the choice of quantity of care, $x$, (assumed to be the same for each patient) physicians receive $R + (p_{s} - c)x$ for each patient. Finally, the number of patients for each physician is expressed as a positive function of the net benefit offered, $n(NB)$, where $NB=B(x) - p_{d}x$. Here, we're also allowing separate prices paid by the patient versus prices received by the provider, where the patient pays $p_{d}$ and the physician receives $p_{s}$. We also assume that the physician has no control over prices. They can only affect the amount of care, $x$. 
+
+Physician's again aim to maximize profits by optimizing the profit function, $\pi=n(NB)\left[R+(p_{s}-c)x\right]$. This maximization problems yields the following first order condition:
+
+$$n'(NB)(B'(x) - p_{d}) \left[R + (p_{s} - c)x \right] + n(NB)(p_{s}-c) = 0.$$
+
+Rearranging terms and multiplying both sides by $\frac{1}{NB}$, we get:
+$$\frac{B'(x) - p_{d}}{NB} \frac{R + (p_{s} - c)x}{p_{s}-c} = - \frac{1}{\varepsilon_{n,NB}}.$$ {#eq-agency-cap}
+
+Even without any specific assumptions on the benefit function, we can begin to say something about the physician's selection of $x$ relative to the patient's own optimal $x$ under different payment scenarios. For example, assume that $R=0$ and $p_{s}>c$, so that there is no capitated payment and the physician is reimbursed entirely on a FFS basis. In that case, the second term on the left hand side of @eq-agency-cap must be positive. Since we know the product on the left hand side must be negative (to match the sign of the right hand side), then it follows that $B'(x) - p_{d}<0$. Since we also know that the patient would optimally set $B'(x)=p_{d}$, then the case of $R=0$ and $p_{s}>c$ must be such that the physician overtreats relative to the patient's optimal. That's the only way for $B'(x)<p_{d}$.
+
+Alternatively, let's consider the case of $R>0$ with $p_{s}<c$, so that the physician now earns a set amount of money per patient but *loses* money on each unit of care. In a purely capitated model, we would set $p_{s}=0<c$. Imposing these constraints onto @eq-agency-cap, note that the second half of the left hand side is now negative since $p_{s}-c<0$ (assuming $R-(p_{s} -c)x>0$, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., $B'(x)>p_{d}$), so that physicians now undertreat relative to the patient's optimal.
+
+## Capitation in Practice
+
+In practice, there are few examples of purely capitated payment models in the U.S. health care system. The Kaiser system is one example in the private insurance market. In the public insurance market, the closest examples of capitated payments are probably Bundled Payments and Accountable Care Organizations. Apart from capitation, Pay for Performance (P4P) programs are also employed in Medicare to incentivize quality care and positive patient outcomes. These programs include the Hospital Readmission Reduction Program, Value-based Purchasing, and the Quality Payment Program for physicians, each encouraging high-quality care and improved patient experiences through various metrics and financial incentives. The goal of such P4P programs is partly to counter the wedge between physician and patient optimal care introduced by the incentives from the underlying payment models.
+
+## Agency IRL
+
+More generally, physicians choose some care, $x$, incorporating their own profit, the benefit to the patient, and some disutility of work
+$$u(x) = V(\pi) -e(x) + \alpha B(x),$$
+where $x$ need not be "quantity of care" and could instead capture which type of treatment a physician chooses rather than "how much" care to provide. The important point here is simply that, in real life, physicians are often choosing between different treatment options rather than some easily measured "quantity." In this sense, the empirical literature has consistently found significant and meaningful physician responses to financial incentives, including effects on treatment patterns (@clemens2014), discharge patterns (@einav2023, @einav2018, and @eliason2018), the types of patients seen (@cabral2023), as well as location of care (@munnich2023 and @baker2016). Financial incentives also spillover across insurance types, where changes in payments from one insurer can influence how other types of patients are treated (@barnett2023). The takeaway from all this is that, on the margin, financial incentives *do* affect treatment decisions. Thankfully, there is less evidence that such responses decrease quality of care.
+
+## References {.unnumbered}

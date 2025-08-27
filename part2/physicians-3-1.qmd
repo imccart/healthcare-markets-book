@@ -1,0 +1,71 @@
+---
+title: "Physician Learning"
+---
+
+This chapter considers healthcare variation through the prism of physician learning. By delving into the mechanisms that drive physicians' evolving beliefs and their consequential impact on healthcare utilization, we unearth the intricate interplay between information asymmetry, Bayesian updating, and medical decision-making. This exploration serves to shed light on the dynamic landscapes of healthcare practices and the cognitive odyssey undertaken by physicians as they navigate the complexities of clinical choices within an economic context.
+
+## Motivation
+
+Physicians, positioned at the forefront of medical decision-making, wield considerable discretion in determining the treatments administered to patients. The subsequent variation in healthcare practices, resulting from these decisions, echoes across different contexts and markets. This variation is propelled by several factors, including differences in information availability, personal beliefs, and financial incentives, contributing to a diverse landscape of healthcare utilization.
+
+A critical facet contributing to this variation is the intrinsic asymmetry of information within the healthcare domain. Physicians, informed by varying degrees of experiential learning, training, and professional affiliations, often possess disparate levels of insight into treatment efficacy and patient outcomes. This inherent asymmetry results in divergent medical judgments and influences the care trajectory patients experience.
+
+## Physician Learning
+
+To dissect the underpinnings of physician learning, Bayesian updating emerges as an insightful lens. This mathematical framework enables us to elucidate the dynamics that drive physicians' evolving beliefs, providing a formal framework for understanding how new information influences medical decision-making.
+
+Bayesian updating affords a systematic methodology for integrating prior beliefs with newly acquired data. The core of this framework lies in Bayes' theorem, a fundamental principle in probability theory. By judiciously combining prior beliefs with observed evidence, physicians can iteratively refine their beliefs, culminating in posterior distributions that encapsulate updated knowledge.
+
+### The Mechanics of Bayes' Rule
+
+Bayes' rule formalizes the relationship between prior beliefs, likelihood functions, and observed data. This mechanism of assimilating data, while accommodating the idiosyncrasies of prior convictions, constitutes the crux of belief evolution. More formally, given prior beliefs about treatment quality, $P(\theta$), and observed outcomes $y$, the physician updates their belief on the quality of treatment using:
+
+$$\begin{align}
+P(\theta|y) &= \frac{P(y|\theta) \times P(\theta)}{P(y)} \\
+ & \propto P(y|\theta) \times P(\theta),
+\end{align}$$
+
+where $P(\theta | y)$ is the updated belief (posterior distribution) about the effectiveness of treatment after observing outcomes; $P(y | \theta)$ is probability of outcome $y$ given the effectiveness $\theta$ (the likelihood); and $P(y)$ is the marginal probability of patient outcome $y$. We typically use the "proportional to" expression, $\propto$, to focus on relative probabilities and avoid complications from the normalization $P(y)$, which can sometimes lead to unruly posterior distributions requiring numerical integration.
+
+For some simple intuition in the context of physician learning, imagine a physician is considering a new treatment option for their patients. While they are unsure of the effectiveness of treatment, they have some initial belief about the treatment's effectiveness captured by their prior, $P(\theta)$. As the physician treats patients and observes outcomes, they update their beliefs using Bayes' rule.
+
+In general, updating these beliefs mathematically will integration of the posterior distribution, which can be complicated; however, with specific assumptions, there are "closed-form" solutions to the posterior distribution. We call these "conjugate" distributions. For example, the beta distribution is the conjugate prior distribution for the Bernoulli distribution (among others). These are handy distributions to use in the context of physician learning, because the Beta distribution has support over the $[0,1]$ interval, and the Bernoulli distribution is a series of Binomial draws (e.g., several binary occurrences of whether the patient improved or not). So these are natural distributions to work with when considering the evolution of beliefs about the effectiveness of some treatment.
+
+### Baye's Rule with Beta Prior and Binomial Likelihood
+
+Since all of the examples we'll talk about here involve a Beta prior and a Binomial likelihood, it's worthwhile to derive the posterior explicitly for this case. The Beta distribution is governed by its "shape" parameters, $\alpha$ and $\beta$
+
+$$P(θ) = \frac{\theta^{\alpha-1} (1 - \theta)^{\beta-1} }{B(\alpha, \beta)},$$
+where $B(\alpha, \beta)$ is a normalization constant to ensure the PDF integrates to 1. The mean and variance of the Beta distribution also have very easy formulas, with $\mu = \frac{\alpha}{\alpha + \beta}$ and $\nu = \frac{\alpha \beta}{(\alpha + \beta)^{2} (\alpha+ \beta + 1)}$.
+
+Similarly, the Binomial outcome can be denoted by $y\sim B(n,\theta)$, where $n$ is the number of trials and $\theta$ is the probability of success for any single case
+
+$$ P(y|n, \theta) = {n \choose s} \theta^{s} (1-\theta)^{n-s}$$
+
+Our goal is to derive the posterior distribution for $\theta$ with prior, $\theta \sim Beta(\alpha_{0}, \beta_{0})$, which is as follows:
+$$\begin{align}
+P(\theta | y) &= \frac{P(y| \theta) P(\theta)}{P(y)} \\
+ & \propto \frac{ {n \choose s} \theta^{s} (1 - \theta)^{n - s} \theta^{\alpha-1} (1 - \theta)^{\beta-1} } { B(\alpha, \beta) } \\
+ & \propto \frac{ {n \choose s} \theta^{\alpha+s-1} (1 - \theta)^{\beta+n-s-1} } { B(\alpha, \beta) } \\
+ & \propto B(\alpha+s, \beta + n - s)
+\end{align}$$
+
+In this case, ${n \choose s}$ and $B(\alpha, \beta)$ are just normalization constants, so we can ignore them, and the expression reduces to a Beta distribution with shape parameters $\alpha_{0}+s$ and $\beta_{0} + n - s$. It's useful to focus on a specific moment of the posterior distribution to see how it has evolved via Bayesian updating. Recalling the mean of the Beta distribution, the updated (posterior) mean is $\mu_{1} = \frac{\alpha_{0}+s}{\beta_{0} + n - s}$. The extent to which the physician's beliefs move more or less toward the observed data therefore depends on their priors. 
+
+
+## Some Examples
+
+To contextualize things, let us delve into two illustrative cases that elucidate the potential role of physician learning in healthcare variation. Assume that physician's have access to the same data in which 70 out of 100 patients showed improvement from a new treatment.
+
+### Case 1: "Diffuse" Priors and Belief Convergence
+
+A "diffuse" prior can be reflected by a uniform distribution of beliefs in the the physician has no strong prior as to the effectiveness (or ineffectiveness) of treatment. We can reflect this formally with $Beta(\alpha_{0}=1, \beta_{0}=1)$. Following the steps from the prior section, we know that the updated posterior distribution will also follow a Beta distribution with shape parameters $\alpha_{1} = \alpha_{0} + 70 = 71$ and $\beta_{1}  = \beta_{0} + 100 - 70 = 31$. The posterior mean is then $\mu = \frac{\alpha_{1}}{\alpha_{1}+\beta_{1}} = \frac{71}{71+31} \approx 0.6969$. So the physician's updated belief of the effectiveness of treatment almost exactly matches the observed effectiveness rate of 70%. 
+
+### Case 2: The Impact of "Strong" Priors
+
+In contrast, consider a case in which the physician has very strong negative priors (e.g., they firmly believe that this new treatment is ineffective). We can capture this formally with $Beta(\alpha_{0}=1, \beta_{0}=20)$. The posterior mean, again based on 70 successes out of 100 cases, is $\mu = \frac{\alpha_{1}}{\alpha_{1}+\beta_{1}} = \frac{71}{71+50} \approx 0.5861$. In this case, even though the physician had access to the same observational data, they place significantly less weight on those data and therefore remain more skeptical of the effectiveness of the treatment.
+
+## Discussion
+
+The point of all of this is to highlight how different physicians may more quickly or more slowly adopt certain technologies or new treatment options. As such, learning is a source of heterogeneities in healthcare utilization, with different patients being exposed to different preferences, priors, and learning histories of different physicians.
+

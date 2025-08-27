@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Economics of Health Care - 5&nbsp; Adverse Selection and Pricing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part1/insurance-3-2.html" rel="next">
+<link href="../part1/insurance-2-2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-3-1.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Adverse Selection and Pricing</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Economics of Health Care</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Health Insurance</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Health Insurance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-3-1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Adverse Selection and Pricing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part1/insurance-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Health Insurance Competition</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part2/physicians-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Physicians</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Physicians as Gatekeepers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part2/physicians-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Physician Training and Practice Environment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hospitals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">History and Hospital Pricing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ownership and Objective Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Single-price Market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Two-price Market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Bargaining and Prices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part3/hospitals-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Hospital Mergers</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part4/pharma-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prescription Drugs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Prescription Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Brand Name Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#textbook-adverse-selection-model" id="toc-textbook-adverse-selection-model" class="nav-link active" data-scroll-target="#textbook-adverse-selection-model"><span class="header-section-number">5.1</span> Textbook Adverse Selection Model</a>
+  <ul class="collapse">
+  <li><a href="#full-insurance" id="toc-full-insurance" class="nav-link" data-scroll-target="#full-insurance">Full Insurance</a></li>
+  <li><a href="#under-insurance" id="toc-under-insurance" class="nav-link" data-scroll-target="#under-insurance">Under-insurance</a></li>
+  <li><a href="#full-unravelling" id="toc-full-unravelling" class="nav-link" data-scroll-target="#full-unravelling">Full unravelling</a></li>
+  </ul></li>
+  <li><a href="#what-is-unravelling" id="toc-what-is-unravelling" class="nav-link" data-scroll-target="#what-is-unravelling"><span class="header-section-number">5.2</span> What is Unravelling?</a></li>
+  <li><a href="#how-to-deal-with-adverse-selection" id="toc-how-to-deal-with-adverse-selection" class="nav-link" data-scroll-target="#how-to-deal-with-adverse-selection"><span class="header-section-number">5.3</span> How to deal with adverse selection</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Adverse Selection and Pricing</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Asymmetric information refers to the situation where one party possesses more knowledge or information than another party involved in a transaction or relationship. When it comes to health insurance, individuals typically have a better understanding of their own health conditions and risks compared to insurance companies. This knowledge imbalance can be seen as a form of asymmetric information. The presence of this asymmetric information in health insurance introduces what we call <strong>adverse selection</strong>.</p>
+<p>Adverse selection is a phenomenon that commonly occurs in insurance markets and refers to the situation where individuals with higher risk levels are more likely to seek or retain insurance coverage compared to those with lower risk levels. This leads to an imbalance in the insurance pool, where the proportion of high-risk individuals is disproportionately higher than low-risk individuals. Adverse selection is possible due to asymmetric information in which individuals know more about their health care needs that insurers. As a result, individuals who anticipate a higher likelihood of needing insurance benefits, such as those with pre-existing medical conditions or engaging in risky activities, are more inclined to purchase insurance. On the other hand, individuals who are healthier or less exposed to risks may choose not to enroll in insurance since they perceive their likelihood of needing coverage as lower. Adverse selection can pose significant challenges for insurance providers, as the higher concentration of high-risk individuals in the insurance pool increases the probability of claims and can lead to financial losses.</p>
+<p>A notable example highlighting this concept is the article titled “Costs during special enrollment periods” published in Health Affairs, which provides insights into how insurance costs can vary during specific enrollment periods. This example illustrates how individuals often possess more specific information about their health status, medical history, and potential future needs, which insurers may not have access to or may not consider in their pricing models. This information asymmetry can impact the dynamics and outcomes of the insurance market.</p>
+<section id="textbook-adverse-selection-model" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="textbook-adverse-selection-model"><span class="header-section-number">5.1</span> Textbook Adverse Selection Model</h2>
+<p><a href="#fig-adverse-selection">Figure&nbsp;<span>5.1</span></a> presents a textbook model of adverse selection, as depicted in <span class="citation" data-cites="einav2011">Einav and Finkelstein (<a href="#ref-einav2011" role="doc-biblioref">2011</a>)</span>. The graph illustrates the interplay between price, number of enrollees, and costs in the context of health insurance, particularly in relation to adverse selection. It consists of three lines: a downward-sloping demand curve, an average cost curve, and a marginal cost curve. The vertical axis represents the price of health insurance, while the horizontal axis represents the number of enrollees.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-adverse-selection" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-3-1_files/figure-html/fig-adverse-selection-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.1: Textbook depiction of adverse selection</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The demand curve in <a href="#fig-adverse-selection">Figure&nbsp;<span>5.1</span></a> reflects the willingness of individuals to pay for health insurance. As the price decreases, more individuals are willing to enroll. The average cost curve represents the average healthcare costs incurred by the insurer as the number of enrollees increases. The marginal cost curve, on the other hand, depicts the additional cost incurred by the insurer to insure one more enrollee. Note that both the demand and marginal cost curves are downward sloping, reflecting the idea that the “healthiest” individuals (people with low expected healthcare costs) are willing to pay the least for health insurance.</p>
+<p>With sufficient competition, we can assume that the equilibrium point occurs where the demand curve intersects with the average cost curve. This equilibrium assumes zero profit, indicating that the insurer is covering its costs without making any additional financial gains. This equilibrium serves as a reference for analyzing the effects of adverse selection, which can introduce imbalances between the risk profile of enrollees and the corresponding costs incurred by the insurer. Of course, insurance markets are far from perfectly competitive, but the point of <a href="#fig-adverse-selection">Figure&nbsp;<span>5.1</span></a> is to understand the role of adverse selection in prices, and in order to do that, we need to avoid other complications.</p>
+<p>Using <a href="#fig-adverse-selection">Figure&nbsp;<span>5.1</span></a>, we can focus on three general scenarios: 1) full insurance; 2) under-insurance (or partial unravelling); and 3) unravelling. We’ll discuss each of these points in the remaining subsections. Throughout this discussion, we’ll assume that insurers must charge a common price for all enrollees, which is referred to as <strong>community rating</strong> in practice.</p>
+<section id="full-insurance" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="full-insurance">Full Insurance</h3>
+<p>In a scenario where the demand for health insurance is consistently above the average cost, the graph would depict a situation of full insurance coverage, mitigating the problems associated with adverse selection. This is reflected in <a href="#fig-full-insurance">Figure&nbsp;<span>5.2</span></a>. In this case, the demand curve would always intersect with the average cost curve at a point where the willingness to pay for insurance exceeds the average costs incurred by the insurer. This indicates that consumers are willing to pay a premium that sufficiently covers the expenses associated with their healthcare needs.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-full-insurance" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-3-1_files/figure-html/fig-full-insurance-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.2: Demand always above AC</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The graph would demonstrate a stable equilibrium where the number of enrollees satisfies the demand for insurance without compromising the financial viability of the insurer. The absence of adverse selection arises because individuals’ willingness to pay consistently surpasses the average costs, ensuring that the insurance pool is balanced and sustainable.</p>
+</section>
+<section id="under-insurance" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="under-insurance">Under-insurance</h3>
+<p>In another version of the graph as depicted in <a href="#fig-adverse-selection">Figure&nbsp;<span>5.1</span></a>, the demand curve intersects with the average cost curve at a certain point. In such a case, underinsurance or partial unravelling occurs. This is because there are individuals who have the ability and willingness to pay more than their expected costs but choose to remain uninsured. This situation creates a gap between potential demand and actual enrollees, resulting in a mismatch between individuals’ willingness to pay and their insurance coverage. This underinsurance scenario raises concerns about access to healthcare and risk distribution in the insurance market.</p>
+</section>
+<section id="full-unravelling" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="full-unravelling">Full unravelling</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-unravelling" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="insurance-3-1_files/figure-html/fig-unravelling-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.3: Demand always below AC</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In a scenario where demand consistently falls below average cost on the graph, as in <a href="#fig-unravelling">Figure&nbsp;<span>5.3</span></a>, the health insurance market would experience complete unravelling. This signifies a lack of participation as individuals perceive the premiums as too high relative to expected costs of healthcare, resulting in insufficient demand to sustain insurance providers. The absence of a functioning market undermines risk pooling and cost-sharing mechanisms, leading to limited or no coverage. Such unravelling is sometimes referred to as a <strong>death spiral</strong></p>
+</section>
+</section>
+<section id="what-is-unravelling" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="what-is-unravelling"><span class="header-section-number">5.2</span> What is Unravelling?</h2>
+<p>Conceptually, we can describe unravelling in stages or periods. First, let’s assume that the demand curve for health insurance falls below the average cost (AC) curve beyond a certain point, although not necessarily consistently (as depicted in <a href="#fig-adverse-selection">Figure&nbsp;<span>5.1</span></a>). In the initial period, let’s assume that the insurer sets the premium at a level where average costs exceed the premium (<span class="math inline">\(AC &gt; D\)</span>). This means that the insurer is undercharging for coverage, leading to financial losses.</p>
+<p>Recognizing the discrepancy between costs and premiums, the insurer increases the premium in the subsequent period. This price increase causes a movement upward along the demand curve. However, this upward movement prompts a specific group to exit the market—the relatively healthy or low-cost individuals. As a result, the average cost (AC) of providing coverage is also higher.</p>
+<p>To reach equilibrium, the insurer must continue raising premiums as average costs increase. This ongoing process of raising premiums is driven by the departure of low-cost individuals from the market and the need to cover the higher costs of the remaining enrollees. The unraveling effect becomes evident as the insurer faces a challenging cycle of increasing premiums, losing low-cost individuals, and further elevating average costs.</p>
+<p>In summary, unraveling in health insurance occurs when the demand curve falls below the average cost curve, leading insurers to set premiums that are initially too low. As costs exceed premiums, insurers raise prices, causing the departure of healthier, lower-cost individuals from the market. This exodus drives up average costs, necessitating further premium increases to reach equilibrium. This cyclical process characterizes the unraveling phenomenon in health insurance markets.</p>
+</section>
+<section id="how-to-deal-with-adverse-selection" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="how-to-deal-with-adverse-selection"><span class="header-section-number">5.3</span> How to deal with adverse selection</h2>
+<p>To mitigate adverse selection, insurance companies employ various strategies such as risk assessment tools, underwriting processes, and pricing mechanisms based on actuarial principles to adequately manage the risk pool and ensure the financial sustainability of their operations. But in the presence of community rating, insurers inherenly rely on some projected patient costs when pricing their products, and they will be wrong in some cases. This is especially true in new markets that the exchanges introduced by the ACA, or when new regulations meaningfully change certain insurance markets.</p>
+<p>There are also policy levers that can help to avoid problems of adverse selection. Three such policies include:</p>
+<ol type="1">
+<li><p>Subsidize consumers: One potential policy solution to combat adverse selection and prevent unraveling is to subsidize consumers. By providing financial assistance or subsidies to individuals, particularly those with lower incomes or higher health risks, the affordability barrier can be addressed. Subsidies can help offset the cost of premiums, making health insurance more accessible to a broader population. By reducing the price barrier, subsidies encourage healthier individuals to participate in the insurance market, balancing the risk pool and mitigating adverse selection. This policy approach aims to maintain a healthier mix of enrollees, stabilize premiums, and promote the overall sustainability of the insurance market.</p></li>
+<li><p>Subsidize insurers: Another policy solution to address adverse selection and prevent unraveling is to provide subsidies directly to insurance companies. By offering financial support to insurers, it becomes possible to reduce the burden of high-risk individuals’ claims on insurance providers. Subsidies can help insurers cover the additional costs associated with providing coverage to higher-risk individuals. This reduces the financial strain on insurers, enabling them to offer more competitive premiums and remain financially viable. By providing subsidies to insurers, this approach helps to mitigate adverse selection and promotes the stability and affordability of health insurance coverage for all enrollees.</p></li>
+<li><p>Mandate purchases: A third policy solution to address adverse selection and prevent unraveling is to mandate the purchase of health insurance. By implementing a requirement for individuals to obtain health insurance coverage, often through an individual mandate, it ensures a broader risk pool and a more balanced distribution of risks and costs. Mandating purchases encourages healthier individuals to enroll, reducing the concentration of high-risk individuals in the insurance pool. This approach promotes the spreading of risk, stabilizes premiums, and helps prevent adverse selection. Mandating purchases aims to ensure the sustainability and effectiveness of the health insurance market by creating a more diverse and inclusive risk pool.</p></li>
+</ol>
+<p>These policy solutions each offer potential strategies to address adverse selection and prevent unraveling in health insurance markets. By addressing affordability barriers, supporting insurers, and creating a balanced risk pool, these policy approaches strive to promote access to comprehensive coverage, stabilize premiums, and maintain the financial viability of the insurance market.</p>
+</section>
+<section id="bibliography" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography">Bibliography</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-einav2011" class="csl-entry" role="listitem">
+Einav, Liran, and Amy Finkelstein. 2011. <span>“Selection in <span>Insurance</span> <span>Markets</span>: <span>Theory</span> and <span>Empirics</span> in <span>Pictures</span>.”</span> <em>The Journal of Economic Perspectives</em> 25 (1): 115–38.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part1/insurance-2-2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part1/insurance-3-2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Health Insurance Competition</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

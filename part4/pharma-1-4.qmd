@@ -1,0 +1,46 @@
+---
+title: "Regulation and Innovation"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+
+## Innovation in the Pharmaceutical Industry
+
+Innovation is a term often thrown around in the context of the pharmaceutical industry, but its true meaning extends beyond the mere introduction of new products. A genuine innovation refers to a new drug that improves upon existing treatments, offering better efficacy or reduced side effects. Despite this, media narratives often overlook the differentiation between novelty and improvement, sometimes conflating the two.
+
+Understanding the drivers of innovation within the pharmaceutical sector is pivotal. Companies are guided by the prospective profits of their drugs, which factor into their research and development (R&D) decisions. This process involves a systematic evaluation of the expected returns from potential new drugs against a backdrop of various costs, including manufacturing, packaging, marketing, and distribution. This evaluation is sometimes referred to as the Marginal Efficiency of Investment (MEI). Firms will continue to invest in drug development as long as the expected returns, or MEI, exceed the cost of capital, with investment ceasing once MEI equals the cost of capital.
+
+Strategies to propel innovation forward often pivot on altering the MEI or the cost of capital. Policies to expand the MEI might include modifying marketing regulations or enhancing the demand for certain drugs through measures such as market exclusivity or ensuring coverage under public insurance plans. On the other hand, reducing the cost of capital can be achieved through more accessible funding options like tax credits or grants. However, it's important to note that such strategies—whether they are 'pull' incentives that delay the financial burden until after the drugs are developed, or 'push' incentives that require immediate government investment—carry distinct political ramifications and affect different stakeholders.
+
+## The Interplay of Regulation and Pharmaceutical Innovation
+
+Regulatory frameworks in the pharmaceutical industry, particularly concerning pricing, are crucial to the innovation landscape. Price regulations like reference pricing or direct price caps can have a disincentive effect on innovation by diminishing the MEI. Research has suggested that the price elasticity of R&D is around 0.6, indicating that a 10% reduction in drug prices could potentially lead to a 6% decrease in R&D investment. It raises the question of which specific innovations might be deterred due to such pricing pressures, a query that remains challenging to answer.
+
+Discussion within the academic community has highlighted the discrepancy in drug prices and innovation rates, as discussed in @kesselheim2016. This discourse underscores the U.S.'s position as an outlier in terms of pharmaceutical spending and the growth rate of such spending when compared to peer nations. Notwithstanding the high costs, it's critical to acknowledge that even expensive drugs like Sovaldi for hepatitis C can represent cost-effective treatments given their therapeutic benefits.
+
+### Factors affecting pharma prices
+
+Various factors contribute to the rising costs of pharmaceuticals, raising critical research questions regarding the drivers of these increases and potential policy interventions that can align drug prices with their true value, ensuring equitable access. The stark contrast between brand name and generic drug prices often garners attention, particularly when price hikes in generics, which are meant to be affordable alternatives, are noted. Cases like the 5500% increase in the price of Daraprim, a treatment for toxoplasmosis, exemplify the complexities within the industry, where monopoly pricing can occur even in the absence of patent protection.
+
+The mechanisms behind such high prices for pharmaceuticals are multifaceted, involving manufacturers, pharmacy benefit managers (PBMs), insurers, and pharmacies, with little regulation to directly influence price setting. Comparatively, in markets like the UK, cost-effectiveness thresholds are mandated, dictating coverage eligibility and thus, indirectly, pricing.
+
+First, one clear factor affecting pharma prices is patent protection. Patent protection affords a period of market exclusivity that typically extends for 20 years, starting before a drug receives approval. Companies can seek extensions on these patents, resulting in additional market exclusivity. But even in cases with multiple substitute products, competition remains limited, often due to market fragmentation, informational asymmetries, and complexities in physician prescribing behaviors.
+
+Second, even after the initial patent protection, firms can delay generic entry for some time. Such strategies include securing additional patents for minor modifications to existing drugs or engaging in settlement agreements with generic manufacturers. 
+
+And third, even after generic entry, barriers to competition persist. Such barriers are influenced by a variety of legislative and regulatory practices across states that affect the substitution of brand name drugs with generics.
+
+Ultimately, the industry justifies high drug prices by citing significant R&D expenditures. While it's true that R&D expenditures are substantial, the role of public and academic institutions in the early stages of many transformative drug developments may weaken this rationale. With rising drug prices becoming increasingly unsustainable, discussions on federal and state policy reforms have come to the forefront.
+
+## Global Implications and Policy Considerations
+
+The global dynamics of pharmaceutical pricing and innovation are complex. The United States bears a disproportionate share of the costs associated with R&D funding, while the rest of the world (ROW) contributes less than might be considered equitable. In @frech2023, the authors recommend a recalibration of international spending responsibilities, advocating for higher drug prices in other countries as a potentially more effective policy than simply lowering prices within the U.S. alone.
+
+This nuanced conversation addresses the intricate balance between fostering innovation through adequate funding mechanisms and ensuring the affordability and accessibility of pharmaceuticals on a global scale. It underscores the need for thoughtful and concerted policy action that reflects the diverse interests and responsibilities of stakeholders worldwide.
+
+## References {.unnumbered}

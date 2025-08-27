@@ -1,0 +1,146 @@
+---
+title: "Understanding Risk"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+As George Costanza learned in his audio book in Seinfeld, "In order to manage risk, we must first define risk." So that's what we'll do first. In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I'm therefore subjected to both a health risk and a financial risk (because I have to pay for health care). 
+
+
+## Describing Risk
+
+The more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let's discuss each of these elements in more detail.
+
+
+### Probability {.unnumbered}
+
+Probability is defined as the likelihood that a given outcome will occur. For example, this handy/depressing [risk calculator](https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/) can tell me the probability of developing heart disease over the next 10 years. Let's say that's 10%. In this case, it would mean that if there were 1000 people exactly like me, 100 of them will develop heart disease over the next 10 years and 900 would not. 
+
+We'll only work with examples where there are two possible outcomes, sick or healthy (i.e., needing health care or not needing health care). I'll denote the probabilities of these events by $p_{s}$ and $p_{h}$, noting also that $p_{h}=1-p_{s}$, and vice versa, since we have only two possible events.
+
+### Payoffs {.unnumbered}
+
+Payoffs in this case simply reflect the monetary value of each possible outcome. Sticking with the example of getting sick or staying healthy, let's say we will incur \$500 in health care costs if we become sick and \$0 if we remain healthy. If we start with \$1,000, then our payoff in the event that we are sick is $w_{s}=1000-500=500$, and our payoff if we remain healthy is $w_{h}=1000$. 
+
+### Expected value {.unnumbered}
+
+```{r}
+#| include: false
+wh <- 1000
+ws <- 500
+
+ph <- 0.9
+ps <- 0.1
+
+util <- function(x) {
+  sqrt(x)
+}
+
+e.pay <- ph*wh + ps*ws
+e.cost <- (wh-ws)*ps
+e.util <- ph*util(wh) + ps*util(ws)
+
+```
+Quick recap...we begin with \$1,000, and we have two possible outcomes: 1) we become sick; and 2) we stay healthy. We will become sick with probability $p_{s}$, in which case we'll only have \$500 left after paying for our health care. We will stay healthy with probability $p_{h}$, in which case we'll keep our original \$1,000 because we don't have to incur any health care costs.
+
+Now we need to form our expected payoff *before* the outcome is realized. With the two possible payoffs, $w_{s}$ and $w_{h}$, and the probabilities of each outcome, $p_{s}$ and $p_{h}$, we can write the expected value as simply the weighted average of the two payoffs, with the weights being the respective probabilities:
+
+$$E[w] = p_{h}w_{h} + p_{s}w_{s}$$
+
+Keeping the same probabilities from earlier, $p_{h}=0.9$ and $p_{s}=0.1$, and substituting the respective probabilities and payoffs yields an expected value of \$`r round(e.pay, digits=2)`.
+
+Another expectation that we'll need to form is the expected cost. In our examples, we only incur a cost if we are sick. The expected cost formula looks very similar, $E[cost]=p_{h}cost_{h} + p_{s}cost_{s}$, but $cost_{h}=0$. So the expected cost is just $p_{s}cost_{s}$, or \$`r round(e.cost, digits=2)`.
+
+
+### Preferences {.unnumbered}
+
+Preferences take the form of a utility function, $u(x)$, which tells us how much "benefit" we get from some consumption bundle, $x$. In economics, we tend to assume individuals make decisions not based on the strict monetary payoff but instead on the utility of this payoff. Among other things, this way of thinking introduces the idea of diminishing marginal utility, so that more of something means less to us if we already have a lot of it. More formally, this means $u'(x_{1})>u'(x_{2})$ for $x_{1}<x_{2}$.
+
+We can then combine the notion of consumer utility with expected value in order to form the expected utility:
+
+$$E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})$$
+As an example, let's assume that preferences are such that $u(x)=\sqrt x$. In that case, our expected utility is `r round(e.util, digits=2)`. Note that we take the expectation over two different possible utility values, rather than the utility of our expected wealth. This is an important distinction and is necessary to understand risk premiums and willingness to pay for health insurance. 
+
+
+## Risk preferences
+
+With the basics of probability, utility, and expected value, we can begin to measure risk preferences. Generally, we categorize people into three risk types:
+
+1. Risk averse: Someone who prefers to avoid a risky situation and would rather take less payoff with certainty than face two possible outcomes with uncertainty.
+2. Risk neutral: Someone who is indifferent between the risky situation versus an uncertain outcome.
+3. Risk loving: Someone who prefers risk and would rather face two possible outcomes with uncertainty that receive the same outcome with certainty.
+
+For our purposes, we will assume individuals are risk averse, which also follows from an assumption of diminishing marginal utility. @fig-risk-averse provides a graphical illustration of risk aversion, showing wealth/monetary values on the x-axis and utility on the y axis. The line segment in @fig-risk-averse joins two utility values, $u(w_{s})$ and $u(w_{h})$ --- this is the expected utility line. For any probabilities $p_{s}$ and $p_{h}$, $E[u(w)]$ will fall somewhere on that line.
+
+```{tikz}
+#| echo: false
+#| fig.cap: "Depiction of risk aversion"
+#| label: fig-risk-averse
+
+\usetikzlibrary{calc}
+\begin{tikzpicture}[my plot/.style={
+                        thick,
+                        smooth,
+                        samples=100,
+                        domain=0.1:5},
+                    scale=0.75,
+                    my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1, transform shape}},
+                    my axis/.style={latex-latex}]
+\draw[my plot] (0,0) plot (\x,{ln(\x)});
+\coordinate (start plot) at (0.1,{ln(0.1)}); % domain start
+\coordinate (end plot) at (5,{ln(5)}); % domain end
+%\draw[my axis] ([shift={(-0.5cm,0.5cm)}]start plot |- end plot) node[left] {$u(\cdot)$} |- node[coordinate](origin){} ([shift={(0.5cm,-0.5cm)}]start plot -| end plot) node[below] {$\cdot$};
+\draw[my axis] ([shift={(-0.5cm,0.5cm)}]start plot |- end plot) |- node[coordinate](origin){} ([shift={(0.5cm,-0.5cm)}]start plot -| end plot);
+\def\x{0.5}\def\y{4}\def\p{0.55} % define the x, y and p values
+\coordinate (Ux) at (\x,{ln(\x)}); % set the u(x) coordinate
+\coordinate (Uy) at (\y,{ln(\y)}); % set the u(y) coordinate
+\coordinate (Up) at ({\p*\x+(1-\p)*\y},{ln(\p*\x+(1-\p)*\y)}); % set the u(p*x+(1-p)*y) coordinate
+\draw (Ux) -- coordinate[pos=1-\p] (Up-mid) (Uy); % set the coordinate on the linear curve
+\path let \p1=(Up-mid), \n1={pow(e,\y1*0.03514)} in (28.4576*\n1,\y1) coordinate (Up-mid2); 
+\draw[my grid] (Ux) |- node[below]{$w_{s}$} (origin) |- node[left]{$u(w_{s})$} cycle;
+\draw[my grid] (Uy) |- node[below]{$w_{h}$} (origin) |- node[left]{$u(w_{h})$} cycle;
+\end{tikzpicture}
+```
+
+The most important thing to notice from @fig-risk-averse is that the line segment joining $u(w_{h})$ and $u(w_{s})$ falls entirely below the utility curve. Why does this matter? Let's work through a simple thought exercise, noting that the utility curve tells us the utility for a given value of $w$ in the absence of any uncertainty. Pick any value of $w$ between $w_{s}$ and $w_{h}$ and follow that value up to the expected utility line. For any such value, you would always prefer to have that amount of wealth with certainty than in expectation. So you always prefer a single outcome with certainty over an expected outcome (of the same monetary value) with uncertainty. Another way to think of this is to pick a utility value on the y axis. Reaching that utility value will take more wealth in expectation than it would in the absence of uncertainty.
+
+To fix ideas, consider another version of this graph in @fig-risk-averse2. As drawn, providing $\bar{w}$ to this person (without any uncertainty) would yield a utility of $\bar{u}$. But if they wanted to obtain the same utility with uncertainty, they would need $\bar{w} + \pi$. This person would need to be given more money in order to take on some uncertainty.
+
+
+```{tikz}
+#| echo: false
+#| fig.cap: "Depiction of risk aversion"
+#| label: fig-risk-averse2
+
+\usetikzlibrary{calc}
+\begin{tikzpicture}[my plot/.style={
+                        thick,
+                        smooth,
+                        samples=100,
+                        domain=0.1:5},
+                    scale=0.75,
+                    my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1, transform shape}},
+                    my axis/.style={latex-latex}]
+\draw[my plot] (0,0) plot (\x,{ln(\x)});
+\coordinate (start plot) at (0.1,{ln(0.1)}); % domain start
+\coordinate (end plot) at (5,{ln(5)}); % domain end
+\draw[my axis] ([shift={(-0.5cm,0.5cm)}]start plot |- end plot) |- node[coordinate](origin){} ([shift={(0.5cm,-0.5cm)}]start plot -| end plot);
+\def\x{0.5}\def\y{4}\def\p{0.55} % define the x, y and p values
+\coordinate (Ux) at (\x,{ln(\x)}); % set the u(x) coordinate
+\coordinate (Uy) at (\y,{ln(\y)}); % set the u(y) coordinate
+\coordinate (Up) at ({\p*\x+(1-\p)*\y},{ln(\p*\x+(1-\p)*\y)}); % set the u(p*x+(1-p)*y) coordinate
+\draw (Ux) -- coordinate[pos=1-\p] (Up-mid) (Uy); % set the coordinate on the linear curve
+\path let \p1=(Up-mid), \n1={pow(e,\y1*0.03514)} in (28.4576*\n1,\y1) coordinate (Up-mid2); 
+\draw[my grid] (Ux) |- node[below]{$w_{s}$} (origin) |- node[left]{$u(w_{s})$} cycle;
+\draw[my grid] (Uy) |- node[below]{$w_{h}$} (origin) |- node[left]{$u(w_{h})$} cycle;
+\draw[my grid] (Up-mid) |- node[below,font=\scriptsize]{$\bar{w}+\pi$} (origin);
+\draw[my grid] (Up-mid2) |- node[below, font=\scriptsize]{$\bar{w}$} (origin) |- node[left]{$\bar{u}$} cycle;
+\draw[my grid] (Up-mid) -- (Up-mid2);
+\end{tikzpicture}
+```
+
+

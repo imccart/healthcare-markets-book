@@ -1,0 +1,59 @@
+---
+title: "Health Insurance Competition"
+---
+
+Competition in health insurance is a complex concept that requires careful examination to understand its implications and effects on the healthcare landscape. Evaluating the desirability of competition involves considering both public and private insurance systems. In this Chapter, we'll talk about some central issues related to health insurance competition. Much of this discussion follows @einav2015.
+
+A useful starting point is to ask whether we really "want" to rely on competition as a way to allocate resources in health insurance, or if we might prefer a more public system. Public insurance systems, such as government-run programs like traditional Medicare, Medicaid, etc., offer certain advantages. They are often simpler, with reduced administrative overhead, and are typically absolved from the problems of adverse selection. However, these systems may be prone to issues such as wasteful spending, political influence, and general bureaucracy, which can potentially affect the overall quality of care provided.
+
+Private insurance systems have the potential to enhance efficiency and quality through increased competition among insurers. This competition can drive innovation, cost containment, and improved customer service. However, private insurers also face the challenge of adverse selection, where healthier individuals may opt for lower-cost plans, leaving sicker individuals in higher-cost plans. As a result, equitable access to healthcare services may be compromised. Whether private health insurance can achieve its efficiency or quality goals depends on the extent to which competition can "work" in health insurance. So let's get to it.
+
+## What is competition in health insurance?
+
+We purchase health insurance very differently than most other products, and so understanding competition in this market is conceptually harder. When it comes to employer-sponsored health insurance, there are notable differences between small and large employers. Small employers typically select insurance plans from a set of options, while their employees choose from the available plans. The employer acts as the "buyer" of the insurance product, and the insurer takes into account the expected risk profile and healthcare needs of the employees. This arrangement allows small employers to provide health insurance options to their workforce, albeit with varying levels of coverage and benefits.
+
+In contrast, large employers often adopt a self-insurance model. They assume the financial risk of healthcare costs for their employees and the insurance plan primarily facilitates claims processing and network structure. As the employer directly pays for all healthcare expenses, the risk profile of the employee population becomes less crucial to the insurer and more significant to the employer themselves.
+
+In other settings like the ACA exchange or Medicare Advantage, we rely on something called "managed competition." This is a concept that involves private insurers operating within a highly regulated framework, often (but not always) alongside public insurers or government programs. Examples of managed competition include fully private insurers participating in insurance exchanges, private insurers replacing Medicaid through Medicaid managed care, and private insurers coexisting with public insurers in Medicare Advantage programs. These scenarios are subject to significant federal and state regulations, ensuring consumer protections and maintaining standards of care.
+
+## Risk adjustment
+
+As we saw in the last Chapter, adverse selection can play a large role in private health insurance markets. For example, insurers may seek to attract healthier individuals, leaving those with higher healthcare needs in underinsured or higher-cost plans. 
+
+If we want to rely on a market based system for health insurance, we need to deal with adverse selection. Rather than allowing insurers to set prices individually, we tend to introduce risk adjustment as a wedge between the prices paid by enrollees and the fees received by insurers. For example, in Medicare Advantage, enrollees pay uniform premiums, while the Centers for Medicare & Medicaid Services (CMS) pays different amounts to insurers based on enrollee characteristics. Additional solutions include plan lock-in and open enrollment periods to manage adverse selection.
+
+In the context of Medicare Advantage, which historically had fewer healthy enrollees than the traditional fee-for-service (FFS) Medicare, the implementation of a new risk adjustment system from 2003 to 2006 resulted in significant changes. Prior to the implementation, Medicare Advantage enrollees utilized only 60% of the care compared to traditional Medicare, while individuals who switched to traditional Medicare used 160% more care than the average beneficiary. However, with the new risk adjustment system, the health differences between Medicare Advantage and traditional Medicare declined to less than 5%. This implementation aimed to reduce favorable selection and promote greater equity in Medicare Advantage.
+
+Despite the benefits of risk adjustment, challenges persist. Predicting who will require the most care proves to be difficult, with risk adjustment in Medicare Advantage predicting less than 15% of the observed variation in healthcare utilization. However, mean predictions tend to be relatively close. Other barriers include the need for interpretability and the prevention of manipulation by insurers. The ultimate goal of risk adjustment is to reduce incentives for insurers to disproportionately target healthy individuals without encouraging them to manipulate the risk scores of their enrollees. By addressing these challenges, risk adjustment can continue to play a vital role in fostering fairness and equity within health insurance markets.
+
+
+## Managed competition
+
+Managed competition in health insurance arises due to the need to "manage" competition in markets that are typically highly concentrated. In these markets, demand for insurance tends to be relatively price-inelastic, resulting in limited pressure for more efficient and higher-quality insurance products. The concentration of insurers in the Medicare Advantage (MA) market is particularly pronounced, with a majority of markets being dominated by no more than three insurers holding over 95% market share. Several factors contribute to this market power, including high fixed entry costs, network restrictions imposed by the Centers for Medicare & Medicaid Services (CMS), and the need for network structures.
+
+As a concrete example, let's consider the case of MA pricing. The pricing structure in the MA market is based on a bid-and-rebate system. Insurers set a bid (plan price), while CMS establishes a risk-adjusted benchmark rate, $B$, derived from Medicare fee-for-service (FFS) costs. If the bid, $b$, is lower than the benchmark rate, the plan receives the bid amount plus a percentage of the difference between the benchmark rate and the bid as a rebate from CMS. Conversely, if the bid exceeds the benchmark rate, the plan receives the benchmark rate from CMS, and the difference becomes the premium charged to the enrollee.
+
+To maximize their profits, plans in the MA market solve an optimization problem by determining the price, $p$,  that maximizes their profit function, considering costs per enrollee, $c$, and quantity, $Q$, of enrollees. Putting profit function in terms of risk units, the plan's problem is:
+
+$$\max_{p_{j}} \left(p_{j} + B - c_{j} \right) Q_{j}(p_{j}, p_{-j}),$$
+
+where $p_{j}$ is the plan's price, $c_{j}$ is their cost per enrollee, and $Q_{j}$ is plan j's quantity (in risk units). This yields an optimal pricing condition of:
+
+$$\begin{align}
+\frac{d \pi}{d p_{j}} = Q_{j}(p_{j}, p_{-j}) + \frac{d Q_{j}}{d p_{j}} ( p_{j} + B - c_{j}) &= 0 \\
+  p_{j} + B - c_{j} = \frac{ - Q_{j} }{ \frac{d Q_{j}}{d p_{j}}} &= \left(\frac{d \ln Q_{j}}{d p_{j}}\right)^{-1} \\
+  p_{j}  &= c_{j} - B + \left(\frac{d \ln Q_{j}}{d p_{j}}\right)^{-1} \\
+  b_{j}  &= c_{j} + \left(\frac{d \ln Q_{j}}{d p_{j}}\right)^{-1} \\
+\end{align}$$
+
+The optimal price is influenced by the sensitivity of enrollment to plan benefits, with more competitive plans experiencing a larger response to changes in benefits. Empirical evidence suggests a price elasticity where a 10% increase in enrollment is associated with a $10 reduction in the bid, implying markups of 10-25% over costs.
+
+Studies such as @curto2021 have analyzed the impact of managed competition in the MA market. Findings indicate that MA plans deliver care at a lower cost than traditional Medicare fee-for-service, but bids are higher than what Medicare would have paid in FFS. This results in nearly 15% higher costs to taxpayers, with approximately 40% of excess payments going to enrollees in the form of additional consumer surplus, while 60% is retained by insurers.
+
+The key takeaway from these findings is that market design plays a crucial role in health insurance. Changes in rebate calculations and benchmark rates are being implemented to address these issues. Evaluating the success of managed competition requires considering factors such as offering the same product at a lower cost than a public insurer, providing a better product at the same cost, or achieving greater cost savings with a "good enough" product, even if it falls short of the public insurer's quality.
+
+In conclusion, managing competition in health insurance markets, particularly in the context of Medicare Advantage, involves addressing market power, optimizing pricing strategies, and evaluating the impact on costs and consumer outcomes. Market design and ongoing policy adjustments are essential in shaping the success and effectiveness of managed competition in achieving efficient and high-quality healthcare coverage.
+
+
+## References {.unnumbered}
+

@@ -1,0 +1,20 @@
+---
+title: "Generic Drugs"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+
+The Hatch-Waxman Act of 1984 allowed for the approval of generic drugs by the FDA, provided they are bioequivalent to a brand-name drug. Drug manufacturers can submit an Abbreviated New Drug Application (ANDA) to the FDA, possibly even before the patent on the original drug has expired. The ANDA must demonstrate bioequivalence and adherence to appropriate manufacturing practices. After a review, the FDA may grant tentative approval, with full approval coming after the patent on the original drug expires.
+
+The entry of generic drugs into the market often leads to a significant reduction in drug prices. Generally, the generic drug market operates as a competitive market, but there are notable exceptions. One such exception is the Paragraph IV certification, which allows a generic manufacturer to challenge the validity of a patent. A successful challenge leads to a 180-day exclusivity period for the generic drug, whereas an unsuccessful challenge results in a 30-month stay on FDA approval.
+
+Another exception is the concept of branded generics, where the original brand-name manufacturer produces a generic version of the drug. These drugs are often priced between the original brand-name price and the typical generic price, leveraging the brand-name reputation. A third exception involves biologics, which are drugs made from living organisms. These drugs are more complex to produce, harder to replicate, and often enjoy longer patent protections (12 years compared to 5 years for traditional drugs). The Affordable Care Act created a pathway for the approval of biosimilars, which are similar but not identical to biologics. The FDA must determine that a biosimilar is "interchangeable" with the original biologic for it to be approved.
+
+Additionally, there are other barriers to competition in the generic drug market. For instance, the distribution of generic drugs is often controlled by a few large Pharmacy Benefit Managers (PBMs) like Express Scripts, Medco, and CVS Caremark. These PBMs have incentives to favor higher-priced drugs in order to extract larger rebates, which are a significant source of their revenue. Similarly, the retail pharmacy market, dominated by a few large chains like CVS, Walgreens, Walmart, and Rite Aid, also exerts market power that can influence the final sale of drugs.
+
+As such, while the introduction of generic drugs has generally led to more competitive pricing, several mechanisms exist that can circumvent this competition, ranging from legal challenges to patent validity, to the influence of PBMs and large pharmacy chains, to the complexities associated with biologics. But even still, over time, the prices of generic drugs have generally trended downwards, remaining significantly lower than their brand-name counterparts. Studies have shown that the prices of generic drugs can drop by as much as 70% to 90% compared to the original brand-name drug within a few years of market entry (@frank1997). However, the extent of this price reduction can vary depending on several factors, including the number of generic competitors in the market and the specific drug in question (@duggan2010). Despite occasional spikes in prices due to shortages or other market disruptions, the long-term trend has been towards more affordable generic medications. This sustained lower pricing has been pivotal in increasing access to essential medications and reducing the overall burden of healthcare costs on consumers (@sarpatwari2019).

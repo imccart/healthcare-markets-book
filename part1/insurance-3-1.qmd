@@ -1,0 +1,125 @@
+---
+title: "Adverse Selection and Pricing"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+
+Asymmetric information refers to the situation where one party possesses more knowledge or information than another party involved in a transaction or relationship. When it comes to health insurance, individuals typically have a better understanding of their own health conditions and risks compared to insurance companies. This knowledge imbalance can be seen as a form of asymmetric information. The presence of this asymmetric information in health insurance introduces what we call **adverse selection**. 
+
+Adverse selection is a phenomenon that commonly occurs in insurance markets and refers to the situation where individuals with higher risk levels are more likely to seek or retain insurance coverage compared to those with lower risk levels. This leads to an imbalance in the insurance pool, where the proportion of high-risk individuals is disproportionately higher than low-risk individuals. Adverse selection is possible due to asymmetric information in which individuals know more about their health care needs that insurers. As a result, individuals who anticipate a higher likelihood of needing insurance benefits, such as those with pre-existing medical conditions or engaging in risky activities, are more inclined to purchase insurance. On the other hand, individuals who are healthier or less exposed to risks may choose not to enroll in insurance since they perceive their likelihood of needing coverage as lower. Adverse selection can pose significant challenges for insurance providers, as the higher concentration of high-risk individuals in the insurance pool increases the probability of claims and can lead to financial losses. 
+
+A notable example highlighting this concept is the article titled "Costs during special enrollment periods" published in Health Affairs, which provides insights into how insurance costs can vary during specific enrollment periods. This example illustrates how individuals often possess more specific information about their health status, medical history, and potential future needs, which insurers may not have access to or may not consider in their pricing models. This information asymmetry can impact the dynamics and outcomes of the insurance market.
+
+## Textbook Adverse Selection Model
+
+@fig-adverse-selection presents a textbook model of adverse selection, as depicted in @einav2011. The graph illustrates the interplay between price, number of enrollees, and costs in the context of health insurance, particularly in relation to adverse selection. It consists of three lines: a downward-sloping demand curve, an average cost curve, and a marginal cost curve. The vertical axis represents the price of health insurance, while the horizontal axis represents the number of enrollees.
+
+```{tikz}
+#| echo: false
+#| fig.cap: "Textbook depiction of adverse selection"
+#| label: fig-adverse-selection
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+\draw[thick,->] (0,0) -- (0,6) node[anchor=north west] {$p$};
+\draw[thick,->] (0,0) -- (8,0) node[anchor=south east] {$q$};
+\draw (0,5) node[anchor=north east]{Demand} -- (6,1);
+\draw (0,3) node[anchor=south west]{AC} -- (6,2);
+\draw (0,3) -- (6,0.5) node[anchor=east]{MC};
+\draw (6,0) -- (6,6);
+\draw (6,-.5) node[anchor=south] {$\bar{q}$};
+\end{tikzpicture}
+```
+
+The demand curve in @fig-adverse-selection reflects the willingness of individuals to pay for health insurance. As the price decreases, more individuals are willing to enroll. The average cost curve represents the average healthcare costs incurred by the insurer as the number of enrollees increases. The marginal cost curve, on the other hand, depicts the additional cost incurred by the insurer to insure one more enrollee. Note that both the demand and marginal cost curves are downward sloping, reflecting the idea that the "healthiest" individuals (people with low expected healthcare costs) are willing to pay the least for health insurance.
+
+With sufficient competition, we can assume that the equilibrium point occurs where the demand curve intersects with the average cost curve. This equilibrium assumes zero profit, indicating that the insurer is covering its costs without making any additional financial gains. This equilibrium serves as a reference for analyzing the effects of adverse selection, which can introduce imbalances between the risk profile of enrollees and the corresponding costs incurred by the insurer. Of course, insurance markets are far from perfectly competitive, but the point of @fig-adverse-selection is to understand the role of adverse selection in prices, and in order to do that, we need to avoid other complications.
+
+Using @fig-adverse-selection, we can focus on three general scenarios: 1) full insurance; 2) under-insurance (or partial unravelling); and 3) unravelling. We'll discuss each of these points in the remaining subsections. Throughout this discussion, we'll assume that insurers must charge a common price for all enrollees, which is referred to as **community rating** in practice. 
+
+### Full Insurance {.unnumbered}
+In a scenario where the demand for health insurance is consistently above the average cost, the graph would depict a situation of full insurance coverage, mitigating the problems associated with adverse selection. This is reflected in @fig-full-insurance. In this case, the demand curve would always intersect with the average cost curve at a point where the willingness to pay for insurance exceeds the average costs incurred by the insurer. This indicates that consumers are willing to pay a premium that sufficiently covers the expenses associated with their healthcare needs.
+
+```{tikz}
+#| echo: false
+#| fig.cap: "Demand always above AC"
+#| label: fig-full-insurance
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+\draw[thick,->] (0,0) -- (0,6) node[anchor=north west] {$p$};
+\draw[thick,->] (0,0) -- (8,0) node[anchor=south east] {$q$};
+\draw (0,5) node[anchor=north east]{Demand} -- (6,2.5);
+\draw (0,3) node[anchor=south west]{AC} -- (6,2);
+\draw (0,3) -- (6,0.5) node[anchor=east]{MC};
+\draw (6,0) -- (6,6);
+\draw (6,-.5) node[anchor=south] {$\bar{q}$};
+\end{tikzpicture}
+```
+
+
+The graph would demonstrate a stable equilibrium where the number of enrollees satisfies the demand for insurance without compromising the financial viability of the insurer. The absence of adverse selection arises because individuals' willingness to pay consistently surpasses the average costs, ensuring that the insurance pool is balanced and sustainable. 
+
+### Under-insurance {.unnumbered}
+
+In another version of the graph as depicted in @fig-adverse-selection, the demand curve intersects with the average cost curve at a certain point. In such a case, underinsurance or partial unravelling occurs. This is because there are individuals who have the ability and willingness to pay more than their expected costs but choose to remain uninsured. This situation creates a gap between potential demand and actual enrollees, resulting in a mismatch between individuals' willingness to pay and their insurance coverage. This underinsurance scenario raises concerns about access to healthcare and risk distribution in the insurance market.
+
+
+### Full unravelling {.unnumbered}
+
+```{tikz}
+#| echo: false
+#| fig.cap: "Demand always below AC"
+#| label: fig-unravelling
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+\draw[thick,->] (0,0) -- (0,6) node[anchor=north west] {$p$};
+\draw[thick,->] (0,0) -- (8,0) node[anchor=south east] {$q$};
+\draw (0,3) -- (6,1) node[anchor=west]{Demand};
+\draw (0,3) node[anchor=south west]{AC} -- (6,2);
+\draw (0,3) -- (6,0.5) node[anchor=east]{MC};
+\draw (6,0) -- (6,6);
+\draw (6,-.5) node[anchor=south] {$\bar{q}$};
+\end{tikzpicture}
+```
+
+
+In a scenario where demand consistently falls below average cost on the graph, as in @fig-unravelling, the health insurance market would experience complete unravelling. This signifies a lack of participation as individuals perceive the premiums as too high relative to expected costs of healthcare, resulting in insufficient demand to sustain insurance providers. The absence of a functioning market undermines risk pooling and cost-sharing mechanisms, leading to limited or no coverage. Such unravelling is sometimes referred to as a **death spiral**
+
+## What is Unravelling?
+
+Conceptually, we can describe unravelling in stages or periods. First, let's assume that the demand curve for health insurance falls below the average cost (AC) curve beyond a certain point, although not necessarily consistently (as depicted in @fig-adverse-selection). In the initial period, let's assume that the insurer sets the premium at a level where average costs exceed the premium ($AC > D$). This means that the insurer is undercharging for coverage, leading to financial losses.
+
+Recognizing the discrepancy between costs and premiums, the insurer increases the premium in the subsequent period. This price increase causes a movement upward along the demand curve. However, this upward movement prompts a specific group to exit the market---the relatively healthy or low-cost individuals. As a result, the average cost (AC) of providing coverage is also higher.
+
+To reach equilibrium, the insurer must continue raising premiums as average costs increase. This ongoing process of raising premiums is driven by the departure of low-cost individuals from the market and the need to cover the higher costs of the remaining enrollees. The unraveling effect becomes evident as the insurer faces a challenging cycle of increasing premiums, losing low-cost individuals, and further elevating average costs.
+
+In summary, unraveling in health insurance occurs when the demand curve falls below the average cost curve, leading insurers to set premiums that are initially too low. As costs exceed premiums, insurers raise prices, causing the departure of healthier, lower-cost individuals from the market. This exodus drives up average costs, necessitating further premium increases to reach equilibrium. This cyclical process characterizes the unraveling phenomenon in health insurance markets.
+
+
+## How to deal with adverse selection
+
+To mitigate adverse selection, insurance companies employ various strategies such as risk assessment tools, underwriting processes, and pricing mechanisms based on actuarial principles to adequately manage the risk pool and ensure the financial sustainability of their operations. But in the presence of community rating, insurers inherenly rely on some projected patient costs when pricing their products, and they will be wrong in some cases. This is especially true in new markets that the exchanges introduced by the ACA, or when new regulations meaningfully change certain insurance markets.
+
+There are also policy levers that can help to avoid problems of adverse selection. Three such policies include:
+
+1. Subsidize consumers: One potential policy solution to combat adverse selection and prevent unraveling is to subsidize consumers. By providing financial assistance or subsidies to individuals, particularly those with lower incomes or higher health risks, the affordability barrier can be addressed. Subsidies can help offset the cost of premiums, making health insurance more accessible to a broader population. By reducing the price barrier, subsidies encourage healthier individuals to participate in the insurance market, balancing the risk pool and mitigating adverse selection. This policy approach aims to maintain a healthier mix of enrollees, stabilize premiums, and promote the overall sustainability of the insurance market.
+
+2. Subsidize insurers: Another policy solution to address adverse selection and prevent unraveling is to provide subsidies directly to insurance companies. By offering financial support to insurers, it becomes possible to reduce the burden of high-risk individuals' claims on insurance providers. Subsidies can help insurers cover the additional costs associated with providing coverage to higher-risk individuals. This reduces the financial strain on insurers, enabling them to offer more competitive premiums and remain financially viable. By providing subsidies to insurers, this approach helps to mitigate adverse selection and promotes the stability and affordability of health insurance coverage for all enrollees.
+
+3. Mandate purchases: A third policy solution to address adverse selection and prevent unraveling is to mandate the purchase of health insurance. By implementing a requirement for individuals to obtain health insurance coverage, often through an individual mandate, it ensures a broader risk pool and a more balanced distribution of risks and costs. Mandating purchases encourages healthier individuals to enroll, reducing the concentration of high-risk individuals in the insurance pool. This approach promotes the spreading of risk, stabilizes premiums, and helps prevent adverse selection. Mandating purchases aims to ensure the sustainability and effectiveness of the health insurance market by creating a more diverse and inclusive risk pool.
+
+These policy solutions each offer potential strategies to address adverse selection and prevent unraveling in health insurance markets. By addressing affordability barriers, supporting insurers, and creating a balanced risk pool, these policy approaches strive to promote access to comprehensive coverage, stabilize premiums, and maintain the financial viability of the insurance market.
+
+
+
+## Bibliography {.unnumbered}

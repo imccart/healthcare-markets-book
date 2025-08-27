@@ -1,0 +1,81 @@
+---
+title: "Terminology"
+---
+
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
+
+Historically, health insurance was relatively simple. You would pay a little bit every month to a health insurance company (sometimes little more than a union) in order to get access to health care should you need it. The insurance company would then pay for that care. We'll talk history of health insurance in [Chapter -@sec-hi-history]. But financially, the idea from the health insurer's perspective is that some patients will use relatively little care, generating excess revenue to the insurance company, while some other patients will use relatively more care, generating a loss. On average, if the insurance company priced their services appropriately, the excess revenue from the low-utilization patients will exceed the losses from the high-utilization patients. This is theoretically possible due to something called a **risk premium**, which we discuss in more detail in [Chapter -@sec-riskpremium]. 
+
+Over time, especially as health care became more and more expensive, health insurance has become more and more complicated. At this point, even for health economists, understanding health insurance can be challenging. Much of the practical aspects of health insurance will remain unclear until you actually deal with certain frustrations personally --- such as providers that don't accept insurance (particularly common for dentists, optometrists, and mental health care in general) or the differences between in- and out-of-network providers, with associated differences in deductibles and out-of-pocket maximums. And if all of that sounds like gobbledegook, then you're in the right place! The purpose of this chapter is to lay out some basic health insurance terminology and how it all fits in the context of a health insurance plan.
+
+## Insuring health?
+
+Let's get this out of the way first. Health insurance can be a confusing name because it doesn't actually insure *health*, just as life insurance doesn't actually insure your life. Instead, health insurance protects us against the financial risk from negative health events. There is some evidence that health insurance does actually improve health, mainly by ensuring access to care, but that's not necessarily the explicit purpose of health insurance.
+
+## Managed Care?
+
+One common term you might hear surrounding health insurance is **managed care** (@def-managedcare). "Management" in this context typically means that the insurer is trying to direct enrollees to certain providers over others, typically as a reflection of the prices they have negotiated with those providers. For example, assume there are two large hospital systems in a market, and that an insurer has negotiated lower payments with hospital A. Assume also that hospital A is pretty good --- sufficient quality, broad coverage of different conditions and treatments, etc. If an insurer could get its enrollees to go to hospital A instead of hospital B, then the insurer's costs would be lower (all else equal). So, the insurer might require that patients pay a little bit less out of pocket if they go to hospital A. This would be something like a Preferred Provider Organization (PPO), where the insurer will still pay for care provided at hospital B, but the patient might have to pay a larger share of that amount. Or, the insurer might refuse to pay at all of the patient goes to hospital B. This would be more like a Health Maintenance Organization (HMO), where the insurer will only pay for care at hospital A. Patients would have to pay the full amount for care if they go to hospital B. PPOs and HMOs are by far the most common forms of managed care insurance plans.
+
+::: {#def-managedcare}
+
+## Managed Care
+A health insurance product that encompasses some attempt to manage utilization of health care among its enrollees, often via assigning providers (physicians, hospitals, etc.) into tiers separated based on pricing. 
+
+:::
+
+## Networks
+When insurers designate some hospitals as "preferred" places to receive care, as in an PPO, or refuse to pay for care at some hospitals entirely, as in an HMO, those insurers are constructing a health care **network** (@def-insurancenetwork). In this context, a provider is said to be "in-network" if the insurer has agreed to pay for care received from that provider. Conversely, an "out-of-network" provider is one in which the insurer has not agreed on any terms of payment. Typically, care received by out-of-network providers must be paid entirely by the patient. Prices for out-of-network providers may also be extremely high due to the difference between "charges" and "allowed amounts", which I define briefly in [Section -@sec-prices1].
+
+::: {#def-insurancenetwork}
+
+## Insurance Networks
+A set of providers for which the insurer has agreed to pay some amount of care received at those providers, conditional on other cost-sharing terms of the insurance contract. The most common health insurance products that employ a network structure are referred to as Preferred Provider Organizations (PPOs) and Health Maintenance Organizations (HMOs). PPOs tend to have a tiered network structure, where patients will be responsible for less of the total cost of care when going to a higher tiered provider. HMOs tend to have a more discrete network structure, with some providers in-network and other providers out-of-network.
+
+:::
+
+Managed care and insurance networks are almost synonymous. An insurance plan uses networks to "manage" how/where patients tend to receive care. The threat of excluding a provider from the insurer's network, or place the provider in a lower tier, is akin to reducing the provider's number of likely patients and therefore confers some additional bargaining power to the insurer as they negotiate prices with providers. 
+
+## Premiums
+Premiums are what enrollees pay every month regardless of whether they use any health care. For people with employer-sponsored health insurance (more on this later), these premiums are shared between the employee and the employer. As evident in @fig-premiums, premiums have persistently increased over time, posing financial challenges for individuals, families, and businesses alike. Several factors contribute to this continuous escalation. Advances in medical technology and pharmaceuticals, while offering remarkable breakthroughs in treatments, often come at a high price. Additionally, the growing demand for healthcare services due to an aging population and the prevalence of chronic diseases further strains the healthcare system, resulting in increased costs. Furthermore, administrative expenses, regulatory compliance, and insurance company profits contribute to the overall premium growth. As a result, individuals and employers are faced with the ongoing challenge of balancing the need for comprehensive health coverage with the financial burden of ever-increasing premiums. The substantial increase in health insurance premiums underscores the need for continued efforts to address healthcare costs and explore innovative solutions to ensure affordable access to quality healthcare for all.
+
+![Premiums](../figures/kff-premiums.webp){#fig-premiums}
+
+## Cost-sharing
+Cost-sharing generally refers to the amount of health care expenses that must be paid directly by the patient (as opposed to their insurance plan). The cost-sharing terms of an insurance contract will dictate how much a patient must pay out-of-pocket for any care received. Cost-sharing tends to encompass a **deductible** (@def-deductible), **co-insurance** (@def-coinsurance), and **co-payment** (@def-copayment). Trends in these different forms of cost-sharing (among people with employer sponsored insurance) are presented in @fig-cost-sharing, where it is clear that insurers are relying more on high deductibles and co-insurance over time, with a drop in relative share of copayments.
+
+![Cost-sharing](../figures/kff-cost-sharing.png){#fig-cost-sharing}
+
+::: {#def-deductible}
+
+## Deductible
+The amount of money that a patient must pay out-of-pocket before the insurance company will pay **anything**. For example, if you have a \$2,000 deductible, then you must pay entirely out-of-pocket for the first \$2,000 worth of care you receive in that year. Once you've paid your deductible in a given year, we say that you've "met" your deductible.
+
+:::
+
+::: {#def-coinsurance}
+
+## Co-insurance
+A percentage of costs for which the patient is responsible **after meeting their deductible.** For example, assume you have a 20% co-insurance rate. Assume also that you've met your deductible and that you've received a hospital bill for \$5,000. Then you'd have to pay \$1,000 (20% of \$5,000) to the hospital as your co-insurance. The insurer would pay the remaining 80%. Co-insurance is more common for more complicated or less predictable services, like hospital stays or emergency department visits.
+
+:::
+
+
+::: {#def-copayment}
+
+## Co-payment
+A fixed dollar amount for which the patient is responsible **after meeting their deductible.** Co-payments are more common for low-cost, predictable health care services like physician office visits. Patients might have a \$20 co-pay for office visits, which means they must pay \$20 for the visit and the insurance company will pay the rest.
+
+:::
+
+Note that co-insurance and co-payments both exist within a single insurance product. Some services may have a co-payment (e.g., office visits or prescription drugs), while other services may have a co-insurance rate. In either case, they only apply after you've met your annual deductible. And of course, you still have to pay a monthly insurance **premium**. Such monthly premiums are not considered "cost sharing" because you pay them even if you never receive any health care --- cost sharing only refers to how you share costs with your insurance company for care received.
+
+
+## Different Prices {#sec-prices1}
+We'll cover this in more detail in our chapter on hospital pricing and bargaining, but for now, note that health care "prices" are not as well-defined as they are in many other services or products. In health care, there is typically a **charge** and an **allowed amount**. The **charge** is like a suggested retail price (although even further removed from actual costs) --- it captures what the provider would like to be paid for a service. The **allowed amount** is the actual price --- it captures the negotiated rate that the provider and insurer have agreed to for a given service. 
+
+By definition, if there is no such agreement (e.g., the provider is out-of-network), then patients are asked to pay the charge amount. And unfortunately, this is not just a difference of semantics. Charges can exceed allowed amounts by thousands of dollars. Again, we'll have a lot more to say about this toward the end of the book.
+

@@ -1,0 +1,5 @@
+---
+title: "Hospitals"
+---
+
+Section III of the book covers hospitals and healthcare competition. We begin in Chapter 12 with a very brief history of U.S. hospitals and a discussion of how that history plays out in the current hospital landscape, including a discussion of the complexity and opacity surrounding hospital prices. Next, in Chapter 13, we discuss the different ownership types of hospitals, if/how this relates to a hospital's underlying objective function, and what that means for hospital pricing behaviors. Then we move on to a formal treatment of hospital pricing, first with a basic review of pricing in monopolistic competition (Chapter 14), then with a treatment of hospital pricing in a two-price market (Chapter 15), and finally with the study of hospital pricing when negotiating with insurers (Chapter 16). We conclude this section in Chapter 17 with a discussion of hospital competition, specifically mergers and closures, and relevant healthcare policy.
