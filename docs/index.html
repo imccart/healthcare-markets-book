@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,26 +22,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,7 +49,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +64,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -92,13 +80,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -107,7 +95,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Economics of Health Care</a> 
@@ -136,7 +124,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part1/insurance-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Health Insurance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -183,7 +171,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part2/physicians-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Physicians</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -224,7 +212,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hospitals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -271,7 +259,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part4/pharma-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prescription Drugs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -279,7 +267,25 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./part4/pharma-1-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">The Prescription Drug Market</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Prescription Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part4/pharma-1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Brand Name Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part4/pharma-1-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part4/pharma-1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regulation and Innovation</span></span></a>
   </div>
 </li>
       </ul>
@@ -287,7 +293,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -334,31 +340,37 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="welcome" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="welcome">Welcome</h2>
-<p>Health care is a vital component of our society, and it is essential to understand the economic principles that underlie this complex system. Health care economics is the study of how resources are allocated to produce, distribute, and consume health care goods and services. It encompasses a wide range of topics, including the behavior of health care providers, the role of insurance and government policy, and the impact of health care on the economy as a whole.</p>
-<p>This book is intended to offer an introduction to the study of health care economics. It covers key topics such as health insurance and health care financing, physician behaviors, physician and hospital pricing, and prescription drug markets. Within each topic, I present specific theoretical models and discuss current health policy in the context of those models. The material is intended for advanced undergraduate or masters students with at least some exposure to intermediate-level microeconomics.</p>
-<p>Unfortunately, I can’t cover everything in one introductory book – nor am I equipped to do so. One area that I’ve intentionally excluded from this book is that of comparative health systems or any sort of international view of health care. I’ll use some basic international comparisons in the introduction, but otherwise this is a very U.S.-centric health economics book. Those interested in international comparisons can find some great information from the <a href="https://www.healthsystemtracker.org/">Peterson-KFF Health System Tracker</a> and the <a href="https://www.commonwealthfund.org/international-health-policy-center/system-profiles">Commonwealth Fund</a>, among many other excellent resources. I’ve also excluded any discussion of health care labor markets, such as nurse wages, physician location and specialty selection, etc.</p>
-<p>From this book, readers should be able to:</p>
+<p>Health care is one of the largest and most complex sectors of the U.S. economy. Understanding it requires economics: how resources are allocated, how incentives shape the behavior of patients, providers, insurers, and policymakers, and how these choices affect health and spending.</p>
+<p>This book introduces the core ideas of health economics, focusing specifically on issues related to the delivery of health care (sometimes referred to as “supply-side” health economics). We will study health insurance and financing, physician behavior and incentives, hospital and physician pricing, and prescription drug markets. Each topic is motivated by theoretical models and paired with policy applications and data. The material is aimed at advanced students with prior training in microeconomics.</p>
+<p>Two boundaries are worth noting. First, this book is intentionally U.S.-centric. I draw on international comparisons only for context, and those interested in detailed cross-country analysis should consult the <a href="https://www.healthsystemtracker.org/">Peterson-KFF Health System Tracker</a> and the <a href="https://www.commonwealthfund.org/international-health-policy-center/system-profiles">Commonwealth Fund</a>, among many other excellent resources. Second, I do not cover health care labor markets such as nurse wages or physician specialty choice, important though they are.</p>
+<p>By the end of this book, you should be able to:</p>
 <ol type="1">
-<li>Explain the structure of the U.S. health care system, its main components, and its history</li>
-<li>Model adverse selection in health insurance, examine its effects on health insurance markets, and support your arguments with existing data</li>
-<li>Explain the physician agency problem, use a model of physician agency to examine financial incentives in health care, and summarize empirical evidence on the presence of physician agency</li>
-<li>Describe hospital pricing, negotiation with insurers, and explain (qualitatively and quantitatively) the differences between charges and prices</li>
-<li>Analyze hospital data in a real-life setting and predict effects of real-life policies</li>
+<li>Explain the structure and history of the U.S. health care system.</li>
+<li>Model adverse selection in health insurance and connect theory to data.</li>
+<li>Analyze physician incentives using agency models and empirical evidence.</li>
+<li>Describe how hospital pricing and insurer negotiations work, and distinguish between charges and prices.</li>
+<li>Use hospital data to assess the effects of real-world policies.</li>
 </ol>
 </section>
 <section id="health-improvements" class="level2">
 <h2 class="anchored" data-anchor-id="health-improvements">Health Improvements</h2>
-<p><a href="#fig-life-exp">Figure&nbsp;<span>1</span></a> presents the median life expectancy across the world from around 1950 to 2010. As made clear from <a href="#fig-life-exp">Figure&nbsp;<span>1</span></a>, the world has witnessed significant progress in improving life expectancy over the past several decades. This progress can be attributed to several factors, including poverty reduction, technological advancements, and increased access to critical needs, including basic healthcare. As a result, people are living longer and generally healthier lives, with fewer deaths from infectious diseases and a higher quality of life in general.</p>
+<p>Since 1950, global life expectancy has risen dramatically, driven by poverty reduction, public health advances, and wider access to basic care. People live longer, healthier lives, with fewer deaths from infectious disease and better quality of life overall (<a href="#fig-life-exp" class="quarto-xref">Figure&nbsp;<span>1</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-life-exp" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-life-exp-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Median life expectancy across the world</figcaption>
+<div id="fig-life-exp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-life-exp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-life-exp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-life-exp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Median life expectancy across the world
+</figcaption>
 </figure>
 </div>
 </div>
@@ -366,35 +378,47 @@ div.csl-indent {
 </section>
 <section id="health-and-wealth" class="level2">
 <h2 class="anchored" data-anchor-id="health-and-wealth">Health and Wealth</h2>
-<p>Not surprisingly, gains in health are correlated with economic growth and development, as illustrated in <a href="#fig-life-exp-gdp">Figure&nbsp;<span>2</span></a>.</p>
+<p>These health gains have moved hand-in-hand with economic growth. Higher incomes allow countries to invest in food, clean water, shelter, and medical care, all of which extend life expectancy (<a href="#fig-life-exp-gdp" class="quarto-xref">Figure&nbsp;<span>2</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-life-exp-gdp" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-life-exp-gdp-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Life expectancy and GDP</figcaption>
+<div id="fig-life-exp-gdp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-life-exp-gdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-life-exp-gdp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-life-exp-gdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Life expectancy and GDP
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>This relationship between wealth and health is even more evident when we look over time by country, as demonstrated in <a href="#fig-anim-lifegdp">Figure&nbsp;<span>3</span></a>. This makes sense if we think of ways to improve very low life expectancy (e.g., life expectancy cut due to lack of basic necessities like food, shelter, clean water, basic medicine, etc.).</p>
+<p>This relationship between wealth and health is even more evident when we look over time by country, as demonstrated in <a href="#fig-anim-lifegdp" class="quarto-xref">Figure&nbsp;<span>3</span></a>. This makes sense if we think of ways to improve very low life expectancy (e.g., life expectancy cut due to lack of basic necessities like food, shelter, clean water, basic medicine, etc.).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-anim-lifegdp" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-anim-lifegdp-1.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Life expectancy and GDP by country</figcaption>
+<div id="fig-anim-lifegdp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anim-lifegdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-anim-lifegdp-1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anim-lifegdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Life expectancy and GDP by country
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>But conditional on a relatively high life expectancy, the link between economic performance and life expectancy isn’t so clear. The U.S. is a good example. In <a href="#fig-anim-country">Figure&nbsp;<span>4</span></a>, we focus specifically on G7 countries and highlight the U.S., where we see that the U.S. life expectancy begins to flatten while GDP per capita begins to outgrow those of other G7 countries.</p>
+<p>Yet this relationship weakens once countries reach higher levels of health. For example, among the G7, U.S. life expectancy has stagnated even as U.S. GDP per capita has outpaced peers (<a href="#fig-anim-country" class="quarto-xref">Figure&nbsp;<span>4</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-anim-country" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-anim-country-1.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Life expectancy and GDP by country</figcaption>
+<div id="fig-anim-country" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anim-country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-anim-country-1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anim-country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Life expectancy and GDP by country
+</figcaption>
 </figure>
 </div>
 </div>
@@ -402,56 +426,58 @@ div.csl-indent {
 </section>
 <section id="health-care-spending-and-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="health-care-spending-and-outcomes">Health Care Spending and Outcomes</h2>
-<p>Of course, life expectancy is heavily influenced by things like car accidents, guns, and other policy issues that are not necessarily “health care” related. As such, life expectancy is likely a poor measure of the quality of a country’s health care system. Still, despite significantly larger health care expenditures, the U.S. continues to underperform in more direct health care outcomes, like maternal mortality and infant mortality presented in <a href="#fig-mort">Figure&nbsp;<span>5</span></a>. Around the mid-to-late 1980s, the U.S. begins spending substantially more on health care as a percentage of GDP, while maternal and infant mortality rates actually increase.</p>
+<p>If income is not the whole story, perhaps health care spending is. The U.S. spends far more on health care than peer nations, yet performs worse on outcomes such as infant and maternal mortality (<a href="#fig-mort" class="quarto-xref">Figure&nbsp;<span>5</span></a>). Since the mid-1980s, U.S. health spending has accelerated while these outcomes have worsened.</p>
 <div id="fig-mort" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-maternal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/hcspend-maternal-mortality.gif" class="img-fluid figure-img" data-ref-parent="fig-mort"></p>
-<figcaption class="figure-caption">(a) maternal</figcaption>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-mort" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-maternal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-maternal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/hcspend-maternal-mortality.gif" class="img-fluid figure-img" data-ref-parent="fig-mort">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-maternal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) maternal
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-infant" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/hcspend-infant-mortality.gif" class="img-fluid figure-img" data-ref-parent="fig-mort"></p>
-<figcaption class="figure-caption">(b) infant</figcaption>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-mort" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-infant" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-infant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/hcspend-infant-mortality.gif" class="img-fluid figure-img" data-ref-parent="fig-mort">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-infant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) infant
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Maternal and infant mortality by country</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Maternal and infant mortality by country
+</figcaption>
 </figure>
 </div>
-<p>Unfortunately, infant and maternal mortality are not the only measures by which the U.S. health care system appears to be underperforming. <span class="citation" data-cites="commonwealth2019"><span>“U.<span>S</span>. <span>Health</span> <span>Care</span> from a <span>Global</span> <span>Perspective</span>, 2019 <span></span> <span>Commonwealth</span> <span>Fund</span>”</span> (<a href="#ref-commonwealth2019" role="doc-biblioref">n.d.</a>)</span> provides a broader analysis of the U.S. health care system in comparison to other high-income countries. The 2019 report (i.e., pre-Covid) highlights significant gaps in health outcomes, access, and affordability in the U.S. compared to other countries. Specifically, the U.S. ranks last among the 11 high-income countries analyzed in terms of health outcomes, with higher rates of mortality and morbidity from chronic diseases, such as heart disease, diabetes, and cancer. Additionally, the U.S. has the highest rate of mortality amenable to health care, suggesting that the health care system is not functioning optimally. The report also finds that the U.S. has the highest rate of adults who go without needed health care due to cost, with one-third of adults reporting cost-related access problems.</p>
-<p>That said, it is important to also note that the U.S. health care system ranks among the best in the world in several key areas. One area in which the U.S. excels is in the provision of specialized care, particularly in the fields of cancer, heart disease, and stroke. The U.S. has some of the highest survival rates for certain types of cancer, such as breast and prostate cancer, and is a leader in the development and use of advanced medical technologies, such as MRI and CT scans. The U.S. also has some of the highest rates of bypass surgery and angioplasty for heart disease, which can be life-saving interventions.</p>
-<p>Another area of high-quality care in the U.S. is in the field of medical research and innovation. The U.S. is home to many of the world’s top medical research institutions and is a leader in the development of new drugs and medical devices. This innovation has led to significant advances in the treatment of many diseases and has improved the quality of life for millions of people.</p>
-<p>This dichotomy of very good health care in some areas along side very poor health care in other areas is reflective of what many believe to be the true underlying problem with the U.S. health care system—access to, and inequities in, health care. In many ways, we <em>overprovide</em> care to some people and <em>underprovide</em> care to lots of other people. We are particularly bad at helping the least healthy among us. These issues are, of course, very closely related to other economic problems and inequality in general.</p>
+<p>Unfortunately, infant and maternal mortality are not the only measures by which the U.S. health care system appears to be underperforming. Commonwealth’s 2019 report on health care systems around the world (i.e., pre-Covid) highlights significant gaps in health outcomes, access, and affordability in the U.S. compared to other countries. Specifically, the U.S. ranks last among the 11 high-income countries analyzed in terms of health outcomes, with higher rates of mortality and morbidity from chronic diseases, such as heart disease, diabetes, and cancer. Additionally, the U.S. has the highest rate of mortality amenable to health care, suggesting that the health care system is not functioning optimally. The report also finds that the U.S. has the highest rate of adults who go without needed health care due to cost, with one-third of adults reporting cost-related access problems.</p>
+<p>Still, the U.S. excels in certain areas: cancer survival, treatment of cardiovascular disease, and medical innovation. Our system is capable of world-leading care, but it delivers it unevenly. The coexistence of excellence and underperformance reflects deep inequities in access and use of care.</p>
 </section>
 <section id="why-study-the-economics-of-health-care" class="level2">
 <h2 class="anchored" data-anchor-id="why-study-the-economics-of-health-care">Why Study the Economics of Health Care?</h2>
-<p>Health care is a unique industry that presents several key economic challenges. One key theoretical challenge to improving health care (e.g., decreasing spending, improving quality, and reducing inequity) is asymmetric information. In the context of health insurance, asymmetric information describes the case in which patients may know more about their health than insurance companies. This introduces the problem of adverse selection, wherein patients with higher health care needs are more likely to purchase insurance, leading to higher costs for insurers and making it more difficult for insurers to design effective insurance products. Insurers may have limited information about patients’ health status and risk, which can exacerbate adverse selection.</p>
-<p>Asymmetric information also exists between patients and providers. Here, patients often lack the knowledge and expertise to make informed decisions about their health care, while physicians may have incentives to recommend more expensive treatments. This can lead to overutilization of health care services and higher costs for patients and insurers. Additionally, patients may not have access to all of the relevant information about their health care options, which can make it difficult for them to make informed decisions about their care. These information asymmetries can make it challenging to align incentives between patients and physicians and can lead to inefficiencies in the market.</p>
-<p>Health care also presents challenges due to unpredictable need and product heterogeneity. Patients may require different types and levels of care depending on their individual health needs, making it difficult to standardize health care products and services. This can make it challenging for patients to shop around for health care services and can exacerbate inefficiencies in the market.</p>
+<p>Economics helps explain this paradox. Health care markets differ from textbook markets because of asymmetric information (patients and insurers, patients and physicians), unpredictable need, and heterogeneous products. These features create inefficiencies, raise costs, and complicate policy design.</p>
 </section>
 <section id="why-is-the-u.s.-so-different" class="level2">
 <h2 class="anchored" data-anchor-id="why-is-the-u.s.-so-different">Why is the U.S. so Different?</h2>
-<p>The challenges of adverse selection, asymmetric information, unpredictable need, and product heterogeneity are particularly salient in a market-based health care system such as that of the United States. For example, insurers and providers may exploit market power in their pricing and treatment decisions, which can lead to underinvestment in preventive care and overutilization of high-cost services. Additionally, our market-based system can exacerbate information asymmetries, as patients may not have access to all of the relevant information about their health care options. This can make it challenging for patients to make informed decisions about their care, encouraging selection of more expensive providers and ultimately contributing to overutilization of health care services and higher costs.</p>
-<p>The U.S. health care system is also heavily fragmented. We have several different ways to receive insurance, meaning that health care providers must manage payments and negotiate contracts from a variety of different payors. We also have several different types of providers, including “standard” acute care inpatient hospitals, stand-alone surgery centers, long-term care hospitals, outpatient facilities, physicians and physician offices, urgent care centers, emergency departments, independent ambulance companies, home health agencies, nursing home companies, and others. In a heavily decentralized health care system such as in the U.S., all of these providers operate separately — they provide their own services, make their own referrals, negotiate separately with insurers, and bill patients separately. As health care becomes more complicated and specialized, complications from the interaction of all of these fragmented providers and payors will tend to be exacerbated. For the most part, this fragmentation tends to push up prices and may also reduce the quality of care, particularly for patients with chronic diseases needing coordinated care over a long time period.</p>
-<p>Overall, these challenges highlight the need for innovative solutions to address the inefficiencies of the U.S. health care system and improve health outcomes for all Americans. But such solutions are impossible without a solid understanding of the economics of the U.S. health care system.</p>
+<p>These problems are magnified in the U.S. because of its market-based and fragmented system. Patients face dozens of insurance options; providers range from hospitals to surgery centers to urgent care clinics; each negotiates and bills separately. Fragmentation drives up costs and undermines coordination, especially for chronic illness.</p>
+<p>The result is a system that spends more, delivers uneven outcomes, and leaves access gaps that other high-income countries have solved more effectively. Understanding the economics behind these failures—and the successes—provides the foundation for designing better policies.</p>
 </section>
 <section id="bibliography" class="level2">
 <h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-commonwealth2019" class="csl-entry" role="listitem">
-<span>“U.<span>S</span>. <span>Health</span> <span>Care</span> from a <span>Global</span> <span>Perspective</span>, 2019 <span></span> <span>Commonwealth</span> <span>Fund</span>.”</span> n.d. Accessed March 29, 2023. <a href="https://www.commonwealthfund.org/publications/issue-briefs/2020/jan/us-health-care-global-perspective-2019">https://www.commonwealthfund.org/publications/issue-briefs/2020/jan/us-health-care-global-perspective-2019</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -490,18 +516,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -533,11 +548,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -547,8 +601,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -560,7 +623,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -604,6 +790,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -629,6 +816,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -690,17 +903,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./preface.html" class="pagination-link">
+      <a href="./preface.html" class="pagination-link" aria-label="Preface">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./part1/insurance-0.html" class="pagination-link">
+      <a href="./part1/insurance-0.html" class="pagination-link" aria-label="Health Insurance">
         <span class="nav-page-text">Health Insurance</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
