@@ -8,25 +8,30 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-As George Costanza learned in his audio book in Seinfeld, "In order to manage risk, we must first define risk." So that's what we'll do first. In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I'm therefore subjected to both a health risk and a financial risk (because I have to pay for health care). 
-
+As George Costanza once learned from his audio book in *Seinfeld*, “In order to manage risk, we must first define risk.” In the context of health insurance, risk refers to the uncertainty surrounding our future need for medical care. I may get sick or injured tomorrow, or I may not. This exposes me to two types of risk: health risk (uncertainty about whether I need care) and financial risk (uncertainty about whether I will have to pay for that care). These two elements motivate the very existence of health insurance.
 
 ## Describing Risk
 
-The more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let's discuss each of these elements in more detail.
+To understand how insurance works, we need a structured way to quantify risk. This involves four building blocks:
 
+1. **Probabilities:** How likely different outcomes are.
+2. **Payoffs:** The monetary consequences of those outcomes.
+3. **Expected values:** A way to combine probabilities and payoffs into a single “average” measure of what we face before the outcome is realized.
+4. **Preferences:** How individuals evaluate uncertain outcomes, often represented by a utility function.
 
-### Probability {.unnumbered}
+We’ll look at each of these in turn.
 
-Probability is defined as the likelihood that a given outcome will occur. For example, this handy/depressing [risk calculator](https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/) can tell me the probability of developing heart disease over the next 10 years. Let's say that's 10%. In this case, it would mean that if there were 1000 people exactly like me, 100 of them will develop heart disease over the next 10 years and 900 would not. 
+### Probability
 
-We'll only work with examples where there are two possible outcomes, sick or healthy (i.e., needing health care or not needing health care). I'll denote the probabilities of these events by $p_{s}$ and $p_{h}$, noting also that $p_{h}=1-p_{s}$, and vice versa, since we have only two possible events.
+Probability measures the likelihood that a given outcome will occur. For example, this [risk calculator](https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/) can estimate my 10-year risk of heart disease. Suppose it tells me 10%. This means that if there were 1,000 people just like me, about 100 would develop heart disease over the next decade, while 900 would not.
 
-### Payoffs {.unnumbered}
+In this chapter, we’ll work with the simplest setting: only two possible outcomes — sick or healthy. Let $p_s$ denote the probability of sickness and $p_h$ the probability of remaining healthy. Since these are the only two possibilities, $p_h = 1 - p_s$. Car insurers do the same calculation. If 5% of drivers like you have an accident each year, then out of 1,000 similar drivers, 50 will file claims while 950 will not. The logic is identical to health risks.
 
-Payoffs in this case simply reflect the monetary value of each possible outcome. Sticking with the example of getting sick or staying healthy, let's say we will incur \$500 in health care costs if we become sick and \$0 if we remain healthy. If we start with \$1,000, then our payoff in the event that we are sick is $w_{s}=1000-500=500$, and our payoff if we remain healthy is $w_{h}=1000$. 
+### Payoffs
 
-### Expected value {.unnumbered}
+Payoffs are the monetary value of each possible outcome. Suppose I start with \$1,000 in wealth. If I get sick, I incur \$500 in health care costs, leaving me with $w_s = 1000 - 500 = 500$. If I remain healthy, I pay nothing, so $w_h = 1000$.
+
+### Expected value
 
 ```{r}
 #| include: false
@@ -45,36 +50,35 @@ e.cost <- (wh-ws)*ps
 e.util <- ph*util(wh) + ps*util(ws)
 
 ```
-Quick recap...we begin with \$1,000, and we have two possible outcomes: 1) we become sick; and 2) we stay healthy. We will become sick with probability $p_{s}$, in which case we'll only have \$500 left after paying for our health care. We will stay healthy with probability $p_{h}$, in which case we'll keep our original \$1,000 because we don't have to incur any health care costs.
 
-Now we need to form our expected payoff *before* the outcome is realized. With the two possible payoffs, $w_{s}$ and $w_{h}$, and the probabilities of each outcome, $p_{s}$ and $p_{h}$, we can write the expected value as simply the weighted average of the two payoffs, with the weights being the respective probabilities:
+Before the outcome is realized, I can calculate the expected value of my wealth: the probability-weighted average of possible payoffs:
 
 $$E[w] = p_{h}w_{h} + p_{s}w_{s}$$
 
-Keeping the same probabilities from earlier, $p_{h}=0.9$ and $p_{s}=0.1$, and substituting the respective probabilities and payoffs yields an expected value of \$`r round(e.pay, digits=2)`.
+With $p_h = 0.9$ and $p_s = 0.1$, the expected wealth is $r round(e.pay, 2).
 
-Another expectation that we'll need to form is the expected cost. In our examples, we only incur a cost if we are sick. The expected cost formula looks very similar, $E[cost]=p_{h}cost_{h} + p_{s}cost_{s}$, but $cost_{h}=0$. So the expected cost is just $p_{s}cost_{s}$, or \$`r round(e.cost, digits=2)`.
+We can also compute expected costs. Because costs only occur if I’m sick, $E[cost]=p_{h} \times 0 + p_{s} \times cost_{s} = p_{s}cost_{s}$, or \$`r round(e.cost, digits=2)`. Expected wealth and expected cost are related but distinct. Individuals think about expected wealth (what they keep), while insurers focus on expected cost (what they must cover).
 
+### Preferences
 
-### Preferences {.unnumbered}
+Preferences describe how people value different outcomes. In economics, we represent them with a utility function $u(w)$, where $w$ is wealth. A standard assumption is diminishing marginal utility: each extra dollar is worth less to you the richer you are. Formally, if $x_1 < x_2$, then $u'(x_1) > u'(x_2)$.
 
-Preferences take the form of a utility function, $u(x)$, which tells us how much "benefit" we get from some consumption bundle, $x$. In economics, we tend to assume individuals make decisions not based on the strict monetary payoff but instead on the utility of this payoff. Among other things, this way of thinking introduces the idea of diminishing marginal utility, so that more of something means less to us if we already have a lot of it. More formally, this means $u'(x_{1})>u'(x_{2})$ for $x_{1}<x_{2}$.
-
-We can then combine the notion of consumer utility with expected value in order to form the expected utility:
+We can then form *expected utility*:
 
 $$E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})$$
-As an example, let's assume that preferences are such that $u(x)=\sqrt x$. In that case, our expected utility is `r round(e.util, digits=2)`. Note that we take the expectation over two different possible utility values, rather than the utility of our expected wealth. This is an important distinction and is necessary to understand risk premiums and willingness to pay for health insurance. 
 
+For example, if $u(w) = \sqrt{w}$, the expected utility is r round(e.util, 2). Notice that this is not the utility of the expected wealth — it’s the expectation of utility values. This distinction is critical for understanding risk aversion, risk premiums, and willingness to pay for insurance.
 
 ## Risk preferences
 
-With the basics of probability, utility, and expected value, we can begin to measure risk preferences. Generally, we categorize people into three risk types:
+With probabilities, payoffs, and utility in place, we can classify risk attitudes:
 
-1. Risk averse: Someone who prefers to avoid a risky situation and would rather take less payoff with certainty than face two possible outcomes with uncertainty.
-2. Risk neutral: Someone who is indifferent between the risky situation versus an uncertain outcome.
-3. Risk loving: Someone who prefers risk and would rather face two possible outcomes with uncertainty that receive the same outcome with certainty.
+1. **Risk averse:** Prefers a certain outcome equal to the expected value over the risky gamble. (Certainty equivalent $CE < E[w]$.)
+2. **Risk neutral:** Indifferent between the certain outcome and the gamble. ($CE = E[w]$.)
+3. **Risk loving:** Prefers the gamble over the certain outcome. ($CE > E[w]$.)
 
-For our purposes, we will assume individuals are risk averse, which also follows from an assumption of diminishing marginal utility. @fig-risk-averse provides a graphical illustration of risk aversion, showing wealth/monetary values on the x-axis and utility on the y axis. The line segment in @fig-risk-averse joins two utility values, $u(w_{s})$ and $u(w_{h})$ --- this is the expected utility line. For any probabilities $p_{s}$ and $p_{h}$, $E[u(w)]$ will fall somewhere on that line.
+For our purposes, we assume risk aversion, which naturally arises from diminishing marginal utility. @fig-risk-averse illustrates risk aversion. The line segment between $u(w_s)$ and $u(w_h)$ represents expected utility. Because the utility function is concave, this line always lies below the curve. The implication: given a choice, individuals prefer a certain wealth level to a risky prospect with the same expected value.
+
 
 ```{tikz}
 #| echo: false
@@ -106,10 +110,9 @@ For our purposes, we will assume individuals are risk averse, which also follows
 \end{tikzpicture}
 ```
 
-The most important thing to notice from @fig-risk-averse is that the line segment joining $u(w_{h})$ and $u(w_{s})$ falls entirely below the utility curve. Why does this matter? Let's work through a simple thought exercise, noting that the utility curve tells us the utility for a given value of $w$ in the absence of any uncertainty. Pick any value of $w$ between $w_{s}$ and $w_{h}$ and follow that value up to the expected utility line. For any such value, you would always prefer to have that amount of wealth with certainty than in expectation. So you always prefer a single outcome with certainty over an expected outcome (of the same monetary value) with uncertainty. Another way to think of this is to pick a utility value on the y axis. Reaching that utility value will take more wealth in expectation than it would in the absence of uncertainty.
+A more concrete way to capture risk aversion is through the risk premium, $\pi$. This is the extra amount of wealth a person would require to accept a gamble instead of a certain outcome.
 
-To fix ideas, consider another version of this graph in @fig-risk-averse2. As drawn, providing $\bar{w}$ to this person (without any uncertainty) would yield a utility of $\bar{u}$. But if they wanted to obtain the same utility with uncertainty, they would need $\bar{w} + \pi$. This person would need to be given more money in order to take on some uncertainty.
-
+@fig-risk-averse2 illustrates. If certainty provides utility $\bar{u}$ at wealth $\bar{w}$, then facing uncertainty requires wealth $\bar{w} + \pi$ to reach the same utility. The difference $\pi$ is the risk premium. We'll get to this in much more detail in the next chapter.
 
 ```{tikz}
 #| echo: false
@@ -144,3 +147,6 @@ To fix ideas, consider another version of this graph in @fig-risk-averse2. As dr
 ```
 
 
+## Why This Matters
+
+Insurers care about expected cost when setting premiums. Individuals care about expected utility. The gap between the two — captured by the risk premium — explains why people are willing to pay more than the expected cost for insurance. This difference is the foundation of our next step: quantifying willingness to pay for insurance.

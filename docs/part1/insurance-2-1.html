@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - 3&nbsp; Understanding Risk</title>
+<title>3&nbsp; Understanding Risk – Economics of Health Care</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,14 +62,42 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -73,13 +107,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-2-1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-2-1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Economics of Health Care</a> 
@@ -117,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Health Insurance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -164,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part2/physicians-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Physicians</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -205,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hospitals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -252,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part4/pharma-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prescription Drugs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -275,12 +309,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regulation and Innovation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -289,19 +329,20 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#describing-risk" id="toc-describing-risk" class="nav-link active" data-scroll-target="#describing-risk"><span class="header-section-number">3.1</span> Describing Risk</a>
   <ul class="collapse">
-  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability">Probability</a></li>
-  <li><a href="#payoffs" id="toc-payoffs" class="nav-link" data-scroll-target="#payoffs">Payoffs</a></li>
-  <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value">Expected value</a></li>
-  <li><a href="#preferences" id="toc-preferences" class="nav-link" data-scroll-target="#preferences">Preferences</a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability"><span class="header-section-number">3.1.1</span> Probability</a></li>
+  <li><a href="#payoffs" id="toc-payoffs" class="nav-link" data-scroll-target="#payoffs"><span class="header-section-number">3.1.2</span> Payoffs</a></li>
+  <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value"><span class="header-section-number">3.1.3</span> Expected value</a></li>
+  <li><a href="#preferences" id="toc-preferences" class="nav-link" data-scroll-target="#preferences"><span class="header-section-number">3.1.4</span> Preferences</a></li>
   </ul></li>
   <li><a href="#risk-preferences" id="toc-risk-preferences" class="nav-link" data-scroll-target="#risk-preferences"><span class="header-section-number">3.2</span> Risk preferences</a></li>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters"><span class="header-section-number">3.3</span> Why This Matters</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1/insurance-0.html">Health Insurance</a></li><li class="breadcrumb-item"><a href="../part1/insurance-2-1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Risk</span></h1>
 </div>
@@ -316,67 +357,88 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>As George Costanza learned in his audio book in Seinfeld, “In order to manage risk, we must first define risk.” So that’s what we’ll do first. In the context of health insurance, I define risk as the uncertainty arising from the potential need for medical care in the future. I might get hurt or sick tomorrow, and I might not. I’m therefore subjected to both a health risk and a financial risk (because I have to pay for health care).</p>
+
+<p>As George Costanza once learned from his audio book in <em>Seinfeld</em>, “In order to manage risk, we must first define risk.” In the context of health insurance, risk refers to the uncertainty surrounding our future need for medical care. I may get sick or injured tomorrow, or I may not. This exposes me to two types of risk: health risk (uncertainty about whether I need care) and financial risk (uncertainty about whether I will have to pay for that care). These two elements motivate the very existence of health insurance.</p>
 <section id="describing-risk" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="describing-risk"><span class="header-section-number">3.1</span> Describing Risk</h2>
-<p>The more interesting question is how to quantify risk in health insurance. Before we can do that, we need to revisit a few basics. First, we need some measure of the probability that different events might occur. Second, we need some payoff from each possible event. Third, we need a way to combine those payoffs and probabilities into an expected value. And fourth, we need some notion of preferences, which in our case will be a utility function. Let’s discuss each of these elements in more detail.</p>
-<section id="probability" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="probability">Probability</h3>
-<p>Probability is defined as the likelihood that a given outcome will occur. For example, this handy/depressing <a href="https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/">risk calculator</a> can tell me the probability of developing heart disease over the next 10 years. Let’s say that’s 10%. In this case, it would mean that if there were 1000 people exactly like me, 100 of them will develop heart disease over the next 10 years and 900 would not.</p>
-<p>We’ll only work with examples where there are two possible outcomes, sick or healthy (i.e., needing health care or not needing health care). I’ll denote the probabilities of these events by <span class="math inline">\(p_{s}\)</span> and <span class="math inline">\(p_{h}\)</span>, noting also that <span class="math inline">\(p_{h}=1-p_{s}\)</span>, and vice versa, since we have only two possible events.</p>
+<p>To understand how insurance works, we need a structured way to quantify risk. This involves four building blocks:</p>
+<ol type="1">
+<li><strong>Probabilities:</strong> How likely different outcomes are.</li>
+<li><strong>Payoffs:</strong> The monetary consequences of those outcomes.</li>
+<li><strong>Expected values:</strong> A way to combine probabilities and payoffs into a single “average” measure of what we face before the outcome is realized.</li>
+<li><strong>Preferences:</strong> How individuals evaluate uncertain outcomes, often represented by a utility function.</li>
+</ol>
+<p>We’ll look at each of these in turn.</p>
+<section id="probability" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="probability"><span class="header-section-number">3.1.1</span> Probability</h3>
+<p>Probability measures the likelihood that a given outcome will occur. For example, this <a href="https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/">risk calculator</a> can estimate my 10-year risk of heart disease. Suppose it tells me 10%. This means that if there were 1,000 people just like me, about 100 would develop heart disease over the next decade, while 900 would not.</p>
+<p>In this chapter, we’ll work with the simplest setting: only two possible outcomes — sick or healthy. Let <span class="math inline">\(p_s\)</span> denote the probability of sickness and <span class="math inline">\(p_h\)</span> the probability of remaining healthy. Since these are the only two possibilities, <span class="math inline">\(p_h = 1 - p_s\)</span>. Car insurers do the same calculation. If 5% of drivers like you have an accident each year, then out of 1,000 similar drivers, 50 will file claims while 950 will not. The logic is identical to health risks.</p>
 </section>
-<section id="payoffs" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="payoffs">Payoffs</h3>
-<p>Payoffs in this case simply reflect the monetary value of each possible outcome. Sticking with the example of getting sick or staying healthy, let’s say we will incur $500 in health care costs if we become sick and $0 if we remain healthy. If we start with $1,000, then our payoff in the event that we are sick is <span class="math inline">\(w_{s}=1000-500=500\)</span>, and our payoff if we remain healthy is <span class="math inline">\(w_{h}=1000\)</span>.</p>
+<section id="payoffs" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="payoffs"><span class="header-section-number">3.1.2</span> Payoffs</h3>
+<p>Payoffs are the monetary value of each possible outcome. Suppose I start with $1,000 in wealth. If I get sick, I incur $500 in health care costs, leaving me with <span class="math inline">\(w_s = 1000 - 500 = 500\)</span>. If I remain healthy, I pay nothing, so <span class="math inline">\(w_h = 1000\)</span>.</p>
 </section>
-<section id="expected-value" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="expected-value">Expected value</h3>
-<p>Quick recap…we begin with $1,000, and we have two possible outcomes: 1) we become sick; and 2) we stay healthy. We will become sick with probability <span class="math inline">\(p_{s}\)</span>, in which case we’ll only have $500 left after paying for our health care. We will stay healthy with probability <span class="math inline">\(p_{h}\)</span>, in which case we’ll keep our original $1,000 because we don’t have to incur any health care costs.</p>
-<p>Now we need to form our expected payoff <em>before</em> the outcome is realized. With the two possible payoffs, <span class="math inline">\(w_{s}\)</span> and <span class="math inline">\(w_{h}\)</span>, and the probabilities of each outcome, <span class="math inline">\(p_{s}\)</span> and <span class="math inline">\(p_{h}\)</span>, we can write the expected value as simply the weighted average of the two payoffs, with the weights being the respective probabilities:</p>
+<section id="expected-value" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="expected-value"><span class="header-section-number">3.1.3</span> Expected value</h3>
+<p>Before the outcome is realized, I can calculate the expected value of my wealth: the probability-weighted average of possible payoffs:</p>
 <p><span class="math display">\[E[w] = p_{h}w_{h} + p_{s}w_{s}\]</span></p>
-<p>Keeping the same probabilities from earlier, <span class="math inline">\(p_{h}=0.9\)</span> and <span class="math inline">\(p_{s}=0.1\)</span>, and substituting the respective probabilities and payoffs yields an expected value of $950.</p>
-<p>Another expectation that we’ll need to form is the expected cost. In our examples, we only incur a cost if we are sick. The expected cost formula looks very similar, <span class="math inline">\(E[cost]=p_{h}cost_{h} + p_{s}cost_{s}\)</span>, but <span class="math inline">\(cost_{h}=0\)</span>. So the expected cost is just <span class="math inline">\(p_{s}cost_{s}\)</span>, or $50.</p>
+<p>With <span class="math inline">\(p_h = 0.9\)</span> and <span class="math inline">\(p_s = 0.1\)</span>, the expected wealth is $r round(e.pay, 2).</p>
+<p>We can also compute expected costs. Because costs only occur if I’m sick, <span class="math inline">\(E[cost]=p_{h} \times 0 + p_{s} \times cost_{s} = p_{s}cost_{s}\)</span>, or $50. Expected wealth and expected cost are related but distinct. Individuals think about expected wealth (what they keep), while insurers focus on expected cost (what they must cover).</p>
 </section>
-<section id="preferences" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="preferences">Preferences</h3>
-<p>Preferences take the form of a utility function, <span class="math inline">\(u(x)\)</span>, which tells us how much “benefit” we get from some consumption bundle, <span class="math inline">\(x\)</span>. In economics, we tend to assume individuals make decisions not based on the strict monetary payoff but instead on the utility of this payoff. Among other things, this way of thinking introduces the idea of diminishing marginal utility, so that more of something means less to us if we already have a lot of it. More formally, this means <span class="math inline">\(u'(x_{1})&gt;u'(x_{2})\)</span> for <span class="math inline">\(x_{1}&lt;x_{2}\)</span>.</p>
-<p>We can then combine the notion of consumer utility with expected value in order to form the expected utility:</p>
-<p><span class="math display">\[E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})\]</span> As an example, let’s assume that preferences are such that <span class="math inline">\(u(x)=\sqrt x\)</span>. In that case, our expected utility is 30.7. Note that we take the expectation over two different possible utility values, rather than the utility of our expected wealth. This is an important distinction and is necessary to understand risk premiums and willingness to pay for health insurance.</p>
+<section id="preferences" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="preferences"><span class="header-section-number">3.1.4</span> Preferences</h3>
+<p>Preferences describe how people value different outcomes. In economics, we represent them with a utility function <span class="math inline">\(u(w)\)</span>, where <span class="math inline">\(w\)</span> is wealth. A standard assumption is diminishing marginal utility: each extra dollar is worth less to you the richer you are. Formally, if <span class="math inline">\(x_1 &lt; x_2\)</span>, then <span class="math inline">\(u'(x_1) &gt; u'(x_2)\)</span>.</p>
+<p>We can then form <em>expected utility</em>:</p>
+<p><span class="math display">\[E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})\]</span></p>
+<p>For example, if <span class="math inline">\(u(w) = \sqrt{w}\)</span>, the expected utility is r round(e.util, 2). Notice that this is not the utility of the expected wealth — it’s the expectation of utility values. This distinction is critical for understanding risk aversion, risk premiums, and willingness to pay for insurance.</p>
 </section>
 </section>
 <section id="risk-preferences" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="risk-preferences"><span class="header-section-number">3.2</span> Risk preferences</h2>
-<p>With the basics of probability, utility, and expected value, we can begin to measure risk preferences. Generally, we categorize people into three risk types:</p>
+<p>With probabilities, payoffs, and utility in place, we can classify risk attitudes:</p>
 <ol type="1">
-<li>Risk averse: Someone who prefers to avoid a risky situation and would rather take less payoff with certainty than face two possible outcomes with uncertainty.</li>
-<li>Risk neutral: Someone who is indifferent between the risky situation versus an uncertain outcome.</li>
-<li>Risk loving: Someone who prefers risk and would rather face two possible outcomes with uncertainty that receive the same outcome with certainty.</li>
+<li><strong>Risk averse:</strong> Prefers a certain outcome equal to the expected value over the risky gamble. (Certainty equivalent <span class="math inline">\(CE &lt; E[w]\)</span>.)</li>
+<li><strong>Risk neutral:</strong> Indifferent between the certain outcome and the gamble. (<span class="math inline">\(CE = E[w]\)</span>.)</li>
+<li><strong>Risk loving:</strong> Prefers the gamble over the certain outcome. (<span class="math inline">\(CE &gt; E[w]\)</span>.)</li>
 </ol>
-<p>For our purposes, we will assume individuals are risk averse, which also follows from an assumption of diminishing marginal utility. <a href="#fig-risk-averse">Figure&nbsp;<span>3.1</span></a> provides a graphical illustration of risk aversion, showing wealth/monetary values on the x-axis and utility on the y axis. The line segment in <a href="#fig-risk-averse">Figure&nbsp;<span>3.1</span></a> joins two utility values, <span class="math inline">\(u(w_{s})\)</span> and <span class="math inline">\(u(w_{h})\)</span> — this is the expected utility line. For any probabilities <span class="math inline">\(p_{s}\)</span> and <span class="math inline">\(p_{h}\)</span>, <span class="math inline">\(E[u(w)]\)</span> will fall somewhere on that line.</p>
+<p>For our purposes, we assume risk aversion, which naturally arises from diminishing marginal utility. <a href="#fig-risk-averse" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> illustrates risk aversion. The line segment between <span class="math inline">\(u(w_s)\)</span> and <span class="math inline">\(u(w_h)\)</span> represents expected utility. Because the utility function is concave, this line always lies below the curve. The implication: given a choice, individuals prefer a certain wealth level to a risky prospect with the same expected value.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-risk-averse" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="insurance-2-1_files/figure-html/fig-risk-averse-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.1: Depiction of risk aversion</figcaption>
+<div id="fig-risk-averse" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-risk-averse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="insurance-2-1_files/figure-html/fig-risk-averse-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-risk-averse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Depiction of risk aversion
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The most important thing to notice from <a href="#fig-risk-averse">Figure&nbsp;<span>3.1</span></a> is that the line segment joining <span class="math inline">\(u(w_{h})\)</span> and <span class="math inline">\(u(w_{s})\)</span> falls entirely below the utility curve. Why does this matter? Let’s work through a simple thought exercise, noting that the utility curve tells us the utility for a given value of <span class="math inline">\(w\)</span> in the absence of any uncertainty. Pick any value of <span class="math inline">\(w\)</span> between <span class="math inline">\(w_{s}\)</span> and <span class="math inline">\(w_{h}\)</span> and follow that value up to the expected utility line. For any such value, you would always prefer to have that amount of wealth with certainty than in expectation. So you always prefer a single outcome with certainty over an expected outcome (of the same monetary value) with uncertainty. Another way to think of this is to pick a utility value on the y axis. Reaching that utility value will take more wealth in expectation than it would in the absence of uncertainty.</p>
-<p>To fix ideas, consider another version of this graph in <a href="#fig-risk-averse2">Figure&nbsp;<span>3.2</span></a>. As drawn, providing <span class="math inline">\(\bar{w}\)</span> to this person (without any uncertainty) would yield a utility of <span class="math inline">\(\bar{u}\)</span>. But if they wanted to obtain the same utility with uncertainty, they would need <span class="math inline">\(\bar{w} + \pi\)</span>. This person would need to be given more money in order to take on some uncertainty.</p>
+<p>A more concrete way to capture risk aversion is through the risk premium, <span class="math inline">\(\pi\)</span>. This is the extra amount of wealth a person would require to accept a gamble instead of a certain outcome.</p>
+<p><a href="#fig-risk-averse2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> illustrates. If certainty provides utility <span class="math inline">\(\bar{u}\)</span> at wealth <span class="math inline">\(\bar{w}\)</span>, then facing uncertainty requires wealth <span class="math inline">\(\bar{w} + \pi\)</span> to reach the same utility. The difference <span class="math inline">\(\pi\)</span> is the risk premium. We’ll get to this in much more detail in the next chapter.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-risk-averse2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="insurance-2-1_files/figure-html/fig-risk-averse2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.2: Depiction of risk aversion</figcaption>
+<div id="fig-risk-averse2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-risk-averse2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="insurance-2-1_files/figure-html/fig-risk-averse2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-risk-averse2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Depiction of risk aversion
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="why-this-matters" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">3.3</span> Why This Matters</h2>
+<p>Insurers care about expected cost when setting premiums. Individuals care about expected utility. The gap between the two — captured by the risk premium — explains why people are willing to pay more than the expected cost for insurance. This difference is the foundation of our next step: quantifying willingness to pay for insurance.</p>
 
 
 </section>
@@ -417,18 +479,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -460,11 +511,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -474,8 +564,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -487,7 +586,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -531,6 +753,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -556,6 +779,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -617,17 +866,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part1/insurance-1-2.html" class="pagination-link">
+      <a href="../part1/insurance-1-2.html" class="pagination-link" aria-label="Getting Health Insurance">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Health Insurance</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part1/insurance-2-2.html" class="pagination-link">
+      <a href="../part1/insurance-2-2.html" class="pagination-link" aria-label="Risk Premium and WTP">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
