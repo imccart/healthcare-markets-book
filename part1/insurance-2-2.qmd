@@ -1,5 +1,5 @@
 ---
-title: "Risk Premium and WTP"
+title: "Demand for Health Insurance"
 ---
 
 ```{r}
@@ -8,8 +8,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-
-## Why do we care?
 
 Let's motivate some of this with a simple story of Humana and the ACA exchanges. In 2018, [Humana withdrew from the ACA exchanges](https://money.cnn.com/2017/02/14/news/economy/humana-obamacare-insurer) citing an "unbalanced risk pool" due to the results of the 2017 open enrollment period. The risk pool refers to the collection of policyholders and their corresponding risk levels. In this context, Humana essentially claimed that their enrollees were too sick and too expensive relative to the plan premiums. Humana had also just had their proposed merger with Aetna blocked by the Department of Justice (details [here](https://www.npr.org/sections/thetwo-way/2017/02/14/515167491/aetna-and-humana-call-off-merger-after-court-decision)), which may have also been related to the decision to drop out of the ACA exchanges.
 
@@ -29,9 +27,44 @@ Health care expenditures and encounters by health status
 So insurers really need to know how to price their products appropriately. To do that, they need to understand what determines someone's willingness to pay for health insurance. That's where we're headed in this chapter.
 
 
-## Risk Premium {#sec-riskpremium}
+## Demand for Health Insurance
 
-The risk premium reflects how much money a risk-averse person would pay to avoid risk. In other words, it's the amount of money that makes a person indifferent between a risky and riskless scenario. The risk premium is reflected graphically in @fig-risk-premium.
+From the individual’s perspective, the key question is how much they are willing to pay for coverage in the first place. To answer that, we need to formalize how people evaluate risk, beginning with the concepts of certainty equivalent and risk premium.
+
+
+### Certainty Equivalent {#sec-ce}
+
+The **certainty equivalent (CE)** (@def-ce) is the guaranteed amount of wealth that gives the same utility as a risky prospect. Let $w$ be (random) wealth and $U(\cdot)$ a concave utility function. The CE satisfies
+
+$$
+U(\text{CE}) = \mathbb{E}[U(w)].
+$$
+
+For a risk-averse individual, $CE < \mathbb{E}[w]$. We will use this immediately below to define the risk premium and, in turn, willingness to pay for health insurance.
+
+::: {#def-ce}
+
+### Certainty Equivalent
+The amount of guaranteed wealth that yields the same utility as facing a risky prospect. If you are risk-averse, your certainty equivalent will always be less than the expected value of that gamble. The difference between expected value and certainty equivalent is the **risk premium**.
+
+:::
+
+
+### Risk Premium {#sec-riskpremium}
+
+The **risk premium** (@def-riskpremium) reflects how much money a risk-averse person would pay to avoid risk. In other words, it is the amount that makes a person indifferent between a risky and a riskless scenario.
+
+::: {#def-riskpremium}
+
+### Risk Premium
+The amount an individual would pay to eliminate risk while keeping expected utility unchanged. Formally, with expected wealth $\mathbb{E}[w]$ and certainty equivalent $CE$, the risk premium is
+$$
+\pi = \mathbb{E}[w] - CE.
+$$
+For a risk-averse individual, $\pi>0$; for risk-neutral, $\pi=0$; for risk-loving, $\pi<0$.
+:::
+
+The risk premium is reflected graphically in @fig-risk-premium.
 
 
 ```{tikz}
@@ -49,20 +82,18 @@ The risk premium reflects how much money a risk-averse person would pay to avoid
                     my grid/.style={dashed,opacity=0.5, every node/.style={black,opacity=1}, transform shape},
                     my axis/.style={latex-latex}]
 \draw[my plot] (0,0) plot (\x,{ln(\x)});
-\coordinate (start plot) at (0.1,{ln(0.1)}); % domain start
-\coordinate (end plot) at (5,{ln(5)}); % domain end
+\coordinate (start plot) at (0.1,{ln(0.1)});
+\coordinate (end plot) at (5,{ln(5)});
 \draw[my axis] ([shift={(-0.5cm,0.5cm)}]start plot |- end plot) |- node[coordinate](origin){} ([shift={(0.5cm,-0.5cm)}]start plot -| end plot);
-\def\x{0.5}\def\y{4}\def\p{0.55} % define the x, y and p values
-\coordinate (Ux) at (\x,{ln(\x)}); % set the u(x) coordinate
-\coordinate (Uy) at (\y,{ln(\y)}); % set the u(y) coordinate
-\coordinate (Up) at ({\p*\x+(1-\p)*\y},{ln(\p*\x+(1-\p)*\y)}); % set the u(p*x+(1-p)*y) coordinate
-\draw (Ux) -- coordinate[pos=1-\p] (Up-mid) (Uy); % set the coordinate on the linear curve
-\path let \p1=(Up-mid), \n1={pow(e,\y1*0.03514)} in (28.4576*\n1,\y1) coordinate (Up-mid2); 
+\def\x{0.5}\def\y{4}\def\p{0.55}
+\coordinate (Ux) at (\x,{ln(\x)});
+\coordinate (Uy) at (\y,{ln(\y)});
+\coordinate (Up) at ({\p*\x+(1-\p)*\y},{ln(\p*\x+(1-\p)*\y)});
+\draw (Ux) -- coordinate[pos=1-\p] (Up-mid) (Uy);
+\path let \p1=(Up-mid), \n1={pow(e,\y1*0.03514)} in (28.4576*\n1,\y1) coordinate (Up-mid2);
 \draw[my grid] (Ux) |- node[below]{$x_{1}$} (origin) |- node[left]{$u(x_{1})$} cycle;
 \draw[my grid] (Uy) |- node[below]{$x_{2}$} (origin) |- node[left]{$u(x_{2})$} cycle;
-%\draw[my grid] (Up) |- (origin) |- cycle;
 \draw[my grid] (Up) |- (origin);
-%\draw[my grid] (Up-mid2) |- node[below,font=\scriptsize]{$c(F,u)$} (origin) |- node[left]{$pu(x)+(1-p)u(y)$} cycle;
 \draw[my grid] (Up-mid2) |- node[below right]{\hspace{.05cm} $\pi$} (origin) |- node[left,font=\scriptsize]{$E[u(x)]$} cycle;
 \draw[my grid] (Up-mid) -- (Up-mid2);
 \end{tikzpicture}
@@ -70,29 +101,61 @@ The risk premium reflects how much money a risk-averse person would pay to avoid
 
 
 ```{r, include=FALSE}
-ecost <- .25*20000
-ewealth <- .75*100000 + .25*80000
-eu <- .75*log(100000) + .25*log(80000)
-inv.u <- exp(eu)
-wtp <- 100000-inv.u
+# Parameters
+p <- 0.25
+w0 <- 100000
+loss <- 20000
+
+# Expected cost and expected wealth
+ecost <- p * loss
+ewealth <- (1 - p) * w0 + p * (w0 - loss)
+
+# Expected utility under log utility and certainty equivalent
+eu <- (1 - p) * log(w0) + p * log(w0 - loss)
+ce <- exp(eu)
+
+# Risk premium (do NOT subtract from initial wealth)
+risk_premium <- ewealth - ce
+wtp <- ecost + risk_premium
 ```
 
-As an example, let's consider someone with the utility function, $u(w)=\ln(w)$. They start with \$100,000. With probability 0.25, this person will get sick and incur a cost of \$20,000. Their wealth in the sick state is therefore \$80,000. To find the risk premium, we need to calculate how much money they are willing to give up to avoid the risky scenario ($\pi$ in @fig-risk-premium). In the risky scenario, their expected utility is: $E[u]=0.75\times \ln (100000) + 0.25 \times \ln (80000) =$ `r format(eu,digits=5, big.mark=",")`. We therefore need to work backward from this level of utility (the y-axis) to find the value on the x-axis that would provide the same level of utility if instead there were no risk. To do this, we take the inverse of the original utility function at the value of $E[u] =$ `r format(eu, digits=5)`. In this case, the inverse utility is the exponential --- this is the operation we need to apply to the original utility function in order to recover the wealth value (i.e., $\exp(u(w))=w$). So we need to take the exponential of `r format(eu, digits=5)`, which yields $w=$ `r format(inv.u,digits=5,big.mark=",")`. This value reflects the amount of wealth in a risk-free situation that would provide the same level of utility as they expect to have in the risky situation. The risk premium is then just the difference between these two wealth values, $\pi =$ `r format(ewealth-inv.u, digits=5, big.mark=",")`.
+As an example, consider $u(w) = \log w$. Starting with \$100{,}000, with probability $0.25$ the person becomes sick and incurs a \$20{,}000 cost (sick-state wealth \$80{,}000). The expected utility is $E[u] = 0.75\log(100000) + 0.25\log(80000) =$ `r format(eu,digits=5, big.mark=",")`. The **certainty equivalent** is $CE = \exp(E[u]) =$ `r format(ce, digits=5, big.mark=",")`. Expected wealth is \$`r format(ewealth,digits=5,big.mark=",")`, so the **risk premium** is
+$\pi = \mathbb{E}[w] - CE =$ `r format(risk_premium,digits=5,big.mark=",")`. This difference measures how much expected wealth exceeds the certainty equivalent, capturing the cost of risk for a risk-averse individual.
 
 
+### Willingness to Pay {#sec-wtp}
 
-## Willingness to Pay
+The **willingness to pay (WTP)** (@def-wtp) for health insurance combines two components: the actuarially fair premium (the expected cost of illness) and the risk premium (the extra amount reflecting risk aversion).  
+In other words, individuals are willing to pay their expected costs **plus** something more to avoid uncertainty.
 
-The willingness to pay (WTP) for health insurance reflects the risk premium plus the expected costs of health care. Intuitively, the cost of care is a transfer from the enrollee to the insurer. We have to pay that no matter what. For this reason, the expected cost of care is sometimes referred to as the "actuarily fair" premium. In our example, the actuarily fair premium is \$`r format(ecost,digits=5,big.mark=",")`, calculated as the probability of illness times the cost of illness. Adding this to our risk premium yields the maximum WTP for health insurance, \$`r format(wtp,digits=5,big.mark=",")`.
+::: {#def-wtp}
 
+### Willingness to Pay
 
-## Determinants of WTP
+The maximum amount an individual is prepared to spend on health insurance. Formally,
+$$
+\text{WTP} = \text{Expected Cost of Illness} + \pi,
+$$
+
+where $\pi$ is the risk premium. The expected cost of illness corresponds to the actuarially fair premium.
+
+:::
+
+In our example, the actuarially fair premium is \$`r format(ecost,digits=5,big.mark=",")`, calculated as the probability of illness times the cost of illness.  Adding this to the risk premium yields the willingness to pay for health insurance:
+
+$$
+\text{WTP} = \text{Expected Cost of Illness} + \pi 
+= \$`r format(ecost + risk_premium,digits=5,big.mark=",")`.
+$$
+
 
 From @fig-risk-premium, we can easily identify three factors that determine someone's risk premium and WTP. The easiest way to think of how these factors affect the risk premium and WTP is to think about the gap between the expected utility line and the utility curve in @fig-risk-premium.
 
 1. Curvature of the utility function. As preferences become more risk averse, utility becomes "more curved" and the distance between the expected utility line and the utility curve increases. Therefore, risk premium and WTP are increasing with risk aversion.
-2. Probability of illness. This one is a little tricky. It helps to look at the extreme values with probability of illness set to 1 or 0 and note that the expected utility and utility curve intersect at those points. Since the risk premium reflects the gap between those curves, the risk premium is 0 when no such gap exists. So the risk premium is 0 when the probability of illness is 1 or 0. Hopefully this makes sense conceptually --- there is no risk when the probability of illness is 0 or 1. We know with certainty that we will be either healthy or sick. We may not *want* to be sick, but we're not uncertain about the outcome. And since the risk premium is what we would pay to avoid uncertainty, the risk premium is naturally 0 at those points. Extending that logic, the risk premium is largest for probability of illness of 0.5, as this is the point at which we face the most uncertainty about being sick or healthy. 
+2. Probability of illness. Note that the risk premium is zero when the probability of illness is 0 **or** 1, because there is no uncertainty in the outcome. This one is a little tricky. Hopefully this makes sense conceptually --- there is no risk when the probability of illness is 0 or 1. We know with certainty that we will be either healthy or sick. We may not *want* to be sick, but we're not uncertain about the outcome. And since the risk premium is what we would pay to avoid uncertainty, the risk premium is naturally 0 at those points. Extending that logic, the risk premium is largest for probability of illness of 0.5, as this is the point at which we face the most uncertainty about being sick or healthy. 
 3. Cost of illness. The cost of illness is reflected by the gap between $x_{1}$ and $x_{2}$ in @fig-risk-premium. All else equal, the gap between the expected utility line and the utility curve grows as the distance between $x_{1}$ and $x_{2}$ increases.
 
-## Other considerations
-While @fig-risk-premium is useful to understand how and why someone would pay in excess of the actuarily fair premium for health insurance, there are other benefits of health insurance not easily captured in the figure. One is the role of insurers in price negotiations. An individual patient has little bargaining power relative to a hospital, and therefore little opportunity to negotiate a lower price; however, an insurance plan, in pooling the bargaining power of all of its individual members, is in a better position to negotiate lower prices. Insurance products therefore also serve to reduce the cost of illness relative to remaining uninsured. Another factor involves the information problems in health care decision-making. It can be extremely challenging to identify the "best" health care providers, and insurance plans *can* help with this process (although whether they actually do serve to funnel patients to higher quality providers is an empirical question).
+
+### Other Considerations
+
+The analysis above focused on risk preferences, but health insurance has additional benefits that do not appear in the simple certainty-equivalent framework. One is the role of insurers in price negotiations. An individual patient has little bargaining power relative to a hospital, and therefore little opportunity to negotiate a lower price; however, an insurance plan, in pooling the bargaining power of all of its individual members, is in a better position to negotiate lower prices. Insurance products therefore also serve to reduce the cost of illness relative to remaining uninsured. Another factor involves the information problems in health care decision-making. It can be extremely challenging to identify the "best" health care providers, and insurance plans *can* help with this process (although whether they actually do serve to funnel patients to higher quality providers is an empirical question).
