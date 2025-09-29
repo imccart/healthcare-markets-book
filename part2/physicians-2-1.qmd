@@ -111,7 +111,7 @@ Second, physicians are not purely profit-maximizing. Altruism, professional norm
 
 Third, outside options and local market structure shape how tightly the participation constraint binds. Greater competition or easier patient switching can reduce the scope for physician-induced differences, but the logic of the model continues to explain why payment rules systematically tilt treatment choices.  
 
-In short, this model of physician treatment decisions is deliberately stylized, but it remains useful precisely because they clarify the underlying trade-offs. We show why physicians may provide more (or less) care than patients would choose on their own, and this helps organize thinking about how alternative payment designs might alter those incentives.
+In short, this model of physician treatment decisions is deliberately stylized, but it remains useful precisely because it clarifies the underlying trade-offs. We show why physicians may provide more (or less) care than patients would choose on their own, and this helps organize thinking about how alternative payment designs might alter those incentives.
 
 
 ## A two-price extension {#sec-twoprice-agency}
