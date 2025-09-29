@@ -8,41 +8,48 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-Physicians play a pivotal role in influencing health care decisions, acting as agents on behalf of their patients. They have a strong impact on the type of care provided to patients and whether such care aligns with the patients' best interests. However, it is essential to recognize that various factors beyond patient interests can also influence the care delivered. Among these factors, financial incentives hold significant potential in shaping physician behavior and medical treatment choices.
+Physicians play a pivotal role in influencing health care decisions, acting as agents on behalf of their patients. Patients rely on physicians’ knowledge, but financial incentives mean that doctors may not always make the same choices patients would under full information. A central policy question is therefore: **how do financial incentives shape the quantity and type of care physicians provide?**  
 
-In the next two chapters, our focus will be on exploring the role of financial incentives in the context of physician agency. We will delve into how these incentives can influence medical decisions and patient outcomes. Additionally, we will examine the potential impact of "other things" on care, which might include non-financial factors affecting the care provided by physicians. 
+In the next two chapters, we focus on financial incentives in the context of physician agency. This chapter builds a simple economic model of treatment choice to illustrate the mechanisms. In the following chapter, we will use this framework to compare alternative payment systems.  
 
 ## Financial incentives
 
-Now, the question arises: do financial incentives truly matter in influencing physician behavior? Empirically, the answer is a resounding, "yes." Several studies have provided evidence supporting the significance of financial incentives in affecting medical treatment and patient health outcomes. For instance, notable research works by @gruber1996 and @clemens2014 offer valuable insights into the relationship between physician financial incentives and specific healthcare practices.
+Do financial incentives matter empirically? The evidence is clear: yes. Studies such as @gruber1996 and @clemens2014 show that physician decisions respond to payment rules in ways that affect both utilization and patient outcomes.  
 
-Through these and other studies, we gain a better understanding of how financial incentives play a role in shaping healthcare decisions, making it a crucial area of investigation in health policy and economics. The question of financial incentives and physician treatment decisions is particularly important as we consider different types of payment models, such as fee-for-service payments or capitated payments. For now, let's forgot about these things and just think about a basic model of treatment decisions in which we assume physicians care both about patient benefit and profit. We'll consider two versions of this model: one in which the physician can set both the price and the quantity of care, and another in which prices are fixed (e.g., by a large public insurance option).
+To understand the underlying mechanics, we develop a simple model of treatment choice. Physicians are assumed to value both patient benefit and profit. We start with a case where physicians can set both the price and the quantity of services, and then turn to the more realistic case where prices are fixed by insurers or government programs.
+
 
 ## With price and quantity setting power
 
-**Setup**
+We begin with a simple model in which physicians are able to set both the price and the quantity of services they provide. Let $x$ denote the quantity of services, and let $B(x)$ represent the benefit that patients derive from those services, with $B'(x) > 0$ and $B''(x) < 0$. Patients pay a price $p$ for each unit of service, while physicians incur a constant marginal cost $c$ for each unit delivered.  
 
-In this analysis, we establish the fundamental elements of the model for physician services. Let's denote the quantity of physician services as $x$, while the benefit derived by patients from these services is represented as $B(x)$. Patients are required to pay a price of $p$ for each unit of service, and the payment is received by the physicians. Simultaneously, physicians incur a cost of $c$ for each unit of care they provide.
+The patient’s net benefit is therefore  
 
-To understand the net benefit to patients, we use the formula $NB(x) = B(x) - px$, which takes into account the benefit received minus the price paid. Moreover, physicians must make a crucial decision by choosing the quantity of care they provide. This decision must be such that the net benefit to patients, $NB(x) = B(x) - px$, is greater than or equal to the patient's outside option, denoted as $NB^{0}$.
+$$NB(x) = B(x) - px$$ {#eq-netbenefit}  
 
-**Solving the Model**
+and patients will only accept treatment if their net benefit is at least as large as their outside option, $NB^0$.  
 
-Having established the model's framework, we now seek to determine the optimal quantity of care that will be provided by physicians, which we represent as $x$. This requires solving the model in two distinct steps:
+The physician’s profit is given by  
 
-1. First, physicians aim to provide a minimum surplus that satisfies the patient's preferences and keeps them in the medical care process. This surplus is reflected in @eq-netbenefit.
+$$\pi(x) = (p - c)x$$ {#eq-profit}  
 
-$$NB(x) = B(x) - px = NB^{0}$$ {#eq-netbenefit}
+and the physician chooses $x$ to maximize profit subject to the participation constraint in @eq-netbenefit. Substituting this constraint into the profit function yields  
 
-2. Subsequently, we proceed by substituting the value of $x$ obtained in the previous step into the physician's profit function:
+$$\pi(x) = B(x) - NB^0 - cx$$ {#eq-profit-sub}  
 
-$$\pi = (p-c)x = B(x) - NB^{0} - cx.$$ {#eq-profit-stage2}
+Maximizing @eq-profit-sub leads to the first-order condition  
 
-Solving for $x$ allows us to determine the optimal quantity of care that physicians should provide to maximize their profits while satisfying the patient's requirements.
+$$B'(x) = c$$ {#eq-physician-foc}  
 
-Even in this very general setup, we can begin to solve the model and make some theoretical predictions about quantity of care in this environment. Solving the physician's objective function in @eq-profit-stage2 yields $\frac{d B(x)}{x} - c =0$. In other words, the physician sets quantity of care so that the marginal benefit of care to the patient is equal to the physician's marginal cost. Not a revolutionary finding, but important when we compare this to the patient's optimum. If the patient could choose $x$ independently, they would aim to maximize their net benefit in @eq-netbenefit such that $\frac{ d B(x)}{x} - p =0$. So the patient would set marginal benefit equal to the price of care. Of course, the price of care $p$ **is** the marginal cost to the patient, so both the physician and patient set marginal benefit equal to marginal cost, but they have different marginal costs and therefore different optimal choices of $x$. 
+which implies that the physician selects a quantity such that the marginal benefit to the patient equals the physician’s marginal cost.  
 
-Since we've assumed that $B'(x)$ is decreasing, and since it must be the case that $p>c$ (otherwise the physician would make no positive profit), it follows that the physician's optimal choice of $x$ exceeds that of the patient's. This is because $B'(x)=c$ occurs at a point further out on the x-axis than $B'(x)=p$. This is depicted graphically in @fig-physician-agency. This simple model therefore helps us understand how financial incentives, costs, and patient preferences collectively influence the decision-making process of physicians, ultimately impacting the quantity of care delivered.
+If patients could instead choose directly, they would maximize their own net benefit in @eq-netbenefit, which gives the condition  
+
+$$B'(x) = p$$ {#eq-patient-foc}  
+
+Because $p > c$, the patient’s optimum occurs at a lower quantity than the physician’s. Since $B'(x)$ is decreasing, the equality $B'(x) = c$ in @eq-physician-foc is reached at a higher level of $x$ than the equality $B'(x) = p$ in @eq-patient-foc.  
+
+The model therefore predicts that physicians will provide more services than patients would choose for themselves. This prediction is illustrated in @fig-physician-agency, where $\bar{x}$ denotes the patient’s preferred level of care and $x^*$ denotes the physician’s choice.  
 
 
 ```{tikz}
@@ -73,20 +80,63 @@ Since we've assumed that $B'(x)$ is decreasing, and since it must be the case th
 
 ## With fixed prices 
 
-The two-step approach is applicable when both prices and the quantity of care are variable. However, when physicians cannot set prices (e.g., prices are fixed administratively at a certain level), we work solely based on the patient's net benefit constraint. The constraint is still given by $B(x) - \bar{p}x = NB^{0}$, but we replace $p$ with $\bar{p}$ to denote the fixed price. $NB^{0}$ still denotes the patient's outside option.
+The two-step approach described above applies when physicians can choose both the price and the quantity of care. However, in many settings prices are fixed administratively (for example, under Medicare or Medicaid), so physicians retain discretion only over the quantity of care. In this case, we work solely from the patient’s participation constraint.  
 
-Why can't we replace the net benefit constraint into the physician's maximization problem? This is a corner solution, so standard derivatives aren't going to work here. Instead, we rely on the patient's net benefit constraint to find the optimal quantity of care. We therefore obtain the solution simply by rewriting the constraint, so that 
+The constraint is still given by  
 
-$$x= \frac{B(x) - NB^{0}}{\bar{p}}.$$ {#eq-fixed-price}
+$$B(x) - \bar{p}x = NB^{0},$$ {#eq-fixed-constraint}  
 
-How does $x$ change if $p$ changes? To answer this, we can totally differentiate @eq-fixed-price:
+where $\bar{p}$ denotes the fixed price and $NB^0$ is the patient’s outside option.  
 
-$$\begin{align*}
-b(x)\frac{\mathrm{d}x}{\mathrm{d}p} - x - p\frac{\mathrm{d}x}{\mathrm{d}p} &= 0 \\
-\frac{\mathrm{d}x}{\mathrm{d}p} = \frac{-x}{p-b(x)} &< 0.
-\end{align*}$$
+In this setting we cannot substitute the participation constraint into the physician’s maximization problem as before, because the problem leads to a corner solution and standard derivatives do not apply. Instead, we solve directly from the patient’s participation constraint, which implies  
 
-So there is a negative relationship between $x$ and $\bar{p}$. This means that, when the administratively set price ($p$) increases, we observe a decrease in the quantity of services provided. Conversely, if the price decreases, the quantity of services provided increases. Understanding the relationship between administrative price changes and healthcare utilization is crucial for policy considerations. If we aim to reduce healthcare utilization or spending, attempting to do so solely by cutting payments might not be effective. The comparative statics analysis demonstrates that changes in administratively set prices have direct implications for the quantity of services provided by physicians.
+$$x = \frac{B(x) - NB^{0}}{\bar{p}}.$$ {#eq-fixed-price}  
+
+To examine how the equilibrium quantity responds to changes in the administratively set price, totally differentiate @eq-fixed-price. This yields  
+
+$$\frac{dx}{dp} = \frac{-x}{p - B'(x)} < 0.$$ {#eq-fixed-comparative}  
+
+The comparative statics in @eq-fixed-comparative show that an increase in the administratively set price reduces the quantity of services provided, while a decrease in price increases it.  
+
+This result highlights an important policy implication: attempts to control spending solely through price reductions may have unintended effects on service provision. Understanding how physicians adjust quantities in response to fixed prices is therefore crucial for anticipating the consequences of payment reforms.  
+
+
+## Other Considerations
+
+This simplified model highlights how fee for service financial incentives can shape physician behavior, and the model is valuable for understanding basic mechanisms at work. Still, there are several caveats to keep in mind when connecting the theory to practice.
+
+First, in reality the patient’s out-of-pocket price and the physician’s reimbursement rate often differ. Our baseline model treats them as the same for simplicity, which helps keep the intuition clear, but it is important to remember that policy changes can shift one without the other. A simple two-price extension shows how the same basic framework can accommodate this distinction (see [Section -@sec-twoprice-agency]).
+
+Second, physicians are not purely profit-maximizing. Altruism, professional norms, and malpractice concerns all influence choices. Including these motives would complicate the model, but the simple version still provides a benchmark against which the effects of payment incentives can be understood.  
+
+Third, outside options and local market structure shape how tightly the participation constraint binds. Greater competition or easier patient switching can reduce the scope for physician-induced differences, but the logic of the model continues to explain why payment rules systematically tilt treatment choices.  
+
+In short, this model of physician treatment decisions is deliberately stylized, but it remains useful precisely because they clarify the underlying trade-offs. We show why physicians may provide more (or less) care than patients would choose on their own, and this helps organize thinking about how alternative payment designs might alter those incentives.
+
+
+## A two-price extension {#sec-twoprice-agency}
+
+The models above treat the “price” of care as if it were the same for both patients and physicians. In reality, the patient’s out-of-pocket cost and the physician’s reimbursement rate are often very different. To reflect this, suppose patients face an out-of-pocket price $p_{pt}$, while physicians are paid $p_{md}$. Let $c$ again denote the physician’s marginal cost of providing care.  
+
+The patient’s net benefit is  
+
+$$NB(x) = B(x) - p_{pt}x,$$ {#eq-netbenefit-2}  
+
+and patients will accept treatment only if $NB(x) \geq NB^0$. The physician’s profit is  
+
+$$\pi(x) = (p_{md} - c)x.$$ {#eq-profit-2}  
+
+Maximizing profit subject to the participation constraint gives  
+
+$$B'(x) = c,$$ {#eq-physician-foc-2}  
+
+so the physician’s choice depends on cost rather than the patient’s out-of-pocket price. If patients could choose directly, they would instead maximize @eq-netbenefit-2, leading to the condition  
+
+$$B'(x) = p_{pt}.$$ {#eq-patient-foc-2}  
+
+This simple extension clarifies several empirical patterns. When $p_{md}$ increases, holding $p_{pt}$ fixed, physicians have stronger incentives to provide care and utilization tends to rise. When $p_{pt}$ increases, holding $p_{md}$ fixed, the patient’s participation constraint tightens and feasible utilization falls. Similarly, a higher outside option $NB^0$ moves utilization closer to what patients would otherwise choose.  
+
+In practice, policy reforms often move $p_{md}$ and $p_{pt}$ independently—for example, Medicare adjusts administered fees to physicians while patient cost sharing is determined by separate program rules. Distinguishing these two prices helps reconcile the theory with evidence on how physicians and patients respond differently to payment changes.
 
 
 ## References {.unnumbered}

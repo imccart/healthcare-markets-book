@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - 8&nbsp; Agency and Financial Incentives</title>
+<title>8&nbsp; Agency and Financial Incentives – Economics of Health Care</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,14 +82,42 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -92,13 +127,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-2-1.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-2-1.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -107,7 +142,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Economics of Health Care</a> 
@@ -136,7 +171,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Health Insurance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -162,7 +197,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-2-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Demand for Health Insurance</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -183,7 +218,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part2/physicians-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Physicians</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -224,7 +259,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hospitals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -271,7 +306,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part4/pharma-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prescription Drugs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -294,12 +329,18 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regulation and Innovation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -309,6 +350,8 @@ div.csl-indent {
   <li><a href="#financial-incentives" id="toc-financial-incentives" class="nav-link active" data-scroll-target="#financial-incentives"><span class="header-section-number">8.1</span> Financial incentives</a></li>
   <li><a href="#with-price-and-quantity-setting-power" id="toc-with-price-and-quantity-setting-power" class="nav-link" data-scroll-target="#with-price-and-quantity-setting-power"><span class="header-section-number">8.2</span> With price and quantity setting power</a></li>
   <li><a href="#with-fixed-prices" id="toc-with-fixed-prices" class="nav-link" data-scroll-target="#with-fixed-prices"><span class="header-section-number">8.3</span> With fixed prices</a></li>
+  <li><a href="#other-considerations" id="toc-other-considerations" class="nav-link" data-scroll-target="#other-considerations"><span class="header-section-number">8.4</span> Other Considerations</a></li>
+  <li><a href="#sec-twoprice-agency" id="toc-sec-twoprice-agency" class="nav-link" data-scroll-target="#sec-twoprice-agency"><span class="header-section-number">8.5</span> A two-price extension</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -316,7 +359,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-2-1.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></h1>
 </div>
@@ -331,39 +374,44 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
-<p>Physicians play a pivotal role in influencing health care decisions, acting as agents on behalf of their patients. They have a strong impact on the type of care provided to patients and whether such care aligns with the patients’ best interests. However, it is essential to recognize that various factors beyond patient interests can also influence the care delivered. Among these factors, financial incentives hold significant potential in shaping physician behavior and medical treatment choices.</p>
-<p>In the next two chapters, our focus will be on exploring the role of financial incentives in the context of physician agency. We will delve into how these incentives can influence medical decisions and patient outcomes. Additionally, we will examine the potential impact of “other things” on care, which might include non-financial factors affecting the care provided by physicians.</p>
+
+<p>Physicians play a pivotal role in influencing health care decisions, acting as agents on behalf of their patients. Patients rely on physicians’ knowledge, but financial incentives mean that doctors may not always make the same choices patients would under full information. A central policy question is therefore: <strong>how do financial incentives shape the quantity and type of care physicians provide?</strong></p>
+<p>In the next two chapters, we focus on financial incentives in the context of physician agency. This chapter builds a simple economic model of treatment choice to illustrate the mechanisms. In the following chapter, we will use this framework to compare alternative payment systems.</p>
 <section id="financial-incentives" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="financial-incentives"><span class="header-section-number">8.1</span> Financial incentives</h2>
-<p>Now, the question arises: do financial incentives truly matter in influencing physician behavior? Empirically, the answer is a resounding, “yes.” Several studies have provided evidence supporting the significance of financial incentives in affecting medical treatment and patient health outcomes. For instance, notable research works by <span class="citation" data-cites="gruber1996">Gruber and Owings (<a href="#ref-gruber1996" role="doc-biblioref">1996</a>)</span> and <span class="citation" data-cites="clemens2014">Clemens and Gottlieb (<a href="#ref-clemens2014" role="doc-biblioref">2014</a>)</span> offer valuable insights into the relationship between physician financial incentives and specific healthcare practices.</p>
-<p>Through these and other studies, we gain a better understanding of how financial incentives play a role in shaping healthcare decisions, making it a crucial area of investigation in health policy and economics. The question of financial incentives and physician treatment decisions is particularly important as we consider different types of payment models, such as fee-for-service payments or capitated payments. For now, let’s forgot about these things and just think about a basic model of treatment decisions in which we assume physicians care both about patient benefit and profit. We’ll consider two versions of this model: one in which the physician can set both the price and the quantity of care, and another in which prices are fixed (e.g., by a large public insurance option).</p>
+<p>Do financial incentives matter empirically? The evidence is clear: yes. Studies such as <span class="citation" data-cites="gruber1996">Gruber and Owings (<a href="#ref-gruber1996" role="doc-biblioref">1996</a>)</span> and <span class="citation" data-cites="clemens2014">Clemens and Gottlieb (<a href="#ref-clemens2014" role="doc-biblioref">2014</a>)</span> show that physician decisions respond to payment rules in ways that affect both utilization and patient outcomes.</p>
+<p>To understand the underlying mechanics, we develop a simple model of treatment choice. Physicians are assumed to value both patient benefit and profit. We start with a case where physicians can set both the price and the quantity of services, and then turn to the more realistic case where prices are fixed by insurers or government programs.</p>
 </section>
 <section id="with-price-and-quantity-setting-power" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="with-price-and-quantity-setting-power"><span class="header-section-number">8.2</span> With price and quantity setting power</h2>
-<p><strong>Setup</strong></p>
-<p>In this analysis, we establish the fundamental elements of the model for physician services. Let’s denote the quantity of physician services as <span class="math inline">\(x\)</span>, while the benefit derived by patients from these services is represented as <span class="math inline">\(B(x)\)</span>. Patients are required to pay a price of <span class="math inline">\(p\)</span> for each unit of service, and the payment is received by the physicians. Simultaneously, physicians incur a cost of <span class="math inline">\(c\)</span> for each unit of care they provide.</p>
-<p>To understand the net benefit to patients, we use the formula <span class="math inline">\(NB(x) = B(x) - px\)</span>, which takes into account the benefit received minus the price paid. Moreover, physicians must make a crucial decision by choosing the quantity of care they provide. This decision must be such that the net benefit to patients, <span class="math inline">\(NB(x) = B(x) - px\)</span>, is greater than or equal to the patient’s outside option, denoted as <span class="math inline">\(NB^{0}\)</span>.</p>
-<p><strong>Solving the Model</strong></p>
-<p>Having established the model’s framework, we now seek to determine the optimal quantity of care that will be provided by physicians, which we represent as <span class="math inline">\(x\)</span>. This requires solving the model in two distinct steps:</p>
-<ol type="1">
-<li>First, physicians aim to provide a minimum surplus that satisfies the patient’s preferences and keeps them in the medical care process. This surplus is reflected in <a href="#eq-netbenefit">Equation&nbsp;<span>8.1</span></a>.</li>
-</ol>
-<p><span id="eq-netbenefit"><span class="math display">\[NB(x) = B(x) - px = NB^{0} \tag{8.1}\]</span></span></p>
-<ol start="2" type="1">
-<li>Subsequently, we proceed by substituting the value of <span class="math inline">\(x\)</span> obtained in the previous step into the physician’s profit function:</li>
-</ol>
-<p><span id="eq-profit-stage2"><span class="math display">\[\pi = (p-c)x = B(x) - NB^{0} - cx. \tag{8.2}\]</span></span></p>
-<p>Solving for <span class="math inline">\(x\)</span> allows us to determine the optimal quantity of care that physicians should provide to maximize their profits while satisfying the patient’s requirements.</p>
-<p>Even in this very general setup, we can begin to solve the model and make some theoretical predictions about quantity of care in this environment. Solving the physician’s objective function in <a href="#eq-profit-stage2">Equation&nbsp;<span>8.2</span></a> yields <span class="math inline">\(\frac{d B(x)}{x} - c =0\)</span>. In other words, the physician sets quantity of care so that the marginal benefit of care to the patient is equal to the physician’s marginal cost. Not a revolutionary finding, but important when we compare this to the patient’s optimum. If the patient could choose <span class="math inline">\(x\)</span> independently, they would aim to maximize their net benefit in <a href="#eq-netbenefit">Equation&nbsp;<span>8.1</span></a> such that <span class="math inline">\(\frac{ d B(x)}{x} - p =0\)</span>. So the patient would set marginal benefit equal to the price of care. Of course, the price of care <span class="math inline">\(p\)</span> <strong>is</strong> the marginal cost to the patient, so both the physician and patient set marginal benefit equal to marginal cost, but they have different marginal costs and therefore different optimal choices of <span class="math inline">\(x\)</span>.</p>
-<p>Since we’ve assumed that <span class="math inline">\(B'(x)\)</span> is decreasing, and since it must be the case that <span class="math inline">\(p&gt;c\)</span> (otherwise the physician would make no positive profit), it follows that the physician’s optimal choice of <span class="math inline">\(x\)</span> exceeds that of the patient’s. This is because <span class="math inline">\(B'(x)=c\)</span> occurs at a point further out on the x-axis than <span class="math inline">\(B'(x)=p\)</span>. This is depicted graphically in <a href="#fig-physician-agency">Figure&nbsp;<span>8.1</span></a>. This simple model therefore helps us understand how financial incentives, costs, and patient preferences collectively influence the decision-making process of physicians, ultimately impacting the quantity of care delivered.</p>
+<p>We begin with a simple model in which physicians are able to set both the price and the quantity of services they provide. Let <span class="math inline">\(x\)</span> denote the quantity of services, and let <span class="math inline">\(B(x)\)</span> represent the benefit that patients derive from those services, with <span class="math inline">\(B'(x) &gt; 0\)</span> and <span class="math inline">\(B''(x) &lt; 0\)</span>. Patients pay a price <span class="math inline">\(p\)</span> for each unit of service, while physicians incur a constant marginal cost <span class="math inline">\(c\)</span> for each unit delivered.</p>
+<p>The patient’s net benefit is therefore</p>
+<p><span id="eq-netbenefit"><span class="math display">\[NB(x) = B(x) - px \tag{8.1}\]</span></span></p>
+<p>and patients will only accept treatment if their net benefit is at least as large as their outside option, <span class="math inline">\(NB^0\)</span>.</p>
+<p>The physician’s profit is given by</p>
+<p><span id="eq-profit"><span class="math display">\[\pi(x) = (p - c)x \tag{8.2}\]</span></span></p>
+<p>and the physician chooses <span class="math inline">\(x\)</span> to maximize profit subject to the participation constraint in <a href="#eq-netbenefit" class="quarto-xref">Equation&nbsp;<span>8.1</span></a>. Substituting this constraint into the profit function yields</p>
+<p><span id="eq-profit-sub"><span class="math display">\[\pi(x) = B(x) - NB^0 - cx \tag{8.3}\]</span></span></p>
+<p>Maximizing <a href="#eq-profit-sub" class="quarto-xref">Equation&nbsp;<span>8.3</span></a> leads to the first-order condition</p>
+<p><span id="eq-physician-foc"><span class="math display">\[B'(x) = c \tag{8.4}\]</span></span></p>
+<p>which implies that the physician selects a quantity such that the marginal benefit to the patient equals the physician’s marginal cost.</p>
+<p>If patients could instead choose directly, they would maximize their own net benefit in <a href="#eq-netbenefit" class="quarto-xref">Equation&nbsp;<span>8.1</span></a>, which gives the condition</p>
+<p><span id="eq-patient-foc"><span class="math display">\[B'(x) = p \tag{8.5}\]</span></span></p>
+<p>Because <span class="math inline">\(p &gt; c\)</span>, the patient’s optimum occurs at a lower quantity than the physician’s. Since <span class="math inline">\(B'(x)\)</span> is decreasing, the equality <span class="math inline">\(B'(x) = c\)</span> in <a href="#eq-physician-foc" class="quarto-xref">Equation&nbsp;<span>8.4</span></a> is reached at a higher level of <span class="math inline">\(x\)</span> than the equality <span class="math inline">\(B'(x) = p\)</span> in <a href="#eq-patient-foc" class="quarto-xref">Equation&nbsp;<span>8.5</span></a>.</p>
+<p>The model therefore predicts that physicians will provide more services than patients would choose for themselves. This prediction is illustrated in <a href="#fig-physician-agency" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, where <span class="math inline">\(\bar{x}\)</span> denotes the patient’s preferred level of care and <span class="math inline">\(x^*\)</span> denotes the physician’s choice.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-physician-agency" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="physicians-2-1_files/figure-html/fig-physician-agency-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.1: Depiction of physician agency</figcaption>
+<div id="fig-physician-agency" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-physician-agency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="physicians-2-1_files/figure-html/fig-physician-agency-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-physician-agency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Depiction of physician agency
+</figcaption>
 </figure>
 </div>
 </div>
@@ -371,21 +419,44 @@ div.csl-indent {
 </section>
 <section id="with-fixed-prices" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="with-fixed-prices"><span class="header-section-number">8.3</span> With fixed prices</h2>
-<p>The two-step approach is applicable when both prices and the quantity of care are variable. However, when physicians cannot set prices (e.g., prices are fixed administratively at a certain level), we work solely based on the patient’s net benefit constraint. The constraint is still given by <span class="math inline">\(B(x) - \bar{p}x = NB^{0}\)</span>, but we replace <span class="math inline">\(p\)</span> with <span class="math inline">\(\bar{p}\)</span> to denote the fixed price. <span class="math inline">\(NB^{0}\)</span> still denotes the patient’s outside option.</p>
-<p>Why can’t we replace the net benefit constraint into the physician’s maximization problem? This is a corner solution, so standard derivatives aren’t going to work here. Instead, we rely on the patient’s net benefit constraint to find the optimal quantity of care. We therefore obtain the solution simply by rewriting the constraint, so that</p>
-<p><span id="eq-fixed-price"><span class="math display">\[x= \frac{B(x) - NB^{0}}{\bar{p}}. \tag{8.3}\]</span></span></p>
-<p>How does <span class="math inline">\(x\)</span> change if <span class="math inline">\(p\)</span> changes? To answer this, we can totally differentiate <a href="#eq-fixed-price">Equation&nbsp;<span>8.3</span></a>:</p>
-<p><span class="math display">\[\begin{align*}
-b(x)\frac{\mathrm{d}x}{\mathrm{d}p} - x - p\frac{\mathrm{d}x}{\mathrm{d}p} &amp;= 0 \\
-\frac{\mathrm{d}x}{\mathrm{d}p} = \frac{-x}{p-b(x)} &amp;&lt; 0.
-\end{align*}\]</span></p>
-<p>So there is a negative relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(\bar{p}\)</span>. This means that, when the administratively set price (<span class="math inline">\(p\)</span>) increases, we observe a decrease in the quantity of services provided. Conversely, if the price decreases, the quantity of services provided increases. Understanding the relationship between administrative price changes and healthcare utilization is crucial for policy considerations. If we aim to reduce healthcare utilization or spending, attempting to do so solely by cutting payments might not be effective. The comparative statics analysis demonstrates that changes in administratively set prices have direct implications for the quantity of services provided by physicians.</p>
+<p>The two-step approach described above applies when physicians can choose both the price and the quantity of care. However, in many settings prices are fixed administratively (for example, under Medicare or Medicaid), so physicians retain discretion only over the quantity of care. In this case, we work solely from the patient’s participation constraint.</p>
+<p>The constraint is still given by</p>
+<p><span id="eq-fixed-constraint"><span class="math display">\[B(x) - \bar{p}x = NB^{0}, \tag{8.6}\]</span></span></p>
+<p>where <span class="math inline">\(\bar{p}\)</span> denotes the fixed price and <span class="math inline">\(NB^0\)</span> is the patient’s outside option.</p>
+<p>In this setting we cannot substitute the participation constraint into the physician’s maximization problem as before, because the problem leads to a corner solution and standard derivatives do not apply. Instead, we solve directly from the patient’s participation constraint, which implies</p>
+<p><span id="eq-fixed-price"><span class="math display">\[x = \frac{B(x) - NB^{0}}{\bar{p}}. \tag{8.7}\]</span></span></p>
+<p>To examine how the equilibrium quantity responds to changes in the administratively set price, totally differentiate <a href="#eq-fixed-price" class="quarto-xref">Equation&nbsp;<span>8.7</span></a>. This yields</p>
+<p><span id="eq-fixed-comparative"><span class="math display">\[\frac{dx}{dp} = \frac{-x}{p - B'(x)} &lt; 0. \tag{8.8}\]</span></span></p>
+<p>The comparative statics in <a href="#eq-fixed-comparative" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> show that an increase in the administratively set price reduces the quantity of services provided, while a decrease in price increases it.</p>
+<p>This result highlights an important policy implication: attempts to control spending solely through price reductions may have unintended effects on service provision. Understanding how physicians adjust quantities in response to fixed prices is therefore crucial for anticipating the consequences of payment reforms.</p>
+</section>
+<section id="other-considerations" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="other-considerations"><span class="header-section-number">8.4</span> Other Considerations</h2>
+<p>This simplified model highlights how fee for service financial incentives can shape physician behavior, and the model is valuable for understanding basic mechanisms at work. Still, there are several caveats to keep in mind when connecting the theory to practice.</p>
+<p>First, in reality the patient’s out-of-pocket price and the physician’s reimbursement rate often differ. Our baseline model treats them as the same for simplicity, which helps keep the intuition clear, but it is important to remember that policy changes can shift one without the other. A simple two-price extension shows how the same basic framework can accommodate this distinction (see <a href="#sec-twoprice-agency" class="quarto-xref">Section&nbsp;<span>8.5</span></a>).</p>
+<p>Second, physicians are not purely profit-maximizing. Altruism, professional norms, and malpractice concerns all influence choices. Including these motives would complicate the model, but the simple version still provides a benchmark against which the effects of payment incentives can be understood.</p>
+<p>Third, outside options and local market structure shape how tightly the participation constraint binds. Greater competition or easier patient switching can reduce the scope for physician-induced differences, but the logic of the model continues to explain why payment rules systematically tilt treatment choices.</p>
+<p>In short, this model of physician treatment decisions is deliberately stylized, but it remains useful precisely because they clarify the underlying trade-offs. We show why physicians may provide more (or less) care than patients would choose on their own, and this helps organize thinking about how alternative payment designs might alter those incentives.</p>
+</section>
+<section id="sec-twoprice-agency" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="sec-twoprice-agency"><span class="header-section-number">8.5</span> A two-price extension</h2>
+<p>The models above treat the “price” of care as if it were the same for both patients and physicians. In reality, the patient’s out-of-pocket cost and the physician’s reimbursement rate are often very different. To reflect this, suppose patients face an out-of-pocket price <span class="math inline">\(p_{pt}\)</span>, while physicians are paid <span class="math inline">\(p_{md}\)</span>. Let <span class="math inline">\(c\)</span> again denote the physician’s marginal cost of providing care.</p>
+<p>The patient’s net benefit is</p>
+<p><span id="eq-netbenefit-2"><span class="math display">\[NB(x) = B(x) - p_{pt}x, \tag{8.9}\]</span></span></p>
+<p>and patients will accept treatment only if <span class="math inline">\(NB(x) \geq NB^0\)</span>. The physician’s profit is</p>
+<p><span id="eq-profit-2"><span class="math display">\[\pi(x) = (p_{md} - c)x. \tag{8.10}\]</span></span></p>
+<p>Maximizing profit subject to the participation constraint gives</p>
+<p><span id="eq-physician-foc-2"><span class="math display">\[B'(x) = c, \tag{8.11}\]</span></span></p>
+<p>so the physician’s choice depends on cost rather than the patient’s out-of-pocket price. If patients could choose directly, they would instead maximize <a href="#eq-netbenefit-2" class="quarto-xref">Equation&nbsp;<span>8.9</span></a>, leading to the condition</p>
+<p><span id="eq-patient-foc-2"><span class="math display">\[B'(x) = p_{pt}. \tag{8.12}\]</span></span></p>
+<p>This simple extension clarifies several empirical patterns. When <span class="math inline">\(p_{md}\)</span> increases, holding <span class="math inline">\(p_{pt}\)</span> fixed, physicians have stronger incentives to provide care and utilization tends to rise. When <span class="math inline">\(p_{pt}\)</span> increases, holding <span class="math inline">\(p_{md}\)</span> fixed, the patient’s participation constraint tightens and feasible utilization falls. Similarly, a higher outside option <span class="math inline">\(NB^0\)</span> moves utilization closer to what patients would otherwise choose.</p>
+<p>In practice, policy reforms often move <span class="math inline">\(p_{md}\)</span> and <span class="math inline">\(p_{pt}\)</span> independently—for example, Medicare adjusts administered fees to physicians while patient cost sharing is determined by separate program rules. Distinguishing these two prices helps reconcile the theory with evidence on how physicians and patients respond differently to payment changes.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-clemens2014" class="csl-entry" role="listitem">
 Clemens, Jeffrey, and Joshua D Gottlieb. 2014. <span>“Do <span>Physicians</span>’ <span>Financial</span> <span>Incentives</span> <span>Affect</span> <span>Medical</span> <span>Treatment</span> and <span>Patient</span> <span>Health</span>?”</span> <em>American Economic Review</em> 104 (4): 1320–49.
 </div>
@@ -431,18 +502,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -474,11 +534,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -488,8 +587,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -501,7 +609,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -545,6 +776,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -570,6 +802,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -631,17 +889,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part2/physicians-1-1.html" class="pagination-link">
+      <a href="../part2/physicians-1-1.html" class="pagination-link" aria-label="Physicians as Gatekeepers">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Physicians as Gatekeepers</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part2/physicians-2-2.html" class="pagination-link">
+      <a href="../part2/physicians-2-2.html" class="pagination-link" aria-label="Agency and Different Payment Models">
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
