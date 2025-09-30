@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - 9&nbsp; Agency and Different Payment Models</title>
+<title>9&nbsp; Agency and Different Payment Models – Economics of Health Care</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,14 +82,42 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -92,13 +127,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-2-2.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-2-2.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -107,7 +142,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Economics of Health Care</a> 
@@ -136,7 +171,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Health Insurance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -162,7 +197,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-2-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Demand for Health Insurance</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -183,7 +218,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part2/physicians-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Physicians</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -224,7 +259,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hospitals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -271,7 +306,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="../part4/pharma-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prescription Drugs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -294,12 +329,18 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regulation and Innovation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -307,8 +348,12 @@ div.csl-indent {
    
   <ul>
   <li><a href="#defining-ffs-and-capitated-payments" id="toc-defining-ffs-and-capitated-payments" class="nav-link active" data-scroll-target="#defining-ffs-and-capitated-payments"><span class="header-section-number">9.1</span> Defining FFS and Capitated Payments</a></li>
-  <li><a href="#ffs-and-capitated-payments-in-physician-agency" id="toc-ffs-and-capitated-payments-in-physician-agency" class="nav-link" data-scroll-target="#ffs-and-capitated-payments-in-physician-agency"><span class="header-section-number">9.2</span> FFS and Capitated Payments in Physician Agency</a></li>
-  <li><a href="#capitation-in-practice" id="toc-capitation-in-practice" class="nav-link" data-scroll-target="#capitation-in-practice"><span class="header-section-number">9.3</span> Capitation in Practice</a></li>
+  <li><a href="#ffs-and-capitated-payments-in-physician-agency" id="toc-ffs-and-capitated-payments-in-physician-agency" class="nav-link" data-scroll-target="#ffs-and-capitated-payments-in-physician-agency"><span class="header-section-number">9.2</span> FFS and Capitated Payments in Physician Agency</a>
+  <ul class="collapse">
+  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span class="header-section-number">9.2.1</span> Intuition</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><span class="header-section-number">9.2.2</span> Model</a></li>
+  </ul></li>
+  <li><a href="#beyond-ffs-vs-capitation" id="toc-beyond-ffs-vs-capitation" class="nav-link" data-scroll-target="#beyond-ffs-vs-capitation"><span class="header-section-number">9.3</span> Beyond FFS vs Capitation</a></li>
   <li><a href="#agency-irl" id="toc-agency-irl" class="nav-link" data-scroll-target="#agency-irl"><span class="header-section-number">9.4</span> Agency IRL</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -317,7 +362,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-2-2.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></h1>
 </div>
@@ -332,9 +377,11 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
-<p>In the prior chapter, we introduced a simple model of physician agency and financial incentives, and we saw how that model could predict “excess” care (i.e., physician’s choice of quantity of care beyond what the patient would have optimally selected themselves). Now let’s extend that model to allow for different payment models—in particular the role of fee-for-service (FFS) payments versus capitated payments.</p>
+
+<p>In the prior chapter, we introduced a simple model of physician agency and financial incentives, showing how it could predict “excess” care—that is, situations where physicians provide more care than patients would have chosen for themselves. But payment systems go well beyond the simple fee-for-service setup we considered there. In reality, physicians and health systems face a variety of reimbursement models that shape their incentives in important ways, particularly when we think about different payment systems around the world. In this chapter, we extend the model to examine two of the most prominent approaches—fee-for-service (FFS) and capitation—and show how these payment structures generate systematically different predictions for physician behavior.</p>
 <section id="defining-ffs-and-capitated-payments" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="defining-ffs-and-capitated-payments"><span class="header-section-number">9.1</span> Defining FFS and Capitated Payments</h2>
 <p>For our purposes, FFS payments simply consist of separate payments for each service, creating a system where more care leads to more revenue. This is how we envisioned payments in the model in the prior chapter. And with some slight adjustments, this is also how traditional Medicare pays for health care among its beneficiaries.</p>
@@ -343,26 +390,39 @@ div.csl-indent {
 </section>
 <section id="ffs-and-capitated-payments-in-physician-agency" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="ffs-and-capitated-payments-in-physician-agency"><span class="header-section-number">9.2</span> FFS and Capitated Payments in Physician Agency</h2>
+<section id="intuition" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">9.2.1</span> Intuition</h3>
+<p>Before turning to a formal model, it is useful to lay out the basic intuition behind how different payment systems shape physician behavior. Under fee-for-service arrangements, revenue increases with the number of services provided, creating a natural incentive to deliver more care—even if some of that care is only marginally beneficial. By contrast, under capitation, providers receive a fixed payment per patient regardless of the amount of care delivered. This structure rewards cost containment but also introduces the risk of undertreatment, since each additional service raises costs without increasing revenue.</p>
+<p>The key takeaway is that payment systems pull physician behavior in opposite directions: fee-for-service tends toward overprovision, while capitation tends toward underprovision. Most real-world systems lie somewhere in between, but these extremes provide a useful benchmark for understanding how incentives operate.</p>
+</section>
+<section id="model" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="model"><span class="header-section-number">9.2.2</span> Model</h3>
 <p>To see this more formally, let’s set up a new version of our agency model. Physicians receive a fixed amount per patient, denoted <span class="math inline">\(R\)</span>, along with a price per unit of service, <span class="math inline">\(p_{s}\)</span>. Given the choice of quantity of care, <span class="math inline">\(x\)</span>, (assumed to be the same for each patient) physicians receive <span class="math inline">\(R + (p_{s} - c)x\)</span> for each patient. Finally, the number of patients for each physician is expressed as a positive function of the net benefit offered, <span class="math inline">\(n(NB)\)</span>, where <span class="math inline">\(NB=B(x) - p_{d}x\)</span>. Here, we’re also allowing separate prices paid by the patient versus prices received by the provider, where the patient pays <span class="math inline">\(p_{d}\)</span> and the physician receives <span class="math inline">\(p_{s}\)</span>. We also assume that the physician has no control over prices. They can only affect the amount of care, <span class="math inline">\(x\)</span>.</p>
 <p>Physician’s again aim to maximize profits by optimizing the profit function, <span class="math inline">\(\pi=n(NB)\left[R+(p_{s}-c)x\right]\)</span>. This maximization problems yields the following first order condition:</p>
 <p><span class="math display">\[n'(NB)(B'(x) - p_{d}) \left[R + (p_{s} - c)x \right] + n(NB)(p_{s}-c) = 0.\]</span></p>
 <p>Rearranging terms and multiplying both sides by <span class="math inline">\(\frac{1}{NB}\)</span>, we get: <span id="eq-agency-cap"><span class="math display">\[\frac{B'(x) - p_{d}}{NB} \frac{R + (p_{s} - c)x}{p_{s}-c} = - \frac{1}{\varepsilon_{n,NB}}. \tag{9.1}\]</span></span></p>
-<p>Even without any specific assumptions on the benefit function, we can begin to say something about the physician’s selection of <span class="math inline">\(x\)</span> relative to the patient’s own optimal <span class="math inline">\(x\)</span> under different payment scenarios. For example, assume that <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span>, so that there is no capitated payment and the physician is reimbursed entirely on a FFS basis. In that case, the second term on the left hand side of <a href="#eq-agency-cap">Equation&nbsp;<span>9.1</span></a> must be positive. Since we know the product on the left hand side must be negative (to match the sign of the right hand side), then it follows that <span class="math inline">\(B'(x) - p_{d}&lt;0\)</span>. Since we also know that the patient would optimally set <span class="math inline">\(B'(x)=p_{d}\)</span>, then the case of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span> must be such that the physician overtreats relative to the patient’s optimal. That’s the only way for <span class="math inline">\(B'(x)&lt;p_{d}\)</span>.</p>
-<p>Alternatively, let’s consider the case of <span class="math inline">\(R&gt;0\)</span> with <span class="math inline">\(p_{s}&lt;c\)</span>, so that the physician now earns a set amount of money per patient but <em>loses</em> money on each unit of care. In a purely capitated model, we would set <span class="math inline">\(p_{s}=0&lt;c\)</span>. Imposing these constraints onto <a href="#eq-agency-cap">Equation&nbsp;<span>9.1</span></a>, note that the second half of the left hand side is now negative since <span class="math inline">\(p_{s}-c&lt;0\)</span> (assuming <span class="math inline">\(R-(p_{s} -c)x&gt;0\)</span>, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., <span class="math inline">\(B'(x)&gt;p_{d}\)</span>), so that physicians now undertreat relative to the patient’s optimal.</p>
+<p>Even without any specific assumptions on the benefit function, we can begin to say something about the physician’s selection of <span class="math inline">\(x\)</span> relative to the patient’s own optimal <span class="math inline">\(x\)</span> under different payment scenarios. For example, assume that <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span>, so that there is no capitated payment and the physician is reimbursed entirely on a FFS basis. In that case, the second term on the left hand side of <a href="#eq-agency-cap" class="quarto-xref">Equation&nbsp;<span>9.1</span></a> must be positive. Since we know the product on the left hand side must be negative (to match the sign of the right hand side), then it follows that <span class="math inline">\(B'(x) - p_{d}&lt;0\)</span>. Since we also know that the patient would optimally set <span class="math inline">\(B'(x)=p_{d}\)</span>, then the case of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span> must be such that the physician overtreats relative to the patient’s optimal. That’s the only way for <span class="math inline">\(B'(x)&lt;p_{d}\)</span>.</p>
+<p>Alternatively, let’s consider the case of <span class="math inline">\(R&gt;0\)</span> with <span class="math inline">\(p_{s}&lt;c\)</span>, so that the physician now earns a set amount of money per patient but <em>loses</em> money on each unit of care. In a purely capitated model, we would set <span class="math inline">\(p_{s}=0&lt;c\)</span>. Imposing these constraints onto <a href="#eq-agency-cap" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>, note that the second half of the left hand side is now negative since <span class="math inline">\(p_{s}-c&lt;0\)</span> (assuming <span class="math inline">\(R-(p_{s} -c)x&gt;0\)</span>, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., <span class="math inline">\(B'(x)&gt;p_{d}\)</span>), so that physicians now undertreat relative to the patient’s optimal.</p>
 </section>
-<section id="capitation-in-practice" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="capitation-in-practice"><span class="header-section-number">9.3</span> Capitation in Practice</h2>
-<p>In practice, there are few examples of purely capitated payment models in the U.S. health care system. The Kaiser system is one example in the private insurance market. In the public insurance market, the closest examples of capitated payments are probably Bundled Payments and Accountable Care Organizations. Apart from capitation, Pay for Performance (P4P) programs are also employed in Medicare to incentivize quality care and positive patient outcomes. These programs include the Hospital Readmission Reduction Program, Value-based Purchasing, and the Quality Payment Program for physicians, each encouraging high-quality care and improved patient experiences through various metrics and financial incentives. The goal of such P4P programs is partly to counter the wedge between physician and patient optimal care introduced by the incentives from the underlying payment models.</p>
+</section>
+<section id="beyond-ffs-vs-capitation" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="beyond-ffs-vs-capitation"><span class="header-section-number">9.3</span> Beyond FFS vs Capitation</h2>
+<p>Although fee-for-service and capitation are often presented as opposite ends of the spectrum, most modern payment systems blend features of both. Policymakers have sought to address the shortcomings of these two models by layering in additional incentives that tie reimbursement to quality or efficiency.</p>
+<p>One prominent example is <strong>Pay-for-Performance</strong> (P4P), in which providers face bonuses or penalties based on measurable outcomes such as hospital readmission rates, patient satisfaction, or adherence to clinical guidelines. Medicare’s Hospital Readmission Reduction Program and Value-Based Purchasing initiative both operate on this principle, rewarding hospitals that deliver high-quality care at lower cost.</p>
+<p>Private insurers have pursued similar strategies, often under the umbrella of value-based contracts. Large commercial payers such as UnitedHealthcare, Aetna, and Blue Cross Blue Shield have developed arrangements that tie provider reimbursement to cost and quality benchmarks. These contracts sometimes resemble shared savings programs, with physicians or health systems receiving a portion of the savings they generate, and in other cases they function as performance-based bonuses layered on top of fee-for-service payments.</p>
+<p>Another approach is the rise of <strong>Accountable Care Organizations</strong> (ACOs), which move beyond simple capitation by incorporating shared savings or losses. ACOs give providers a financial stake in the overall spending and quality of a patient population, encouraging coordination across settings and reducing unnecessary utilization.</p>
+<p>A further hybrid is <strong>bundled payments</strong>, where providers receive a fixed payment for an entire episode of care, such as a joint replacement or maternity stay. Bundled payments create incentives to coordinate across providers and reduce unnecessary services within the episode, while still avoiding the blunt incentives of pure capitation. Both Medicare and commercial insurers have experimented with these models, often with promising results in terms of cost savings and efficiency.</p>
+<p>These hybrid arrangements highlight an important theme: real-world payment models are rarely “pure.” Instead, they reflect attempts to balance the incentives of volume, cost containment, and quality—three dimensions that lie at the heart of physician agency.</p>
 </section>
 <section id="agency-irl" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="agency-irl"><span class="header-section-number">9.4</span> Agency IRL</h2>
-<p>More generally, physicians choose some care, <span class="math inline">\(x\)</span>, incorporating their own profit, the benefit to the patient, and some disutility of work <span class="math display">\[u(x) = V(\pi) -e(x) + \alpha B(x),\]</span> where <span class="math inline">\(x\)</span> need not be “quantity of care” and could instead capture which type of treatment a physician chooses rather than “how much” care to provide. The important point here is simply that, in real life, physicians are often choosing between different treatment options rather than some easily measured “quantity.” In this sense, the empirical literature has consistently found significant and meaningful physician responses to financial incentives, including effects on treatment patterns (<span class="citation" data-cites="clemens2014">Clemens and Gottlieb (<a href="#ref-clemens2014" role="doc-biblioref">2014</a>)</span>), discharge patterns (<span class="citation" data-cites="einav2023">Einav, Finkelstein, and Mahoney (<a href="#ref-einav2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="einav2018">Einav, Finkelstein, and Mahoney (<a href="#ref-einav2018" role="doc-biblioref">2018</a>)</span>, and <span class="citation" data-cites="eliason2018">Eliason et al. (<a href="#ref-eliason2018" role="doc-biblioref">2018</a>)</span>), the types of patients seen (<span class="citation" data-cites="cabral2023">Cabral, Carey, and Miller (<a href="#ref-cabral2023" role="doc-biblioref">2021</a>)</span>), as well as location of care (<span class="citation" data-cites="munnich2023">Munnich et al. (<a href="#ref-munnich2023" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="baker2016">Baker, Bundorf, and Kessler (<a href="#ref-baker2016" role="doc-biblioref">2016</a>)</span>). Financial incentives also spillover across insurance types, where changes in payments from one insurer can influence how other types of patients are treated (<span class="citation" data-cites="barnett2023">Barnett, Olenski, and Sacarny (<a href="#ref-barnett2023" role="doc-biblioref">2023</a>)</span>). The takeaway from all this is that, on the margin, financial incentives <em>do</em> affect treatment decisions. Thankfully, there is less evidence that such responses decrease quality of care.</p>
+<p>More generally, physicians choose some care, <span class="math inline">\(x\)</span>, incorporating their own profit, the benefit to the patient, and some disutility of work <span class="math display">\[u(x) = V(\pi) -e(x) + \alpha B(x),\]</span> where <span class="math inline">\(x\)</span> need not be “quantity of care” and could instead capture which type of treatment a physician chooses rather than “how much” care to provide. The important point here is simply that, in real life, physicians are often choosing between different treatment options rather than some easily measured “quantity.” In this sense, the empirical literature has consistently found significant and meaningful physician responses to financial incentives, including effects on treatment patterns (<span class="citation" data-cites="clemens2014">Clemens and Gottlieb (<a href="#ref-clemens2014" role="doc-biblioref">2014</a>)</span>), discharge patterns (<span class="citation" data-cites="einav2023">Einav, Finkelstein, and Mahoney (<a href="#ref-einav2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="einav2018">Einav, Finkelstein, and Mahoney (<a href="#ref-einav2018" role="doc-biblioref">2018</a>)</span>, and <span class="citation" data-cites="eliason2018">Eliason et al. (<a href="#ref-eliason2018" role="doc-biblioref">2018</a>)</span>), the types of patients seen (<span class="citation" data-cites="cabral2023">Cabral, Carey, and Son (<a href="#ref-cabral2023" role="doc-biblioref">2023</a>)</span>), as well as location of care (<span class="citation" data-cites="munnich2023">Munnich et al. (<a href="#ref-munnich2023" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="baker2016">Baker, Bundorf, and Kessler (<a href="#ref-baker2016" role="doc-biblioref">2016</a>)</span>). Financial incentives also spillover across insurance types, where changes in payments from one insurer can influence how other types of patients are treated (<span class="citation" data-cites="barnett2023">Barnett, Olenski, and Sacarny (<a href="#ref-barnett2023" role="doc-biblioref">2023</a>)</span>). The takeaway from all this is that, on the margin, financial incentives <em>do</em> affect treatment decisions. Thankfully, there is less evidence that such responses decrease quality of care.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-baker2016" class="csl-entry" role="listitem">
 Baker, Laurence C, M Kate Bundorf, and Daniel P Kessler. 2016. <span>“The <span>Effect</span> of <span>Hospital</span>/<span>Physician</span> <span>Integration</span> on <span>Hospital</span> <span>Choice</span>.”</span> <em>Journal of Health Economics</em> 50: 1–8.
 </div>
@@ -370,7 +430,7 @@ Baker, Laurence C, M Kate Bundorf, and Daniel P Kessler. 2016. <span>“The <spa
 Barnett, Michael L., Andrew Olenski, and Adam Sacarny. 2023. <span>“Common <span>Practice</span>: <span>Spillovers</span> from <span>Medicare</span> on <span>Private</span> <span>Health</span> <span>Care</span>.”</span> <em>American Economic Journal: Economic Policy</em> 15 (3): 65–88. <a href="https://doi.org/10.1257/pol.20200553">https://doi.org/10.1257/pol.20200553</a>.
 </div>
 <div id="ref-cabral2023" class="csl-entry" role="listitem">
-Cabral, Marika, Colleen Carey, and Sarah Miller. 2021. <span>“The <span>Impact</span> of <span>Provider</span> <span>Payments</span> on <span>Health</span> <span>Care</span> <span>Utilization</span> of <span>Low</span>-<span>Income</span> <span>Individuals</span>: <span>Evidence</span> from <span>Medicare</span> and <span>Medicaid</span>.”</span> Working {Paper}. Working <span>Paper</span> <span>Series</span>. National Bureau of Economic Research. <a href="https://doi.org/10.3386/w29471">https://doi.org/10.3386/w29471</a>.
+Cabral, Marika, Colleen Carey, and Jinyeong Son. 2023. <span>“Partial <span>Outsourcing</span> of <span>Public</span> <span>Programs</span>: <span>Evidence</span> on <span>Determinants</span> of <span>Choice</span> in <span>Medicare</span>.”</span> w31141. National Bureau of Economic Research. <a href="https://doi.org/10.3386/w31141">https://doi.org/10.3386/w31141</a>.
 </div>
 <div id="ref-clemens2014" class="csl-entry" role="listitem">
 Clemens, Jeffrey, and Joshua D Gottlieb. 2014. <span>“Do <span>Physicians</span>’ <span>Financial</span> <span>Incentives</span> <span>Affect</span> <span>Medical</span> <span>Treatment</span> and <span>Patient</span> <span>Health</span>?”</span> <em>American Economic Review</em> 104 (4): 1320–49.
@@ -426,18 +486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -469,11 +518,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -483,8 +571,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -496,7 +593,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -540,6 +760,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -565,6 +786,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -626,17 +873,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part2/physicians-2-1.html" class="pagination-link">
+      <a href="../part2/physicians-2-1.html" class="pagination-link" aria-label="Agency and Financial Incentives">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Agency and Financial Incentives</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part2/physicians-3-1.html" class="pagination-link">
+      <a href="../part2/physicians-3-1.html" class="pagination-link" aria-label="Physician Learning">
         <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

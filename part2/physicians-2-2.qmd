@@ -8,7 +8,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-In the prior chapter, we introduced a simple model of physician agency and financial incentives, and we saw how that model could predict "excess" care (i.e., physician's choice of quantity of care beyond what the patient would have optimally selected themselves). Now let's extend that model to allow for different payment models---in particular the role of fee-for-service (FFS) payments versus capitated payments.
+In the prior chapter, we introduced a simple model of physician agency and financial incentives, showing how it could predict "excess" care—that is, situations where physicians provide more care than patients would have chosen for themselves. But payment systems go well beyond the simple fee-for-service setup we considered there. In reality, physicians and health systems face a variety of reimbursement models that shape their incentives in important ways, particularly when we think about different payment systems around the world. In this chapter, we extend the model to examine two of the most prominent approaches—fee-for-service (FFS) and capitation—and show how these payment structures generate systematically different predictions for physician behavior.
 
 ## Defining FFS and Capitated Payments
 
@@ -19,6 +19,14 @@ In contrast, capitated payments provide a fixed amount intended to cover all exp
 The differences between FFS and capitated payments create distinct incentives for healthcare providers. In the FFS model, the primary incentive is to maximize revenue by delivering more services, potentially leading to overutilization and unnecessary treatments. On the other hand, capitated payments incentivize providers to be more prudent in their service delivery to avoid financial losses, potentially leading to underprovision of care.
 
 ## FFS and Capitated Payments in Physician Agency
+
+### Intuition
+
+Before turning to a formal model, it is useful to lay out the basic intuition behind how different payment systems shape physician behavior. Under fee-for-service arrangements, revenue increases with the number of services provided, creating a natural incentive to deliver more care—even if some of that care is only marginally beneficial. By contrast, under capitation, providers receive a fixed payment per patient regardless of the amount of care delivered. This structure rewards cost containment but also introduces the risk of undertreatment, since each additional service raises costs without increasing revenue.
+
+The key takeaway is that payment systems pull physician behavior in opposite directions: fee-for-service tends toward overprovision, while capitation tends toward underprovision. Most real-world systems lie somewhere in between, but these extremes provide a useful benchmark for understanding how incentives operate.
+
+### Model 
 
 To see this more formally, let's set up a new version of our agency model. Physicians receive a fixed amount per patient, denoted $R$, along with a price per unit of service, $p_{s}$. Given the choice of quantity of care, $x$, (assumed to be the same for each patient) physicians receive $R + (p_{s} - c)x$ for each patient. Finally, the number of patients for each physician is expressed as a positive function of the net benefit offered, $n(NB)$, where $NB=B(x) - p_{d}x$. Here, we're also allowing separate prices paid by the patient versus prices received by the provider, where the patient pays $p_{d}$ and the physician receives $p_{s}$. We also assume that the physician has no control over prices. They can only affect the amount of care, $x$. 
 
@@ -33,9 +41,19 @@ Even without any specific assumptions on the benefit function, we can begin to s
 
 Alternatively, let's consider the case of $R>0$ with $p_{s}<c$, so that the physician now earns a set amount of money per patient but *loses* money on each unit of care. In a purely capitated model, we would set $p_{s}=0<c$. Imposing these constraints onto @eq-agency-cap, note that the second half of the left hand side is now negative since $p_{s}-c<0$ (assuming $R-(p_{s} -c)x>0$, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., $B'(x)>p_{d}$), so that physicians now undertreat relative to the patient's optimal.
 
-## Capitation in Practice
+## Beyond FFS vs Capitation
 
-In practice, there are few examples of purely capitated payment models in the U.S. health care system. The Kaiser system is one example in the private insurance market. In the public insurance market, the closest examples of capitated payments are probably Bundled Payments and Accountable Care Organizations. Apart from capitation, Pay for Performance (P4P) programs are also employed in Medicare to incentivize quality care and positive patient outcomes. These programs include the Hospital Readmission Reduction Program, Value-based Purchasing, and the Quality Payment Program for physicians, each encouraging high-quality care and improved patient experiences through various metrics and financial incentives. The goal of such P4P programs is partly to counter the wedge between physician and patient optimal care introduced by the incentives from the underlying payment models.
+Although fee-for-service and capitation are often presented as opposite ends of the spectrum, most modern payment systems blend features of both. Policymakers have sought to address the shortcomings of these two models by layering in additional incentives that tie reimbursement to quality or efficiency.
+
+One prominent example is **Pay-for-Performance** (P4P), in which providers face bonuses or penalties based on measurable outcomes such as hospital readmission rates, patient satisfaction, or adherence to clinical guidelines. Medicare’s Hospital Readmission Reduction Program and Value-Based Purchasing initiative both operate on this principle, rewarding hospitals that deliver high-quality care at lower cost.
+
+Private insurers have pursued similar strategies, often under the umbrella of value-based contracts. Large commercial payers such as UnitedHealthcare, Aetna, and Blue Cross Blue Shield have developed arrangements that tie provider reimbursement to cost and quality benchmarks. These contracts sometimes resemble shared savings programs, with physicians or health systems receiving a portion of the savings they generate, and in other cases they function as performance-based bonuses layered on top of fee-for-service payments.
+
+Another approach is the rise of **Accountable Care Organizations** (ACOs), which move beyond simple capitation by incorporating shared savings or losses. ACOs give providers a financial stake in the overall spending and quality of a patient population, encouraging coordination across settings and reducing unnecessary utilization.
+
+A further hybrid is **bundled payments**, where providers receive a fixed payment for an entire episode of care, such as a joint replacement or maternity stay. Bundled payments create incentives to coordinate across providers and reduce unnecessary services within the episode, while still avoiding the blunt incentives of pure capitation. Both Medicare and commercial insurers have experimented with these models, often with promising results in terms of cost savings and efficiency.
+
+These hybrid arrangements highlight an important theme: real-world payment models are rarely “pure.” Instead, they reflect attempts to balance the incentives of volume, cost containment, and quality—three dimensions that lie at the heart of physician agency.
 
 ## Agency IRL
 
