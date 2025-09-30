@@ -10,23 +10,23 @@ pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OEC
 
 In the prior chapter, we introduced a simple model of physician agency and financial incentives, showing how it could predict "excess" care—that is, situations where physicians provide more care than patients would have chosen for themselves. But payment systems go well beyond the simple fee-for-service setup we considered there. In reality, physicians and health systems face a variety of reimbursement models that shape their incentives in important ways, particularly when we think about different payment systems around the world. In this chapter, we extend the model to examine two of the most prominent approaches—fee-for-service (FFS) and capitation—and show how these payment structures generate systematically different predictions for physician behavior.
 
-## Defining FFS and Capitated Payments
+## FFS and Capitated Payments
+
+### Definitions
 
 For our purposes, FFS payments simply consist of separate payments for each service, creating a system where more care leads to more revenue. This is how we envisioned payments in the model in the prior chapter. And with some slight adjustments, this is also how traditional Medicare pays for health care among its beneficiaries. 
 
 In contrast, capitated payments provide a fixed amount intended to cover all expenses for a specific person or group, presenting a financial risk for healthcare providers. If actual expenses exceed the allocated amount, providers experience potential losses, while keeping costs below the capitated payment leads to profitability. The Kaiser system is probably the best example of a totally capitated payment system in the U.S. It's a private health insurance plan with an associated network of providers. Only people enrolled in the Kaiser insurance plan have access to the Kaiser providers, so it's a closed system of insurance and providers. Accountable Care Organizations are also similar to a fully capitated model, although not exactly since ACOs are voluntary.
 
-The differences between FFS and capitated payments create distinct incentives for healthcare providers. In the FFS model, the primary incentive is to maximize revenue by delivering more services, potentially leading to overutilization and unnecessary treatments. On the other hand, capitated payments incentivize providers to be more prudent in their service delivery to avoid financial losses, potentially leading to underprovision of care.
 
-## FFS and Capitated Payments in Physician Agency
+### Incentives
 
-### Intuition
-
-Before turning to a formal model, it is useful to lay out the basic intuition behind how different payment systems shape physician behavior. Under fee-for-service arrangements, revenue increases with the number of services provided, creating a natural incentive to deliver more care—even if some of that care is only marginally beneficial. By contrast, under capitation, providers receive a fixed payment per patient regardless of the amount of care delivered. This structure rewards cost containment but also introduces the risk of undertreatment, since each additional service raises costs without increasing revenue.
+The differences between FFS and capitated payments create distinct incentives for healthcare providers. Under fee-for-service arrangements, revenue increases with the number of services provided, creating a natural incentive to deliver more care—even if some of that care is only marginally beneficial. By contrast, under capitation, providers receive a fixed payment per patient regardless of the amount of care delivered. This structure rewards cost containment but also introduces the risk of undertreatment, since each additional service raises costs without increasing revenue.
 
 The key takeaway is that payment systems pull physician behavior in opposite directions: fee-for-service tends toward overprovision, while capitation tends toward underprovision. Most real-world systems lie somewhere in between, but these extremes provide a useful benchmark for understanding how incentives operate.
 
-### Model 
+
+## Physician Agency with FFS vs Capitation
 
 To see this more formally, let's set up a new version of our agency model. Physicians receive a fixed amount per patient, denoted $R$, along with a price per unit of service, $p_{s}$. Given the choice of quantity of care, $x$, (assumed to be the same for each patient) physicians receive $R + (p_{s} - c)x$ for each patient. Finally, the number of patients for each physician is expressed as a positive function of the net benefit offered, $n(NB)$, where $NB=B(x) - p_{d}x$. Here, we're also allowing separate prices paid by the patient versus prices received by the provider, where the patient pays $p_{d}$ and the physician receives $p_{s}$. We also assume that the physician has no control over prices. They can only affect the amount of care, $x$. 
 
