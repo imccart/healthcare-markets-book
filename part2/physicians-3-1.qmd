@@ -2,70 +2,285 @@
 title: "Physician Learning"
 ---
 
-This chapter considers healthcare variation through the prism of physician learning. By delving into the mechanisms that drive physicians' evolving beliefs and their consequential impact on healthcare utilization, we unearth the intricate interplay between information asymmetry, Bayesian updating, and medical decision-making. This exploration serves to shed light on the dynamic landscapes of healthcare practices and the cognitive odyssey undertaken by physicians as they navigate the complexities of clinical choices within an economic context.
+```{r}
+#| include: false
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
+```
 
-## Motivation
+As we've discussed in prior chapters, physicians wield considerable discretion in determining the treatments administered to patients and are therefore important factors in understanding variation in healthcare utilization across and within geographic areas. Such variation is propelled by several factors, including differences in information availability, personal beliefs, and financial incentives.
 
-Physicians, positioned at the forefront of medical decision-making, wield considerable discretion in determining the treatments administered to patients. The subsequent variation in healthcare practices, resulting from these decisions, echoes across different contexts and markets. This variation is propelled by several factors, including differences in information availability, personal beliefs, and financial incentives, contributing to a diverse landscape of healthcare utilization.
+We've already covered the role of financial incentives, but variation in healthcare also reflects differences in how physicians learn from experience. As a result, two doctors treating similar patients may choose different tests or therapies—not necessarily because one is wrong, but because they hold different beliefs about what works best. Those beliefs reflect past experiences, medical training, and professional networks. Over time, physicians observe patient outcomes and revise their views. Understanding that learning process helps explain why healthcare practices evolve unevenly across physicians, hospitals, and regions. 
 
-A critical facet contributing to this variation is the intrinsic asymmetry of information within the healthcare domain. Physicians, informed by varying degrees of experiential learning, training, and professional affiliations, often possess disparate levels of insight into treatment efficacy and patient outcomes. This inherent asymmetry results in divergent medical judgments and influences the care trajectory patients experience.
+In this chapter, we’ll see how those belief updates can be described using Bayes’ rule, one of the most powerful ideas in probability theory. We’ll start with simple examples of Bayesian updating, build up the formal mathematics, and then apply it to physician learning.
 
-## Physician Learning
+## Bayes’ Rule
 
-To dissect the underpinnings of physician learning, Bayesian updating emerges as an insightful lens. This mathematical framework enables us to elucidate the dynamics that drive physicians' evolving beliefs, providing a formal framework for understanding how new information influences medical decision-making.
+Before turning to physician learning, it is useful to start with the basic mechanics of *Bayes’ rule*, one of the central ideas in decision theory. Bayes’ rule describes how we update our beliefs when we receive new information. At its core, Bayes’ rule combines two pieces of information: 1) **a prior belief**, or what we think before seeing the data; and 2) **new evidence**, or what we observe from the data. Together, these yield an **updated belief**, called the *posterior*. Formally,
 
-Bayesian updating affords a systematic methodology for integrating prior beliefs with newly acquired data. The core of this framework lies in Bayes' theorem, a fundamental principle in probability theory. By judiciously combining prior beliefs with observed evidence, physicians can iteratively refine their beliefs, culminating in posterior distributions that encapsulate updated knowledge.
+$$P(A|B) = \frac{P(B|A) \times P(A)}{P(B)},$$
 
-### The Mechanics of Bayes' Rule
+where $P(A|B)$ denotes the *posterior* or updated belief after seeing the data; $P(B|A)$ denotes the *likelihood* or how likely the data are if $A$ were true; $P(A)$ denotes the *prior* or belief before seeing the data; and $P(B)$ dentoes the *marginal probability* of observing $B$ at all. This expression reads as “the probability of $A$ given $B$ equals the probability of $B$ given $A$, times the prior probability of $A$, divided by the overall probability of $B$.”
 
-Bayes' rule formalizes the relationship between prior beliefs, likelihood functions, and observed data. This mechanism of assimilating data, while accommodating the idiosyncrasies of prior convictions, constitutes the crux of belief evolution. More formally, given prior beliefs about treatment quality, $P(\theta$), and observed outcomes $y$, the physician updates their belief on the quality of treatment using:
+### Example: Diagnostic Testing
 
-$$\begin{align}
-P(\theta|y) &= \frac{P(y|\theta) \times P(\theta)}{P(y)} \\
- & \propto P(y|\theta) \times P(\theta),
-\end{align}$$
+A common illustration comes from diagnostic testing. Suppose 1% of a population has a disease, and a diagnostic test is 99% accurate — it correctly identifies disease when it is present and correctly rules it out when it is absent. If a patient tests positive, what is the probability they actually have the disease?
 
-where $P(\theta | y)$ is the updated belief (posterior distribution) about the effectiveness of treatment after observing outcomes; $P(y | \theta)$ is probability of outcome $y$ given the effectiveness $\theta$ (the likelihood); and $P(y)$ is the marginal probability of patient outcome $y$. We typically use the "proportional to" expression, $\propto$, to focus on relative probabilities and avoid complications from the normalization $P(y)$, which can sometimes lead to unruly posterior distributions requiring numerical integration.
+We can apply Bayes’ rule:
 
-For some simple intuition in the context of physician learning, imagine a physician is considering a new treatment option for their patients. While they are unsure of the effectiveness of treatment, they have some initial belief about the treatment's effectiveness captured by their prior, $P(\theta)$. As the physician treats patients and observes outcomes, they update their beliefs using Bayes' rule.
+$$
+P(\text{Disease} | \text{Positive}) =
+\frac{P(\text{Positive} | \text{Disease}) \times P(\text{Disease})}
+{P(\text{Positive})}.
+$$
 
-In general, updating these beliefs mathematically will integration of the posterior distribution, which can be complicated; however, with specific assumptions, there are "closed-form" solutions to the posterior distribution. We call these "conjugate" distributions. For example, the beta distribution is the conjugate prior distribution for the Bernoulli distribution (among others). These are handy distributions to use in the context of physician learning, because the Beta distribution has support over the $[0,1]$ interval, and the Bernoulli distribution is a series of Binomial draws (e.g., several binary occurrences of whether the patient improved or not). So these are natural distributions to work with when considering the evolution of beliefs about the effectiveness of some treatment.
+The denominator, $P(\text{Positive})$, accounts for *all* positive results, both true positives and false positives. Even though the test is highly accurate, the low base rate (only 1% prevalence) means most positive results are false positives. In this example, the posterior probability that the person actually has the disease is only about 50%.  
 
-### Baye's Rule with Beta Prior and Binomial Likelihood
+This demonstrates a key feature of Bayes’ rule: our updated beliefs depend on both the **quality of the evidence** and the **baseline probability** of what we are testing for. Bayes’ rule therefore provides a disciplined way to update beliefs in light of new data. Every Bayesian model, including those used to study physician learning, begins with this principle.
 
-Since all of the examples we'll talk about here involve a Beta prior and a Binomial likelihood, it's worthwhile to derive the posterior explicitly for this case. The Beta distribution is governed by its "shape" parameters, $\alpha$ and $\beta$
+### From Events to Distributions
 
-$$P(θ) = \frac{\theta^{\alpha-1} (1 - \theta)^{\beta-1} }{B(\alpha, \beta)},$$
-where $B(\alpha, \beta)$ is a normalization constant to ensure the PDF integrates to 1. The mean and variance of the Beta distribution also have very easy formulas, with $\mu = \frac{\alpha}{\alpha + \beta}$ and $\nu = \frac{\alpha \beta}{(\alpha + \beta)^{2} (\alpha+ \beta + 1)}$.
+The version of Bayes’ rule we just saw applies to simple *events*: the probability of $A$ given $B$. In many applications, however, we want to think about *distributions* of possible values rather than discrete outcomes. For instance, a physician might be uncertain about a treatment’s effectiveness, represented by a continuous parameter $\theta$ that could take any value between 0 and 1. As the physician observes patient outcomes, they update their *belief distribution* over $\theta$.
 
-Similarly, the Binomial outcome can be denoted by $y\sim B(n,\theta)$, where $n$ is the number of trials and $\theta$ is the probability of success for any single case
+In this case, Bayes’ rule generalizes from events to probability distributions:
 
-$$ P(y|n, \theta) = {n \choose s} \theta^{s} (1-\theta)^{n-s}$$
+$$
+P(\theta | y) = \frac{P(y | \theta) \times P(\theta)}{P(y)},
+$$
 
-Our goal is to derive the posterior distribution for $\theta$ with prior, $\theta \sim Beta(\alpha_{0}, \beta_{0})$, which is as follows:
-$$\begin{align}
-P(\theta | y) &= \frac{P(y| \theta) P(\theta)}{P(y)} \\
- & \propto \frac{ {n \choose s} \theta^{s} (1 - \theta)^{n - s} \theta^{\alpha-1} (1 - \theta)^{\beta-1} } { B(\alpha, \beta) } \\
- & \propto \frac{ {n \choose s} \theta^{\alpha+s-1} (1 - \theta)^{\beta+n-s-1} } { B(\alpha, \beta) } \\
- & \propto B(\alpha+s, \beta + n - s)
-\end{align}$$
+where $P(\theta)$ is the **prior distribution**; $P(y | \theta)$ is the **likelihood function**; $P(\theta | y)$ is the **posterior distribution**; and $P(y)$ is a **normalizing constant**, ensuring the posterior distribution integrates to 1. Since $P(y)$ is constant with respect to $\theta$, we often write:
 
-In this case, ${n \choose s}$ and $B(\alpha, \beta)$ are just normalization constants, so we can ignore them, and the expression reduces to a Beta distribution with shape parameters $\alpha_{0}+s$ and $\beta_{0} + n - s$. It's useful to focus on a specific moment of the posterior distribution to see how it has evolved via Bayesian updating. Recalling the mean of the Beta distribution, the updated (posterior) mean is $\mu_{1} = \frac{\alpha_{0}+s}{\beta_{0} + n - s}$. The extent to which the physician's beliefs move more or less toward the observed data therefore depends on their priors. 
+$$
+P(\theta | y) \propto P(y | \theta) \times P(\theta),
+$$
+
+where the symbol $\propto$ means “proportional to.” This proportional form highlights that the posterior distribution combines the shape of the prior and the shape of the likelihood. This expression shows how beliefs evolve in response to new evidence. The **prior**, $P(\theta)$, captures what was known before, the **likelihood**, $P(y | \theta)$, represents what the new data suggest (e.g., our observed outcomes based on the true quality, $\theta$), and the **posterior** blends the two, weighting each according to how informative the data are relative to the prior. Over time, as more evidence accumulates, the posterior distribution becomes more concentrated, reflecting increased certainty about $\theta$. This is the mathematical foundation for *learning from data*—and, as we will see, it provides a powerful framework for understanding how physicians learn from experience.
+
+
+
+## The Beta–Binomial Learning Model
+
+To make the ideas behind Bayesian updating more concrete, it helps to work through a simple example involving binary outcomes (i.e., situations where something either succeeds or fails). This setting is directly relevant to healthcare: a physician might observe whether a patient improves after a new treatment, or whether a surgical procedure "succeeds" or not. Each observation provides new information about the treatment’s true effectiveness. We will model this process using two probability distributions that fit naturally together: the **Beta** distribution (for beliefs about effectiveness) and the **Binomial** distribution (for observed successes and failures). Together, these form what is known as the **Beta–Binomial model**, a classic framework for illustrating learning in a Bayesian context.
+
+### The Binomial Distribution: Modeling Observed Outcomes
+
+Suppose a physician treats $n$ patients with a new therapy and observes $s$ patients who improve. If each case is independent and has the same probability of success $\theta$, then the total number of improvements follows a **Binomial distribution**:
+
+$$
+P(y = s | n, \theta) = {n \choose s} \theta^{s} (1 - \theta)^{n - s},
+$$
+
+where $n$ is the number of independent trials (patients), $s$ is the number of observed “successes” (improvements), and $\theta$ is the probability of success for any individual case. The Binomial distribution gives us the **likelihood**, $P(y | n, \theta)$, or the probability of observing $s$ successes out of $n$ trials given a particular value of $\theta$.
+
+### The Beta Distribution: Modeling Prior Beliefs
+
+Next, we need a way to represent the physician’s prior belief about $\theta$, the true effectiveness of treatment. Because $\theta$ must lie between 0 and 1, a natural choice is the **Beta distribution**, which is defined on the interval $[0, 1]$ and is the **conjugate prior** (@def-conjugate-prior) for the Binomial distribution likelihood function. The Beta distribution has two *shape parameters*, $\alpha$ and $\beta$, that determine its mean, variance, and overall shape:
+
+$$
+P(\theta) = \frac{\theta^{\alpha - 1} (1 - \theta)^{\beta - 1}}{B(\alpha, \beta)},
+$$
+
+where $B(\alpha, \beta)$ is a normalizing constant ensuring the density integrates to 1. The mean and variance are:
+
+$$
+E[\theta] = \frac{\alpha}{\alpha + \beta}, \quad
+Var(\theta) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}.
+$$
+
+The Beta distribution is extremely flexible. When $\alpha = \beta = 1$, it is uniform over $[0, 1]$, representing no strong prior belief; when $\alpha > \beta$, beliefs are shifted to higher values of $\theta$ (optimism); and when $\alpha < \beta$, beliefs shift toward lower values of $\theta$ (skepticism).
+
+
+::: {#def-conjugate-prior}
+
+### Conjugate Priors
+In Bayesian analysis, a **conjugate prior** is a prior distribution that, when combined with a particular likelihood, yields a posterior that is in the same family of distributions. Conjugate priors make the math tractable and the interpretation straightforward. For the Binomial likelihood, the Beta distribution is conjugate. This means that if the prior is $Beta(\alpha_0, \beta_0)$ and the data are Binomial, the posterior will also follow a Beta distribution, with updated parameters reflecting both the prior information and the new evidence. This property is especially convenient for modeling physician learning as it lets us express belief updating in simple, interpretable terms while maintaining a realistic parameter space ($0 \leq \theta \leq 1$).
+:::
+
+
+### The Posterior Distribution
+
+Applying Bayes’ rule, the posterior distribution for $\theta$ after observing $s$ successes out of $n$ trials is proportional to the product of the likelihood and the prior. This is directly from Bayes' rule.
+
+$$
+P(\theta | y) \propto P(y | \theta) \times P(\theta).
+$$
+
+Substituting the Binomial likelihood and the Beta prior gives:
+
+$$
+P(\theta | y) \propto 
+\theta^{s} (1 - \theta)^{n - s} 
+\times 
+\theta^{\alpha_0 - 1} (1 - \theta)^{\beta_0 - 1}
+\propto 
+\theta^{\alpha_0 + s - 1} (1 - \theta)^{\beta_0 + n - s - 1},
+$$
+
+where terms unrelated to $\theta$ are normalization factors and do not enter into the proportional representation. Thus, the posterior is again a Beta distribution:
+
+$$
+\theta | y \sim Beta(\alpha_1, \beta_1),
+$$
+
+where the updated (posterior) parameters are:
+
+$$
+\alpha_1 = \alpha_0 + s, \quad
+\beta_1 = \beta_0 + n - s.
+$$
+
+This result illustrates how the physician’s beliefs evolve as new evidence accumulates. The updated mean is:
+
+$$
+E[\theta | y] = \frac{\alpha_1}{\alpha_1 + \beta_1}
+= \frac{\alpha_0 + s}{\alpha_0 + \beta_0 + n}.
+$$
+
+The larger the sample size $n$, the more influence the data have relative to the prior, and the more the posterior mean moves toward the observed frequency $s/n$. The Beta–Binomial model therefore provides a simple, intuitive way to represent learning from binary outcomes. The Beta prior captures prior beliefs about treatment effectiveness, while the Binomial likelihood captures the evidence. Bayesian updating combines the two to form an updated posterior belief that always stays within the same family of distributions.
+
+
+
+### Visualizing the Beta–Binomial Model
+
+It is often easier to understand Bayesian updating by *seeing* how the prior and likelihood combine to form the posterior.  In the Beta–Binomial model, the prior, likelihood, and posterior are functions of the same parameter, $\theta$. The following examples show how beliefs evolve as new data arrive.
+
+#### Step 1: Plot the Prior {.unnumbered}
+
+Let’s begin with a relatively **diffuse prior**, representing a physician who has little prior knowledge about a new treatment’s effectiveness. We’ll use $Beta(2,2)$, which places moderate weight across the whole $[0,1]$ interval.
+
+```{r}
+#| echo: false
+#| label: fig-prior
+#| fig-cap: "Diffuse Beta(2,2) prior distribution."
+#| warning: false
+#| message: false
+
+theta <- seq(0, 1, length.out = 200)
+prior <- dbeta(theta, 2, 2)
+
+tibble(theta, prior) |>
+  ggplot(aes(theta, prior)) +
+  geom_line(linewidth = 1.2) +
+  labs(x = expression(theta), y = "Density",
+       title = "Diffuse Beta(2,2) Prior for Treatment Effectiveness") +
+  theme_minimal(base_size = 14)
+```
+
+This prior is symmetric around 0.5, expressing mild uncertainty but no strong opinion.
+
+
+#### Step 2: Plot the Likelihood {.unnumbered}
+
+Suppose the physician treats $n = 20$ patients and observes $s = 14$ improvements. The likelihood of the data, $P(y | \theta)$, reflects how probable this outcome would be under different assumed values of $\theta$.
+
+```{r}
+#| echo: false
+#| label: fig-likelihood
+#| fig-cap: "Binomial likelihood for 14 successes out of 20 trials."
+likelihood <- dbinom(14, size = 20, prob = theta)
+
+# Normalize for visualization (so it looks like a density)
+likelihood <- likelihood / sum(likelihood)
+
+tibble(theta, likelihood) |>
+  ggplot(aes(theta, likelihood)) +
+  geom_line(color = "steelblue", linewidth = 1.2) +
+  labs(x = expression(theta), y = "Relative likelihood",
+       title = "Likelihood of 14 Successes out of 20 Trials") +
+  theme_minimal(base_size = 14)
+```
+
+The likelihood peaks around $\theta = 0.7$, indicating that the data are most consistent with a success probability near 70%.
+
+#### Step 3: Combine Prior and Likelihood to Form Posterior {.unnumbered}
+
+Because the Beta prior is conjugate to the Binomial likelihood, we can compute the posterior analytically. With $\alpha_0 = 2$ and $\beta_0 = 2$, the posterior parameters become, $\alpha_{1} = \alpha_{0} + s = 16$ and $\beta_{1} = \beta_{0} + n - s = 8$.
+
+```{r}
+#| echo: false
+#| label: fig-posterior
+#| fig-cap: "Prior, likelihood, and posterior distributions."
+posterior <- dbeta(theta, 16, 8)
+
+plot_data <- tibble(
+  theta,
+  Prior = dbeta(theta, 2, 2),
+  Likelihood = dbinom(14, size = 20, prob = theta) / max(dbinom(14, size = 20, prob = theta)),
+  Posterior = posterior / max(posterior)
+) |> 
+  pivot_longer(-theta, names_to = "Distribution", values_to = "Density")
+
+ggplot(plot_data, aes(theta, Density, color = Distribution)) +
+  geom_line(linewidth = 1.2) +
+  scale_color_manual(values = c("gray50", "steelblue", "firebrick")) +
+  labs(x = expression(theta), y = "Relative Density",
+       title = "Bayesian Updating in the Beta–Binomial Model") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top")
+```
+
+
+This figure shows how new data move the physician’s beliefs:
+
+- The **prior** (red) expresses initial uncertainty.  
+- The **likelihood** (gray) represents the evidence from observed outcomes.  
+- The **posterior** (blue) shifts toward the data, reflecting stronger belief that $\theta$ lies near 0.7.
+
+#### Step 4: Interpretation {.unnumbered}
+
+After observing these data, the posterior mean becomes
+
+$$
+E[\theta | y] = \frac{\alpha_1}{\alpha_1 + \beta_1} = \frac{16}{24} \approx 0.67.
+$$
+
+The posterior is more concentrated than the prior, reflecting greater confidence in the treatment’s effectiveness. If the physician continues to observe additional patients, this process repeats, where each new piece of information nudges the posterior toward the true underlying value of $\theta$.
+
 
 
 ## Some Examples
 
-To contextualize things, let us delve into two illustrative cases that elucidate the potential role of physician learning in healthcare variation. Assume that physician's have access to the same data in which 70 out of 100 patients showed improvement from a new treatment.
+To contextualize these ideas, let us consider two illustrative cases that highlight how physician learning can shape healthcare variation. Assume that physicians observe the same evidence: 70 out of 100 patients improve after receiving a new treatment.
 
-### Case 1: "Diffuse" Priors and Belief Convergence
+### Case 1: Diffuse Priors and Belief Convergence
 
-A "diffuse" prior can be reflected by a uniform distribution of beliefs in the the physician has no strong prior as to the effectiveness (or ineffectiveness) of treatment. We can reflect this formally with $Beta(\alpha_{0}=1, \beta_{0}=1)$. Following the steps from the prior section, we know that the updated posterior distribution will also follow a Beta distribution with shape parameters $\alpha_{1} = \alpha_{0} + 70 = 71$ and $\beta_{1}  = \beta_{0} + 100 - 70 = 31$. The posterior mean is then $\mu = \frac{\alpha_{1}}{\alpha_{1}+\beta_{1}} = \frac{71}{71+31} \approx 0.6969$. So the physician's updated belief of the effectiveness of treatment almost exactly matches the observed effectiveness rate of 70%. 
+A **diffuse prior** reflects a physician who has no strong beliefs about the effectiveness of the treatment. Formally, this corresponds to a uniform prior, $Beta(\alpha_0 = 1, \beta_0 = 1)$.  
 
-### Case 2: The Impact of "Strong" Priors
+Following the updating rule from the previous section, the posterior parameters are:
 
-In contrast, consider a case in which the physician has very strong negative priors (e.g., they firmly believe that this new treatment is ineffective). We can capture this formally with $Beta(\alpha_{0}=1, \beta_{0}=20)$. The posterior mean, again based on 70 successes out of 100 cases, is $\mu = \frac{\alpha_{1}}{\alpha_{1}+\beta_{1}} = \frac{71}{71+50} \approx 0.5861$. In this case, even though the physician had access to the same observational data, they place significantly less weight on those data and therefore remain more skeptical of the effectiveness of the treatment.
+$$
+\alpha_1 = \alpha_0 + s = 71, \quad
+\beta_1 = \beta_0 + n - s = 31.
+$$
+
+The posterior mean is:
+
+$$
+\mu = \frac{\alpha_1}{\alpha_1 + \beta_1} = \frac{71}{71 + 31} \approx 0.697.
+$$
+
+In this case, the posterior mean almost exactly matches the observed success rate of 70%, meaning that the physician’s belief quickly converges toward the data.  Diffuse priors lead to *faster learning* because the prior exerts little influence relative to the new evidence.
+
+### Case 2: Strong Priors and Slower Updating
+
+Now consider a physician with **strong negative priors** (e.g., a strong belief that the new treatment is unlikely to work). We can represent this with $Beta(\alpha_0 = 1, \beta_0 = 20)$.
+
+After observing the same data (70 successes out of 100), the posterior parameters become:
+
+$$
+\alpha_1 = 1 + 70 = 71, \quad
+\beta_1 = 20 + 30 = 50.
+$$
+
+The posterior mean is:
+
+$$
+\mu = \frac{\alpha_1}{\alpha_1 + \beta_1} = \frac{71}{71 + 50} \approx 0.586.
+$$
+
+Even though this physician saw the same outcomes as before, their posterior belief remains more pessimistic. Because their prior belief carried more weight, they adjust less in response to the new data. This captures an essential feature of Bayesian learning: **priors anchor beliefs**, and the strength of that anchor determines how quickly learning occurs.
+
 
 ## Discussion
 
-The point of all of this is to highlight how different physicians may more quickly or more slowly adopt certain technologies or new treatment options. As such, learning is a source of heterogeneities in healthcare utilization, with different patients being exposed to different preferences, priors, and learning histories of different physicians.
-
+These examples highlight how differences in priors can translate into variation in medical practice.  Physicians with diffuse priors will update their beliefs quickly and may adopt new technologies or treatments more readily.  Physicians with strong priors, whether optimistic or skeptical, will adjust more slowly, leading to persistent heterogeneity in care patterns even when everyone observes the same evidence. From a broader perspective, this framework provides some structure for examining learning as a potential driver of variation in healthcare utilization, where physician’s decisions reflect not only their current information but also the *path* of their past experiences and beliefs.

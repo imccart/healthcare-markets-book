@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Economics of Health Care - 10&nbsp; Physician Learning</title>
+<title>10&nbsp; Physician Learning – Economics of Health Care</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,14 +62,42 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -73,13 +107,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-3-1.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-3-1.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Economics of Health Care</a> 
@@ -117,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part1/insurance-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Health Insurance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -143,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part1/insurance-2-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Risk Premium and WTP</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Demand for Health Insurance</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -164,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part2/physicians-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Physicians</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -205,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part3/hospitals-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hospitals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -252,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../part4/pharma-0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prescription Drugs</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -275,28 +309,40 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Generic Drugs</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part4/pharma-1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regulation and Innovation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">10.1</span> Motivation</a></li>
-  <li><a href="#physician-learning" id="toc-physician-learning" class="nav-link" data-scroll-target="#physician-learning"><span class="header-section-number">10.2</span> Physician Learning</a>
+  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link active" data-scroll-target="#bayes-rule"><span class="header-section-number">10.1</span> Bayes’ Rule</a>
   <ul class="collapse">
-  <li><a href="#the-mechanics-of-bayes-rule" id="toc-the-mechanics-of-bayes-rule" class="nav-link" data-scroll-target="#the-mechanics-of-bayes-rule"><span class="header-section-number">10.2.1</span> The Mechanics of Bayes’ Rule</a></li>
-  <li><a href="#bayes-rule-with-beta-prior-and-binomial-likelihood" id="toc-bayes-rule-with-beta-prior-and-binomial-likelihood" class="nav-link" data-scroll-target="#bayes-rule-with-beta-prior-and-binomial-likelihood"><span class="header-section-number">10.2.2</span> Baye’s Rule with Beta Prior and Binomial Likelihood</a></li>
+  <li><a href="#example-diagnostic-testing" id="toc-example-diagnostic-testing" class="nav-link" data-scroll-target="#example-diagnostic-testing"><span class="header-section-number">10.1.1</span> Example: Diagnostic Testing</a></li>
+  <li><a href="#from-events-to-distributions" id="toc-from-events-to-distributions" class="nav-link" data-scroll-target="#from-events-to-distributions"><span class="header-section-number">10.1.2</span> From Events to Distributions</a></li>
+  </ul></li>
+  <li><a href="#the-betabinomial-learning-model" id="toc-the-betabinomial-learning-model" class="nav-link" data-scroll-target="#the-betabinomial-learning-model"><span class="header-section-number">10.2</span> The Beta–Binomial Learning Model</a>
+  <ul class="collapse">
+  <li><a href="#the-binomial-distribution-modeling-observed-outcomes" id="toc-the-binomial-distribution-modeling-observed-outcomes" class="nav-link" data-scroll-target="#the-binomial-distribution-modeling-observed-outcomes"><span class="header-section-number">10.2.1</span> The Binomial Distribution: Modeling Observed Outcomes</a></li>
+  <li><a href="#the-beta-distribution-modeling-prior-beliefs" id="toc-the-beta-distribution-modeling-prior-beliefs" class="nav-link" data-scroll-target="#the-beta-distribution-modeling-prior-beliefs"><span class="header-section-number">10.2.2</span> The Beta Distribution: Modeling Prior Beliefs</a></li>
+  <li><a href="#the-posterior-distribution" id="toc-the-posterior-distribution" class="nav-link" data-scroll-target="#the-posterior-distribution"><span class="header-section-number">10.2.3</span> The Posterior Distribution</a></li>
+  <li><a href="#visualizing-the-betabinomial-model" id="toc-visualizing-the-betabinomial-model" class="nav-link" data-scroll-target="#visualizing-the-betabinomial-model"><span class="header-section-number">10.2.4</span> Visualizing the Beta–Binomial Model</a></li>
   </ul></li>
   <li><a href="#some-examples" id="toc-some-examples" class="nav-link" data-scroll-target="#some-examples"><span class="header-section-number">10.3</span> Some Examples</a>
   <ul class="collapse">
-  <li><a href="#case-1-diffuse-priors-and-belief-convergence" id="toc-case-1-diffuse-priors-and-belief-convergence" class="nav-link" data-scroll-target="#case-1-diffuse-priors-and-belief-convergence"><span class="header-section-number">10.3.1</span> Case 1: “Diffuse” Priors and Belief Convergence</a></li>
-  <li><a href="#case-2-the-impact-of-strong-priors" id="toc-case-2-the-impact-of-strong-priors" class="nav-link" data-scroll-target="#case-2-the-impact-of-strong-priors"><span class="header-section-number">10.3.2</span> Case 2: The Impact of “Strong” Priors</a></li>
+  <li><a href="#case-1-diffuse-priors-and-belief-convergence" id="toc-case-1-diffuse-priors-and-belief-convergence" class="nav-link" data-scroll-target="#case-1-diffuse-priors-and-belief-convergence"><span class="header-section-number">10.3.1</span> Case 1: Diffuse Priors and Belief Convergence</a></li>
+  <li><a href="#case-2-strong-priors-and-slower-updating" id="toc-case-2-strong-priors-and-slower-updating" class="nav-link" data-scroll-target="#case-2-strong-priors-and-slower-updating"><span class="header-section-number">10.3.2</span> Case 2: Strong Priors and Slower Updating</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">10.4</span> Discussion</a></li>
   </ul>
@@ -305,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2/physicians-0.html">Physicians</a></li><li class="breadcrumb-item"><a href="../part2/physicians-3-1.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Physician Learning</span></h1>
 </div>
@@ -320,59 +366,214 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>This chapter considers healthcare variation through the prism of physician learning. By delving into the mechanisms that drive physicians’ evolving beliefs and their consequential impact on healthcare utilization, we unearth the intricate interplay between information asymmetry, Bayesian updating, and medical decision-making. This exploration serves to shed light on the dynamic landscapes of healthcare practices and the cognitive odyssey undertaken by physicians as they navigate the complexities of clinical choices within an economic context.</p>
-<section id="motivation" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">10.1</span> Motivation</h2>
-<p>Physicians, positioned at the forefront of medical decision-making, wield considerable discretion in determining the treatments administered to patients. The subsequent variation in healthcare practices, resulting from these decisions, echoes across different contexts and markets. This variation is propelled by several factors, including differences in information availability, personal beliefs, and financial incentives, contributing to a diverse landscape of healthcare utilization.</p>
-<p>A critical facet contributing to this variation is the intrinsic asymmetry of information within the healthcare domain. Physicians, informed by varying degrees of experiential learning, training, and professional affiliations, often possess disparate levels of insight into treatment efficacy and patient outcomes. This inherent asymmetry results in divergent medical judgments and influences the care trajectory patients experience.</p>
+
+<p>As we’ve discussed in prior chapters, physicians wield considerable discretion in determining the treatments administered to patients and are therefore important factors in understanding variation in healthcare utilization across and within geographic areas. Such variation is propelled by several factors, including differences in information availability, personal beliefs, and financial incentives.</p>
+<p>We’ve already covered the role of financial incentives, but variation in healthcare also reflects differences in how physicians learn from experience. As a result, two doctors treating similar patients may choose different tests or therapies—not necessarily because one is wrong, but because they hold different beliefs about what works best. Those beliefs reflect past experiences, medical training, and professional networks. Over time, physicians observe patient outcomes and revise their views. Understanding that learning process helps explain why healthcare practices evolve unevenly across physicians, hospitals, and regions.</p>
+<p>In this chapter, we’ll see how those belief updates can be described using Bayes’ rule, one of the most powerful ideas in probability theory. We’ll start with simple examples of Bayesian updating, build up the formal mathematics, and then apply it to physician learning.</p>
+<section id="bayes-rule" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="bayes-rule"><span class="header-section-number">10.1</span> Bayes’ Rule</h2>
+<p>Before turning to physician learning, it is useful to start with the basic mechanics of <em>Bayes’ rule</em>, one of the central ideas in decision theory. Bayes’ rule describes how we update our beliefs when we receive new information. At its core, Bayes’ rule combines two pieces of information: 1) <strong>a prior belief</strong>, or what we think before seeing the data; and 2) <strong>new evidence</strong>, or what we observe from the data. Together, these yield an <strong>updated belief</strong>, called the <em>posterior</em>. Formally,</p>
+<p><span class="math display">\[P(A|B) = \frac{P(B|A) \times P(A)}{P(B)},\]</span></p>
+<p>where <span class="math inline">\(P(A|B)\)</span> denotes the <em>posterior</em> or updated belief after seeing the data; <span class="math inline">\(P(B|A)\)</span> denotes the <em>likelihood</em> or how likely the data are if <span class="math inline">\(A\)</span> were true; <span class="math inline">\(P(A)\)</span> denotes the <em>prior</em> or belief before seeing the data; and <span class="math inline">\(P(B)\)</span> dentoes the <em>marginal probability</em> of observing <span class="math inline">\(B\)</span> at all. This expression reads as “the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> equals the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span>, times the prior probability of <span class="math inline">\(A\)</span>, divided by the overall probability of <span class="math inline">\(B\)</span>.”</p>
+<section id="example-diagnostic-testing" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="example-diagnostic-testing"><span class="header-section-number">10.1.1</span> Example: Diagnostic Testing</h3>
+<p>A common illustration comes from diagnostic testing. Suppose 1% of a population has a disease, and a diagnostic test is 99% accurate — it correctly identifies disease when it is present and correctly rules it out when it is absent. If a patient tests positive, what is the probability they actually have the disease?</p>
+<p>We can apply Bayes’ rule:</p>
+<p><span class="math display">\[
+P(\text{Disease} | \text{Positive}) =
+\frac{P(\text{Positive} | \text{Disease}) \times P(\text{Disease})}
+{P(\text{Positive})}.
+\]</span></p>
+<p>The denominator, <span class="math inline">\(P(\text{Positive})\)</span>, accounts for <em>all</em> positive results, both true positives and false positives. Even though the test is highly accurate, the low base rate (only 1% prevalence) means most positive results are false positives. In this example, the posterior probability that the person actually has the disease is only about 50%.</p>
+<p>This demonstrates a key feature of Bayes’ rule: our updated beliefs depend on both the <strong>quality of the evidence</strong> and the <strong>baseline probability</strong> of what we are testing for. Bayes’ rule therefore provides a disciplined way to update beliefs in light of new data. Every Bayesian model, including those used to study physician learning, begins with this principle.</p>
 </section>
-<section id="physician-learning" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="physician-learning"><span class="header-section-number">10.2</span> Physician Learning</h2>
-<p>To dissect the underpinnings of physician learning, Bayesian updating emerges as an insightful lens. This mathematical framework enables us to elucidate the dynamics that drive physicians’ evolving beliefs, providing a formal framework for understanding how new information influences medical decision-making.</p>
-<p>Bayesian updating affords a systematic methodology for integrating prior beliefs with newly acquired data. The core of this framework lies in Bayes’ theorem, a fundamental principle in probability theory. By judiciously combining prior beliefs with observed evidence, physicians can iteratively refine their beliefs, culminating in posterior distributions that encapsulate updated knowledge.</p>
-<section id="the-mechanics-of-bayes-rule" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="the-mechanics-of-bayes-rule"><span class="header-section-number">10.2.1</span> The Mechanics of Bayes’ Rule</h3>
-<p>Bayes’ rule formalizes the relationship between prior beliefs, likelihood functions, and observed data. This mechanism of assimilating data, while accommodating the idiosyncrasies of prior convictions, constitutes the crux of belief evolution. More formally, given prior beliefs about treatment quality, <span class="math inline">\(P(\theta\)</span>), and observed outcomes <span class="math inline">\(y\)</span>, the physician updates their belief on the quality of treatment using:</p>
-<p><span class="math display">\[\begin{align}
-P(\theta|y) &amp;= \frac{P(y|\theta) \times P(\theta)}{P(y)} \\
-&amp; \propto P(y|\theta) \times P(\theta),
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(P(\theta | y)\)</span> is the updated belief (posterior distribution) about the effectiveness of treatment after observing outcomes; <span class="math inline">\(P(y | \theta)\)</span> is probability of outcome <span class="math inline">\(y\)</span> given the effectiveness <span class="math inline">\(\theta\)</span> (the likelihood); and <span class="math inline">\(P(y)\)</span> is the marginal probability of patient outcome <span class="math inline">\(y\)</span>. We typically use the “proportional to” expression, <span class="math inline">\(\propto\)</span>, to focus on relative probabilities and avoid complications from the normalization <span class="math inline">\(P(y)\)</span>, which can sometimes lead to unruly posterior distributions requiring numerical integration.</p>
-<p>For some simple intuition in the context of physician learning, imagine a physician is considering a new treatment option for their patients. While they are unsure of the effectiveness of treatment, they have some initial belief about the treatment’s effectiveness captured by their prior, <span class="math inline">\(P(\theta)\)</span>. As the physician treats patients and observes outcomes, they update their beliefs using Bayes’ rule.</p>
-<p>In general, updating these beliefs mathematically will integration of the posterior distribution, which can be complicated; however, with specific assumptions, there are “closed-form” solutions to the posterior distribution. We call these “conjugate” distributions. For example, the beta distribution is the conjugate prior distribution for the Bernoulli distribution (among others). These are handy distributions to use in the context of physician learning, because the Beta distribution has support over the <span class="math inline">\([0,1]\)</span> interval, and the Bernoulli distribution is a series of Binomial draws (e.g., several binary occurrences of whether the patient improved or not). So these are natural distributions to work with when considering the evolution of beliefs about the effectiveness of some treatment.</p>
+<section id="from-events-to-distributions" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="from-events-to-distributions"><span class="header-section-number">10.1.2</span> From Events to Distributions</h3>
+<p>The version of Bayes’ rule we just saw applies to simple <em>events</em>: the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span>. In many applications, however, we want to think about <em>distributions</em> of possible values rather than discrete outcomes. For instance, a physician might be uncertain about a treatment’s effectiveness, represented by a continuous parameter <span class="math inline">\(\theta\)</span> that could take any value between 0 and 1. As the physician observes patient outcomes, they update their <em>belief distribution</em> over <span class="math inline">\(\theta\)</span>.</p>
+<p>In this case, Bayes’ rule generalizes from events to probability distributions:</p>
+<p><span class="math display">\[
+P(\theta | y) = \frac{P(y | \theta) \times P(\theta)}{P(y)},
+\]</span></p>
+<p>where <span class="math inline">\(P(\theta)\)</span> is the <strong>prior distribution</strong>; <span class="math inline">\(P(y | \theta)\)</span> is the <strong>likelihood function</strong>; <span class="math inline">\(P(\theta | y)\)</span> is the <strong>posterior distribution</strong>; and <span class="math inline">\(P(y)\)</span> is a <strong>normalizing constant</strong>, ensuring the posterior distribution integrates to 1. Since <span class="math inline">\(P(y)\)</span> is constant with respect to <span class="math inline">\(\theta\)</span>, we often write:</p>
+<p><span class="math display">\[
+P(\theta | y) \propto P(y | \theta) \times P(\theta),
+\]</span></p>
+<p>where the symbol <span class="math inline">\(\propto\)</span> means “proportional to.” This proportional form highlights that the posterior distribution combines the shape of the prior and the shape of the likelihood. This expression shows how beliefs evolve in response to new evidence. The <strong>prior</strong>, <span class="math inline">\(P(\theta)\)</span>, captures what was known before, the <strong>likelihood</strong>, <span class="math inline">\(P(y | \theta)\)</span>, represents what the new data suggest (e.g., our observed outcomes based on the true quality, <span class="math inline">\(\theta\)</span>), and the <strong>posterior</strong> blends the two, weighting each according to how informative the data are relative to the prior. Over time, as more evidence accumulates, the posterior distribution becomes more concentrated, reflecting increased certainty about <span class="math inline">\(\theta\)</span>. This is the mathematical foundation for <em>learning from data</em>—and, as we will see, it provides a powerful framework for understanding how physicians learn from experience.</p>
 </section>
-<section id="bayes-rule-with-beta-prior-and-binomial-likelihood" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="bayes-rule-with-beta-prior-and-binomial-likelihood"><span class="header-section-number">10.2.2</span> Baye’s Rule with Beta Prior and Binomial Likelihood</h3>
-<p>Since all of the examples we’ll talk about here involve a Beta prior and a Binomial likelihood, it’s worthwhile to derive the posterior explicitly for this case. The Beta distribution is governed by its “shape” parameters, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span></p>
-<p><span class="math display">\[P(θ) = \frac{\theta^{\alpha-1} (1 - \theta)^{\beta-1} }{B(\alpha, \beta)},\]</span> where <span class="math inline">\(B(\alpha, \beta)\)</span> is a normalization constant to ensure the PDF integrates to 1. The mean and variance of the Beta distribution also have very easy formulas, with <span class="math inline">\(\mu = \frac{\alpha}{\alpha + \beta}\)</span> and <span class="math inline">\(\nu = \frac{\alpha \beta}{(\alpha + \beta)^{2} (\alpha+ \beta + 1)}\)</span>.</p>
-<p>Similarly, the Binomial outcome can be denoted by <span class="math inline">\(y\sim B(n,\theta)\)</span>, where <span class="math inline">\(n\)</span> is the number of trials and <span class="math inline">\(\theta\)</span> is the probability of success for any single case</p>
-<p><span class="math display">\[ P(y|n, \theta) = {n \choose s} \theta^{s} (1-\theta)^{n-s}\]</span></p>
-<p>Our goal is to derive the posterior distribution for <span class="math inline">\(\theta\)</span> with prior, <span class="math inline">\(\theta \sim Beta(\alpha_{0}, \beta_{0})\)</span>, which is as follows: <span class="math display">\[\begin{align}
-P(\theta | y) &amp;= \frac{P(y| \theta) P(\theta)}{P(y)} \\
-&amp; \propto \frac{ {n \choose s} \theta^{s} (1 - \theta)^{n - s} \theta^{\alpha-1} (1 - \theta)^{\beta-1} } { B(\alpha, \beta) } \\
-&amp; \propto \frac{ {n \choose s} \theta^{\alpha+s-1} (1 - \theta)^{\beta+n-s-1} } { B(\alpha, \beta) } \\
-&amp; \propto B(\alpha+s, \beta + n - s)
-\end{align}\]</span></p>
-<p>In this case, <span class="math inline">\({n \choose s}\)</span> and <span class="math inline">\(B(\alpha, \beta)\)</span> are just normalization constants, so we can ignore them, and the expression reduces to a Beta distribution with shape parameters <span class="math inline">\(\alpha_{0}+s\)</span> and <span class="math inline">\(\beta_{0} + n - s\)</span>. It’s useful to focus on a specific moment of the posterior distribution to see how it has evolved via Bayesian updating. Recalling the mean of the Beta distribution, the updated (posterior) mean is <span class="math inline">\(\mu_{1} = \frac{\alpha_{0}+s}{\beta_{0} + n - s}\)</span>. The extent to which the physician’s beliefs move more or less toward the observed data therefore depends on their priors.</p>
+</section>
+<section id="the-betabinomial-learning-model" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="the-betabinomial-learning-model"><span class="header-section-number">10.2</span> The Beta–Binomial Learning Model</h2>
+<p>To make the ideas behind Bayesian updating more concrete, it helps to work through a simple example involving binary outcomes (i.e., situations where something either succeeds or fails). This setting is directly relevant to healthcare: a physician might observe whether a patient improves after a new treatment, or whether a surgical procedure “succeeds” or not. Each observation provides new information about the treatment’s true effectiveness. We will model this process using two probability distributions that fit naturally together: the <strong>Beta</strong> distribution (for beliefs about effectiveness) and the <strong>Binomial</strong> distribution (for observed successes and failures). Together, these form what is known as the <strong>Beta–Binomial model</strong>, a classic framework for illustrating learning in a Bayesian context.</p>
+<section id="the-binomial-distribution-modeling-observed-outcomes" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="the-binomial-distribution-modeling-observed-outcomes"><span class="header-section-number">10.2.1</span> The Binomial Distribution: Modeling Observed Outcomes</h3>
+<p>Suppose a physician treats <span class="math inline">\(n\)</span> patients with a new therapy and observes <span class="math inline">\(s\)</span> patients who improve. If each case is independent and has the same probability of success <span class="math inline">\(\theta\)</span>, then the total number of improvements follows a <strong>Binomial distribution</strong>:</p>
+<p><span class="math display">\[
+P(y = s | n, \theta) = {n \choose s} \theta^{s} (1 - \theta)^{n - s},
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of independent trials (patients), <span class="math inline">\(s\)</span> is the number of observed “successes” (improvements), and <span class="math inline">\(\theta\)</span> is the probability of success for any individual case. The Binomial distribution gives us the <strong>likelihood</strong>, <span class="math inline">\(P(y | n, \theta)\)</span>, or the probability of observing <span class="math inline">\(s\)</span> successes out of <span class="math inline">\(n\)</span> trials given a particular value of <span class="math inline">\(\theta\)</span>.</p>
+</section>
+<section id="the-beta-distribution-modeling-prior-beliefs" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="the-beta-distribution-modeling-prior-beliefs"><span class="header-section-number">10.2.2</span> The Beta Distribution: Modeling Prior Beliefs</h3>
+<p>Next, we need a way to represent the physician’s prior belief about <span class="math inline">\(\theta\)</span>, the true effectiveness of treatment. Because <span class="math inline">\(\theta\)</span> must lie between 0 and 1, a natural choice is the <strong>Beta distribution</strong>, which is defined on the interval <span class="math inline">\([0, 1]\)</span> and is the <strong>conjugate prior</strong> (<a href="#def-conjugate-prior" class="quarto-xref">Definition&nbsp;<span>10.1</span></a>) for the Binomial distribution likelihood function. The Beta distribution has two <em>shape parameters</em>, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, that determine its mean, variance, and overall shape:</p>
+<p><span class="math display">\[
+P(\theta) = \frac{\theta^{\alpha - 1} (1 - \theta)^{\beta - 1}}{B(\alpha, \beta)},
+\]</span></p>
+<p>where <span class="math inline">\(B(\alpha, \beta)\)</span> is a normalizing constant ensuring the density integrates to 1. The mean and variance are:</p>
+<p><span class="math display">\[
+E[\theta] = \frac{\alpha}{\alpha + \beta}, \quad
+Var(\theta) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}.
+\]</span></p>
+<p>The Beta distribution is extremely flexible. When <span class="math inline">\(\alpha = \beta = 1\)</span>, it is uniform over <span class="math inline">\([0, 1]\)</span>, representing no strong prior belief; when <span class="math inline">\(\alpha &gt; \beta\)</span>, beliefs are shifted to higher values of <span class="math inline">\(\theta\)</span> (optimism); and when <span class="math inline">\(\alpha &lt; \beta\)</span>, beliefs shift toward lower values of <span class="math inline">\(\theta\)</span> (skepticism).</p>
+<div id="def-conjugate-prior" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10.1 (Conjugate Priors)</strong></span> In Bayesian analysis, a <strong>conjugate prior</strong> is a prior distribution that, when combined with a particular likelihood, yields a posterior that is in the same family of distributions. Conjugate priors make the math tractable and the interpretation straightforward. For the Binomial likelihood, the Beta distribution is conjugate. This means that if the prior is <span class="math inline">\(Beta(\alpha_0, \beta_0)\)</span> and the data are Binomial, the posterior will also follow a Beta distribution, with updated parameters reflecting both the prior information and the new evidence. This property is especially convenient for modeling physician learning as it lets us express belief updating in simple, interpretable terms while maintaining a realistic parameter space (<span class="math inline">\(0 \leq \theta \leq 1\)</span>).</p>
+</div>
+</section>
+<section id="the-posterior-distribution" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="the-posterior-distribution"><span class="header-section-number">10.2.3</span> The Posterior Distribution</h3>
+<p>Applying Bayes’ rule, the posterior distribution for <span class="math inline">\(\theta\)</span> after observing <span class="math inline">\(s\)</span> successes out of <span class="math inline">\(n\)</span> trials is proportional to the product of the likelihood and the prior. This is directly from Bayes’ rule.</p>
+<p><span class="math display">\[
+P(\theta | y) \propto P(y | \theta) \times P(\theta).
+\]</span></p>
+<p>Substituting the Binomial likelihood and the Beta prior gives:</p>
+<p><span class="math display">\[
+P(\theta | y) \propto
+\theta^{s} (1 - \theta)^{n - s}
+\times
+\theta^{\alpha_0 - 1} (1 - \theta)^{\beta_0 - 1}
+\propto
+\theta^{\alpha_0 + s - 1} (1 - \theta)^{\beta_0 + n - s - 1},
+\]</span></p>
+<p>where terms unrelated to <span class="math inline">\(\theta\)</span> are normalization factors and do not enter into the proportional representation. Thus, the posterior is again a Beta distribution:</p>
+<p><span class="math display">\[
+\theta | y \sim Beta(\alpha_1, \beta_1),
+\]</span></p>
+<p>where the updated (posterior) parameters are:</p>
+<p><span class="math display">\[
+\alpha_1 = \alpha_0 + s, \quad
+\beta_1 = \beta_0 + n - s.
+\]</span></p>
+<p>This result illustrates how the physician’s beliefs evolve as new evidence accumulates. The updated mean is:</p>
+<p><span class="math display">\[
+E[\theta | y] = \frac{\alpha_1}{\alpha_1 + \beta_1}
+= \frac{\alpha_0 + s}{\alpha_0 + \beta_0 + n}.
+\]</span></p>
+<p>The larger the sample size <span class="math inline">\(n\)</span>, the more influence the data have relative to the prior, and the more the posterior mean moves toward the observed frequency <span class="math inline">\(s/n\)</span>. The Beta–Binomial model therefore provides a simple, intuitive way to represent learning from binary outcomes. The Beta prior captures prior beliefs about treatment effectiveness, while the Binomial likelihood captures the evidence. Bayesian updating combines the two to form an updated posterior belief that always stays within the same family of distributions.</p>
+</section>
+<section id="visualizing-the-betabinomial-model" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="visualizing-the-betabinomial-model"><span class="header-section-number">10.2.4</span> Visualizing the Beta–Binomial Model</h3>
+<p>It is often easier to understand Bayesian updating by <em>seeing</em> how the prior and likelihood combine to form the posterior. In the Beta–Binomial model, the prior, likelihood, and posterior are functions of the same parameter, <span class="math inline">\(\theta\)</span>. The following examples show how beliefs evolve as new data arrive.</p>
+<section id="step-1-plot-the-prior" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-1-plot-the-prior">Step 1: Plot the Prior</h4>
+<p>Let’s begin with a relatively <strong>diffuse prior</strong>, representing a physician who has little prior knowledge about a new treatment’s effectiveness. We’ll use <span class="math inline">\(Beta(2,2)\)</span>, which places moderate weight across the whole <span class="math inline">\([0,1]\)</span> interval.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-prior" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="physicians-3-1_files/figure-html/fig-prior-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Diffuse Beta(2,2) prior distribution.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This prior is symmetric around 0.5, expressing mild uncertainty but no strong opinion.</p>
+</section>
+<section id="step-2-plot-the-likelihood" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-2-plot-the-likelihood">Step 2: Plot the Likelihood</h4>
+<p>Suppose the physician treats <span class="math inline">\(n = 20\)</span> patients and observes <span class="math inline">\(s = 14\)</span> improvements. The likelihood of the data, <span class="math inline">\(P(y | \theta)\)</span>, reflects how probable this outcome would be under different assumed values of <span class="math inline">\(\theta\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-likelihood" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="physicians-3-1_files/figure-html/fig-likelihood-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: Binomial likelihood for 14 successes out of 20 trials.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The likelihood peaks around <span class="math inline">\(\theta = 0.7\)</span>, indicating that the data are most consistent with a success probability near 70%.</p>
+</section>
+<section id="step-3-combine-prior-and-likelihood-to-form-posterior" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-3-combine-prior-and-likelihood-to-form-posterior">Step 3: Combine Prior and Likelihood to Form Posterior</h4>
+<p>Because the Beta prior is conjugate to the Binomial likelihood, we can compute the posterior analytically. With <span class="math inline">\(\alpha_0 = 2\)</span> and <span class="math inline">\(\beta_0 = 2\)</span>, the posterior parameters become, <span class="math inline">\(\alpha_{1} = \alpha_{0} + s = 16\)</span> and <span class="math inline">\(\beta_{1} = \beta_{0} + n - s = 8\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-posterior" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="physicians-3-1_files/figure-html/fig-posterior-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.3: Prior, likelihood, and posterior distributions.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This figure shows how new data move the physician’s beliefs:</p>
+<ul>
+<li>The <strong>prior</strong> (red) expresses initial uncertainty.<br>
+</li>
+<li>The <strong>likelihood</strong> (gray) represents the evidence from observed outcomes.<br>
+</li>
+<li>The <strong>posterior</strong> (blue) shifts toward the data, reflecting stronger belief that <span class="math inline">\(\theta\)</span> lies near 0.7.</li>
+</ul>
+</section>
+<section id="step-4-interpretation" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-4-interpretation">Step 4: Interpretation</h4>
+<p>After observing these data, the posterior mean becomes</p>
+<p><span class="math display">\[
+E[\theta | y] = \frac{\alpha_1}{\alpha_1 + \beta_1} = \frac{16}{24} \approx 0.67.
+\]</span></p>
+<p>The posterior is more concentrated than the prior, reflecting greater confidence in the treatment’s effectiveness. If the physician continues to observe additional patients, this process repeats, where each new piece of information nudges the posterior toward the true underlying value of <span class="math inline">\(\theta\)</span>.</p>
+</section>
 </section>
 </section>
 <section id="some-examples" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="some-examples"><span class="header-section-number">10.3</span> Some Examples</h2>
-<p>To contextualize things, let us delve into two illustrative cases that elucidate the potential role of physician learning in healthcare variation. Assume that physician’s have access to the same data in which 70 out of 100 patients showed improvement from a new treatment.</p>
+<p>To contextualize these ideas, let us consider two illustrative cases that highlight how physician learning can shape healthcare variation. Assume that physicians observe the same evidence: 70 out of 100 patients improve after receiving a new treatment.</p>
 <section id="case-1-diffuse-priors-and-belief-convergence" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="case-1-diffuse-priors-and-belief-convergence"><span class="header-section-number">10.3.1</span> Case 1: “Diffuse” Priors and Belief Convergence</h3>
-<p>A “diffuse” prior can be reflected by a uniform distribution of beliefs in the the physician has no strong prior as to the effectiveness (or ineffectiveness) of treatment. We can reflect this formally with <span class="math inline">\(Beta(\alpha_{0}=1, \beta_{0}=1)\)</span>. Following the steps from the prior section, we know that the updated posterior distribution will also follow a Beta distribution with shape parameters <span class="math inline">\(\alpha_{1} = \alpha_{0} + 70 = 71\)</span> and <span class="math inline">\(\beta_{1} = \beta_{0} + 100 - 70 = 31\)</span>. The posterior mean is then <span class="math inline">\(\mu = \frac{\alpha_{1}}{\alpha_{1}+\beta_{1}} = \frac{71}{71+31} \approx 0.6969\)</span>. So the physician’s updated belief of the effectiveness of treatment almost exactly matches the observed effectiveness rate of 70%.</p>
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="case-1-diffuse-priors-and-belief-convergence"><span class="header-section-number">10.3.1</span> Case 1: Diffuse Priors and Belief Convergence</h3>
+<p>A <strong>diffuse prior</strong> reflects a physician who has no strong beliefs about the effectiveness of the treatment. Formally, this corresponds to a uniform prior, <span class="math inline">\(Beta(\alpha_0 = 1, \beta_0 = 1)\)</span>.</p>
+<p>Following the updating rule from the previous section, the posterior parameters are:</p>
+<p><span class="math display">\[
+\alpha_1 = \alpha_0 + s = 71, \quad
+\beta_1 = \beta_0 + n - s = 31.
+\]</span></p>
+<p>The posterior mean is:</p>
+<p><span class="math display">\[
+\mu = \frac{\alpha_1}{\alpha_1 + \beta_1} = \frac{71}{71 + 31} \approx 0.697.
+\]</span></p>
+<p>In this case, the posterior mean almost exactly matches the observed success rate of 70%, meaning that the physician’s belief quickly converges toward the data. Diffuse priors lead to <em>faster learning</em> because the prior exerts little influence relative to the new evidence.</p>
 </section>
-<section id="case-2-the-impact-of-strong-priors" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="case-2-the-impact-of-strong-priors"><span class="header-section-number">10.3.2</span> Case 2: The Impact of “Strong” Priors</h3>
-<p>In contrast, consider a case in which the physician has very strong negative priors (e.g., they firmly believe that this new treatment is ineffective). We can capture this formally with <span class="math inline">\(Beta(\alpha_{0}=1, \beta_{0}=20)\)</span>. The posterior mean, again based on 70 successes out of 100 cases, is <span class="math inline">\(\mu = \frac{\alpha_{1}}{\alpha_{1}+\beta_{1}} = \frac{71}{71+50} \approx 0.5861\)</span>. In this case, even though the physician had access to the same observational data, they place significantly less weight on those data and therefore remain more skeptical of the effectiveness of the treatment.</p>
+<section id="case-2-strong-priors-and-slower-updating" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="case-2-strong-priors-and-slower-updating"><span class="header-section-number">10.3.2</span> Case 2: Strong Priors and Slower Updating</h3>
+<p>Now consider a physician with <strong>strong negative priors</strong> (e.g., a strong belief that the new treatment is unlikely to work). We can represent this with <span class="math inline">\(Beta(\alpha_0 = 1, \beta_0 = 20)\)</span>.</p>
+<p>After observing the same data (70 successes out of 100), the posterior parameters become:</p>
+<p><span class="math display">\[
+\alpha_1 = 1 + 70 = 71, \quad
+\beta_1 = 20 + 30 = 50.
+\]</span></p>
+<p>The posterior mean is:</p>
+<p><span class="math display">\[
+\mu = \frac{\alpha_1}{\alpha_1 + \beta_1} = \frac{71}{71 + 50} \approx 0.586.
+\]</span></p>
+<p>Even though this physician saw the same outcomes as before, their posterior belief remains more pessimistic. Because their prior belief carried more weight, they adjust less in response to the new data. This captures an essential feature of Bayesian learning: <strong>priors anchor beliefs</strong>, and the strength of that anchor determines how quickly learning occurs.</p>
 </section>
 </section>
 <section id="discussion" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="discussion"><span class="header-section-number">10.4</span> Discussion</h2>
-<p>The point of all of this is to highlight how different physicians may more quickly or more slowly adopt certain technologies or new treatment options. As such, learning is a source of heterogeneities in healthcare utilization, with different patients being exposed to different preferences, priors, and learning histories of different physicians.</p>
+<p>These examples highlight how differences in priors can translate into variation in medical practice. Physicians with diffuse priors will update their beliefs quickly and may adopt new technologies or treatments more readily. Physicians with strong priors, whether optimistic or skeptical, will adjust more slowly, leading to persistent heterogeneity in care patterns even when everyone observes the same evidence. From a broader perspective, this framework provides some structure for examining learning as a potential driver of variation in healthcare utilization, where physician’s decisions reflect not only their current information but also the <em>path</em> of their past experiences and beliefs.</p>
 
 
 </section>
@@ -413,18 +614,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -456,11 +646,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -470,8 +699,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -483,7 +721,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -527,6 +888,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -552,6 +914,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -613,17 +1001,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part2/physicians-2-2.html" class="pagination-link">
+      <a href="../part2/physicians-2-2.html" class="pagination-link" aria-label="Agency and Different Payment Models">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agency and Different Payment Models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part2/physicians-3-2.html" class="pagination-link">
+      <a href="../part2/physicians-3-2.html" class="pagination-link" aria-label="Physician Training and Practice Environment">
         <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Physician Training and Practice Environment</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
