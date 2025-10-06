@@ -22,7 +22,7 @@ $$P(A|B) = \frac{P(B|A) \times P(A)}{P(B)},$$
 
 where $P(A|B)$ denotes the *posterior* or updated belief after seeing the data; $P(B|A)$ denotes the *likelihood* or how likely the data are if $A$ were true; $P(A)$ denotes the *prior* or belief before seeing the data; and $P(B)$ dentoes the *marginal probability* of observing $B$ at all. This expression reads as “the probability of $A$ given $B$ equals the probability of $B$ given $A$, times the prior probability of $A$, divided by the overall probability of $B$.”
 
-### Example: Diagnostic Testing
+## Example: Diagnostic Testing and Bayes’ Rule
 
 A common illustration comes from diagnostic testing. Suppose 1% of a population has a disease, and a diagnostic test is 99% accurate — it correctly identifies disease when it is present and correctly rules it out when it is absent. If a patient tests positive, what is the probability they actually have the disease?
 
@@ -34,8 +34,34 @@ P(\text{Disease} | \text{Positive}) =
 {P(\text{Positive})}.
 $$
 
-The denominator, $P(\text{Positive})$, accounts for *all* positive results, both true positives and false positives. Even though the test is highly accurate, the low base rate (only 1% prevalence) means most positive results are false positives. In this example, the posterior probability that the person actually has the disease is only about 50%.  
+To apply this, we need all the relevant probabilities:
 
+- $P(\text{Disease}) = 0.01$  
+- $P(\text{No Disease}) = 0.99$  
+- $P(\text{Positive} | \text{Disease}) = 0.99$ (sensitivity)  
+- $P(\text{Negative} | \text{No Disease}) = 0.99$ (specificity)  
+- Thus, $P(\text{Positive} | \text{No Disease}) = 0.01$
+
+The denominator, $P(\text{Positive})$, accounts for *all* positive results, both true positives and false positives:
+
+$$
+\begin{aligned}
+P(\text{Positive}) 
+&= P(\text{Positive} | \text{Disease}) P(\text{Disease})
+  + P(\text{Positive} | \text{No Disease}) P(\text{No Disease}) \\
+&= (0.99)(0.01) + (0.01)(0.99) = 0.0099 + 0.0099 = 0.0198.
+\end{aligned}
+$$
+
+Finally, applying Bayes’ rule:
+
+$$
+P(\text{Disease} | \text{Positive}) = 
+\frac{0.99 \times 0.01}{0.0198} \approx 0.50.
+$$
+
+Even though the test is highly accurate, the low base rate (only 1% prevalence) means most positive results are false positives. In this example, the posterior probability that the person actually has the disease is only about **50%**.
+ 
 This demonstrates a key feature of Bayes’ rule: our updated beliefs depend on both the **quality of the evidence** and the **baseline probability** of what we are testing for. Bayes’ rule therefore provides a disciplined way to update beliefs in light of new data. Every Bayesian model, including those used to study physician learning, begins with this principle.
 
 ### From Events to Distributions
