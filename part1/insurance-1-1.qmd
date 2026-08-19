@@ -88,7 +88,7 @@ Premiums have risen steadily over time, as shown in @fig-premiums. Several facto
 
 While premiums must be paid every month, cost-sharing refers to what patients pay when they actually use health care. Cost-sharing provisions determine the out-of-pocket expenses a patient faces once they receive care. The three most common forms are the **deductible** (@def-deductible), **co-insurance** (@def-coinsurance), and **co-payment** (@def-copayment).
 
-Figure @fig-cost-sharing shows that over time, insurers have relied more heavily on high deductibles and co-insurance, while the use of co-payments has declined.
+@fig-cost-sharing shows that over time, insurers have relied more heavily on high deductibles and co-insurance, while the use of co-payments has declined.
 
 ![Cost-sharing](../figures/kff-cost-sharing.png){#fig-cost-sharing}
 

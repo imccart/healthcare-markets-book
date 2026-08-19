@@ -8,7 +8,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-Physicians play a pivotal role in influencing health care decisions, acting as agents on behalf of their patients. Patients rely on physicians’ knowledge, but financial incentives mean that doctors may not always make the same choices patients would under full information. A central policy question is therefore: **how do financial incentives shape the quantity and type of care physicians provide?**  
+Physicians play a pivotal role in influencing health care decisions, acting as agents on behalf of their patients. Patients rely on physicians’ knowledge, but financial incentives mean that physicians may not always make the same choices patients would under full information. A central policy question is therefore: how do financial incentives shape the quantity and type of care physicians provide?  
 
 In the next two chapters, we focus on financial incentives in the context of physician agency. This chapter builds a simple economic model of treatment choice to illustrate the mechanisms. In the following chapter, we will use this framework to compare alternative payment systems.  
 
@@ -53,9 +53,9 @@ The model therefore predicts that physicians will provide more services than pat
 
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Depiction of physician agency"
-#| label: fig-physician-agency
+%| echo: false
+%| fig.cap: "Depiction of physician agency"
+%| label: fig-physician-agency
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[scale=0.70, every node/.style={black,opacity=1, transform shape}]
@@ -103,7 +103,7 @@ This result highlights an important policy implication: attempts to control spen
 
 ## Other Considerations
 
-This simplified model highlights how fee for service financial incentives can shape physician behavior, and the model is valuable for understanding basic mechanisms at work. Still, there are several caveats to keep in mind when connecting the theory to practice.
+This simplified model highlights how fee-for-service financial incentives can shape physician behavior, and the model is valuable for understanding basic mechanisms at work. Still, there are several caveats to keep in mind when connecting the theory to practice.
 
 First, in reality the patient’s out-of-pocket price and the physician’s reimbursement rate often differ. Our baseline model treats them as the same for simplicity, which helps keep the intuition clear, but it is important to remember that policy changes can shift one without the other. A simple two-price extension shows how the same basic framework can accommodate this distinction (see [Section -@sec-twoprice-agency]).
 

@@ -21,7 +21,7 @@ ins.dat <- ins.dat %>%
          perc_direct = ins_direct/adult_pop)
 ```
 
-Health insurance in the United States has never been one coherent system. Instead, it has grown into a patchwork of programs and private arrangements that reflect both historical accidents and deliberate policy choices. Figure @fig-insurance-type offers a snapshot from 2012, just before the Affordable Care Act (ACA) was fully implemented. At that time, nearly one in five adults under age sixty-five had no insurance at all. Among those who were covered, the vast majority relied on an employer, while much smaller shares purchased insurance directly or enrolled in Medicaid.
+Health insurance in the United States has never been one coherent system. Instead, it has grown into a patchwork of programs and private arrangements that reflect both historical accidents and deliberate policy choices. @fig-insurance-type offers a snapshot from 2012, just before the Affordable Care Act (ACA) was fully implemented. At that time, nearly one in five adults under age sixty-five had no insurance at all. Among those who were covered, the vast majority relied on an employer, while much smaller shares purchased insurance directly or enrolled in Medicaid.
 
 ```{r}
 #| echo: false
@@ -44,7 +44,7 @@ ins.dat %>%
                                              'perc_unins'='Uninsured'))
 ```
 
-After the ACA took effect, the picture changed dramatically. As Figure @fig-uninsurance shows, the share of adults without insurance fell sharply, especially after 2014 when Medicaid expansions began and new marketplaces opened for non-group coverage. Figure @fig-insurance-time makes clear that the reduction in uninsurance was driven almost entirely by increases in Medicaid enrollment and in people buying coverage on their own.
+After the ACA took effect, the picture changed dramatically. As @fig-uninsurance shows, the share of adults without insurance fell sharply, especially after 2014 when Medicaid expansions began and new marketplaces opened for non-group coverage. @fig-insurance-time makes clear that the reduction in uninsurance was driven almost entirely by increases in Medicaid enrollment and in people buying coverage on their own.
 
 ```{r}
 #| echo: false

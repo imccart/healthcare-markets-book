@@ -28,7 +28,7 @@ Despite these gains, risk adjustment has limits. In MA, risk scores explain less
 
 ## Managed competition
 
-Even with risk adjustment, health insurance markets rarely approach what we would call a clearly competitive market? Demand for coverage is relatively price-inelastic, entry costs are high, and most local markets are dominated by just a few insurers. For example, in Medicare Advantage (MA), three insurers often account for more than 95% of enrollment in a given county. This concentration reflects fixed costs of entry, CMS network requirements, and the need to build provider networks.
+Even with risk adjustment, health insurance markets rarely approach what we would call a clearly competitive market. Demand for coverage is relatively price-inelastic, entry costs are high, and most local markets are dominated by just a few insurers. For example, in Medicare Advantage (MA), three insurers often account for more than 95% of enrollment in a given county. This concentration reflects fixed costs of entry, CMS network requirements, and the need to build provider networks.
 
 Because competition is limited, policymakers often rely on managed competition: markets are opened to private plans, but rules and payment formulas are designed to mimic the discipline of competition. The MA payment system is a good illustration. Plans submit bids relative to a benchmark $B$ based on FFS costs. If a plan’s bid $b$ falls below the benchmark, the plan receives $b$ plus part of the gap between $B$ and $b$ as a rebate; if $b$ exceeds $B$, the difference is passed on as a higher premium to the enrollee.
 

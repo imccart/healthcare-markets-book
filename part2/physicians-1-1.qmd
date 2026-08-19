@@ -27,7 +27,7 @@ Taken together, these dimensions—training, organizational setting, hospital in
 
 ## The Role of Physicians
 
-Against this backdrop of a fragmented and varied delivery system, physicians hold a pivotal role as “gatekeepers.” Because patients typically enter the system through a physician encounter, doctors become the key actors who translate the structure of health care delivery into individual treatment decisions.  
+Against this backdrop of a fragmented and varied delivery system, physicians hold a pivotal role as “gatekeepers.” Because patients typically enter the system through a physician encounter, physicians become the key actors who translate the structure of health care delivery into individual treatment decisions.  
 
 They are often the entry point into the system, whether through primary care visits or emergency departments. Primary care physicians refer patients to specialists and ancillary services. Specialists in turn refer patients to other specialists, order imaging or laboratory services, and may decide on the location of surgeries. Hospitalists and specialists also coordinate follow-up care after inpatient stays. Across all of these encounters, physicians are responsible for selecting medications and determining treatment intensity.  
 

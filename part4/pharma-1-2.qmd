@@ -16,7 +16,7 @@ To distill the complexities of pharmaceutical pricing, it's instructive to adopt
 
 ## Monopoly Pricing
 
-Several blockbuster drugs illustrate the monopoly pricing model effectively, given their unique therapeutic profiles and absence of close substitutes during their patent-protected periods. Lipitor, a cholesterol-lowering drug, has garnered lifetime revenue exceeding $130 billion, establishing it as a pharmaceutical titan in its category. Humira, used for various autoimmune conditions, has achieved lifetime revenue of over $100 billion, dominating its market segment. Advair, a medication for asthma and chronic obstructive pulmonary disease (COPD), also fits this model with lifetime revenue surpassing $90 billion. In each of these cases, the monopoly pricing model aptly captures the market dynamics, as these drugs had no close substitutes while under patent protection.
+Several blockbuster drugs illustrate the monopoly pricing model effectively, given their unique therapeutic profiles and absence of close substitutes during their patent-protected periods. Lipitor, a cholesterol-lowering drug, has garnered lifetime revenue exceeding \$130 billion, establishing it as a pharmaceutical titan in its category. Humira, used for various autoimmune conditions, has achieved lifetime revenue of over \$100 billion, dominating its market segment. Advair, a medication for asthma and chronic obstructive pulmonary disease (COPD), also fits this model with lifetime revenue surpassing \$90 billion. In each of these cases, the monopoly pricing model aptly captures the market dynamics, as these drugs had no close substitutes while under patent protection.
 
 In the simplest economic framework of monopoly pricing without the influence of health insurance, we consider the following model. The inverse demand function for the drug is given by $p = a - bq$, where $p$ is the price and $q$ is the quantity. The cost structure consists of a fixed cost $FC$ and a variable cost component $c \times q$, leading to total costs of $FC + c \times q$. The profit function $\pi$ is therefore $\pi = (a - c)q - bq^2 - FC$.
 
@@ -26,9 +26,9 @@ $$\begin{align*} q^* &= \frac{a-c}{2b} \\
 These equations yield the optimal quantity and price for the monopoly drug manufacturer in a simplified setting, absent of health insurance considerations. This optimal solution is presented graphically in @fig-monopoly.
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Depiction of Monopoly Pricing"
-#| label: fig-monopoly
+%| echo: false
+%| fig.cap: "Depiction of Monopoly Pricing"
+%| label: fig-monopoly
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[scale=0.40, every node/.style={black,opacity=1, transform shape}]
@@ -59,9 +59,9 @@ These equations reflect the modified monopolistic pricing strategy when coinsura
 
 To compare the pricing solutions, it is instructive to examine the ratio of monopoly prices with coinsurance ($p^{*}_{c}$) to those without coinsurance ($p^{*}_{nc}$). The ratio is given by:
 
-$$\frac{p^{*}_{c}}{p^{*}_{nc}} = \frac{\frac{1}{2} \left(\frac{a}{\alpha}+c\right)}{\frac{a+c}{2}} = \frac{1}{\alpha}$$
+$$\frac{p^{*}_{c}}{p^{*}_{nc}} = \frac{\frac{1}{2} \left(\frac{a}{\alpha}+c\right)}{\frac{a+c}{2}} = \frac{a+\alpha c}{\alpha(a+c)} > 1$$
 
-This result clearly shows that the monopoly price under coinsurance is higher than the price without coinsurance, by a factor of $\frac{1}{\alpha}$. Thus, the presence of coinsurance amplifies the market power of the monopolist, allowing for higher prices compared to a setting without insurance.
+This result shows that the monopoly price under coinsurance is higher than the price without coinsurance whenever $\alpha < 1$, reaching a factor of $\frac{1}{\alpha}$ when marginal cost $c=0$. The presence of coinsurance amplifies the market power of the monopolist, allowing for higher prices compared to a setting without insurance.
 
 ### Monopoly Pricing with Co-payments
 
@@ -83,21 +83,21 @@ Each firm takes an action by choosing a price $p_{i}$ for its product. The deman
 
 In the Bertrand model, the best response functions for Firm 1 and Firm 2 are given by:
 
-$$\begin{align*} p_{1}^*(p_{2}) &= \frac{a + cp_{2} + mc_{1}}{2b + 1} \\
-p_{2}^*(p_{1}) &= \frac{a + cp_{1} + mc_{2}}{2b + 1} \end{align*}$$
+$$\begin{align*} p_{1}^*(p_{2}) &= \frac{a + cp_{2} + b\,mc_{1}}{2b} \\
+p_{2}^*(p_{1}) &= \frac{a + cp_{1} + b\,mc_{2}}{2b} \end{align*}$$
 
 These functions capture each firm's optimal pricing strategy in response to the rival firm's price. Specifically, each firm's price is a function of the other firm's price, indicating interdependence in their pricing decisions. These equations serve as the foundation for analyzing equilibrium pricing strategies in markets with differentiated products.
 
 The equilibrium prices can be derived by setting the best response functions of the two firms equal to each other. This yields the following Nash equilibrium prices for $p_{1}^{*}$ and $p_{2}^{*}$:
 
-$$\begin{align*} p_{1}^{*} &= \frac{a(2b+1) + c(a + mc_{2}) + mc_{1}(2b+1)}{2b+1 - c^2} \\
-p_{2}^{*} &= \frac{a(2b+1) + c(a + mc_{1}) + mc_{2}(2b+1)}{2b+1 - c^2}\end{align*}$$
+$$\begin{align*} p_{1}^{*} &= \frac{a(2b+c) + 2b^2\,mc_{1} + bc\,mc_{2}}{4b^2 - c^2} \\
+p_{2}^{*} &= \frac{a(2b+c) + 2b^2\,mc_{2} + bc\,mc_{1}}{4b^2 - c^2}\end{align*}$$
 
 At these prices, neither firm has an incentive to unilaterally deviate, as both are maximizing their profits given the other firm's price. This constitutes a Nash equilibrium in prices for this Bertrand model with differentiated products.
 
-Recall the classic monopoly pricing formula is given by $$p_{m} = \frac{a + mc_{m}}{2b},$$ which typically results in higher prices compared to those set by competitive firms. In the Bertrand model with differentiated products, the degree of differentiation between products, as represented by the parameter $c$, can push prices closer to monopoly levels. It's also worth noting that, unlike in a pure monopoly where prices depend solely on the monopolist's own costs, in a Bertrand setting, the equilibrium prices depend on the costs of both competing firms.
+Recall the classic monopoly pricing formula is given by $$p_{m} = \frac{a + b\,mc_{m}}{2b},$$ which typically results in higher prices compared to those set by competitive firms. In the Bertrand model with differentiated products, the degree of differentiation between products, as represented by the parameter $c$, can push prices closer to monopoly levels. It's also worth noting that, unlike in a pure monopoly where prices depend solely on the monopolist's own costs, in a Bertrand setting, the equilibrium prices depend on the costs of both competing firms.
 
-In a multi-stage game involving an insurer, the insurer initially selects one drug, assigning it a copayment $c$, to include in its formulary while excluding the other. Firms then engage in Bertrand pricing, essentially submitting "bids" for inclusion on the insurer's formulary. Finally, the insurer selects a drug for the formulary based on these bids. 
+In a multi-stage game involving an insurer, the insurer initially selects one drug, assigning it a copayment, to include in its formulary while excluding the other. Firms then engage in Bertrand pricing, essentially submitting "bids" for inclusion on the insurer's formulary. Finally, the insurer selects a drug for the formulary based on these bids. 
 
 In terms of solution concepts, if Firm 1 sets its price at the original Bertrand price, denoted as $p_{1}^{b}$, Firm 2 can undercut this by just a small amount, $\epsilon$, effectively capturing most or all of the market. This suggests that $p_{1}^{b}, p_{2}^{b}$ would not be an equilibrium. Firms will lower their prices until the additional profit from extra sales on the formulary is less than the profit generated from the drug being off the formulary.
 
@@ -106,11 +106,11 @@ The final implication is that insurers will likely leverage tiered formularies a
 
 - When discussing brand name drugs without close substitutes:
 
-> Under these circumstances, there is little opportunity for a purchaser to stimulate competition among manufacturers. Manufacturers are roughly free to set launch prices, they rarely discount those prices, and purchasers and price takers.
+> Under these circumstances, there is little opportunity for a purchaser to stimulate competition among manufacturers. Manufacturers are roughly free to set launch prices, they rarely discount those prices, and purchasers are price takers.
 
 - When discussing brand name drugs with some imperfect substitutes:
 
-> This stage represents the lion's share of the market at any given time...Depending on how similar the drugs are...organized purchasers have the ability to either switch patients in a medially appropriate way...or at least start new patients on a preferred drug...This is the area where formularies can be applied for the greatest effect on overall costs.
+> This stage represents the lion's share of the market at any given time...Depending on how similar the drugs are...organized purchasers have the ability to either switch patients in a medically appropriate way...or at least start new patients on a preferred drug...This is the area where formularies can be applied for the greatest effect on overall costs.
 
 
 ## References {.unnumbered}

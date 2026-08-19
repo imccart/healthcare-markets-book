@@ -55,7 +55,7 @@ Before the outcome is realized, I can calculate the expected value of my wealth:
 
 $$E[w] = p_{h}w_{h} + p_{s}w_{s}$$
 
-With $p_h = 0.9$ and $p_s = 0.1$, the expected wealth is $r round(e.pay, 2).
+With $p_h = 0.9$ and $p_s = 0.1$, the expected wealth is `r round(e.pay, 2)`.
 
 We can also compute expected costs. Because costs only occur if I’m sick, $E[cost]=p_{h} \times 0 + p_{s} \times cost_{s} = p_{s}cost_{s}$, or \$`r round(e.cost, digits=2)`. Expected wealth and expected cost are related but distinct. Individuals think about expected wealth (what they keep), while insurers focus on expected cost (what they must cover).
 
@@ -67,7 +67,7 @@ We can then form *expected utility*:
 
 $$E[u(w)]=p_{h}u(w_{h}) + p_{s}u(w_{s})$$
 
-For example, if $u(w) = \sqrt{w}$, the expected utility is r round(e.util, 2). Notice that this is not the utility of the expected wealth — it’s the expectation of utility values. This distinction is critical for understanding risk aversion, risk premiums, and willingness to pay for insurance.
+For example, if $u(w) = \sqrt{w}$, the expected utility is `r round(e.util, 2)`. Notice that this is not the utility of the expected wealth — it’s the expectation of utility values. This distinction is critical for understanding risk aversion, risk premiums, and willingness to pay for insurance.
 
 ## Risk preferences
 
@@ -81,9 +81,9 @@ For our purposes, we assume risk aversion, which naturally arises from diminishi
 
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Depiction of risk aversion"
-#| label: fig-risk-averse
+%| echo: false
+%| fig.cap: "Depiction of risk aversion"
+%| label: fig-risk-averse
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[my plot/.style={
@@ -115,9 +115,9 @@ A more concrete way to capture risk aversion is through the risk premium, $\pi$.
 @fig-risk-averse2 illustrates. If certainty provides utility $\bar{u}$ at wealth $\bar{w}$, then facing uncertainty requires wealth $\bar{w} + \pi$ to reach the same utility. The difference $\pi$ is the risk premium. We'll get to this in much more detail in the next chapter.
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Depiction of risk aversion"
-#| label: fig-risk-averse2
+%| echo: false
+%| fig.cap: "Depiction of risk aversion"
+%| label: fig-risk-averse2
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[my plot/.style={

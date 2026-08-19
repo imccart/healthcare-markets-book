@@ -11,7 +11,7 @@ pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OEC
 
 Asymmetric information arises when one party to a transaction has more knowledge than the other. In health insurance markets, individuals generally have better information about their own health conditions and risks than insurers. This imbalance introduces the potential for adverse selection, in which individuals with higher expected health care needs are more likely to purchase or retain insurance than healthier individuals. The result is an enrollment pool that is disproportionately high risk, which raises average costs for insurers and can destabilize the market.
 
-**Adverse selection** (@def-wtp) occurs because individuals act on information about their own expected costs that insurers cannot perfectly observe or price. For example, individuals who anticipate higher medical expenses due to chronic conditions or recent diagnoses are more inclined to seek coverage, while healthier individuals may opt out if premiums seem high relative to their perceived risk. This self-selection can create serious challenges for insurers, since the higher concentration of high-cost enrollees increases claims and may lead to financial losses.
+**Adverse selection** (@def-selection) occurs because individuals act on information about their own expected costs that insurers cannot perfectly observe or price. For example, individuals who anticipate higher medical expenses due to chronic conditions or recent diagnoses are more inclined to seek coverage, while healthier individuals may opt out if premiums seem high relative to their perceived risk. This self-selection can create serious challenges for insurers, since the higher concentration of high-cost enrollees increases claims and may lead to financial losses.
 
 A useful illustration comes from special enrollment periods. People who choose to sign up outside the standard open enrollment window often do so in response to new or anticipated health needs. Compared to the average enrollee, these individuals tend to have higher costs, underscoring how private information about health status can affect both the composition of the insured population and the dynamics of pricing in insurance markets.
 
@@ -31,9 +31,9 @@ Adverse selection occurs when individuals with higher expected health care costs
 
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Textbook depiction of adverse selection"
-#| label: fig-adverse-selection
+%| echo: false
+%| fig.cap: "Textbook depiction of adverse selection"
+%| label: fig-adverse-selection
 
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows}
@@ -50,7 +50,7 @@ Adverse selection occurs when individuals with higher expected health care costs
 
 The demand curve reflects the maximum premium individuals are willing to pay. As the price falls, additional—typically healthier—individuals enroll. The average cost curve shows the insurer’s average medical costs across all covered enrollees, which decline as healthier individuals join the pool. The marginal cost curve tracks the expected cost of insuring the next enrollee, which is always lower than the average cost since those entering at the margin are the healthiest.  
 
-In a competitive market with community rating (a single premium for all enrollees), equilibrium occurs where demand intersects the average cost curve. At this point, the premium exactly covers expected costs and insurers earn zero profit. Although real insurance markets are rarely perfectly competitive, this stylized model provides a clean framework for analyzing how adverse selection affects prices and coverage.  
+In a competitive market with community rating (a single premium for all enrollees), equilibrium occurs where demand intersects the average cost curve. At this point, the premium exactly covers expected costs and insurers earn zero profit. Although real insurance markets are rarely perfectly competitive, this stylized model provides a simple framework for analyzing how adverse selection affects prices and coverage.  
 
 
 
@@ -61,9 +61,9 @@ In a competitive market with community rating (a single premium for all enrollee
 In one scenario, demand for health insurance is consistently above the average cost curve, as shown in @fig-full-insurance. This situation leads to full coverage, since consumers’ willingness to pay always exceeds the insurer’s expected costs. The equilibrium occurs at a point where the number of enrollees is large enough to sustain the market, and the insurer can break even at the community-rated premium.  
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Demand always above AC"
-#| label: fig-full-insurance
+%| echo: false
+%| fig.cap: "Demand always above AC"
+%| label: fig-full-insurance
 
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows}
@@ -93,9 +93,9 @@ A third possibility arises when the demand curve lies entirely below the average
 
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Demand always below AC"
-#| label: fig-unraveling
+%| echo: false
+%| fig.cap: "Demand always below AC"
+%| label: fig-unraveling
 
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows}

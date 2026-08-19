@@ -24,7 +24,7 @@ Managing the risk pool is critical for insurers (not just health insurers). One 
 Health care expenditures and encounters by health status
 :::
 
-So insurers really need to know how to price their products appropriately. To do that, they need to understand what determines someone's willingness to pay for health insurance. That's where we're headed in this chapter.
+So insurers need to price their products carefully. To do that, they need to understand what determines someone's willingness to pay for health insurance. That's where we're headed in this chapter.
 
 
 ## Demand for Health Insurance
@@ -68,9 +68,9 @@ The risk premium is reflected graphically in @fig-risk-premium.
 
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Depiction of risk premium"
-#| label: fig-risk-premium
+%| echo: false
+%| fig.cap: "Depiction of risk premium"
+%| label: fig-risk-premium
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[my plot/.style={

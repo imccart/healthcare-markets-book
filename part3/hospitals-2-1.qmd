@@ -8,7 +8,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, ggplot2, gganimate, gapminder, scales, hrbrthemes, OECD, here, png, gifski, magick, pdftools)
 ```
 
-Within the realm of healthcare economics, providers commonly encounter two distinct pricing scenarios. Firstly, there is a predetermined price set by government programs such as Medicare and Medicaid, denoted as $p_m$. Secondly, providers engage in negotiations with private insurers to establish a price, referred to as $p_n$. The prices set public insurers ($p_m$) may influence the negotiated price with private insurers ($p_n$). For example, providers may employ the Medicare price as a reference point during negotiations with insurers. 
+In health economics, providers commonly encounter two distinct pricing scenarios. Firstly, there is a predetermined price set by government programs such as Medicare and Medicaid, denoted as $p_m$. Secondly, providers engage in negotiations with private insurers to establish a price, referred to as $p_n$. The prices set by public insurers ($p_m$) may influence the negotiated price with private insurers ($p_n$). For example, providers may employ the Medicare price as a reference point during negotiations with insurers. 
 
 Before we think about the interplay of both prices, however, let's focus just on a single-price provider. We'll look first at the case of a provider setting price with some market power, and then we'll turn to the case of a fixed price.
 
@@ -17,7 +17,7 @@ Before we think about the interplay of both prices, however, let's focus just on
 ### For NFP objective functions
 
 Let's assume for now that not-for-profit hospitals are truly not-for-profit and have the following objective function: 
-$$max_{p_{i,j}} U\left( \pi_{j} = \pi_{i,j} + \pi_{g,j},D_{i,j}, D_{g,j} \right),$$
+$$\max_{p_{i,j}} U\left( \pi_{j} = \pi_{i,j} + \pi_{g,j},D_{i,j}, D_{g,j} \right),$$
 
 where $\pi_{j}$ denotes total profits for hospital $j$, $\pi_{i,j}$ denotes profits from payer $i$ and hospital $j$, $\pi_{g,j}$ denotes profits from a government payer and hospital $j$, and $D_{i,j}$ denotes hospital demand from insurer $i$. We assume that $p_{g}$ is exogenous and determined by a public payer, so the hospital need only set its price for private insurance customers, $p_{i,j}$.
 
@@ -29,12 +29,12 @@ where $U_{1}$ denotes the derivative of $U(\cdot)$ with respect to its first arg
 
 ### For FP objective functions
 
-If we instead assumse that the hospital maximizes $\pi_{i,j}$ (e.g., the profit from insurer $i$), then this takes the form of a standard price-setting problem for a monopolisitcally competitive firm, illustrated in @fig-hosp-price.
+If we instead assume that the hospital maximizes $\pi_{i,j}$ (e.g., the profit from insurer $i$), then this takes the form of a standard price-setting problem for a monopolistically competitive firm, illustrated in @fig-hosp-price.
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "For-profit Price-setting"
-#| label: fig-hosp-price
+%| echo: false
+%| fig.cap: "For-profit Price-setting"
+%| label: fig-hosp-price
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[scale=0.40, every node/.style={black,opacity=1, transform shape}]
@@ -58,9 +58,9 @@ Let's first write out the profit function, $\pi = (16-q)q - 5 - q^{2}$. Differen
 Now let's turn to the case of a pure price taker (e.g., a hospital must accept the price set by a public payer). In this case, the hospital will sell at the public price to the point where marginal revenue equals marginal cost, as depicted in @fig-hosp-price-taker.
 
 ```{tikz}
-#| echo: false
-#| fig.cap: "Pure Price Taker"
-#| label: fig-hosp-price-taker
+%| echo: false
+%| fig.cap: "Pure Price Taker"
+%| label: fig-hosp-price-taker
 
 \usetikzlibrary{calc}
 \begin{tikzpicture}[scale=0.40, every node/.style={black,opacity=1, transform shape}]

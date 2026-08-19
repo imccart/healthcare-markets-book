@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>9&nbsp; Agency and Different Payment Models – Economics of Health Care</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -52,15 +54,16 @@ div.csl-indent {
 <meta name="quarto:offset" content="../">
 <link href="../part2/physicians-3-1.html" rel="next">
 <link href="../part2/physicians-2-1.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -90,7 +93,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -103,7 +106,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -121,7 +124,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -354,7 +357,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#physician-agency-with-ffs-vs-capitation" id="toc-physician-agency-with-ffs-vs-capitation" class="nav-link" data-scroll-target="#physician-agency-with-ffs-vs-capitation"><span class="header-section-number">9.2</span> Physician Agency with FFS vs Capitation</a></li>
   <li><a href="#beyond-ffs-vs-capitation" id="toc-beyond-ffs-vs-capitation" class="nav-link" data-scroll-target="#beyond-ffs-vs-capitation"><span class="header-section-number">9.3</span> Beyond FFS vs Capitation</a></li>
-  <li><a href="#agency-irl" id="toc-agency-irl" class="nav-link" data-scroll-target="#agency-irl"><span class="header-section-number">9.4</span> Agency IRL</a></li>
+  <li><a href="#agency-in-practice" id="toc-agency-in-practice" class="nav-link" data-scroll-target="#agency-in-practice"><span class="header-section-number">9.4</span> Agency in Practice</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -387,22 +390,22 @@ window.Quarto = {
 <section id="definitions" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">9.1.1</span> Definitions</h3>
 <p>For our purposes, FFS payments simply consist of separate payments for each service, creating a system where more care leads to more revenue. This is how we envisioned payments in the model in the prior chapter. And with some slight adjustments, this is also how traditional Medicare pays for health care among its beneficiaries.</p>
-<p>In contrast, capitated payments provide a fixed amount intended to cover all expenses for a specific person or group, presenting a financial risk for healthcare providers. If actual expenses exceed the allocated amount, providers experience potential losses, while keeping costs below the capitated payment leads to profitability. The Kaiser system is probably the best example of a totally capitated payment system in the U.S. It’s a private health insurance plan with an associated network of providers. Only people enrolled in the Kaiser insurance plan have access to the Kaiser providers, so it’s a closed system of insurance and providers. Accountable Care Organizations are also similar to a fully capitated model, although not exactly since ACOs are voluntary.</p>
+<p>In contrast, capitated payments provide a fixed amount intended to cover all expenses for a specific person or group, presenting a financial risk for health care providers. If actual expenses exceed the allocated amount, providers experience potential losses, while keeping costs below the capitated payment leads to profitability. The Kaiser system is probably the best example of a totally capitated payment system in the U.S. It’s a private health insurance plan with an associated network of providers. Only people enrolled in the Kaiser insurance plan have access to the Kaiser providers, so it’s a closed system of insurance and providers. Accountable Care Organizations are also similar to a fully capitated model, although not exactly since ACOs are voluntary.</p>
 </section>
 <section id="incentives" class="level3" data-number="9.1.2">
 <h3 data-number="9.1.2" class="anchored" data-anchor-id="incentives"><span class="header-section-number">9.1.2</span> Incentives</h3>
-<p>The differences between FFS and capitated payments create distinct incentives for healthcare providers. Under fee-for-service arrangements, revenue increases with the number of services provided, creating a natural incentive to deliver more care—even if some of that care is only marginally beneficial. By contrast, under capitation, providers receive a fixed payment per patient regardless of the amount of care delivered. This structure rewards cost containment but also introduces the risk of undertreatment, since each additional service raises costs without increasing revenue.</p>
+<p>The differences between FFS and capitated payments create distinct incentives for health care providers. Under fee-for-service arrangements, revenue increases with the number of services provided, creating a natural incentive to deliver more care—even if some of that care is only marginally beneficial. By contrast, under capitation, providers receive a fixed payment per patient regardless of the amount of care delivered. This structure rewards cost containment but also introduces the risk of undertreatment, since each additional service raises costs without increasing revenue.</p>
 <p>The key takeaway is that payment systems pull physician behavior in opposite directions: fee-for-service tends toward overprovision, while capitation tends toward underprovision. Most real-world systems lie somewhere in between, but these extremes provide a useful benchmark for understanding how incentives operate.</p>
 </section>
 </section>
 <section id="physician-agency-with-ffs-vs-capitation" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="physician-agency-with-ffs-vs-capitation"><span class="header-section-number">9.2</span> Physician Agency with FFS vs Capitation</h2>
 <p>To see this more formally, let’s set up a new version of our agency model. Physicians receive a fixed amount per patient, denoted <span class="math inline">\(R\)</span>, along with a price per unit of service, <span class="math inline">\(p_{s}\)</span>. Given the choice of quantity of care, <span class="math inline">\(x\)</span>, (assumed to be the same for each patient) physicians receive <span class="math inline">\(R + (p_{s} - c)x\)</span> for each patient. Finally, the number of patients for each physician is expressed as a positive function of the net benefit offered, <span class="math inline">\(n(NB)\)</span>, where <span class="math inline">\(NB=B(x) - p_{d}x\)</span>. Here, we’re also allowing separate prices paid by the patient versus prices received by the provider, where the patient pays <span class="math inline">\(p_{d}\)</span> and the physician receives <span class="math inline">\(p_{s}\)</span>. We also assume that the physician has no control over prices. They can only affect the amount of care, <span class="math inline">\(x\)</span>.</p>
-<p>Physician’s again aim to maximize profits by optimizing the profit function, <span class="math inline">\(\pi=n(NB)\left[R+(p_{s}-c)x\right]\)</span>. This maximization problems yields the following first order condition:</p>
+<p>Physicians again aim to maximize profits by optimizing the profit function, <span class="math inline">\(\pi=n(NB)\left[R+(p_{s}-c)x\right]\)</span>. This maximization problem yields the following first order condition:</p>
 <p><span class="math display">\[n'(NB)(B'(x) - p_{d}) \left[R + (p_{s} - c)x \right] + n(NB)(p_{s}-c) = 0.\]</span></p>
 <p>Rearranging terms and multiplying both sides by <span class="math inline">\(\frac{1}{NB}\)</span>, we get: <span id="eq-agency-cap"><span class="math display">\[\frac{B'(x) - p_{d}}{NB} \frac{R + (p_{s} - c)x}{p_{s}-c} = - \frac{1}{\varepsilon_{n,NB}}. \tag{9.1}\]</span></span></p>
 <p>Even without any specific assumptions on the benefit function, we can begin to say something about the physician’s selection of <span class="math inline">\(x\)</span> relative to the patient’s own optimal <span class="math inline">\(x\)</span> under different payment scenarios. For example, assume that <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span>, so that there is no capitated payment and the physician is reimbursed entirely on a FFS basis. In that case, the second term on the left hand side of <a href="#eq-agency-cap" class="quarto-xref">Equation&nbsp;<span>9.1</span></a> must be positive. Since we know the product on the left hand side must be negative (to match the sign of the right hand side), then it follows that <span class="math inline">\(B'(x) - p_{d}&lt;0\)</span>. Since we also know that the patient would optimally set <span class="math inline">\(B'(x)=p_{d}\)</span>, then the case of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(p_{s}&gt;c\)</span> must be such that the physician overtreats relative to the patient’s optimal. That’s the only way for <span class="math inline">\(B'(x)&lt;p_{d}\)</span>.</p>
-<p>Alternatively, let’s consider the case of <span class="math inline">\(R&gt;0\)</span> with <span class="math inline">\(p_{s}&lt;c\)</span>, so that the physician now earns a set amount of money per patient but <em>loses</em> money on each unit of care. In a purely capitated model, we would set <span class="math inline">\(p_{s}=0&lt;c\)</span>. Imposing these constraints onto <a href="#eq-agency-cap" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>, note that the second half of the left hand side is now negative since <span class="math inline">\(p_{s}-c&lt;0\)</span> (assuming <span class="math inline">\(R-(p_{s} -c)x&gt;0\)</span>, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., <span class="math inline">\(B'(x)&gt;p_{d}\)</span>), so that physicians now undertreat relative to the patient’s optimal.</p>
+<p>Alternatively, let’s consider the case of <span class="math inline">\(R&gt;0\)</span> with <span class="math inline">\(p_{s}&lt;c\)</span>, so that the physician now earns a set amount of money per patient but loses money on each unit of care. In a purely capitated model, we would set <span class="math inline">\(p_{s}=0&lt;c\)</span>. Imposing these constraints onto <a href="#eq-agency-cap" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>, note that the second half of the left hand side is now negative since <span class="math inline">\(p_{s}-c&lt;0\)</span> (assuming <span class="math inline">\(R-(p_{s} -c)x&gt;0\)</span>, which is necessary in order for the physician to stay in the market anyway). This means that the first part of the left hand side must be positive (i.e., <span class="math inline">\(B'(x)&gt;p_{d}\)</span>), so that physicians now undertreat relative to the patient’s optimal.</p>
 </section>
 <section id="beyond-ffs-vs-capitation" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="beyond-ffs-vs-capitation"><span class="header-section-number">9.3</span> Beyond FFS vs Capitation</h2>
@@ -413,15 +416,15 @@ window.Quarto = {
 <p>A further hybrid is <strong>bundled payments</strong>, where providers receive a fixed payment for an entire episode of care, such as a joint replacement or maternity stay. Bundled payments create incentives to coordinate across providers and reduce unnecessary services within the episode, while still avoiding the blunt incentives of pure capitation. Both Medicare and commercial insurers have experimented with these models, often with promising results in terms of cost savings and efficiency.</p>
 <p>These hybrid arrangements highlight an important theme: real-world payment models are rarely “pure.” Instead, they reflect attempts to balance the incentives of volume, cost containment, and quality—three dimensions that lie at the heart of physician agency.</p>
 </section>
-<section id="agency-irl" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="agency-irl"><span class="header-section-number">9.4</span> Agency IRL</h2>
-<p>More generally, physicians choose some care, <span class="math inline">\(x\)</span>, incorporating their own profit, the benefit to the patient, and some disutility of work <span class="math display">\[u(x) = V(\pi) -e(x) + \alpha B(x),\]</span> where <span class="math inline">\(x\)</span> need not be “quantity of care” and could instead capture which type of treatment a physician chooses rather than “how much” care to provide. The important point here is simply that, in real life, physicians are often choosing between different treatment options rather than some easily measured “quantity.” In this sense, the empirical literature has consistently found significant and meaningful physician responses to financial incentives, including effects on treatment patterns (<span class="citation" data-cites="clemens2014">Clemens and Gottlieb (<a href="#ref-clemens2014" role="doc-biblioref">2014</a>)</span>), discharge patterns (<span class="citation" data-cites="einav2023">Einav, Finkelstein, and Mahoney (<a href="#ref-einav2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="einav2018">Einav, Finkelstein, and Mahoney (<a href="#ref-einav2018" role="doc-biblioref">2018</a>)</span>, and <span class="citation" data-cites="eliason2018">Eliason et al. (<a href="#ref-eliason2018" role="doc-biblioref">2018</a>)</span>), the types of patients seen (<span class="citation" data-cites="cabral2023">Cabral, Carey, and Son (<a href="#ref-cabral2023" role="doc-biblioref">2023</a>)</span>), as well as location of care (<span class="citation" data-cites="munnich2023">Munnich et al. (<a href="#ref-munnich2023" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="baker2016">Baker, Bundorf, and Kessler (<a href="#ref-baker2016" role="doc-biblioref">2016</a>)</span>). Financial incentives also spillover across insurance types, where changes in payments from one insurer can influence how other types of patients are treated (<span class="citation" data-cites="barnett2023">Barnett, Olenski, and Sacarny (<a href="#ref-barnett2023" role="doc-biblioref">2023</a>)</span>). The takeaway from all this is that, on the margin, financial incentives <em>do</em> affect treatment decisions. Thankfully, there is less evidence that such responses decrease quality of care.</p>
+<section id="agency-in-practice" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="agency-in-practice"><span class="header-section-number">9.4</span> Agency in Practice</h2>
+<p>More generally, physicians choose some care, <span class="math inline">\(x\)</span>, incorporating their own profit, the benefit to the patient, and some disutility of work <span class="math display">\[u(x) = V(\pi) -e(x) + \alpha B(x),\]</span> where <span class="math inline">\(x\)</span> need not be “quantity of care” and could instead capture which type of treatment a physician chooses rather than “how much” care to provide. The important point here is simply that, in real life, physicians are often choosing between different treatment options rather than some easily measured “quantity.” In this sense, the empirical literature has consistently found significant and meaningful physician responses to financial incentives, including effects on treatment patterns (<span class="citation" data-cites="clemens2014">Clemens and Gottlieb (<a href="#ref-clemens2014" role="doc-biblioref">2014</a>)</span>), discharge patterns (<span class="citation" data-cites="einav2023">Einav et al. (<a href="#ref-einav2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="einav2018">Einav et al. (<a href="#ref-einav2018" role="doc-biblioref">2018</a>)</span>, and <span class="citation" data-cites="eliason2018">Eliason et al. (<a href="#ref-eliason2018" role="doc-biblioref">2018</a>)</span>), the types of patients seen (<span class="citation" data-cites="cabral2023">Cabral et al. (<a href="#ref-cabral2023" role="doc-biblioref">2021</a>)</span>), as well as location of care (<span class="citation" data-cites="munnich2023">Munnich et al. (<a href="#ref-munnich2023" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="baker2016">Baker et al. (<a href="#ref-baker2016" role="doc-biblioref">2016</a>)</span>). Financial incentives also spill over across insurance types, where changes in payments from one insurer can influence how other types of patients are treated (<span class="citation" data-cites="barnett2023">Barnett et al. (<a href="#ref-barnett2023" role="doc-biblioref">2023</a>)</span>). The takeaway from all this is that, on the margin, financial incentives do affect treatment decisions. There is less evidence that these responses reduce quality of care.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-baker2016" class="csl-entry" role="listitem">
 Baker, Laurence C, M Kate Bundorf, and Daniel P Kessler. 2016. <span>“The <span>Effect</span> of <span>Hospital</span>/<span>Physician</span> <span>Integration</span> on <span>Hospital</span> <span>Choice</span>.”</span> <em>Journal of Health Economics</em> 50: 1–8.
 </div>
@@ -429,261 +432,265 @@ Baker, Laurence C, M Kate Bundorf, and Daniel P Kessler. 2016. <span>“The <spa
 Barnett, Michael L., Andrew Olenski, and Adam Sacarny. 2023. <span>“Common <span>Practice</span>: <span>Spillovers</span> from <span>Medicare</span> on <span>Private</span> <span>Health</span> <span>Care</span>.”</span> <em>American Economic Journal: Economic Policy</em> 15 (3): 65–88. <a href="https://doi.org/10.1257/pol.20200553">https://doi.org/10.1257/pol.20200553</a>.
 </div>
 <div id="ref-cabral2023" class="csl-entry" role="listitem">
-Cabral, Marika, Colleen Carey, and Jinyeong Son. 2023. <span>“Partial <span>Outsourcing</span> of <span>Public</span> <span>Programs</span>: <span>Evidence</span> on <span>Determinants</span> of <span>Choice</span> in <span>Medicare</span>.”</span> w31141. National Bureau of Economic Research. <a href="https://doi.org/10.3386/w31141">https://doi.org/10.3386/w31141</a>.
+Cabral, Marika, Colleen Carey, and Sarah Miller. 2021. <em>The <span>Impact</span> of <span>Provider</span> <span>Payments</span> on <span>Health</span> <span>Care</span> <span>Utilization</span> of <span>Low</span>-<span>Income</span> <span>Individuals</span>: <span>Evidence</span> from <span>Medicare</span> and <span>Medicaid</span></em>. Working {Paper}. Working <span>Paper</span> <span>Series</span>. National Bureau of Economic Research. <a href="https://doi.org/10.3386/w29471">https://doi.org/10.3386/w29471</a>.
 </div>
 <div id="ref-clemens2014" class="csl-entry" role="listitem">
 Clemens, Jeffrey, and Joshua D Gottlieb. 2014. <span>“Do <span>Physicians</span>’ <span>Financial</span> <span>Incentives</span> <span>Affect</span> <span>Medical</span> <span>Treatment</span> and <span>Patient</span> <span>Health</span>?”</span> <em>American Economic Review</em> 104 (4): 1320–49.
 </div>
 <div id="ref-einav2018" class="csl-entry" role="listitem">
-Einav, Liran, Amy Finkelstein, and Neale Mahoney. 2018. <span>“Provider <span>Incentives</span> and <span>Healthcare</span> <span>Costs</span>: <span>Evidence</span> <span>From</span> <span>Long</span>-<span>Term</span> <span>Care</span> <span>Hospitals</span>.”</span> <em>Econometrica</em> 86 (6): 2161–2219. <a href="https://doi.org/10.3982/ECTA15022">https://doi.org/10.3982/ECTA15022</a>.
+Einav, Liran, Amy Finkelstein, and Neale Mahoney. 2018. <span>“Provider <span>Incentives</span> and <span>Healthcare</span> <span>Costs</span>: <span>Evidence</span> <span>From</span> <span>Long</span>-<span>Term</span> <span>Care</span> <span>Hospitals</span>.”</span> <em>Econometrica</em> 86 (6): 2161–219. <a href="https://doi.org/10.3982/ECTA15022">https://doi.org/10.3982/ECTA15022</a>.
 </div>
 <div id="ref-einav2023" class="csl-entry" role="listitem">
-———. 2023. <span>“Long-<span>Term</span> <span>Care</span> <span>Hospitals</span>: <span>A</span> <span>Case</span> <span>Study</span> in <span>Waste</span>.”</span> <em>The Review of Economics and Statistics</em> 105 (4): 745–65. <a href="https://doi.org/10.1162/rest_a_01092">https://doi.org/10.1162/rest_a_01092</a>.
+Einav, Liran, Amy Finkelstein, and Neale Mahoney. 2023. <span>“Long-<span>Term</span> <span>Care</span> <span>Hospitals</span>: <span>A</span> <span>Case</span> <span>Study</span> in <span>Waste</span>.”</span> <em>The Review of Economics and Statistics</em> 105 (4): 745–65. <a href="https://doi.org/10.1162/rest_a_01092">https://doi.org/10.1162/rest_a_01092</a>.
 </div>
 <div id="ref-eliason2018" class="csl-entry" role="listitem">
 Eliason, Paul J., Paul L. E. Grieco, Ryan C. McDevitt, and James W. Roberts. 2018. <span>“Strategic <span>Patient</span> <span>Discharge</span>: <span>The</span> <span>Case</span> of <span>Long</span>-<span>Term</span> <span>Care</span> <span>Hospitals</span>.”</span> <em>American Economic Review</em> 108 (11): 3232–65. <a href="https://doi.org/10.1257/aer.20170092">https://doi.org/10.1257/aer.20170092</a>.
 </div>
 <div id="ref-munnich2023" class="csl-entry" role="listitem">
-Munnich, Elizabeth, Michael Richards, Christopher Whaley, and Xiaoxi Zhao. 2021. <span>“Raising the <span>Stakes</span>: <span>Physician</span> <span>Facility</span> <span>Investments</span> and <span>Provider</span> <span>Agency</span>.”</span> {SSRN} {Scholarly} {Paper}. Rochester, NY. <a href="https://doi.org/10.2139/ssrn.3845073">https://doi.org/10.2139/ssrn.3845073</a>.
+Munnich, Elizabeth, Michael Richards, Christopher Whaley, and Xiaoxi Zhao. 2021. <em>Raising the <span>Stakes</span>: <span>Physician</span> <span>Facility</span> <span>Investments</span> and <span>Provider</span> <span>Agency</span></em>. {SSRN} {Scholarly} {Paper}. Rochester, NY. <a href="https://doi.org/10.2139/ssrn.3845073">https://doi.org/10.2139/ssrn.3845073</a>.
 </div>
 </div>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -691,185 +698,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../part2/physicians-2-1.html" class="pagination-link" aria-label="Agency and Financial Incentives">
