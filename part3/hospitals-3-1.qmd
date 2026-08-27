@@ -85,3 +85,6 @@ The presence of $\frac{d q_{mj}}{d p_{mj}}$ is standard, effectively meaning tha
 $$p_{mj} - mc_{mj} = -q_{mj} \left(\frac{d q_{mj}}{d p_{mj}} + q_{mj} \times \frac{b_{m(j)}}{b_{j(m)}} \times \frac{\frac{d V_{m}}{d p_{mj}}}{\triangle V_{m}} \right)^{-1}$$
 
 The term $\triangle V_{m}$ is positive by construction. With some work, we can find that $\frac{d V_{m}}{d p_{mj}}<0$ under most conditions. This means that the presence of bargaining tends to increase the ``effective'' price sensitivity and reduce hospital margins relative to standard pricing conditions. However, note that this result does not always hold. In cases where some hospitals are particularly higher priced than others, then the insurer may allow a given hospital to increase its margins (relative to standard pricing conditions) so as to steer patients away from the very high priced hospital.
+
+
+## References {.unnumbered}

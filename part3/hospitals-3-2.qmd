@@ -186,4 +186,4 @@ Further integrating over all patients, $(Y_{i},\lambda_{i})$, yields
 $$WTP_{j} = N \int_{\lambda} \int_{Z} \int_{Y} \frac{1}{\gamma (X_{i})} \text{ln}\left[\frac{1}{1-s_{j}(G,X_{i},\lambda_{i})} \right]f(Y_{i},Z_{i},\lambda_{i})dY_{i} dZ_{i} d\lambda_{i}.$$
 
 
-## Bibliography {.unnumbered}
+## References {.unnumbered}
