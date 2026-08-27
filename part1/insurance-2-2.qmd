@@ -156,6 +156,88 @@ From @fig-risk-premium, we can easily identify three factors that determine some
 3. Cost of illness. The cost of illness is reflected by the gap between $x_{1}$ and $x_{2}$ in @fig-risk-premium. All else equal, the gap between the expected utility line and the utility curve grows as the distance between $x_{1}$ and $x_{2}$ increases.
 
 
+### Explore the risk premium {#sec-rp-explore}
+
+The sliders below control the three factors just described, with initial wealth fixed at \$100,000. Utility takes the constant-relative-risk-aversion form, where the curvature parameter equals 1 for log utility. The sliders start at a more risk-averse and more expensive case than the example above so that the curvature is easy to see; set the curvature to 1 and the cost of illness to \$20,000 to recover the example's numbers. Move one slider at a time and watch the gap between the expected-utility line and the utility curve.
+
+```{ojs}
+//| echo: false
+viewof p_s = Inputs.range([0.01, 0.99], {value: 0.25, step: 0.01, label: "Probability of illness"})
+viewof loss = Inputs.range([1000, 90000], {value: 50000, step: 1000, label: "Cost of illness ($)"})
+viewof gamma = Inputs.range([0.2, 4], {value: 3, step: 0.1, label: "Risk aversion (curvature)"})
+```
+
+```{ojs}
+//| echo: false
+w0 = 100000
+u = (w) => Math.abs(gamma - 1) < 1e-9 ? Math.log(w) : (Math.pow(w, 1 - gamma) - 1) / (1 - gamma)
+uinv = (v) => Math.abs(gamma - 1) < 1e-9 ? Math.exp(v) : Math.pow(1 + (1 - gamma) * v, 1 / (1 - gamma))
+ws = w0 - loss
+wh = w0
+ew = (1 - p_s) * wh + p_s * ws
+eu = (1 - p_s) * u(wh) + p_s * u(ws)
+ce = uinv(eu)
+rp = ew - ce
+ecost = p_s * loss
+wtp = ecost + rp
+xlo = ws - 0.08 * (wh - ws)
+xhi = wh + 0.08 * (wh - ws)
+curve = Array.from({length: 240}, (_, i) => {
+  const w = xlo + (xhi - xlo) * i / 239
+  return {w, u: u(w)}
+})
+fmt = d3.format("$,.0f")
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  height: 400,
+  marginLeft: 50,
+  marginBottom: 55,
+  style: {fontSize: "13px"},
+  x: {label: "Wealth ($)", labelAnchor: "center", labelOffset: 45, tickFormat: "$,.0f", domain: [xlo, xhi]},
+  y: {label: "Utility", ticks: [], domain: [u(xlo), u(xhi)]},
+  marks: [
+    Plot.line(curve, {x: "w", y: "u", stroke: "#1f8a9c", strokeWidth: 2.5}),
+    Plot.line([{w: ws, u: u(ws)}, {w: wh, u: u(wh)}], {x: "w", y: "u", stroke: "#999", strokeDasharray: "5 4"}),
+    Plot.ruleX([ws, wh], {stroke: "#bbb", strokeDasharray: "2 3"}),
+    Plot.ruleY([{y: eu, x1: ce, x2: ew}], {y: "y", x1: "x1", x2: "x2", stroke: "#d97706", strokeWidth: 3}),
+    Plot.dot([{w: ew, u: eu}], {x: "w", y: "u", r: 5, fill: "#999"}),
+    Plot.dot([{w: ce, u: eu}], {x: "w", y: "u", r: 5, fill: "#d97706"}),
+    Plot.text([{w: ew, u: eu, t: "E[w]"}], {x: "w", y: "u", text: "t", dx: 8, dy: 14, textAnchor: "start", fill: "currentColor"}),
+    Plot.text([{w: ce, u: eu, t: "CE"}], {x: "w", y: "u", text: "t", dx: -8, dy: 14, textAnchor: "end", fill: "currentColor"}),
+    Plot.text([{w: (ce + ew) / 2, u: eu, t: "risk premium"}], {x: "w", y: "u", text: "t", dy: -12, fill: "#d97706", fontWeight: "bold"}),
+    Plot.text([{w: ws, u: u(xlo), t: "sick"}], {x: "w", y: "u", text: "t", dy: -6, fill: "currentColor"}),
+    Plot.text([{w: wh, u: u(xlo), t: "healthy"}], {x: "w", y: "u", text: "t", dy: -6, fill: "currentColor"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+html`<div class="rp-readout">
+  <div><span>Expected cost (fair premium)</span><strong>${fmt(ecost)}</strong></div>
+  <div><span>Expected wealth</span><strong>${fmt(ew)}</strong></div>
+  <div><span>Certainty equivalent</span><strong>${fmt(ce)}</strong></div>
+  <div><span>Risk premium</span><strong>${fmt(rp)}</strong></div>
+  <div><span>Willingness to pay</span><strong>${fmt(wtp)}</strong></div>
+</div>`
+```
+
+::: {.callout-note collapse="true" title="Check yourself"}
+1. Slide the probability of illness from 0.25 up to 0.5 and then to 0.9. The expected cost rises the whole way. Does the risk premium? Explain why the two move differently.
+2. Set the probability to 0.5 and double the cost of illness. Which changes more in dollar terms, the fair premium or the risk premium?
+3. With log utility, the risk premium in the worked example above is about \$426. What would it be for a risk-neutral person, and why?
+
+::: {.callout-tip collapse="true" title="Answers"}
+1. The expected cost is $p_s \times \text{loss}$, so it rises linearly in $p_s$. The risk premium is zero at $p_s = 0$ and $p_s = 1$ (no uncertainty either way) and largest near $p_s = 0.5$, so it rises and then falls.
+2. Both rise, but the fair premium doubles exactly while the risk premium more than doubles, because a larger gap between sick-state and healthy-state wealth widens the gap between the expected-utility line and the curve.
+3. Zero. A risk-neutral person has a linear utility function, so the expected-utility line lies on the curve and the certainty equivalent equals expected wealth. Such a person would pay only the fair premium.
+:::
+:::
+
+
 ### Other Considerations
 
 The analysis above focused on risk preferences, but health insurance has additional benefits that do not appear in the simple certainty-equivalent framework. One is the role of insurers in price negotiations. An individual patient has little bargaining power relative to a hospital, and therefore little opportunity to negotiate a lower price; however, an insurance plan, in pooling the bargaining power of all of its individual members, is in a better position to negotiate lower prices. Insurance products therefore also serve to reduce the cost of illness relative to remaining uninsured. Another factor involves the information problems in health care decision-making. It can be extremely challenging to identify the "best" health care providers, and insurance plans *can* help with this process (although whether they actually do serve to funnel patients to higher quality providers is an empirical question).

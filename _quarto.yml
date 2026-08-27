@@ -23,8 +23,9 @@ book:
     left: "Ian McCarthy, Emory University"
     right: "Made with [Quarto](https://quarto.org/)"
   chapters:
-    - preface.qmd
     - index.qmd
+    - preface.qmd
+    - intro.qmd
     - part: part1/insurance-0.qmd
       chapters: 
         - part1/insurance-1-1.qmd

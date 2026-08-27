@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -46,9 +81,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9b4b18bcc8448cfd808a41786ccad769.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8633754573f1332bda5a48dfb1f0f86c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9b4b18bcc8448cfd808a41786ccad769.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7ed33766741b6bee0ed2158028347962.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-69d06ca5f0e60024f1d8e26831a62abe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-7ed33766741b6bee0ed2158028347962.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +111,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -316,14 +353,20 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -511,7 +554,8 @@ window.Quarto = {
   <li><a href="#sec-ce" id="toc-sec-ce" class="nav-link" data-scroll-target="#sec-ce"><span class="header-section-number">4.1.1</span> Certainty Equivalent</a></li>
   <li><a href="#sec-riskpremium" id="toc-sec-riskpremium" class="nav-link" data-scroll-target="#sec-riskpremium"><span class="header-section-number">4.1.2</span> Risk Premium</a></li>
   <li><a href="#sec-wtp" id="toc-sec-wtp" class="nav-link" data-scroll-target="#sec-wtp"><span class="header-section-number">4.1.3</span> Willingness to Pay</a></li>
-  <li><a href="#other-considerations" id="toc-other-considerations" class="nav-link" data-scroll-target="#other-considerations"><span class="header-section-number">4.1.4</span> Other Considerations</a></li>
+  <li><a href="#sec-rp-explore" id="toc-sec-rp-explore" class="nav-link" data-scroll-target="#sec-rp-explore"><span class="header-section-number">4.1.4</span> Explore the risk premium</a></li>
+  <li><a href="#other-considerations" id="toc-other-considerations" class="nav-link" data-scroll-target="#other-considerations"><span class="header-section-number">4.1.5</span> Other Considerations</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -639,8 +683,245 @@ In other words, individuals are willing to pay their expected costs <strong>plus
 <li>Cost of illness. The cost of illness is reflected by the gap between <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> in <a href="#fig-risk-premium" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>. All else equal, the gap between the expected utility line and the utility curve grows as the distance between <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> increases.</li>
 </ol>
 </section>
-<section id="other-considerations" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="other-considerations"><span class="header-section-number">4.1.4</span> Other Considerations</h3>
+<section id="sec-rp-explore" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="sec-rp-explore"><span class="header-section-number">4.1.4</span> Explore the risk premium</h3>
+<p>The sliders below control the three factors just described, with initial wealth fixed at $100,000. Utility takes the constant-relative-risk-aversion form, where the curvature parameter equals 1 for log utility. The sliders start at a more risk-averse and more expensive case than the example above so that the curvature is easy to see; set the curvature to 1 and the cost of illness to $20,000 to recover the example’s numbers. Move one slider at a time and watch the gap between the expected-utility line and the utility curve.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="165" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 164;"><span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>viewof p_s <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.99</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="fl">0.25</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Probability of illness"</span>})</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>viewof loss <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1000</span><span class="op">,</span> <span class="dv">90000</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">50000</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1000</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Cost of illness ($)"</span>})</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>viewof gamma <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.2</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Risk aversion (curvature)"</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="172" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 171;"><span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>w0 <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> (w) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(gamma <span class="op">-</span> <span class="dv">1</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span> <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span>(w) <span class="op">:</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(w<span class="op">,</span> <span class="dv">1</span> <span class="op">-</span> gamma) <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> gamma)</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>uinv <span class="op">=</span> (v) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(gamma <span class="op">-</span> <span class="dv">1</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span> <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(v) <span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> gamma) <span class="op">*</span> v<span class="op">,</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> gamma))</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>ws <span class="op">=</span> w0 <span class="op">-</span> loss</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>wh <span class="op">=</span> w0</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>ew <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> p_s) <span class="op">*</span> wh <span class="op">+</span> p_s <span class="op">*</span> ws</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>eu <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> p_s) <span class="op">*</span> <span class="fu">u</span>(wh) <span class="op">+</span> p_s <span class="op">*</span> <span class="fu">u</span>(ws)</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>ce <span class="op">=</span> <span class="fu">uinv</span>(eu)</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>rp <span class="op">=</span> ew <span class="op">-</span> ce</span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>ecost <span class="op">=</span> p_s <span class="op">*</span> loss</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>wtp <span class="op">=</span> ecost <span class="op">+</span> rp</span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>xlo <span class="op">=</span> ws <span class="op">-</span> <span class="fl">0.08</span> <span class="op">*</span> (wh <span class="op">-</span> ws)</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>xhi <span class="op">=</span> wh <span class="op">+</span> <span class="fl">0.08</span> <span class="op">*</span> (wh <span class="op">-</span> ws)</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>curve <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">240</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> w <span class="op">=</span> xlo <span class="op">+</span> (xhi <span class="op">-</span> xlo) <span class="op">*</span> i <span class="op">/</span> <span class="dv">239</span></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {w<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> <span class="fu">u</span>(w)}</span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>fmt <span class="op">=</span> d3<span class="op">.</span><span class="fu">format</span>(<span class="st">"$,.0f"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-8" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-9" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-10" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-11" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-12" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-13" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-14" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-15" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="193" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 192;"><span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginBottom</span><span class="op">:</span> <span class="dv">55</span><span class="op">,</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">"13px"</span>}<span class="op">,</span></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Wealth ($)"</span><span class="op">,</span> <span class="dt">labelAnchor</span><span class="op">:</span> <span class="st">"center"</span><span class="op">,</span> <span class="dt">labelOffset</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span> <span class="dt">tickFormat</span><span class="op">:</span> <span class="st">"$,.0f"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [xlo<span class="op">,</span> xhi]}<span class="op">,</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Utility"</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> []<span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="fu">u</span>(xlo)<span class="op">,</span> <span class="fu">u</span>(xhi)]}<span class="op">,</span></span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(curve<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1f8a9c"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([{<span class="dt">w</span><span class="op">:</span> ws<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> <span class="fu">u</span>(ws)}<span class="op">,</span> {<span class="dt">w</span><span class="op">:</span> wh<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> <span class="fu">u</span>(wh)}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#999"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"5 4"</span>})<span class="op">,</span></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([ws<span class="op">,</span> wh]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#bbb"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"2 3"</span>})<span class="op">,</span></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([{<span class="dt">y</span><span class="op">:</span> eu<span class="op">,</span> <span class="dt">x1</span><span class="op">:</span> ce<span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> ew}]<span class="op">,</span> {<span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">x1</span><span class="op">:</span> <span class="st">"x1"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"x2"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#d97706"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">w</span><span class="op">:</span> ew<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> eu}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#999"</span>})<span class="op">,</span></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([{<span class="dt">w</span><span class="op">:</span> ce<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> eu}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#d97706"</span>})<span class="op">,</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">w</span><span class="op">:</span> ew<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> eu<span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"E[w]"</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">dx</span><span class="op">:</span> <span class="dv">8</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span>})<span class="op">,</span></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">w</span><span class="op">:</span> ce<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> eu<span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"CE"</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">dx</span><span class="op">:</span> <span class="op">-</span><span class="dv">8</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"end"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span>})<span class="op">,</span></span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">w</span><span class="op">:</span> (ce <span class="op">+</span> ew) <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">u</span><span class="op">:</span> eu<span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"risk premium"</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">12</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#d97706"</span><span class="op">,</span> <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span>})<span class="op">,</span></span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">w</span><span class="op">:</span> ws<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> <span class="fu">u</span>(xlo)<span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"sick"</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">6</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span>})<span class="op">,</span></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">w</span><span class="op">:</span> wh<span class="op">,</span> <span class="dt">u</span><span class="op">:</span> <span class="fu">u</span>(xlo)<span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"healthy"</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"w"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">6</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"currentColor"</span>})</span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="218" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 217;"><span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div class="rp-readout"&gt;</span></span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div&gt;&lt;span&gt;Expected cost (fair premium)&lt;/span&gt;&lt;strong&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(ecost)<span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;/div&gt;</span></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div&gt;&lt;span&gt;Expected wealth&lt;/span&gt;&lt;strong&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(ew)<span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;/div&gt;</span></span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div&gt;&lt;span&gt;Certainty equivalent&lt;/span&gt;&lt;strong&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(ce)<span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;/div&gt;</span></span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div&gt;&lt;span&gt;Risk premium&lt;/span&gt;&lt;strong&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(rp)<span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;/div&gt;</span></span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div&gt;&lt;span&gt;Willingness to pay&lt;/span&gt;&lt;strong&gt;</span><span class="sc">${</span><span class="fu">fmt</span>(wtp)<span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;/div&gt;</span></span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Check yourself">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Check yourself
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Slide the probability of illness from 0.25 up to 0.5 and then to 0.9. The expected cost rises the whole way. Does the risk premium? Explain why the two move differently.</li>
+<li>Set the probability to 0.5 and double the cost of illness. Which changes more in dollar terms, the fair premium or the risk premium?</li>
+<li>With log utility, the risk premium in the worked example above is about $426. What would it be for a risk-neutral person, and why?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answers">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The expected cost is <span class="math inline">\(p_s \times \text{loss}\)</span>, so it rises linearly in <span class="math inline">\(p_s\)</span>. The risk premium is zero at <span class="math inline">\(p_s = 0\)</span> and <span class="math inline">\(p_s = 1\)</span> (no uncertainty either way) and largest near <span class="math inline">\(p_s = 0.5\)</span>, so it rises and then falls.</li>
+<li>Both rise, but the fair premium doubles exactly while the risk premium more than doubles, because a larger gap between sick-state and healthy-state wealth widens the gap between the expected-utility line and the curve.</li>
+<li>Zero. A risk-neutral person has a linear utility function, so the expected-utility line lies on the curve and the certainty equivalent equals expected wealth. Such a person would pay only the fair premium.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-considerations" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="other-considerations"><span class="header-section-number">4.1.5</span> Other Considerations</h3>
 <p>The analysis above focused on risk preferences, but health insurance has additional benefits that do not appear in the simple certainty-equivalent framework. One is the role of insurers in price negotiations. An individual patient has little bargaining power relative to a hospital, and therefore little opportunity to negotiate a lower price; however, an insurance plan, in pooling the bargaining power of all of its individual members, is in a better position to negotiate lower prices. Insurance products therefore also serve to reduce the cost of illness relative to remaining uninsured. Another factor involves the information problems in health care decision-making. It can be extremely challenging to identify the “best” health care providers, and insurance plans <em>can</em> help with this process (although whether they actually do serve to funnel patients to higher quality providers is an empirical question).</p>
 
 
@@ -648,6 +929,17 @@ In other words, individuals are willing to pay their expected costs <strong>plus
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBwX3MgPSBJbnB1dHMucmFuZ2UoWzAuMDEsIDAuOTldLCB7dmFsdWU6IDAuMjUsIHN0ZXA6IDAuMDEsIGxhYmVsOiBcIlByb2JhYmlsaXR5IG9mIGlsbG5lc3NcIn0pXG52aWV3b2YgbG9zcyA9IElucHV0cy5yYW5nZShbMTAwMCwgOTAwMDBdLCB7dmFsdWU6IDUwMDAwLCBzdGVwOiAxMDAwLCBsYWJlbDogXCJDb3N0IG9mIGlsbG5lc3MgKCQpXCJ9KVxudmlld29mIGdhbW1hID0gSW5wdXRzLnJhbmdlKFswLjIsIDRdLCB7dmFsdWU6IDMsIHN0ZXA6IDAuMSwgbGFiZWw6IFwiUmlzayBhdmVyc2lvbiAoY3VydmF0dXJlKVwifSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IncwID0gMTAwMDAwXG51ID0gKHcpID0+IE1hdGguYWJzKGdhbW1hIC0gMSkgPCAxZS05ID8gTWF0aC5sb2codykgOiAoTWF0aC5wb3codywgMSAtIGdhbW1hKSAtIDEpIC8gKDEgLSBnYW1tYSlcbnVpbnYgPSAodikgPT4gTWF0aC5hYnMoZ2FtbWEgLSAxKSA8IDFlLTkgPyBNYXRoLmV4cCh2KSA6IE1hdGgucG93KDEgKyAoMSAtIGdhbW1hKSAqIHYsIDEgLyAoMSAtIGdhbW1hKSlcbndzID0gdzAgLSBsb3NzXG53aCA9IHcwXG5ldyA9ICgxIC0gcF9zKSAqIHdoICsgcF9zICogd3NcbmV1ID0gKDEgLSBwX3MpICogdSh3aCkgKyBwX3MgKiB1KHdzKVxuY2UgPSB1aW52KGV1KVxucnAgPSBldyAtIGNlXG5lY29zdCA9IHBfcyAqIGxvc3Ncbnd0cCA9IGVjb3N0ICsgcnBcbnhsbyA9IHdzIC0gMC4wOCAqICh3aCAtIHdzKVxueGhpID0gd2ggKyAwLjA4ICogKHdoIC0gd3MpXG5jdXJ2ZSA9IEFycmF5LmZyb20oe2xlbmd0aDogMjQwfSwgKF8sIGkpID0+IHtcbiAgY29uc3QgdyA9IHhsbyArICh4aGkgLSB4bG8pICogaSAvIDIzOVxuICByZXR1cm4ge3csIHU6IHUodyl9XG59KVxuZm10ID0gZDMuZm9ybWF0KFwiJCwuMGZcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QucGxvdCh7XG4gIGhlaWdodDogNDAwLFxuICBtYXJnaW5MZWZ0OiA1MCxcbiAgbWFyZ2luQm90dG9tOiA1NSxcbiAgc3R5bGU6IHtmb250U2l6ZTogXCIxM3B4XCJ9LFxuICB4OiB7bGFiZWw6IFwiV2VhbHRoICgkKVwiLCBsYWJlbEFuY2hvcjogXCJjZW50ZXJcIiwgbGFiZWxPZmZzZXQ6IDQ1LCB0aWNrRm9ybWF0OiBcIiQsLjBmXCIsIGRvbWFpbjogW3hsbywgeGhpXX0sXG4gIHk6IHtsYWJlbDogXCJVdGlsaXR5XCIsIHRpY2tzOiBbXSwgZG9tYWluOiBbdSh4bG8pLCB1KHhoaSldfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmxpbmUoY3VydmUsIHt4OiBcIndcIiwgeTogXCJ1XCIsIHN0cm9rZTogXCIjMWY4YTljXCIsIHN0cm9rZVdpZHRoOiAyLjV9KSxcbiAgICBQbG90LmxpbmUoW3t3OiB3cywgdTogdSh3cyl9LCB7dzogd2gsIHU6IHUod2gpfV0sIHt4OiBcIndcIiwgeTogXCJ1XCIsIHN0cm9rZTogXCIjOTk5XCIsIHN0cm9rZURhc2hhcnJheTogXCI1IDRcIn0pLFxuICAgIFBsb3QucnVsZVgoW3dzLCB3aF0sIHtzdHJva2U6IFwiI2JiYlwiLCBzdHJva2VEYXNoYXJyYXk6IFwiMiAzXCJ9KSxcbiAgICBQbG90LnJ1bGVZKFt7eTogZXUsIHgxOiBjZSwgeDI6IGV3fV0sIHt5OiBcInlcIiwgeDE6IFwieDFcIiwgeDI6IFwieDJcIiwgc3Ryb2tlOiBcIiNkOTc3MDZcIiwgc3Ryb2tlV2lkdGg6IDN9KSxcbiAgICBQbG90LmRvdChbe3c6IGV3LCB1OiBldX1dLCB7eDogXCJ3XCIsIHk6IFwidVwiLCByOiA1LCBmaWxsOiBcIiM5OTlcIn0pLFxuICAgIFBsb3QuZG90KFt7dzogY2UsIHU6IGV1fV0sIHt4OiBcIndcIiwgeTogXCJ1XCIsIHI6IDUsIGZpbGw6IFwiI2Q5NzcwNlwifSksXG4gICAgUGxvdC50ZXh0KFt7dzogZXcsIHU6IGV1LCB0OiBcIkVbd11cIn1dLCB7eDogXCJ3XCIsIHk6IFwidVwiLCB0ZXh0OiBcInRcIiwgZHg6IDgsIGR5OiAxNCwgdGV4dEFuY2hvcjogXCJzdGFydFwiLCBmaWxsOiBcImN1cnJlbnRDb2xvclwifSksXG4gICAgUGxvdC50ZXh0KFt7dzogY2UsIHU6IGV1LCB0OiBcIkNFXCJ9XSwge3g6IFwid1wiLCB5OiBcInVcIiwgdGV4dDogXCJ0XCIsIGR4OiAtOCwgZHk6IDE0LCB0ZXh0QW5jaG9yOiBcImVuZFwiLCBmaWxsOiBcImN1cnJlbnRDb2xvclwifSksXG4gICAgUGxvdC50ZXh0KFt7dzogKGNlICsgZXcpIC8gMiwgdTogZXUsIHQ6IFwicmlzayBwcmVtaXVtXCJ9XSwge3g6IFwid1wiLCB5OiBcInVcIiwgdGV4dDogXCJ0XCIsIGR5OiAtMTIsIGZpbGw6IFwiI2Q5NzcwNlwiLCBmb250V2VpZ2h0OiBcImJvbGRcIn0pLFxuICAgIFBsb3QudGV4dChbe3c6IHdzLCB1OiB1KHhsbyksIHQ6IFwic2lja1wifV0sIHt4OiBcIndcIiwgeTogXCJ1XCIsIHRleHQ6IFwidFwiLCBkeTogLTYsIGZpbGw6IFwiY3VycmVudENvbG9yXCJ9KSxcbiAgICBQbG90LnRleHQoW3t3OiB3aCwgdTogdSh4bG8pLCB0OiBcImhlYWx0aHlcIn1dLCB7eDogXCJ3XCIsIHk6IFwidVwiLCB0ZXh0OiBcInRcIiwgZHk6IC02LCBmaWxsOiBcImN1cnJlbnRDb2xvclwifSlcbiAgXVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPGRpdiBjbGFzcz1cInJwLXJlYWRvdXRcIj5cbiAgPGRpdj48c3Bhbj5FeHBlY3RlZCBjb3N0IChmYWlyIHByZW1pdW0pPC9zcGFuPjxzdHJvbmc+JHtmbXQoZWNvc3QpfTwvc3Ryb25nPjwvZGl2PlxuICA8ZGl2PjxzcGFuPkV4cGVjdGVkIHdlYWx0aDwvc3Bhbj48c3Ryb25nPiR7Zm10KGV3KX08L3N0cm9uZz48L2Rpdj5cbiAgPGRpdj48c3Bhbj5DZXJ0YWludHkgZXF1aXZhbGVudDwvc3Bhbj48c3Ryb25nPiR7Zm10KGNlKX08L3N0cm9uZz48L2Rpdj5cbiAgPGRpdj48c3Bhbj5SaXNrIHByZW1pdW08L3NwYW4+PHN0cm9uZz4ke2ZtdChycCl9PC9zdHJvbmc+PC9kaXY+XG4gIDxkaXY+PHNwYW4+V2lsbGluZ25lc3MgdG8gcGF5PC9zcGFuPjxzdHJvbmc+JHtmbXQod3RwKX08L3N0cm9uZz48L2Rpdj5cbjwvZGl2PmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncF9zJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2xvc3MnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZ2FtbWEnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../part1";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

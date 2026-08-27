@@ -104,3 +104,73 @@ pre.sourceCode, .cell-output pre {
 .nav-page .nav-page-text {
   font-family: $font-family-sans-serif;
 }
+
+// Landing page
+.lead {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  margin: 0.5rem 0 1.5rem;
+}
+.part-grid {
+  margin: 1rem 0 1.5rem;
+}
+.part-card {
+  border: 1px solid rgba($primary, 0.25);
+  border-top: 4px solid $primary;
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.3rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.part-card p { margin: 0; }
+.part-label {
+  font-family: $font-family-sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  display: block;
+}
+.part-title {
+  font-family: $font-family-sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $primary;
+  text-decoration: none;
+  display: block;
+}
+.part-title:hover { text-decoration: underline; }
+.part-meta {
+  font-family: $font-family-sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: auto;
+}
+.start-btn {
+  font-family: $font-family-sans-serif;
+  margin-top: 1rem;
+}
+
+// Interactive figure readouts
+.rp-readout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.6rem;
+  margin: 0.5rem 0 1.5rem;
+  font-family: $font-family-sans-serif;
+}
+.rp-readout div {
+  border: 1px solid rgba($primary, 0.25);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+}
+.rp-readout span { font-size: 0.75rem; opacity: 0.7; }
+.rp-readout strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.cell-output-display form label { font-family: $font-family-sans-serif; }
+
+// Observable Inputs sliders: room for the label
+.observablehq form { --label-width: 200px; }
+.observablehq form label { font-family: $font-family-sans-serif; }
