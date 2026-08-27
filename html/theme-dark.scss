@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+// Lighter accents so the teal and amber read on the dark ground
+$teal:  #7cc7d3 !default;
+$amber: #f0a45b !default;
+$primary: $teal !default;
+$link-color: $amber !default;
+$link-hover-color: lighten($amber, 10%) !default;
+
+/*-- scss:rules --*/
+.theorem.definition {
+  background: rgba($teal, 0.10);
+}
+#quarto-margin-sidebar .toc-title, #toc-title {
+  color: $primary;
+}

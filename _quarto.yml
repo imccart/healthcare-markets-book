@@ -1,11 +1,27 @@
 project:
   type: book
-  output-dir: docs 
+  output-dir: docs
+  resources:
+    - CNAME
+
+execute:
+  freeze: auto
 
 book:
   title: "Economics of Health Care"
   author: "Ian McCarthy"
-  date: "6/21/2023"
+  date: today
+  date-format: "MMMM YYYY"
+  site-url: https://healthcare-markets.books.ianmccarthyecon.com
+  repo-url: https://github.com/imccart/healthcare-markets-book
+  reader-mode: true
+  page-navigation: true
+  sidebar:
+    style: docked
+    collapse-level: 1
+  page-footer:
+    left: "Ian McCarthy, Emory University"
+    right: "Made with [Quarto](https://quarto.org/)"
   chapters:
     - preface.qmd
     - index.qmd
@@ -43,7 +59,12 @@ bibliography: ../../../administrative/templates/bibliography/BibTeX_Library.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: [cosmo, html/theme.scss]
+      dark: [darkly, html/theme.scss, html/theme-dark.scss]
+    toc: true
+    toc-depth: 3
+    number-depth: 3
   pdf:
     documentclass: scrreport
   epub:

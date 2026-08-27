@@ -1,3 +1,6 @@
 /.quarto/
 data/*
 **/*.quarto_ipynb
+*.aux
+*.log
+*.toc
