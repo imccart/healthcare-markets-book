@@ -80,7 +80,7 @@ From the patient’s perspective, the most visible features of an insurance prod
 
 A **premium** is the fixed amount an enrollee pays each month for health insurance coverage, regardless of whether any care is received. In employer-sponsored plans (the most common form of private insurance), this cost is typically shared between the employee and the employer.
 
-Premiums have risen steadily over time, as shown in @fig-premiums. Several factors contribute: advances in medical technology and pharmaceuticals, greater demand for care due to an aging population and rising rates of chronic disease, and the administrative and regulatory costs of running insurance plans. Together, these pressures have made premiums an increasing financial burden for households and employers alike.
+Premiums have risen steadily over time, as shown in @fig-premiums. Premiums track what insurers expect to pay for care, so rising prices for health care services are a large part of the story. Several other factors contribute as well: advances in medical technology and pharmaceuticals, greater demand for care due to an aging population and rising rates of chronic disease, and the administrative and regulatory costs of running insurance plans. Together, these pressures have made premiums an increasing financial burden for households and employers alike.
 
 ![Premiums](../figures/kff-premiums.webp){#fig-premiums}
 
