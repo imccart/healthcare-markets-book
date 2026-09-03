@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -627,10 +646,25 @@ Figure&nbsp;5: Maternal and infant mortality by country
 </section>
 <section id="why-is-the-u.s.-so-different" class="level2">
 <h2 class="anchored" data-anchor-id="why-is-the-u.s.-so-different">Why is the U.S. so Different?</h2>
-<p>These problems are magnified in the U.S. because of its market-based and fragmented system. Patients face dozens of insurance options; providers range from hospitals to surgery centers to urgent care clinics; each negotiates and bills separately. Fragmentation drives up costs and undermines coordination, especially for chronic illness.</p>
+<p>The obvious question is why the U.S. spends so much more than other high-income countries for outcomes that are, at best, uneven. The same handful of explanations comes up whenever the question is asked, and each contains some truth. None of them carries much weight on its own.</p>
+<ul>
+<li><strong>Americans are less healthy.</strong> The U.S. has higher rates of obesity and cardiovascular disease than most peer countries, but Americans also smoke and drink considerably less. Health status differs across countries in both directions, and those differences do not come close to explaining the gap in spending.</li>
+<li><strong>Americans use more care.</strong> Utilization is hard to compare across the board, and where it can be compared the U.S. is not uniformly the heaviest user. Japan, for example, has about half again as many MRI scanners per person as the U.S. The U.S. does use more of some intensive services, but overall utilization does not explain the gap.</li>
+<li><strong>Physicians are paid too much.</strong> U.S. physicians are well paid, but so are U.S. professionals generally. The premium physicians earn over other high-paying careers looks broadly similar in the U.S. and in other developed countries, so physician pay does not explain the difference between countries.</li>
+<li><strong>Fraud.</strong> Fraud is real. Recent settlements over upcoding in Medicare Advantage have run to hundreds of millions of dollars. But fraud is a small share of total spending. It exists, but it is not why the U.S. spends what it spends.</li>
+<li><strong>Administrative waste.</strong> This one is real and large. Every provider deals at once with Medicare, Medicaid, Medicare Advantage plans, Medicaid managed care plans, and many private insurers, each with its own rules about what is covered, what needs prior authorization, and how a claim must be submitted. Knowing those rules, submitting the paperwork, and resubmitting it when it comes back rejected takes a lot of people.</li>
+<li><strong>Defensive medicine and malpractice.</strong> The argument that fear of lawsuits leads physicians to order tests they would not otherwise order was especially popular in the 1990s, and many states adopted tort reforms in the years since, some strict enough to cap legitimate claims. The estimated effects of those reforms on spending have been small. Defensive medicine is a real cost of practicing under legal exposure, but it is not why the U.S. spends what it does.</li>
+</ul>
+<p>The explanation that survives is prices. For the same procedure, the same drug, or the same day in the hospital, the U.S. pays far more than other countries. <span class="citation" data-cites="anderson2003">Anderson et al. (<a href="#ref-anderson2003" role="doc-biblioref">2003</a>)</span> made this argument in an article titled “It’s the Prices, Stupid,” and a 2019 follow-up in the same journal, “It’s Still the Prices, Stupid,” reached the same conclusion with updated data. If those prices bought the best care in the world, that would be a defensible trade. As the mortality figures above show, they do not, at least not across the board.</p>
+<p>Prices are the headline rather than the whole story, because a price is the outcome of everything underneath it. The U.S. system is market-based and fragmented. Patients face dozens of insurance options; providers range from hospitals to surgery centers to urgent care clinics; each negotiates and bills separately. Fragmentation drives up costs and undermines coordination, especially for chronic illness. Information problems, bargaining between insurers and providers, and policy choices all feed into what care costs, and a large part of this book is about how. If the answer were any one of these things, it would have been fixed by now. It is a combination of many things that interact, which is what makes the problem hard, and what makes it an economics problem.</p>
 <p>The result is a system that spends more, delivers uneven outcomes, and leaves access gaps that other high-income countries have solved more effectively. Understanding the economics behind these failures—and the successes—provides the foundation for designing better policies.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-anderson2003" class="csl-entry" role="listitem">
+Anderson, Gerard F, Uwe E Reinhardt, Peter S Hussey, and Varduhi Petrosyan. 2003. <span>“It’s the Prices, Stupid: Why the <span>United</span> <span>States</span> Is so Different from Other Countries.”</span> <em>Health Affairs</em> 22 (3): 89–105.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
