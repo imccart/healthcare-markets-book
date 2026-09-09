@@ -236,7 +236,18 @@
     "href": "part1/insurance-2-1.html#why-this-matters",
     "title": "3  Understanding Risk",
     "section": "3.3 Why This Matters",
-    "text": "3.3 Why This Matters\nInsurers care about expected cost when setting premiums. Individuals care about expected utility. The gap between the two — captured by the risk premium — explains why people are willing to pay more than the expected cost for insurance. This difference is the foundation of our next step: quantifying willingness to pay for insurance.",
+    "text": "3.3 Why This Matters\nInsurers care about expected cost when setting premiums. Individuals care about expected utility. The gap between the two — captured by the risk premium — explains why people are willing to pay more than the expected cost for insurance. Risk aversion alone is what generates that extra willingness to pay. The same gap is also where the insurer’s margin comes from. A risk-averse person will pay up to expected cost plus the risk premium, so an insurer can charge more than it expects to pay out in claims and still leave the buyer better off with coverage than without it. This difference is the foundation of our next step: quantifying willingness to pay for insurance.",
+    "crumbs": [
+      "Health Insurance",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Risk</span>"
+    ]
+  },
+  {
+    "objectID": "part1/insurance-2-1.html#what-makes-a-risk-insurable",
+    "href": "part1/insurance-2-1.html#what-makes-a-risk-insurable",
+    "title": "3  Understanding Risk",
+    "section": "3.4 What Makes a Risk Insurable",
+    "text": "3.4 What Makes a Risk Insurable\nEverything so far sits on the individual’s side. Risk aversion gives us a willing buyer, but an insurance market needs more than a willing buyer to exist at all. For an insurer to profitably sell coverage against a risk, the risk itself needs a few features:\n\nThe loss is random, not chosen. From the buyer’s point of view, the bad outcome has to be a matter of chance. If the buyer controls whether the “loss” happens, the insurer is not pricing a risk, it is just paying the buyer’s bills.\nThe probability is estimable. The insurer has to be able to attach a number like our \\(p_s\\) to the loss. Without a credible estimate of the probability, there is no way to price the coverage.\nRisks are roughly independent across people. When one person’s bad year says little about anyone else’s, a large pool of policyholders averages out, and the insurer’s total claims become predictable even though each individual claim is not.\nThe loss is large relative to the premium. Running an insurance company costs money, so premiums exceed expected cost even before any profit. That overhead is worth paying to escape a loss that would really hurt, while small, routine expenses are cheaper to just pay directly.\nThe loss is verifiable. The insurer has to be able to confirm that the loss occurred and what it cost. Otherwise every claim becomes an argument.\n\nHealth insurance fails several of these conditions. Much medical spending is at least partly chosen rather than purely random (an annual checkup, or the choice between two treatments). People often know more about their own health than any insurer does, which complicates pricing. And a lot of health care spending is small, predictable, and routine, yet our insurance typically covers it anyway. These failures are a large part of why the health insurance market looks the way it does, and they will occupy us for much of this part of the book. The next chapter starts down that road, looking first at how insurers manage the pool of risks they enroll and then putting numbers on how much a risk-averse person is willing to pay for coverage.",
     "crumbs": [
       "Health Insurance",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Risk</span>"

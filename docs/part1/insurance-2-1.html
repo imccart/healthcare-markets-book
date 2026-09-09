@@ -521,6 +521,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#risk-preferences" id="toc-risk-preferences" class="nav-link" data-scroll-target="#risk-preferences"><span class="header-section-number">3.2</span> Risk preferences</a></li>
   <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters"><span class="header-section-number">3.3</span> Why This Matters</a></li>
+  <li><a href="#what-makes-a-risk-insurable" id="toc-what-makes-a-risk-insurable" class="nav-link" data-scroll-target="#what-makes-a-risk-insurable"><span class="header-section-number">3.4</span> What Makes a Risk Insurable</a></li>
   </ul>
 </nav>
     </div>
@@ -624,7 +625,19 @@ Figure&nbsp;3.2: Depiction of risk aversion
 </section>
 <section id="why-this-matters" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">3.3</span> Why This Matters</h2>
-<p>Insurers care about expected cost when setting premiums. Individuals care about expected utility. The gap between the two — captured by the risk premium — explains why people are willing to pay more than the expected cost for insurance. This difference is the foundation of our next step: quantifying willingness to pay for insurance.</p>
+<p>Insurers care about expected cost when setting premiums. Individuals care about expected utility. The gap between the two — captured by the risk premium — explains why people are willing to pay more than the expected cost for insurance. Risk aversion alone is what generates that extra willingness to pay. The same gap is also where the insurer’s margin comes from. A risk-averse person will pay up to expected cost plus the risk premium, so an insurer can charge more than it expects to pay out in claims and still leave the buyer better off with coverage than without it. This difference is the foundation of our next step: quantifying willingness to pay for insurance.</p>
+</section>
+<section id="what-makes-a-risk-insurable" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="what-makes-a-risk-insurable"><span class="header-section-number">3.4</span> What Makes a Risk Insurable</h2>
+<p>Everything so far sits on the individual’s side. Risk aversion gives us a willing buyer, but an insurance market needs more than a willing buyer to exist at all. For an insurer to profitably sell coverage against a risk, the risk itself needs a few features:</p>
+<ol type="1">
+<li><strong>The loss is random, not chosen.</strong> From the buyer’s point of view, the bad outcome has to be a matter of chance. If the buyer controls whether the “loss” happens, the insurer is not pricing a risk, it is just paying the buyer’s bills.</li>
+<li><strong>The probability is estimable.</strong> The insurer has to be able to attach a number like our <span class="math inline">\(p_s\)</span> to the loss. Without a credible estimate of the probability, there is no way to price the coverage.</li>
+<li><strong>Risks are roughly independent across people.</strong> When one person’s bad year says little about anyone else’s, a large pool of policyholders averages out, and the insurer’s total claims become predictable even though each individual claim is not.</li>
+<li><strong>The loss is large relative to the premium.</strong> Running an insurance company costs money, so premiums exceed expected cost even before any profit. That overhead is worth paying to escape a loss that would really hurt, while small, routine expenses are cheaper to just pay directly.</li>
+<li><strong>The loss is verifiable.</strong> The insurer has to be able to confirm that the loss occurred and what it cost. Otherwise every claim becomes an argument.</li>
+</ol>
+<p>Health insurance fails several of these conditions. Much medical spending is at least partly chosen rather than purely random (an annual checkup, or the choice between two treatments). People often know more about their own health than any insurer does, which complicates pricing. And a lot of health care spending is small, predictable, and routine, yet our insurance typically covers it anyway. These failures are a large part of why the health insurance market looks the way it does, and they will occupy us for much of this part of the book. The next chapter starts down that road, looking first at how insurers manage the pool of risks they enroll and then putting numbers on how much a risk-averse person is willing to pay for coverage.</p>
 
 
 </section>
